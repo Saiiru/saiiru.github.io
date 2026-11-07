@@ -1,133 +1,15 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1220">
-  <meta name="description" content="Portfólio de Urias Machado Santos (Saiiru). Desenvolvimento de software, IA aplicada, automação e laboratório de eletromecânica.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Sairu — Software, IA e Sistemas">
-  <meta property="og:description" content="Projetos verificáveis, código e experimentos de integração entre software, IA e eletrônica.">
-  <meta property="og:url" content="https://saiiru.github.io/">
-  <title>Sairu — Software, IA e Eletromecânica</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
-  <script src="scripts.js" defer></script>
-</head>
-<body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <div class="ambient ambient-one" aria-hidden="true"></div>
-  <div class="ambient ambient-two" aria-hidden="true"></div>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#inicio" aria-label="Sairu, início">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" width="39" height="39"><path d="M5 26 20 6 35 26 28 26 20 17 12 26Z" fill="currentColor"/><path d="M12 32h16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span>
-        <span>SAIRU<span class="brand-dot">.</span></span>
-      </a>
-      <nav aria-label="Navegação principal" class="desktop-nav">
-        <a href="#projetos">Projetos</a><a href="#habilidades">Competências</a><a href="#experiencia">Trajetória</a><a href="#contato">Contato</a>
-      </nav>
-      <a class="header-cta" href="mailto:sairufsa@gmail.com?subject=Contato%20via%20portf%C3%B3lio">Vamos conversar <span aria-hidden="true">↗</span></a>
-    </div>
-  </header>
-  <main id="conteudo">
-    <section id="inicio" class="hero container">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="live-dot"></span> DESENVOLVIMENTO · IA APLICADA · ELETROMECÂNICA</div>
-        <h1>Software que<br><span>resolve problemas</span><br>no mundo real<span class="dot">.</span></h1>
-        <p class="hero-intro">Sou <strong>Urias Machado Santos (Sairu)</strong>, desenvolvedor com experiência profissional em aplicações web e estudante de Eletromecânica no SENAI. Investigo falhas, construo APIs e exploro como modelos de IA podem apoiar ferramentas e processos reais.</p>
-        <div class="hero-actions">
-          <a href="#projetos" class="btn btn-primary">Explorar projetos <span aria-hidden="true">↗</span></a>
-          <a href="https://github.com/Saiiru" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="hero-facts" aria-label="Dados profissionais">
-          <div><strong>03</strong><span>empresas de software</span></div>
-          <div><strong>2021–23</strong><span>experiência profissional</span></div>
-          <div><strong>2026</strong><span>formação técnica atual</span></div>
-        </div>
-      </div>
-      <figure class="hero-visual">
-        <img src="assets/hero-system.svg" alt="Ilustração vetorial de um sistema com API, documentos, modelo de linguagem e terminal de laboratório conectados por linhas de dados." width="680" height="560">
-        <figcaption>VISUALIZAÇÃO CONCEITUAL · SOFTWARE / IA / HARDWARE</figcaption>
-      </figure>
-    </section>
-    <section class="statement" aria-label="Abordagem">
-      <div class="container statement-inner"><span>01 / ABORDAGEM</span><p>Começar pelo problema. <em>Medir o que é possível.</em> Documentar o que foi realmente validado.</p></div>
-    </section>
-    <section id="projetos" class="section container">
-      <div class="section-head"><div><p class="section-overline">02 / PROJETOS</p><h2>Trabalho selecionado<span class="dot">.</span></h2></div><p>Projetos públicos e laboratórios pessoais, com status explícito e links apenas para conteúdo acessível.</p></div>
-      <div class="filters" aria-label="Filtrar projetos" role="group">
-        <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">Todos <span>05</span></button>
-        <button class="filter-button" type="button" data-filter="software" aria-pressed="false">Software</button>
-        <button class="filter-button" type="button" data-filter="ai" aria-pressed="false">IA aplicada</button>
-        <button class="filter-button" type="button" data-filter="hardware" aria-pressed="false">Eletrônica</button>
-      </div>
-      <div class="project-grid">
-        <article class="project-card featured" data-categories="ai software">
-          <div class="project-card-top"><span class="project-id">P/01 · LABORATÓRIO PRIVADO</span><span class="status status-lab">Em desenvolvimento</span></div>
-          <div class="project-illustration kora-art" aria-hidden="true"><span class="terminal-glyph">&gt;_</span><span class="data-track t1"></span><span class="data-track t2"></span><span class="data-track t3"></span><span class="data-node n1"></span><span class="data-node n2"></span></div>
-          <div class="project-card-content"><span class="project-category">IA aplicada / Integração de ferramentas</span><h3>KORA — assistente local</h3><p>Laboratório para organizar sessões, consultar notas do Obsidian com busca RAG e integrar ferramentas a uma interface local. O desenvolvimento e as validações seguem em andamento; não se trata de produto comercial implantado.</p>
-          <div class="tech-list"><span>Python</span><span>RAG</span><span>Obsidian</span><span>LLMs</span><span>Ferramentas</span></div>
-          <span class="non-link">Código privado · descrição técnica de alto nível</span></div>
-        </article>
-        <article class="project-card" data-categories="software">
-          <div class="project-card-top"><span class="project-id">P/02 · CÓDIGO PÚBLICO</span><span class="status">Educacional</span></div>
-          <div class="project-illustration commerce-art" aria-hidden="true"><span class="diagram-box box-a">CLI</span><span class="diagram-box box-b">DOMAIN</span><span class="diagram-box box-c">TESTS</span><svg viewBox="0 0 400 120" preserveAspectRatio="none"><path d="M92 62 H158 M242 62 H305" fill="none" stroke="#66d7dc" stroke-width="2" stroke-dasharray="6 6"/></svg></div>
-          <div class="project-card-content"><span class="project-category">Backend / Arquitetura</span><h3>Ada Commerce</h3><p>Núcleo educacional de e-commerce em Java, com entidades de domínio, regras de negócio, testes e separação de camadas por Clean Architecture. Fluxo de pedidos documentado no repositório.</p>
-          <div class="tech-list"><span>Java 17</span><span>JUnit 5</span><span>Gradle</span><span>Clean Architecture</span></div>
-          <a href="https://github.com/Saiiru/ada-commerce" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositório <span aria-hidden="true">↗</span></a></div>
-        </article>
-        <article class="project-card" data-categories="software">
-          <div class="project-card-top"><span class="project-id">P/03 · CÓDIGO PÚBLICO</span><span class="status">Projeto de estudo</span></div>
-          <div class="project-illustration api-art" aria-hidden="true"><code>POST /trips</code><code>GET /trips/:id</code><code>PATCH /activities</code></div>
-          <div class="project-card-content"><span class="project-category">APIs / Desenvolvimento web</span><h3>Plann.er API</h3><p>API de planejamento de viagens construída durante o NLW Journey, com rotas para viagens, convites e atividades, usando TypeScript e Fastify.</p>
-          <div class="tech-list"><span>Node.js</span><span>TypeScript</span><span>Fastify</span><span>Prisma</span></div>
-          <a href="https://github.com/Saiiru/Plann.er" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositório <span aria-hidden="true">↗</span></a></div>
-        </article>
-        <article class="project-card" data-categories="software">
-          <div class="project-card-top"><span class="project-id">P/04 · CÓDIGO PÚBLICO</span><span class="status">Configuração pessoal</span></div>
-          <div class="project-illustration arch-art" aria-hidden="true"><span class="arch-circle">◈</span><div class="arch-lines"><span>~/.config</span><span>git · shell · tools</span><span>reproducible setup</span></div></div>
-          <div class="project-card-content"><span class="project-category">Linux / Ferramentas de desenvolvimento</span><h3>CyberArch Dotfiles</h3><p>Configurações e experimentos de ambiente Arch Linux voltados a produtividade, terminal, temas e fluxo de desenvolvimento.</p>
-          <div class="tech-list"><span>Linux</span><span>Shell</span><span>TypeScript</span><span>Automação local</span></div>
-          <a href="https://github.com/Saiiru/CyberArch-Dotfiles" target="_blank" rel="noopener noreferrer" class="project-link">Ver repositório <span aria-hidden="true">↗</span></a></div>
-        </article>
-        <article class="project-card" data-categories="hardware">
-          <div class="project-card-top"><span class="project-id">P/05 · LABORATÓRIO PRIVADO</span><span class="status status-lab">Em validação física</span></div>
-          <div class="project-illustration tft-art" aria-hidden="true"><div class="screen-art"><span class="screen-top">PULSE / DIAGNOSTICS</span><span class="osc-line"></span><span class="osc-line"></span><span class="osc-line"></span><span class="screen-bottom">ESP32 · SPI · TFT</span></div></div>
-          <div class="project-card-content"><span class="project-category">Eletrônica / Sistemas embarcados</span><h3>TFT &amp; PULSE</h3><p>Estudos de display SPI e touchscreen com ESP32, PlatformIO, pinagem, isolação de componentes e sequência de verificações de bancada. Integração física ainda em progresso.</p>
-          <div class="tech-list"><span>ESP32</span><span>C++</span><span>SPI</span><span>PlatformIO</span><span>Metrologia</span></div>
-          <span class="non-link">Código privado · projeto em construção</span></div>
-        </article>
-      </div>
-    </section>
-    <section id="habilidades" class="section skills-section">
-      <div class="container">
-        <div class="section-head"><div><p class="section-overline">03 / CAPACIDADES</p><h2>Entre código e bancada<span class="dot">.</span></h2></div><p>Uma base profissional em software ampliada por estudos em eletrônica, ferramentas e integração responsável com IA.</p></div>
-        <div class="skill-grid">
-          <article class="skill-card"><span class="skill-index">A /</span><h3>Desenvolvimento</h3><p>Manutenção de aplicações, integração e construção de APIs, análise de falhas e colaboração em times de software.</p><ul><li>Java / Spring Boot</li><li>JavaScript / TypeScript / Node.js</li><li>React / Angular / SQL</li><li>Git / Linux / documentação</li></ul></article>
-          <article class="skill-card"><span class="skill-index">B /</span><h3>IA aplicada</h3><p>Experimentos pessoais com modelos de linguagem, prompts, consulta a documentos e ferramentas locais. Sem métricas comerciais alegadas.</p><ul><li>LLMs / prompts estruturados</li><li>RAG com notas</li><li>Integração de ferramentas</li><li>Verificação de respostas</li></ul></article>
-          <article class="skill-card"><span class="skill-index">C /</span><h3>Eletromecânica</h3><p>Formação técnica em andamento: fundamentos elétricos e mecânicos, instrumentação e práticas de laboratório.</p><ul><li>Lei de Ohm / circuitos CC</li><li>Multímetro / medições</li><li>ESP32 / SPI / sensores</li><li>Metrologia / desenho técnico</li></ul></article>
-        </div>
-      </div>
-    </section>
-    <section id="experiencia" class="section container">
-      <div class="section-head"><div><p class="section-overline">04 / TRAJETÓRIA</p><h2>Experiência e formação<span class="dot">.</span></h2></div><p>Histórico profissional confirmado e formação atual, apresentados sem confundir projetos pessoais com trabalho contratado.</p></div>
-      <div class="timeline">
-        <div class="timeline-row"><span class="timeline-date">2022 — 2023</span><div><h3>Capgemini</h3><span class="timeline-role">Analista de Soluções / Desenvolvimento de Software</span><p>Análise, manutenção e correção de falhas em aplicações corporativas. Integração de front-end, serviços e dados, com Java/Spring Boot, Angular e SQL Server.</p></div></div>
-        <div class="timeline-row"><span class="timeline-date">2022</span><div><h3>Infomakers</h3><span class="timeline-role">Desenvolvedor Front-end</span><p>Interfaces com React, Redux, JavaScript e SASS; manutenção, correções e integração com serviços.</p></div></div>
-        <div class="timeline-row"><span class="timeline-date">2021 — 2022</span><div><h3>Agência Digital S/A</h3><span class="timeline-role">Desenvolvedor Full Stack</span><p>Aplicações React, Angular e Node.js com PostgreSQL, integrações e correção de problemas.</p></div></div>
-        <div class="timeline-row"><span class="timeline-date">2026 — atual</span><div><h3>SENAI Bahia</h3><span class="timeline-role">Técnico em Eletromecânica · em andamento</span><p>Fundamentos de eletricidade industrial, tecnologia mecânica, elementos de máquinas, fabricação e metrologia. Aulas no período vespertino.</p></div></div>
-        <div class="timeline-row"><span class="timeline-date">Concluído 2022</span><div><h3>SENAI Bahia</h3><span class="timeline-role">Técnico em Desenvolvimento de Sistemas</span><p>Formação técnica inicial que fundamentou a trajetória profissional em desenvolvimento.</p></div></div>
-      </div>
-    </section>
-    <section class="transparency container">
-      <div class="transparency-icon" aria-hidden="true">i</div>
-      <div><h2>Sobre o nível de maturidade dos projetos</h2><p>Não apresento experimentos como soluções comerciais em produção, nem atribuo economias de tempo ou números de usuários sem medições verificáveis. Repositórios privados são identificados. Projetos educacionais recebem crédito ao contexto em que foram construídos.</p></div>
-    </section>
-    <section id="contato" class="contact-section">
-      <div class="container contact-inner"><p class="section-overline">05 / CONTATO</p><h2>Tem um problema interessante<br>para resolver<span class="dot">?</span></h2><p>Disponível para conversar sobre estágios compatíveis com as aulas do SENAI, avaliação de IA, desenvolvimento de software e projetos técnicos.</p><div class="contact-actions"><a class="btn btn-primary" href="mailto:sairufsa@gmail.com?subject=Oportunidade%20profissional%20%E2%80%94%20contato%20pelo%20portf%C3%B3lio">Enviar e-mail <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="https://www.linkedin.com/in/sairu/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div></div>
-    </section>
-  </main>
-  <footer class="site-footer"><div class="container footer-inner"><p>© <span id="year">2026</span> Urias Machado Santos · Sairu</p><div><a href="https://github.com/Saiiru" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/sairu/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:sairufsa@gmail.com">E-mail</a></div><span>Feito com HTML, CSS, JavaScript e SVG.</span></div></footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#11130f" />
+    <meta name="description" content="Urias Machado Santos (Sairu): software, sistemas e IA aplicada. Explore demos de avaliação, agentes e RAG com dados sintéticos." />
+    <title>S4IRU // BLACKSITE — Urias Machado Santos</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/img/sairu-mark.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
