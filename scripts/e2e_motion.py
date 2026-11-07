@@ -23,8 +23,8 @@ with sync_playwright() as p:
  assert page.locator('.portfolio').get_attribute('data-effects')=='off', 'preference not persisted'
  page.locator('.effects-toggle').click()
  assert page.locator('.portfolio').get_attribute('data-effects')=='on'
- page.locator('.project-doctrace').scroll_into_view_if_needed();page.wait_for_function('getComputedStyle(document.querySelector(".project-doctrace")).opacity === "1"')
- assert page.locator('.project-doctrace').evaluate('(el)=>getComputedStyle(el).opacity')=='1'
+ page.locator('.datashard-archive').scroll_into_view_if_needed();page.wait_for_function('getComputedStyle(document.querySelector(".datashard-archive")).opacity === "1"')
+ assert page.locator('.datashard-archive').evaluate('(el)=>getComputedStyle(el).opacity')=='1'
  assert not errors,errors
  print('PASS toggle, persistence, finite glitch, reveal, no JS errors')
  reduced=b.new_page(viewport={'width':390,'height':844},reduced_motion='reduce')
@@ -35,7 +35,7 @@ with sync_playwright() as p:
  assert reduced.locator('.wordmark-stage').get_attribute('data-glitch')=='idle'
  for item in reduced.locator('.glitch-layer').all():
   assert item.evaluate('(el)=>getComputedStyle(el).opacity')=='0'
- assert reduced.locator('.project-doctrace').evaluate('(el)=>getComputedStyle(el).opacity')=='1'
+ assert reduced.locator('.datashard-archive').evaluate('(el)=>getComputedStyle(el).opacity')=='1'
  assert reduced.evaluate('document.documentElement.scrollWidth<=innerWidth')
  print('PASS reduced-motion, readable projects, no leftover glitch layers, mobile width')
  # Denied storage must not crash the app or break controls.

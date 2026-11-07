@@ -37,3 +37,15 @@ EFEITOS ON/OFF persists preference in localStorage with failure handling. OS pre
 Project reveals use a single observer and only prepare initially offscreen content; all rows recover on cleanup. Pointer light is desktop-only and updated through requestAnimationFrame, without a replacement cursor. CTA sweep, skill selection, nav focus, progress line and preview corners have their own scoped states.
 
 Optional light-mode outline and ticker colors have dedicated dark overrides. Contrast regressions and opt-out behavior are covered by browser tests.
+
+## Datashard Archive — replacement project surface
+
+The old three static screenshot rows are replaced by an original media catalogue and in-place dossier reader, inspired by datashard inventory/reading interfaces. The hero, paid experience, toolkit and contact remain unchanged.
+
+Original vector geometry defines each cartridge silhouette; notches, contacts and a project mark identify three project records. Selected media is yellow. Reader content is cyan-tinted, with restrained coral frame details and accent variations. It is not an encrypted record or fake hacking simulation.
+
+Default record is EvalForge. Catalogue selection resets the dossier to its first tab, marks the record read for this visit, and updates the shareable URL without page navigation. Dossiê / Implementação / Evidências use accessible tabs. Demo and code remain visible; JSON export contains the actual dossier.
+
+The reader uses a two-column catalogue/detail layout above 850px and a horizontal selector above the full-width reader on smaller displays. No modal, nested scroll trap or blocking typewriter. Global effects and reduced-motion controls apply. Dark catalogue has explicit bright tokens in light mode.
+
+Research, Gemini proposal and screenshots: design/datashards. Rendering is implemented in src/components/DatashardArchive.jsx, datashards.js and datashard-archive.css.

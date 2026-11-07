@@ -45,6 +45,6 @@ class MotionFixes(unittest.TestCase):
   context=self.b.new_context()
   context.add_init_script('delete window.IntersectionObserver')
   page=context.new_page();page.goto(BASE,wait_until='networkidle')
-  self.assertEqual(page.locator('.project-doctrace').evaluate('(el)=>getComputedStyle(el).opacity'),'1')
+  self.assertEqual(page.locator('.datashard-archive').evaluate('(el)=>getComputedStyle(el).opacity'),'1')
   context.close()
 if __name__=='__main__':unittest.main(verbosity=2)

@@ -82,3 +82,16 @@ Browser behavior tests:
     python3 scripts/e2e_motion_fixes.py
 
 The second suite covers light-theme contrast, document scrolling opt-out, dynamic reduced-motion and missing IntersectionObserver. OS reduced-motion disables the optional effects; preference storage can fail without breaking the site.
+
+## Datashard Archive
+
+The project section is now a three-media archive with an in-place reader. Select a cartridge, inspect Dossiê / Implementação / Evidências, run the real demo, open code or export the selected dossier as JSON.
+
+[Open the archive](https://saiiru.github.io/#labs) · [Deep link to DocTrace](https://saiiru.github.io/?shard=doctrace#labs)
+
+[Research and Gemini proposal](design/datashards/RESEARCH.md) document the references and decisions. The original cartridge SVGs are not extracted game assets. Read counters describe this visit, not a permanent save game. JSON export describes the actual project, without encryption claims.
+
+    python3 scripts/e2e_datashards.py
+    python3 scripts/e2e_datashard_contrast.py
+
+Current archive screenshots are in design/datashards/. Earlier images preserve prior visual iterations.
