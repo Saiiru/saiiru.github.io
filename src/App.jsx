@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { ArrowDownRight, ArrowUpRight, ArrowRight, Menu, X, Plus, TerminalSquare } from 'lucide-react'
 import './blacksite.css'
 import './cyber-motion.css'
+import DatashardArchive from './components/DatashardArchive'
 import { useCyberMotion, useGlitch } from './useCyberMotion'
 
 const commandOutput = {
@@ -45,12 +46,6 @@ const technicalSkills = [
   { id:'linux', group:'HARDWARE · FORMAÇÃO', glyph:'NX', name:'Linux / Git', level:'FERRAMENTAS DE TRABALHO', detail:'Ambiente Arch Linux, fluxo de desenvolvimento, versionamento e automações locais documentadas nos repositórios.', proof:'Ver GitHub', url:'https://github.com/Saiiru' },
 ]
 
-const sourceLink='https://github.com/Saiiru/saiiru.github.io/tree/main/projects/ai-builder-labs'
-const projects=[
- {id:'evalforge',name:'EvalForge',tag:'AVALIAÇÃO DE RESPOSTAS',title:'Não basta gerar.\nÉ preciso avaliar.',text:'Um laboratório para confrontar respostas com critérios explícitos. Edite o resultado, execute os casos e veja exatamente o que passou — e o que falhou.',stack:'JAVASCRIPT · ASSERTIONS · JSON',image:'/assets/previews/evalforge.webp',label:'Abrir demonstração EvalForge'},
- {id:'opspilot',name:'OpsPilot',tag:'AUTOMAÇÃO COM REVISÃO HUMANA',title:'Automatizar sem\nperder o controle.',text:'Chamados fictícios entram, regras explicáveis sugerem o encaminhamento. A exportação só acontece depois da aprovação humana.',stack:'CLASSIFICAÇÃO · WORKFLOW · N8N BLUEPRINT',image:'/assets/previews/opspilot.webp',label:'Abrir demonstração OpsPilot'},
- {id:'doctrace',name:'DocTrace',tag:'BUSCA DOCUMENTAL COM FONTES',title:'Uma resposta.\nE de onde ela veio.',text:'Recuperação de trechos em Markdown, referências visíveis e recusa de resposta quando falta informação. Seus documentos são indexados no navegador.',stack:'BM25 · MARKDOWN · CITAÇÕES',image:'/assets/previews/doctrace.webp',label:'Abrir demonstração DocTrace'}
-]
 function Wordmark(){
  return <svg className="sairu-wordmark" viewBox="0 0 828 168" aria-hidden="true" focusable="false">
   <g fill="currentColor">
@@ -114,16 +109,7 @@ function App(){
    <div className="hero-footerline"><span>SEM ATALHOS PARA A EVIDÊNCIA.</span><span><span className="live-indicator"/> PORTFÓLIO EM CONSTRUÇÃO CONTÍNUA</span><span>SCROLL TO EXPLORE ↓</span></div>
   </section>
   <Marquee/>
-  <section id="labs" className="work-section section-wrap">
-   <header className="section-heading"><h2>WORK<svg className="title-asterisk" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><path d="M24 2V46M2 24H46M8 8L40 40M8 40L40 8" stroke="currentColor" strokeWidth="4"/></svg><br/><span className="outlined">IN PROGRESS.</span></h2><div className="section-intro"><p>Três protótipos.<br/>Três formas de testar uma ideia.</p><span>Abra as demos, mude as entradas e inspecione os resultados. O código está disponível.</span></div></header>
-   <div className="project-list">{projects.map((project,i)=><article data-reveal className={'project-row project-'+project.id} key={project.id}>
-    <div className="project-order"><span>0{i+1}</span><span>{project.name.toUpperCase()}</span></div>
-    <div className="project-visual"><a href={'/labs/index.html?lab='+project.id} tabIndex={-1} aria-hidden="true"><img src={project.image} alt="" loading="lazy" width="1000" height="690"/><span className="visual-overlay"><ArrowUpRight size={40}/></span></a><span className="image-caption">CAPTURA REAL / DEMO NO NAVEGADOR</span></div>
-    <div className="project-description"><span className="project-type"><span className="project-signal" aria-hidden="true"/>{project.tag}</span><h3>{project.title.split('\n').map((x,j)=><span key={j}>{x}</span>)}</h3><p>{project.text}</p><span className="project-stack">{project.stack}</span><a className="project-demo" href={'/labs/index.html?lab='+project.id} aria-label={project.label}>TESTAR {project.name.toUpperCase()}<ArrowUpRight size={24}/></a><a className="source-link" href={sourceLink} target="_blank" rel="noopener noreferrer">Código e testes<ArrowUpRight size={14}/></a></div>
-   </article>)}</div>
-   <div className="lab-note"><span className="note-symbol" aria-hidden="true">↳</span><p><strong>LABORATÓRIO, COM LIMITES CLAROS.</strong> As demos rodam por regras e recuperação local, com dados sintéticos. O uso de LLM é opcional, via proxy local. Os benchmarks descrevem testes de demonstração, não resultados de empresas.</p><a href={sourceLink} target="_blank" rel="noopener noreferrer" aria-label="Documentação técnica dos laboratórios"><ArrowUpRight size={26}/></a></div>
-   <div className="more-code"><span>OUTROS REPOSITÓRIOS</span><a href="https://github.com/Saiiru/ada-commerce" target="_blank" rel="noopener noreferrer">Ada Commerce<ArrowUpRight size={20}/></a><a href="https://github.com/Saiiru/Plann.er" target="_blank" rel="noopener noreferrer">Plann.er API<ArrowUpRight size={20}/></a></div>
-  </section>
+  <DatashardArchive/>
   <section id="sobre" className="about-section">
    <div className="about-inner section-wrap"><div className="about-main"><h2>CURIOSIDADE<br/>É O <span>COMEÇO.</span><br/>CÓDIGO É<br/>O CAMINHO.</h2><p>Sou Urias Machado Santos — <strong>Sairu</strong>. Minha base é desenvolvimento de software. Meu interesse é entender como as coisas funcionam: de uma interface web a um circuito na bancada.</p><p>Tenho experiência com aplicações corporativas e hoje estudo Eletromecânica no SENAI. Neste espaço, conecto essas áreas em experimentos com ferramentas, automação e modelos de linguagem.</p><button type="button" className="theme-control" onClick={()=>setContrast(!contrast)} aria-pressed={contrast}><span className="theme-swatch"/>{contrast?'VOLTAR AO MODO ESCURO':'EXPERIMENTAR O MODO CLARO'}<ArrowUpRight size={16}/></button></div>
    <div className="about-history" id="trajetoria"><h3>EXPERIÊNCIA</h3>

@@ -9,7 +9,7 @@ with sync_playwright() as p:
  page.goto(base,wait_until='networkidle')
  page.wait_for_timeout(1300)
  assert page.locator('h1').count()==1
- assert page.locator('.project-row').count()==3
+ assert page.locator('.shard-select').count()==3
  assert page.locator('.skill-row').count()==9
  page.locator('#terminal-input').fill('help');page.locator('#terminal-input').press('Enter')
  assert 'COMANDOS DISPONÍVEIS' in page.locator('.terminal-output').inner_text()

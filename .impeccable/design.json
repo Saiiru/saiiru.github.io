@@ -8,7 +8,10 @@
     "src/blacksite.css",
     "src/App.jsx",
     "src/cyber-motion.css",
-    "src/useCyberMotion.js"
+    "src/useCyberMotion.js",
+    "src/components/DatashardArchive.jsx",
+    "src/components/datashards.js",
+    "src/components/datashard-archive.css"
   ],
   "intent": "A typographic sci-fi editorial portfolio that leads with an original SAIRU wordmark and invites recruiters to inspect real work and test honest offline prototypes.",
   "principles": [
@@ -259,5 +262,28 @@
     "missingStorageFallback": true,
     "missingObserverContentVisible": true,
     "continuousGlitch": false
+  },
+  "datashardArchive": {
+    "mode": "Operate within Experience portfolio",
+    "layout": "catalogue + dossier reader",
+    "breakpointPx": 850,
+    "background": "#0b1518",
+    "reader": "#0a1b20",
+    "border": "#275159",
+    "text": "#dbede6",
+    "body": "#b1cbc7",
+    "metadata": "#8ca5a2",
+    "coral": "#ef747b",
+    "readState": "per component visit, explicitly labeled",
+    "default": "evalforge",
+    "tabs": [
+      "Dossiê",
+      "Implementação",
+      "Evidências"
+    ],
+    "shareParameter": "shard",
+    "jsonSchema": "blacksite.datashard/1",
+    "scanMs": 210,
+    "copiedGameAssets": false
   }
 }
