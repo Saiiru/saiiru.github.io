@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 560" width="680" height="560" role="img" aria-labelledby="title desc">
+<title id="title">Arquitetura conceitual do laboratório</title><desc id="desc">Interface, ferramentas, notas e ESP32 conectados por fluxos de dados.</desc>
+<defs><linearGradient id="panel" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#193d50"/><stop offset="1" stop-color="#0d1b2d"/></linearGradient><pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#31566c" stroke-width=".7" opacity=".6"/></pattern></defs>
+<rect x="17" y="25" width="646" height="500" rx="22" fill="#0e1d30" stroke="#31556b" stroke-width="1.5"/><rect x="18" y="26" width="644" height="498" rx="21" fill="url(#grid)"/>
+<path d="M41 103H639" stroke="#36566b"/><circle cx="48" cy="64" r="5" fill="#76dad9"/><circle cx="69" cy="64" r="5" fill="#7295b5"/><circle cx="90" cy="64" r="5" fill="#c3a875"/>
+<text x="116" y="69" fill="#9db8c8" font-size="12" font-family="monospace" letter-spacing="2">SAIRU.SYSTEMS / EXPERIMENTAL LAB</text>
+<rect x="474" y="50" width="142" height="30" rx="6" fill="#163946" stroke="#41828f"/><circle cx="493" cy="65" r="4" fill="#8fe5cf"/><text x="505" y="69" fill="#a8e8e9" font-size="11" font-family="monospace">LOCAL-FIRST</text>
+<path d="M242 213H293V277H388V214H438M243 374H292V277M388 277V374H438" fill="none" stroke="#67cbd5" stroke-width="2.5" stroke-dasharray="7 7"/>
+<g fill="url(#panel)" stroke="#52788a" stroke-width="1.5"><rect x="49" y="140" width="194" height="127" rx="10"/><rect x="438" y="140" width="194" height="127" rx="10"/><rect x="49" y="316" width="194" height="124" rx="10"/><rect x="438" y="316" width="194" height="124" rx="10"/></g>
+<g fill="#91dfe2" font-size="11" font-family="monospace" font-weight="700"><text x="66" y="165">01 / INTERFACE</text><text x="455" y="165">02 / API &amp; TOOLS</text><text x="66" y="342">03 / DOCUMENTS</text><text x="455" y="342">04 / ESP32 LAB</text></g>
+<rect x="65" y="176" width="161" height="75" rx="5" fill="#0a1b2d" stroke="#376072"/><path d="M82 194L92 201 82 209M102 211H135" fill="none" stroke="#80e5df" stroke-width="3"/><path d="M84 227H209M84 239H172" stroke="#2e5063" stroke-width="6" stroke-linecap="round"/>
+<rect x="455" y="178" width="159" height="26" rx="4" fill="#153a47"/><rect x="455" y="210" width="159" height="26" rx="4" fill="#244154"/><text x="467" y="196" font-size="11" font-family="monospace" fill="#b7eeee">GET /knowledge</text><text x="467" y="228" font-size="11" font-family="monospace" fill="#aec9d4">POST /tools</text>
+<path d="M90 357H182V422H90Z" stroke="#669dab" fill="#1b394c"/><path d="M108 376H165M108 389H171M108 402H154" stroke="#8bcbd6" stroke-width="3" stroke-linecap="round"/>
+<rect x="476" y="349" width="118" height="72" rx="8" fill="#0c1f30" stroke="#7eacb3" stroke-width="2"/><path d="M476 358H457M476 372H457M476 386H457M476 400H457M594 358H614M594 372H614M594 386H614M594 400H614" stroke="#baab85" stroke-width="3"/>
+<path d="M493 390L508 372 520 386 539 367 552 389 577 366" stroke="#79e1dc" fill="none" stroke-width="2"/><text x="500" y="410" fill="#9cc3d1" font-size="9" font-family="monospace">SPI / TFT</text>
+<rect x="288" y="230" width="110" height="101" rx="14" fill="#132b40" stroke="#77dfe1" stroke-width="3"/><path d="M329 257L311 281 329 303M356 257L374 281 356 303M348 251L337 311" fill="none" stroke="#8cebe9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<g fill="#78dcd9"><circle cx="293" cy="277" r="5"/><circle cx="387" cy="277" r="5"/></g>
+<rect x="64" y="466" width="552" height="33" rx="5" fill="#142c3f" stroke="#356276"/><text x="81" y="487" fill="#9fbec9" font-size="11" font-family="monospace">SYSTEM STATUS</text><text x="360" y="487" fill="#85e1dc" font-size="11" font-family="monospace">EXPERIMENTAL / DOCUMENTED</text>
+</svg>
