@@ -4,9 +4,9 @@ Portfólio de **Urias Machado Santos (Sairu)**, desenvolvedor de software e estu
 
 O objetivo é apresentar trabalho técnico concreto para candidaturas, incluindo a trilha **AI Builder** do programa de estágio do iFood. Os três projetos são **demonstrações**, não produtos comerciais nem experiência profissional em treinamento de IA.
 
-![BLACKSITE — direção tipográfica Cyber Grotesk](design/v3/desktop-hero.png)
+![BLACKSITE — direção tipográfica Cyber Grotesk](design/motion/desktop-hero.png)
 
-![Versão mobile](design/v3/mobile-hero.png)
+![Versão mobile](design/motion/mobile-hero.png)
 
 **Site público:** https://saiiru.github.io/
 
@@ -69,3 +69,16 @@ Os projetos [Cyber Grotesk de Olga Ryzhychenko](https://www.behance.net/gallery/
 ## Contato
 
 [GitHub](https://github.com/Saiiru) · [LinkedIn](https://www.linkedin.com/in/sairu/) · [E-mail](mailto:sairufsa@gmail.com).
+
+## Cyberpunk motion pass
+
+The current version expands the palette with cyan, magenta and violet, and keeps yellow as its primary identity. It uses original finite SVG layer glitches, a persistent effects toggle, observer-based project reveals, precise CTA scans and a lightweight desktop pointer light.
+
+Gemini contributed an independent critique and proposed motion tokens. Research and the full response are preserved in design/motion. Sources include the Codrops CSSGlitchEffect technique and primary MDN documentation; implementation is purpose-built for this site.
+
+Browser behavior tests:
+
+    python3 scripts/e2e_motion.py
+    python3 scripts/e2e_motion_fixes.py
+
+The second suite covers light-theme contrast, document scrolling opt-out, dynamic reduced-motion and missing IntersectionObserver. OS reduced-motion disables the optional effects; preference storage can fail without breaking the site.

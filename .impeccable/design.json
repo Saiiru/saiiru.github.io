@@ -6,7 +6,9 @@
   "sourceFiles": [
     "PRODUCT.md",
     "src/blacksite.css",
-    "src/App.jsx"
+    "src/App.jsx",
+    "src/cyber-motion.css",
+    "src/useCyberMotion.js"
   ],
   "intent": "A typographic sci-fi editorial portfolio that leads with an original SAIRU wordmark and invites recruiters to inspect real work and test honest offline prototypes.",
   "principles": [
@@ -24,9 +26,12 @@
         "muted": "#a4a79c",
         "signal": "#ffd22e",
         "line": "#3d4035",
-        "annotation": "#88c5c4",
-        "tape": "#191c14",
-        "terminal": "#0b0e09"
+        "annotation": "#41f4e5",
+        "tape": "#16151f",
+        "terminal": "#0b0e09",
+        "cyan": "#41f4e5",
+        "magenta": "#ff4aad",
+        "violet": "#a88bff"
       },
       "light": {
         "ink": "#e8e8d8",
@@ -36,13 +41,19 @@
         "line": "#bec2ad",
         "titleStrip": "#d2d947",
         "about": "#d1d847",
-        "annotation": "#3e6a63"
+        "annotation": "#3e6a63",
+        "cyan": "#07616d",
+        "magenta": "#a41d5c",
+        "violet": "#6940b0"
       },
       "usage": {
-        "signal": "Wordmark, calls to action, active evidence selection and key rules",
+        "signal": "Dominant wordmark and industrial brand",
         "annotation": "Tiny technical notes only; never the dominant accent",
         "line": "Quiet continuous editorial dividers",
-        "terminal": "Terminal remains dark in both themes"
+        "terminal": "Terminal remains dark in both themes",
+        "cyan": "Interactions and first project",
+        "magenta": "Finite glitch fragments and second project",
+        "violet": "Third project and secondary technical states"
       }
     },
     "typography": {
@@ -234,5 +245,19 @@
       "role": "Visual direction reference"
     }
   ],
-  "scope": "Documentation only; no UI changes or publishing performed by this documentation task."
+  "scope": "Documentation only; no UI changes or publishing performed by this documentation task.",
+  "chromaticMotion": {
+    "consultant": "Gemini via Agy, source response in design/motion",
+    "css": "src/cyber-motion.css",
+    "controller": "src/useCyberMotion.js",
+    "finiteGlitchMs": 580,
+    "guardMs": 620,
+    "revealMs": 560,
+    "control": "EFEITOS ON/OFF",
+    "preferenceKey": "blacksite-effects",
+    "systemReducedMotionPrecedence": true,
+    "missingStorageFallback": true,
+    "missingObserverContentVisible": true,
+    "continuousGlitch": false
+  }
 }

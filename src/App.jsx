@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react'
 import { ArrowDownRight, ArrowUpRight, ArrowRight, Menu, X, Plus, TerminalSquare } from 'lucide-react'
 import './blacksite.css'
+import './cyber-motion.css'
+import { useCyberMotion, useGlitch } from './useCyberMotion'
 
 const commandOutput = {
   help: ['COMANDOS DISPONÍVEIS', 'help     lista comandos', 'status   estado dos demos', 'labs     abre as demonstrações', 'stack    mostra tecnologias', 'contact  mostra canais', 'clear    limpa o terminal'],
@@ -73,25 +75,39 @@ function Skills(){
   <div className="skill-readout" aria-live="polite" aria-atomic="true"><span className="readout-state">{item.level}</span><h3>{item.name}</h3><p>{item.detail}</p><a className="inline-link" href={item.url} target={item.url.startsWith('http')?'_blank':undefined} rel={item.url.startsWith('http')?'noopener noreferrer':undefined}>{item.proof}<ArrowUpRight size={20}/></a><div className="readout-diagram" aria-hidden="true"><span>INPUT</span><i/><span>PROCESS</span><i/><span>EVIDENCE</span></div><span className="readout-caption">CONTEXTO ANTES DE BUZZWORDS.</span></div>
  </div>
 }
+function GlitchLogo({ enabled }) {
+ const { active, trigger } = useGlitch(enabled)
+ return <>
+  <h1 id="sairu-title" className="wordmark-stage" data-glitch={active?'active':'idle'} onPointerEnter={trigger}>
+   <span className="sr-only">Sairu. Software, sistemas e IA aplicada.</span>
+   <Wordmark/>
+   <span className="glitch-layer glitch-cyan" aria-hidden="true"><Wordmark/></span>
+   <span className="glitch-layer glitch-magenta" aria-hidden="true"><Wordmark/></span>
+  </h1>
+  <div className="hero-annotation"><span className="crosshair" aria-hidden="true">+</span><span>HUMAN / IN / THE / LOOP</span><span className="annotation-rule" aria-hidden="true"/><button type="button" className="glitch-trigger" disabled={!enabled} onClick={trigger} aria-controls="sairu-title" aria-label="Disparar glitch no letreiro"><span aria-hidden="true">↯</span> EXEC_GLITCH</button></div>
+ </>
+}
 function App(){
+ const rootRef=useRef(null)
+ const { enabled:effectsEnabled, reduced, toggleEffects }=useCyberMotion(rootRef)
  const [menuOpen,setMenuOpen]=useState(false)
  const [contrast,setContrast]=useState(false)
  const close=()=>setMenuOpen(false)
- return <div className={'portfolio '+(contrast?'light-mode':'')}>
+ return <div ref={rootRef} data-effects={effectsEnabled?'on':'off'} className={'portfolio '+(contrast?'light-mode':'')}>
+ <div className="reading-progress" aria-hidden="true"/>
  <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
  <div className="edge-code" aria-hidden="true">BLACKSITE // OPEN WORKSPACE — FEIRA DE SANTANA, BR</div>
  <header className="site-nav">
   <a href="#inicio" onClick={close} className="brand" aria-label="Sairu, início"><svg viewBox="0 0 36 36" width="33" height="33" aria-hidden="true"><path d="M31 3H11L4 10V17L10 23H25V29H4V34H26L32 28V20L26 14H11V8H31Z" fill="currentColor"/></svg><span>SAIRU<span className="brand-detail"> / BLACKSITE</span></span></a>
   <nav aria-label="Navegação principal" className={menuOpen?'navigation open':'navigation'}><a href="#labs" onClick={close}>PROJETOS</a><a href="#sobre" onClick={close}>SOBRE</a><a href="#stack" onClick={close}>STACK</a><a href="#contato" onClick={close}>CONTATO<ArrowUpRight size={13}/></a></nav>
-  <button className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen?'Fechar menu':'Abrir menu'}>{menuOpen?<X/>:<Menu/>}</button>
+  <button className="effects-toggle" type="button" aria-label="Ativar efeitos visuais" aria-pressed={effectsEnabled} disabled={reduced} onClick={toggleEffects}><span className="fx-indicator" aria-hidden="true"/>{reduced?'MOVIMENTO REDUZIDO':'EFEITOS '+(effectsEnabled?'ON':'OFF')}</button><button className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen?'Fechar menu':'Abrir menu'}>{menuOpen?<X/>:<Menu/>}</button>
  </header>
  <main id="conteudo">
   <section id="inicio" className="hero">
    <div className="hero-topline"><span>URIAS MACHADO SANTOS</span><span>DESENVOLVEDOR DE SOFTWARE</span><span className="hero-place">BAHIA, BR / UTC −03</span></div>
    <div className="hero-stage">
     <div className="type-side" aria-hidden="true"><span>PERSONAL<br/>WORK<br/>ARCHIVE</span><div className="registration"><i/><i/></div><span className="type-side-bottom">DESIGN<br/>BUILD<br/>REPEAT</span></div>
-    <h1><span className="sr-only">Sairu. Software, sistemas e IA aplicada.</span><Wordmark/></h1>
-    <div className="hero-annotation" aria-hidden="true"><span className="crosshair">+</span><span>HUMAN / IN / THE / LOOP</span><span className="annotation-rule"/></div>
+    <GlitchLogo enabled={effectsEnabled}/>
     <div className="hero-titleline"><span>SOFTWARE<span className="dot">.</span></span><span>SISTEMAS<span className="dot">.</span></span><span>IA APLICADA<span className="dot">.</span></span></div>
     <div className="hero-bottom"><div className="hero-copy"><p>Entre o código e o mundo real.</p><p>Desenvolvimento web, experimentos com IA e uma formação em Eletromecânica. Construindo ferramentas para entender e resolver problemas.</p></div><a className="hero-cta" href="#labs"><span>EXPLORE<br/>OS PROJETOS</span><ArrowDownRight size={42} strokeWidth={1.2}/></a><div className="hero-barcode" aria-hidden="true"><div/><span>SAIRU—BLACKSITE—2026</span></div></div>
    </div>
@@ -100,10 +116,10 @@ function App(){
   <Marquee/>
   <section id="labs" className="work-section section-wrap">
    <header className="section-heading"><h2>WORK<svg className="title-asterisk" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><path d="M24 2V46M2 24H46M8 8L40 40M8 40L40 8" stroke="currentColor" strokeWidth="4"/></svg><br/><span className="outlined">IN PROGRESS.</span></h2><div className="section-intro"><p>Três protótipos.<br/>Três formas de testar uma ideia.</p><span>Abra as demos, mude as entradas e inspecione os resultados. O código está disponível.</span></div></header>
-   <div className="project-list">{projects.map((project,i)=><article className={'project-row project-'+project.id} key={project.id}>
+   <div className="project-list">{projects.map((project,i)=><article data-reveal className={'project-row project-'+project.id} key={project.id}>
     <div className="project-order"><span>0{i+1}</span><span>{project.name.toUpperCase()}</span></div>
     <div className="project-visual"><a href={'/labs/index.html?lab='+project.id} tabIndex={-1} aria-hidden="true"><img src={project.image} alt="" loading="lazy" width="1000" height="690"/><span className="visual-overlay"><ArrowUpRight size={40}/></span></a><span className="image-caption">CAPTURA REAL / DEMO NO NAVEGADOR</span></div>
-    <div className="project-description"><span className="project-type">{project.tag}</span><h3>{project.title.split('\n').map((x,j)=><span key={j}>{x}</span>)}</h3><p>{project.text}</p><span className="project-stack">{project.stack}</span><a className="project-demo" href={'/labs/index.html?lab='+project.id} aria-label={project.label}>TESTAR {project.name.toUpperCase()}<ArrowUpRight size={24}/></a><a className="source-link" href={sourceLink} target="_blank" rel="noopener noreferrer">Código e testes<ArrowUpRight size={14}/></a></div>
+    <div className="project-description"><span className="project-type"><span className="project-signal" aria-hidden="true"/>{project.tag}</span><h3>{project.title.split('\n').map((x,j)=><span key={j}>{x}</span>)}</h3><p>{project.text}</p><span className="project-stack">{project.stack}</span><a className="project-demo" href={'/labs/index.html?lab='+project.id} aria-label={project.label}>TESTAR {project.name.toUpperCase()}<ArrowUpRight size={24}/></a><a className="source-link" href={sourceLink} target="_blank" rel="noopener noreferrer">Código e testes<ArrowUpRight size={14}/></a></div>
    </article>)}</div>
    <div className="lab-note"><span className="note-symbol" aria-hidden="true">↳</span><p><strong>LABORATÓRIO, COM LIMITES CLAROS.</strong> As demos rodam por regras e recuperação local, com dados sintéticos. O uso de LLM é opcional, via proxy local. Os benchmarks descrevem testes de demonstração, não resultados de empresas.</p><a href={sourceLink} target="_blank" rel="noopener noreferrer" aria-label="Documentação técnica dos laboratórios"><ArrowUpRight size={26}/></a></div>
    <div className="more-code"><span>OUTROS REPOSITÓRIOS</span><a href="https://github.com/Saiiru/ada-commerce" target="_blank" rel="noopener noreferrer">Ada Commerce<ArrowUpRight size={20}/></a><a href="https://github.com/Saiiru/Plann.er" target="_blank" rel="noopener noreferrer">Plann.er API<ArrowUpRight size={20}/></a></div>
