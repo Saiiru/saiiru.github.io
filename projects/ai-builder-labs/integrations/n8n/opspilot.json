@@ -1,0 +1,13 @@
+{
+  "name": "OpsPilot blueprint - triagem sintética sem envio externo",
+  "nodes": [
+    {"parameters":{"httpMethod":"POST","path":"opspilot-triage-demo","responseMode":"responseNode","options":{}},"id":"5b18f09a-96fd-4217-a969-0cfe1e5cba17","name":"Receber ticket","type":"n8n-nodes-base.webhook","typeVersion":2,"position":[240,300],"webhookId":"opspilot-triage-demo"},
+    {"parameters":{"mode":"runOnceForAllItems","jsCode":"const text = String($input.first().json.body?.text ?? '').slice(0, 4000);\nconst rules = [\n  ['Estornos', /estorno|reembolso|devolu[cç][aã]o/i],\n  ['Pagamentos', /pagamento|cobran[cç]a|cart[aã]o|\\bpix\\b/i],\n  ['Acesso', /acesso|conta|login|senha|entrar/i],\n  ['Entrega', /entrega|entregador|endere[cç]o|pedido/i],\n];\nconst hit = rules.find(([, pattern]) => pattern.test(text));\nconst high = /urgente|duplicad[ao]|invas[aã]o|bloquead[ao]|atrasad[ao].*(horas|dias)|indevid[ao]/i.test(text);\nreturn [{ json: { ticket: text, team: hit?.[0] ?? 'Revisão manual', severity: hit ? (high ? 'Alta' : 'Média') : 'Indefinida', approvedByHuman: false, note: 'Sugestão somente; aprovação humana deve ocorrer fora deste workflow.' } }];"},"id":"0ec8a280-a57d-4cd4-9fe4-8f3ff1cda840","name":"Classificar por regras","type":"n8n-nodes-base.code","typeVersion":2,"position":[460,300]},
+    {"parameters":{"respondWith":"firstIncomingItem","options":{}},"id":"c6968e7e-a074-4251-8dd0-d35e031dd24d","name":"Responder ao webhook","type":"n8n-nodes-base.respondToWebhook","typeVersion":1.1,"position":[680,300]}
+  ],
+  "connections":{"Receber ticket":{"main":[[{"node":"Classificar por regras","type":"main","index":0}]]},"Classificar por regras":{"main":[[{"node":"Responder ao webhook","type":"main","index":0}]]}},
+  "active":false,
+  "settings":{"executionOrder":"v1"},
+  "pinData":{},
+  "tags":[]
+}
