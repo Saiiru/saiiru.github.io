@@ -4,9 +4,11 @@ Portfólio de **Urias Machado Santos (Sairu)**, desenvolvedor de software e estu
 
 O objetivo é apresentar trabalho técnico concreto para candidaturas, incluindo a trilha **AI Builder** do programa de estágio do iFood. Os três projetos são **demonstrações**, não produtos comerciais nem experiência profissional em treinamento de IA.
 
-![Hero original BLACKSITE](design/previews/hero-desktop.png)
+![BLACKSITE — direção tipográfica Cyber Grotesk](design/v3/desktop-hero.png)
 
-![Console de competências CORE.SKILLS](design/previews/skills-desktop.png)
+![Versão mobile](design/v3/mobile-hero.png)
+
+**Site público:** https://saiiru.github.io/
 
 ## Três demos executáveis
 
@@ -44,18 +46,18 @@ Abra http://127.0.0.1:4389 no navegador.
 
 Teste visual opcional (com Python Playwright e Chromium instalados e o servidor da pasta docs ativo):
 
-    python3 scripts/e2e_blacksite.py
+    python3 scripts/e2e_cybergrotesk.py
 
-O teste de navegador cobre três labs, terminal, console CORE.SKILLS, classificação e aprovação humana, exportação de relatório, busca com citações e responsividade em 390 px.
+O teste de navegador cobre três labs, terminal, seleção de competências, classificação e aprovação humana, exportação de relatório, busca com citações e responsividade em 390 px.
 
 ## Estrutura
 
-- src/App.jsx, src/blacksite.css — site React, animações e console de competências.
+- src/App.jsx, src/blacksite.css — site React, animações e lista interativa de competências.
 - public/assets/img — vetores originais de rede e circuito.
 - public/labs — arquivos estáticos navegáveis das demos.
 - projects/ai-builder-labs — código-fonte, testes, proxy local, exemplo n8n e documentação técnica.
 - docs — compilação Vite para publicação pelo GitHub Pages, sem depender de GitHub Actions.
-- design/previews — capturas reais do Chromium.
+- design/v3 — capturas reais do Chromium; design/previews preserva a direção anterior.
 - DESIGN_REFERENCES.md — fontes de inspiração e restrições de propriedade intelectual.
 
 ## Créditos e referências

@@ -29,3 +29,13 @@ Elementos inspiradores: superfícies pretas/escuras, linhas de circuito, cartõe
 - As competências não recebem porcentagens arbitrárias; cada módulo mostra origem e estágio de maturidade.
 - Todas as interações têm alternativa de teclado, foco visível e configuração prefers-reduced-motion.
 - Dados fictícios dos laboratórios são declarados como sintéticos; não são apresentados como êxitos de negócio ou modelos em produção.
+
+## Reformulação tipográfica — direção publicada
+
+Após o usuário rejeitar a composição em painéis, a hierarquia foi refeita de raiz:
+- Cyber Grotesk passou a ser a referência principal de forma e tipografia.
+- Letreiro SAIRU original em SVG, amarelo industrial sobre preto quente.
+- Oxanium (SIL Open Font License) é hospedada em /fonts, com licença incluída; nenhuma fonte Cyber Grotesk foi copiada.
+- Bento hero e painel verde CORE.SKILLS foram substituídos por uma composição editorial, previews reais e lista de competências com evidências.
+- O terminal Nothing/Watch Dogs permanece uma função secundária real, sem definir o visual inteiro.
+- Capturas atuais: design/v3; capturas de design/previews são da versão rejeitada e preservadas no histórico.

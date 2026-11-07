@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "name": "SAIRU / BLACKSITE",
+  "documentedAt": "2026-11-07",
+  "mode": "Experience",
+  "sourceFiles": [
+    "PRODUCT.md",
+    "src/blacksite.css",
+    "src/App.jsx"
+  ],
+  "intent": "A typographic sci-fi editorial portfolio that leads with an original SAIRU wordmark and invites recruiters to inspect real work and test honest offline prototypes.",
+  "principles": [
+    "Typography before decoration",
+    "Continuous editorial project sequence rather than a dashboard or bento hero",
+    "Evidence before claims",
+    "Original vector geometry and licensed open-source typography",
+    "Warm black with industrial yellow as the primary signal"
+  ],
+  "tokens": {
+    "color": {
+      "dark": {
+        "ink": "#11130f",
+        "paper": "#dfdfd1",
+        "muted": "#a4a79c",
+        "signal": "#ffd22e",
+        "line": "#3d4035",
+        "annotation": "#88c5c4",
+        "tape": "#191c14",
+        "terminal": "#0b0e09"
+      },
+      "light": {
+        "ink": "#e8e8d8",
+        "paper": "#20241b",
+        "muted": "#555e45",
+        "signal": "#4a5c1c",
+        "line": "#bec2ad",
+        "titleStrip": "#d2d947",
+        "about": "#d1d847",
+        "annotation": "#3e6a63"
+      },
+      "usage": {
+        "signal": "Wordmark, calls to action, active evidence selection and key rules",
+        "annotation": "Tiny technical notes only; never the dominant accent",
+        "line": "Quiet continuous editorial dividers",
+        "terminal": "Terminal remains dark in both themes"
+      }
+    },
+    "typography": {
+      "display": {
+        "family": "Oxanium, Arial, sans-serif",
+        "source": "/fonts/Oxanium.ttf",
+        "license": "SIL Open Font License",
+        "weightRange": [
+          200,
+          800
+        ],
+        "loading": "swap"
+      },
+      "wordmark": {
+        "kind": "Original inline SVG",
+        "viewBox": "0 0 828 168",
+        "accessibleText": "Sairu. Software, sistemas e IA aplicada.",
+        "commercialFontCopied": false
+      },
+      "body": {
+        "family": "Arial, Helvetica, sans-serif",
+        "sizePx": [
+          12,
+          15
+        ],
+        "lineHeight": [
+          1.6,
+          1.8
+        ]
+      },
+      "mono": {
+        "family": "ui-monospace, SFMono-Regular, Consolas, monospace",
+        "usage": "Commands, labels, dates, small data and captions"
+      },
+      "displayScale": {
+        "sectionHeading": "clamp(42px, 6.6vw, 100px)",
+        "projectHeading": "clamp(28px, 3vw, 48px)",
+        "contactHeading": "clamp(86px, 15vw, 230px)",
+        "letterSpacing": "-0.03em to -0.04em"
+      }
+    },
+    "layout": {
+      "maxWidthPx": 1536,
+      "minViewportPx": 320,
+      "pageGutter": "clamp(22px, 4.2vw, 72px)",
+      "mobileGutterPx": 23,
+      "projectColumns": "minmax(0, 1.1fr) minmax(0, 1fr)",
+      "projectGapPx": 64,
+      "sectionPaddingPx": [
+        65,
+        78,
+        85,
+        100,
+        110,
+        120
+      ],
+      "spacingPx": [
+        4,
+        7,
+        8,
+        10,
+        12,
+        13,
+        15,
+        16,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25,
+        27,
+        28,
+        29,
+        30,
+        32,
+        35,
+        36,
+        38,
+        40,
+        42,
+        46,
+        48,
+        50,
+        55,
+        56,
+        60,
+        64,
+        65,
+        68,
+        70,
+        72,
+        76,
+        78,
+        85,
+        90,
+        100,
+        110,
+        120
+      ]
+    },
+    "shape": {
+      "radius": "Square editorial surfaces; round only the small status dot",
+      "rulePx": 1,
+      "focusRingPx": 2,
+      "focusOffsetPx": 6
+    },
+    "motion": {
+      "wordmarkEntry": {
+        "durationMs": 1150,
+        "easing": "cubic-bezier(.16,1,.3,1)",
+        "behavior": "Single left-to-right clip reveal with -12px initial translation"
+      },
+      "wordmarkHover": {
+        "durationMs": 350,
+        "behavior": "Single restrained horizontal line split"
+      },
+      "ticker": {
+        "durationMs": 35000,
+        "behavior": "Continuous linear translation"
+      },
+      "asterisk": {
+        "durationMs": 22000,
+        "behavior": "Continuous linear rotation"
+      },
+      "hoverTransitionMs": [
+        200,
+        250,
+        400,
+        600
+      ],
+      "reducedMotion": "Disable animations, transitions and smooth scrolling; ensure wordmark is fully revealed"
+    }
+  },
+  "components": {
+    "hero": "Full-width original geometric SAIRU wordmark, technical margin, yellow reverse type strip, asymmetric copy/CTA/barcode lower composition. No bento layout.",
+    "navigation": "Desktop inline section anchors; toggleable yellow menu at <=520px, aria-expanded and menu-specific accessible label.",
+    "projectRow": "Number and name above a real browser screenshot and editorial description. Primary test-demo CTA and visible source/tests link. Decorative screenshot link is hidden from the accessibility tree to avoid duplicate focus stops.",
+    "evidenceInspector": "Selectable skill inventory with aria-pressed buttons, explicit experience/prototype status, evidence description and relevant source link; polite atomic live update.",
+    "biography": "Yellow full-width section preserving paid software roles and education dates.",
+    "terminal": "Deterministic local command exploration, labeled input, polite live log, clear/help/status/labs/stack/contact commands.",
+    "contact": "Large typographic mailto invitation plus explicit email, GitHub and LinkedIn links.",
+    "themeControl": "Local React light-mode toggle; aria-pressed. No persisted preference is implemented."
+  },
+  "responsive": {
+    "min1700": "Increase hero top and lower spacing.",
+    "max1100": "Reduce grid gaps and navigation spacing; hide hero barcode.",
+    "max760": "Project sequence becomes one column; toolkit becomes one column with a two-column selector; readout loses sticky positioning.",
+    "max520": "Mobile menu, one-column hero lower area and toolkit selector, stacked biography/contact, 23px gutters, simplified decorative details."
+  },
+  "accessibility": {
+    "implemented": [
+      "Skip link",
+      "Semantic navigation and main landmark",
+      "Screen-reader h1 equivalent for SVG wordmark",
+      "Visible focus indicators",
+      "Labeled terminal input and polite live output",
+      "Pressed state for toolkit and theme buttons",
+      "Expanded state for mobile menu",
+      "Decorative geometry hidden from assistive technology",
+      "Reduced-motion alternative",
+      "External links use noopener noreferrer"
+    ],
+    "verificationBoundary": "This documents implementation, not a formal WCAG conformance audit. Check contrast, zoom, keyboard navigation and tiny decorative labels against the final rendered build."
+  },
+  "contentConstraints": [
+    "Preserve actual paid software experience, education, GitHub and contact information.",
+    "EvalForge, OpsPilot and DocTrace are exploratory offline demos with synthetic data.",
+    "Rules and local retrieval do not imply real LLM inference; an LLM via local proxy is optional where indicated.",
+    "Benchmarks and tests describe demos, not enterprise outcomes or production impact.",
+    "Do not claim unverified availability.",
+    "No commercial Cyber Grotesk font files or copyrighted reference artwork."
+  ],
+  "references": [
+    {
+      "name": "Cyber Grotesk",
+      "author": "Olga Ryzhychenko",
+      "role": "Typography and industrial editorial direction only"
+    },
+    {
+      "name": "Nothing Portfolio",
+      "author": "Ankit Shrestha",
+      "role": "MIT portfolio reference"
+    },
+    {
+      "name": "Cybersecurity Portfolio",
+      "author": "Pixiei Studio LLC",
+      "role": "Visual direction reference"
+    }
+  ],
+  "scope": "Documentation only; no UI changes or publishing performed by this documentation task."
+}
