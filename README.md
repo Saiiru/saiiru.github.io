@@ -1,103 +1,128 @@
-# S4IRU // BLACKSITE
+<p align="center">
+  <img src="assets/blacksite-readme.svg" width="100%" alt="SAIRU BLACKSITE — software, sistemas e experimentos com IA" />
+</p>
 
-Portfólio de **Urias Machado Santos (Sairu)**, desenvolvedor de software e estudante do Técnico em Eletromecânica no SENAI, em Feira de Santana (BA). Experiência profissional em aplicações web; laboratórios de IA aplicada em desenvolvimento com execução verificável.
+<p align="center">
+  <a href="#primeiro-acesso">Começar</a> · <a href="#projetos-que-dá-para-testar">Demos</a> ·
+  <a href="PROJECT_INDEX.md">Todos os projetos</a> · <a href="#arquitetura">Arquitetura</a> ·
+  <a href="#testes">Testes</a> · <a href="DESIGN_REFERENCES.md">Referências</a>
+</p>
 
-O objetivo é apresentar trabalho técnico concreto para candidaturas, incluindo a trilha **AI Builder** do programa de estágio do iFood. Os três projetos são **demonstrações**, não produtos comerciais nem experiência profissional em treinamento de IA.
+## O que é este lugar?
 
-![BLACKSITE — direção tipográfica Cyber Grotesk](design/motion/desktop-hero.png)
+Sou **Urias Machado Santos (Sairu)**. Trabalhei com desenvolvimento web na Capgemini, Infomakers e Agência Digital S/A. Hoje estudo Eletromecânica no SENAI e continuo construindo software — muitas vezes na fronteira entre interfaces, ferramentas e eletrônica.
 
-![Versão mobile](design/motion/mobile-hero.png)
+O BLACKSITE não é uma simulação de uma empresa fictícia. É **um arquivo pessoal de engenharia**: alguns projetos estão prontos para experimentar, outros são estudos e alguns mostram perguntas que ainda estou tentando resolver. Prefiro deixar essa diferença clara.
 
-**Site público:** https://saiiru.github.io/
+O visual nasceu da minha configuração Arch Linux/CyberArch. A interface também é um experimento, mas o principal é conseguir abrir cada projeto, entender as decisões e reproduzir o que foi testado.
 
-## Três demos executáveis
+> **Versão redesenhada em revisão:** o GitHub Pages público pode continuar exibindo uma versão anterior até o merge. Os screenshots e a revisão estão na pull request desta versão.
 
-| Laboratório | Abrir em desenvolvimento | Comportamento comprovável |
-| --- | --- | --- |
-| EvalForge | /labs/index.html?lab=evalforge | Avalia respostas contra seis casos sintéticos com asserções explícitas e métricas recalculadas após edições. |
-| OpsPilot | /labs/index.html?lab=opspilot | Classifica doze tickets fictícios, calcula cobertura/acurácia e exige aprovação humana para exportar JSON. |
-| DocTrace | /labs/index.html?lab=doctrace | Recupera trechos de Markdown por relevância BM25, cita fontes e recusa responder sem evidência. |
+## Primeiro acesso
 
-O modo padrão é **determinístico e offline**, sem fingir que utiliza um modelo de linguagem. Existe um proxy HTTP para **LLM opcional em ambiente local** que usa variáveis LLM_BASE_URL, LLM_API_KEY e LLM_MODEL. O GitHub Pages não hospeda esse proxy, nem expõe segredos. O blueprint de n8n é um exemplo importável, **não um workflow executado em produção**.
+```bash
+git clone https://github.com/Saiiru/saiiru.github.io.git
+cd saiiru.github.io
+npm ci
+npm run dev
+```
 
-Resultados em BENCHMARK.md foram calculados apenas sobre **dados sintéticos preparados para demonstração**. Não representam métricas comerciais, clientes, horas poupadas ou resultados de modelos reais.
+O Vite mostrará o endereço local de desenvolvimento. Para gerar e servir a versão estática:
 
-## Rodar o site
+```bash
+npm run build
+cd docs
+python3 -m http.server 4389 --bind 127.0.0.1
+```
 
-Na raiz do projeto, com Node.js 24:
+Abra http://127.0.0.1:4389.
 
-    npm ci
-    npm run dev
+## Projetos que dá para testar
 
-Para criar a versão estática do GitHub Pages:
+| Datashard | Problema | Implementação real |
+| :--- | :--- | :--- |
+| **01 · EvalForge** | Como comparar respostas antes de confiar nelas? | Critérios explícitos, seis casos sintéticos, falhas explicadas e relatório JSON. |
+| **02 · OpsPilot** | Como classificar solicitações sem automatizar decisões humanas? | Roteamento de chamados fictícios e aprovação obrigatória antes da exportação. |
+| **03 · DocTrace** | Como responder a partir de documentos e permitir conferência? | Recuperação BM25 em Markdown, citações por passagem e abstenção sem evidência. |
 
-    npm run build
-    cd docs
-    python3 -m http.server 4389 --bind 127.0.0.1
+O modo padrão é **determinístico e offline**, não uma inferência de LLM escondida atrás de regras. Existe um proxy local opcional para modelos compatíveis com OpenAI. O GitHub Pages não o hospeda nem recebe credenciais.
 
-Abra http://127.0.0.1:4389 no navegador.
+O fluxo n8n do OpsPilot é um **exemplo, não uma automação implantada**. Resultados como 6/6 ou 12/12 referem-se a conjuntos fictícios e testes preparados, não impacto comprovado em empresas.
+
+[Ver a documentação, o código e os testes das três demos](projects/ai-builder-labs/README.md).
+
+## Arquivo completo
+
+Em vez de esconder trabalhos antigos ou chamar todos de produtos concluídos, mantive uma lista pesquisável que diferencia código próprio e forks.
+
+**[Índice dos 62 repositórios públicos](PROJECT_INDEX.md)** — 28 próprios e 34 forks/referências, na data da captura da API pública.
+
+Para atualizar a lista localmente:
+
+```bash
+python3 scripts/refresh_repos.py
+npm run build
+```
+
+O script consulta **somente repositórios públicos** pela API GitHub via `gh`. Um novo projeto só aparecerá após atualização do arquivo e um novo build.
+
+## Arquitetura
+
+```text
+React / Vite (portfólio)
+ ├── SAIRU SVG: glitch contextual ao passar o ponteiro
+ ├── Fundo com resposta ao cursor e movimento reduzido
+ ├── Datashards: problema → trade-off → testes → demo
+ ├── Catálogo: 62 repositórios públicos em JSON estático
+ └── Laboratórios HTML/JavaScript (/labs)
+      ├── EvalForge → asserções determinísticas
+      ├── OpsPilot  → triagem + aprovação humana
+      └── DocTrace  → BM25 e referências por documento
+
+Node.js local (opcional)
+ └── Proxy compatível com OpenAI, segredo apenas no servidor
+```
+
+O catálogo estático não depende da disponibilidade da API GitHub durante a visita. O trade-off é precisar atualizar o snapshot para incluir novas atividades.
 
 ## Testes
 
-    cd projects/ai-builder-labs
-    npm test
-    node scripts/verify.mjs
-    node scripts/smoke-proxy.mjs
+```bash
+cd projects/ai-builder-labs
+npm test
+node scripts/verify.mjs
+node scripts/smoke-proxy.mjs
+```
 
-Teste visual opcional (com Python Playwright e Chromium instalados e o servidor da pasta docs ativo):
+Os laboratórios incluem **16 testes unitários** em Node. O site também foi verificado no Chromium/Playwright: datashards, busca dos projetos, glitch repetido, exportação com revisão humana, navegação mobile e `prefers-reduced-motion`.
 
-    python3 scripts/e2e_cybergrotesk.py
+Veja o [benchmark de dados sintéticos](projects/ai-builder-labs/BENCHMARK.md). A suíte de navegador utilizada nesta revisão fica em `scripts/verify_human.py`.
 
-O teste de navegador cobre três labs, terminal, seleção de competências, classificação e aprovação humana, exportação de relatório, busca com citações e responsividade em 390 px.
+## Decisões que importam
 
-## Estrutura
+<details>
+<summary><strong>Por que não buscar projetos diretamente da API a cada visita?</strong></summary>
+O arquivo é gerado na preparação do site, não carregado na página. Assim o visitante vê os projetos mesmo durante falhas de rede ou limites da API. Em troca, atualizações exigem novo build.
+</details>
 
-- src/App.jsx, src/blacksite.css — site React, animações e lista interativa de competências.
-- public/assets/img — vetores originais de rede e circuito.
-- public/labs — arquivos estáticos navegáveis das demos.
-- projects/ai-builder-labs — código-fonte, testes, proxy local, exemplo n8n e documentação técnica.
-- docs — compilação Vite para publicação pelo GitHub Pages, sem depender de GitHub Actions.
-- design/v3 — capturas reais do Chromium; design/previews preserva a direção anterior.
-- DESIGN_REFERENCES.md — fontes de inspiração e restrições de propriedade intelectual.
+<details>
+<summary><strong>Por que o glitch não tem botão?</strong></summary>
+O efeito aparece na entrada do site e a cada nova passagem do mouse sobre SAIRU; os datashards e o fundo também respondem ao ponteiro. Nada depende de ativar um modo especial. Se o sistema pedir movimento reduzido, as animações são desativadas.
+</details>
 
-## Créditos e referências
+<details>
+<summary><strong>O que ainda não considero validado?</strong></summary>
+Métricas de negócio, uso comercial dos protótipos e integrações de IA implantadas em produção. O laboratório oferece dados de exemplo, fluxos inspecionáveis e testes reproduzíveis — não resultados de clientes.
+</details>
 
-O ponto de partida foi o [Nothing Portfolio de Ankit Shrestha](https://github.com/ankitshrr/nothing-portfolio), licenciado sob MIT. O aviso original está preservado em [LICENSE](LICENSE).
+## Design, créditos e licença
 
-Os projetos [Cyber Grotesk de Olga Ryzhychenko](https://www.behance.net/gallery/85843953/Cyber-Grotesk) e [Cybersecurity Portfolio da Pixiei Studio LLC](https://dribbble.com/shots/27431322-Cybersecurity-Portfolio-Website-UI-UX-Design) serviram apenas de **inspiração visual**. Não foram distribuídos seus arquivos de fontes, imagens ou artes. Os elementos gráficos são originais em CSS/SVG. Consulte [DESIGN_REFERENCES.md](DESIGN_REFERENCES.md).
+A base foi o [Nothing Portfolio de Ankit Shrestha](https://github.com/ankitshrr/nothing-portfolio), sob licença MIT, preservada em [LICENSE](LICENSE). O visual é uma adaptação original da identidade CyberArch/BLACKSITE. [Cyber Grotesk](https://www.behance.net/gallery/85843953/Cyber-Grotesk) e [Cybersecurity Portfolio](https://dribbble.com/shots/27431322-Cybersecurity-Portfolio-Website-UI-UX-Design) foram referências de arte; nenhuma fonte comercial ou imagem desses trabalhos foi redistribuída.
 
-## Contato
+Para referências adicionais, veja [DESIGN_REFERENCES.md](DESIGN_REFERENCES.md).
 
-[GitHub](https://github.com/Saiiru) · [LinkedIn](https://www.linkedin.com/in/sairu/) · [E-mail](mailto:sairufsa@gmail.com).
+---
 
-## Cyberpunk motion pass
+**[GitHub](https://github.com/Saiiru)** · **[LinkedIn](https://www.linkedin.com/in/sairu/)** · **[Contato](mailto:sairufsa@gmail.com)**
 
-The current version expands the palette with cyan, magenta and violet, and keeps yellow as its primary identity. It uses finite SVG channel glitches on entry and hover, automatic OS motion preference, observer-based project reveals, precise CTA scans and a lightweight desktop pointer light.
-
-Gemini contributed an independent critique and proposed motion tokens. Research and the full response are preserved in design/motion. Sources include the Codrops CSSGlitchEffect technique and primary MDN documentation; implementation is purpose-built for this site.
-
-Browser behavior tests:
-
-    python3 scripts/e2e_motion.py
-    python3 scripts/e2e_motion_fixes.py
-
-The second suite covers light-theme contrast, document scrolling opt-out, dynamic reduced-motion and missing IntersectionObserver. OS reduced-motion disables the effects automatically. Legacy localStorage preferences are ignored; no preference storage is required.
-
-## Datashard Archive
-
-The project section is now a three-media archive with an in-place reader. Select a cartridge, inspect Dossiê / Implementação / Evidências, run the real demo, open code or export the selected dossier as JSON.
-
-[Open the archive](https://saiiru.github.io/#labs) · [Deep link to DocTrace](https://saiiru.github.io/?shard=doctrace#labs)
-
-[Research and Gemini proposal](design/datashards/RESEARCH.md) document the references and decisions. The original cartridge SVGs are not extracted game assets. Read counters describe this visit, not a permanent save game. JSON export describes the actual project, without encryption claims.
-
-    python3 scripts/e2e_datashards.py
-    python3 scripts/e2e_datashard_contrast.py
-
-Current archive screenshots are in design/datashards/. Earlier images preserve prior visual iterations.
-
-## Contextual signals — Codex + Agy/Gemini
-
-EXEC_GLITCH and EFEITOS ON/OFF were removed at the user's request. The letreiro plays a short entrance signal and responds to fine-pointer entry, with a quiet interval between bursts. Navigation and datashard labels use smaller finite signals. Text and hit targets remain stable; OS reduced motion takes precedence.
-
-The actual Cybercore glitch/scanline SCSS was inspected and selected CSS patterns adapted locally; no Cybercore package, stylesheet link or runtime dependency was installed. Attribution and MIT notice: [licenses](public/licenses/cybercore-css-MIT.txt). Research, consultant reviews and desktop/mobile captures: [contextual signals](design/contextual-signals/RESEARCH.md).
+<sub>Feira de Santana, BA. Feito com código que eu consigo abrir, testar e explicar.</sub>

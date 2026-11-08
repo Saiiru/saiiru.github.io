@@ -39,3 +39,13 @@ Após o usuário rejeitar a composição em painéis, a hierarquia foi refeita d
 - Bento hero e painel verde CORE.SKILLS foram substituídos por uma composição editorial, previews reais e lista de competências com evidências.
 - O terminal Nothing/Watch Dogs permanece uma função secundária real, sem definir o visual inteiro.
 - Capturas atuais: design/v3; capturas de design/previews são da versão rejeitada e preservadas no histórico.
+
+## Referências de UX e narrativa técnica (08/11/2026)
+
+- [GitHub Docs — Usando o perfil GitHub para fortalecer o currículo](https://docs.github.com/en/account-and-profile/tutorials/using-your-github-profile-to-enhance-your-resume): selecionar projetos importantes e escrever READMEs que possam ser lidos rapidamente.
+- [Portfolio Guide — Case Studies That Get Hired](https://resumeily.com/learning/portfolio-guide): problema, papel, abordagem, trade-offs e evidências em cada estudo de caso.
+- [Alec Reimel](https://www.alecreimel.com/): interface retrofuturista mantendo identidade e conteúdo técnico.
+- [Brittany Chiang](https://brittanychiang.com/): hierarquia, projetos e experiência facilmente encontrados.
+- [MDN — prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40media/prefers-reduced-motion) e [WCAG 2.2](https://www.w3.org/TR/wcag/): efeitos contextuais, redução de movimento e alvos acionáveis.
+
+**Decisões desta iteração:** o hover no nome recomeça sempre que o mouse entra, sem botão de efeitos; no celular o catálogo usa listas legíveis em vez de chips minúsculos; o fundo usa sinais sutis, não flash de página; as demonstrações mantêm trade-offs e código verificável. O arquivo de 62 repositórios identifica os 34 forks.
