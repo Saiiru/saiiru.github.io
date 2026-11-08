@@ -4,6 +4,8 @@ import './blacksite.css'
 import './cyber-motion.css'
 import './contextual-signals.css'
 import './human-interactions.css'
+import './recon-identity.css'
+import SignalField from './components/SignalField'
 import SignalText from './components/SignalText'
 import DatashardArchive from './components/DatashardArchive'
 import PublicArchive from './components/PublicArchive'
@@ -15,7 +17,7 @@ const commandOutput = {
   repos: ['ARQUIVO GITHUB / REPOSITÓRIOS PÚBLICOS', repositorySnapshot.repositories.length+' repositórios inventariados: '+repositorySnapshot.repositories.filter(item=>!item.fork).length+' próprios e '+repositorySnapshot.repositories.filter(item=>item.fork).length+' forks.', 'Use a busca do arquivo para encontrar tecnologias ou projetos.'],
   status: ['STATUS // 07.11.2026', 'Portfólio: online neste navegador.', 'Labs: demos exploratórias com dados sintéticos.', 'Execução: modo offline; LLM local opcional quando indicado.', 'Nenhuma métrica de produção é reivindicada.'],
   stack: ['STACK // FERRAMENTAS', 'React · JavaScript · Python · APIs', 'Interfaces, fluxos de avaliação, RAG e sistemas com IA aplicada.'],
-  contact: ['CONTATO // URIAS MACHADO SANTOS', 'sairufsa@gmail.com', 'github.com/Saiiru', 'linkedin.com/in/sairu/'],
+  contact: ['CONTATO // URIAS MACHADO SANTOS', 'github.com/Saiiru', 'linkedin.com/in/sairu/'],
 }
 
 function Terminal() {
@@ -102,7 +104,7 @@ function App(){
  <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
  <div className="edge-code" aria-hidden="true">BLACKSITE // OPEN WORKSPACE — FEIRA DE SANTANA, BR</div>
  <header className="site-nav">
-  <a href="#inicio" onClick={close} className="brand" aria-label="Sairu, início"><svg viewBox="0 0 36 36" width="33" height="33" aria-hidden="true"><path d="M31 3H11L4 10V17L10 23H25V29H4V34H26L32 28V20L26 14H11V8H31Z" fill="currentColor"/></svg><span className="brand-label"><SignalText>SAIRU</SignalText><span className="brand-detail"> / BLACKSITE</span></span></a>
+  <a href="#inicio" onClick={close} className="brand" aria-label="Sairu, início"><img src="/brand/sairu-mark.svg" alt="" width="38" height="38"/><span className="brand-label"><SignalText>SAIRU</SignalText><span className="brand-detail"> / BLACKSITE</span></span></a>
   <nav aria-label="Navegação principal" className={menuOpen?'navigation open':'navigation'}><a href="#labs" onClick={close}><SignalText>PROJETOS</SignalText></a><a href="#todos-projetos" onClick={close}><SignalText>ARQUIVO COMPLETO</SignalText></a><a href="#sobre" onClick={close}><SignalText>SOBRE</SignalText></a><a href="#stack" onClick={close}><SignalText>STACK</SignalText></a><a href="#contato" onClick={close}><SignalText>CONTATO</SignalText><ArrowUpRight size={13}/></a></nav>
   <button className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen?'Fechar menu':'Abrir menu'}>{menuOpen?<X/>:<Menu/>}</button>
  </header>
@@ -131,7 +133,17 @@ function App(){
   </section>
   <section id="stack" className="stack-section section-wrap"><header className="section-heading"><h2>THE<br/><span className="outlined">TOOLKIT.</span></h2><p className="stack-intro">Não é uma coleção de logos.<br/>Clique numa tecnologia para ver onde eu a usei e o que consigo demonstrar.</p></header><Skills/></section>
   <section className="terminal-section section-wrap"><div className="terminal-title"><TerminalSquare size={22}/><h2>Quer explorar por comando?</h2><p>Digite <code>help</code> para começar.</p></div><Terminal/></section>
-  <section id="contato" className="contact-section section-wrap"><div className="contact-header"><span>BOAS IDEIAS COMEÇAM NUMA CONVERSA.</span><span>CANAL ABERTO ↙</span></div><a className="contact-heading" href="mailto:sairufsa@gmail.com">LET’S<br/><span>BUILD.</span><ArrowUpRight strokeWidth={.85}/></a><div className="contact-bottom"><a href="mailto:sairufsa@gmail.com">sairufsa@gmail.com<ArrowUpRight size={16}/></a><div><a href="https://github.com/Saiiru" target="_blank" rel="noopener noreferrer">GITHUB<ArrowUpRight size={16}/></a><a href="https://www.linkedin.com/in/sairu/" target="_blank" rel="noopener noreferrer">LINKEDIN<ArrowUpRight size={16}/></a></div></div></section>
+  <section id="contato" className="contact-section" aria-labelledby="contact-title">
+   <SignalField/><div className="contact-shade" aria-hidden="true"/>
+   <div className="contact-layout">
+    <div className="contact-copy"><h2 id="contact-title">O próximo passo<br/>é uma <span>conversa.</span></h2><p>Sobre software, automação ou uma oportunidade no seu time. Me conta o que você está construindo.</p></div>
+    <div className="contact-channels">
+     <a className="contact-channel" href="https://www.linkedin.com/in/sairu/" target="_blank" rel="noopener noreferrer"><div><span>Vamos conversar</span><small>Me encontre no LinkedIn e mande uma mensagem.</small></div><ArrowUpRight size={27}/></a>
+     <a className="contact-channel" href="https://github.com/Saiiru" target="_blank" rel="noopener noreferrer"><div><span>Explore o código</span><small>Meu perfil, estudos e contribuições no GitHub.</small></div><ArrowUpRight size={27}/></a>
+    </div>
+   </div>
+   <div className="contact-signoff"><div className="contact-signature"><img src="/brand/sairu-mark.svg" alt="" width="48" height="48"/><span>SAIRU</span></div><span>URIAS MACHADO SANTOS<br/>FEIRA DE SANTANA, BAHIA</span></div>
+  </section>
  </main>
  <footer className="site-footer"><a href="#inicio">SAIRU / BLACKSITE</a><span>URIAS MACHADO SANTOS © 2026</span><a href="#inicio">VOLTAR AO TOPO ↑</a></footer>
  </div>

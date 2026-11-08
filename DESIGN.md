@@ -1,55 +1,50 @@
-# BLACKSITE — Cyber Grotesk-led redesign, 2026-11-07
+# SAIRU / BLACKSITE — current identity, 2026-11-08
 
-Surface mode: **Experience**. The lead artifact is an original, large geometric SAIRU SVG wordmark. This is a typographic sci-fi editorial poster and professional portfolio, with a continuous sequence of real projects rather than a dashboard or bento hero.
+Surface mode: **Experience**. A typography-led portfolio with an original geometric SAIRU wordmark, factual professional history, inspectable software evidence and direct professional contact. Current identity overrides are scoped to `.portfolio` in `src/recon-identity.css`; older yellow declarations in base styles are historical implementation layers.
 
-## Visual system
+## Current visual system
 
-Warm-black ink `#11130f`, industrial-yellow signal `#ffd22e`, paper `#dfdfd1`, secondary text `#a4a79c`, quiet dividers `#3d4035`. Cyan #41f4e5 marks interaction and the first project; magenta #ff4aad marks signal fragments and the second project; violet #a88bff marks the third project. Yellow remains the dominant brand. Square geometry, sharp cut-ins, continuous rules and generous empty space support the typography.
+| Role | Token | Purpose |
+| --- | --- | --- |
+| Ink | `#0b1110` | Charcoal foundation across the page |
+| Paper | `#e3eee7` | Primary readable text |
+| Muted | `#a9beb3` | Supporting copy and metadata |
+| Rule | `#30483d` | Quiet structural boundaries |
+| Signal | `#9ce8bf` | Mint identity, selected states, actions and keyboard focus |
+| Counter-signal | `#ee6674` | Coral signature details and brief chromatic separation |
 
-Display text uses self-hosted Oxanium, an open-source OFL font. The dominant SAIRU lettering is original vector geometry, not commercial Cyber Grotesk font outlines. Body copy uses the system sans stack; monospace is reserved for commands, labels, dates and data. No commercial font files or copyrighted reference artwork may be imported.
+Mint and coral form a restrained near-complementary pair on neutral charcoal. Dark green and muted oxblood supporting panels carry the hero strip, biography and archive; broad yellow highlight surfaces have been replaced. No color ratio or formal contrast certification is asserted here.
 
-The hero combines the full-width wordmark, a technical margin, a yellow reverse-type strip and an asymmetric lower composition. Editorial project rows pair real demo screenshots with descriptions, a test-demo action and source/tests links. The yellow biography section preserves actual work history. Toolkit evidence, a local terminal and a large contact invitation continue the same visual language.
+The original S monogram lives at `public/brand/sairu-mark.svg` and appears in navigation and contact signoff. The large hero SAIRU wordmark remains original inline vector geometry. Self-hosted OFL Oxanium is the display family; the system sans stack supports body text and monospace serves commands, dates and metadata. No commercial Cyber Grotesk font files are used.
 
-## Tokens and behavior
+The project surface is the existing Datashard Archive catalogue and in-place dossier reader, followed by the public repository archive. The original static screenshot rows are historical. Selection, accessible dossier tabs, demo/source actions and factual evidence remain the focus. This identity refinement does not add project or production-impact claims.
 
-The machine-readable design record is `.impeccable/design.json`; the surface brief is `.impeccable/surfaces/portfolio.md`. Both describe the implementation in `src/blacksite.css` and `src/App.jsx`.
+## Contact and generated field
 
-The content width is capped at 1536px, with fluid 22–72px side gutters and 23px mobile gutters. At 1100px gaps tighten and the decorative barcode disappears. At 760px projects become single-column and the evidence readout becomes static. At 520px the menu becomes toggleable and the hero, biography and toolkit stack for small screens. Minimum supported layout width is 320px.
+The Portuguese closing heading is “O próximo passo é uma conversa.” Two visible channels lead to LinkedIn and GitHub. Personal email and `mailto:` are absent from the rendered page and terminal contact output.
 
-Motion consists of one 1.15s wordmark reveal, a brief hover split, a 35s typographic ticker, a 22s asterisk rotation and restrained link/image hovers. Avoid rapid flashing. `prefers-reduced-motion` disables animation, transitions and smooth scrolling while revealing the complete wordmark. The light-mode control changes local component state; no persistent theme preference is implemented.
+`src/components/SignalField.jsx` is a newly authored WebGL contour field: layered interpolated noise, domain warping, contour bands, a subtle scanline modulation and a smoothed pointer influence. It uses native WebGL with no added dependency, external image, video or tracker. The dark shade above it preserves the editorial contact layout.
 
-## Evidence and accessibility
+Rendering is capped at roughly 30 frames per second and device pixel ratio 1.25. The animation loop pauses when offscreen (with an 80px observer margin) or the document is hidden. OS reduced motion draws a stable frame and does not run the animation loop. WebGL or shader failure selects a static CSS gradient fallback. Cleanup cancels scheduled frames, disconnects observers/listeners and releases GL resources.
 
-Preserve paid software roles, studies, source links, contact information and all three honest offline demos. EvalForge evaluates explicit criteria; OpsPilot uses explainable rules and human approval; DocTrace performs local document retrieval and offline extractive answers. Synthetic demo tests are not enterprise metrics. Optional LLM integration through a local proxy must not be presented as default real inference. Do not assert unverified availability or production AI impact.
+The contact layout has two columns on desktop and one below 760px, with 23px mobile gutters below 520px. Existing typography, archive and mobile navigation breakpoints remain. A previous broad relative-positioning rule accidentally put the decorative edge code into document flow, adding about 296px of unwanted space. The explicit `.portfolio > .edge-code { position:fixed }` override restores the intended decoration and flow.
 
-Implemented accessibility affordances include a skip link, semantic landmarks, a screen-reader heading for the decorative SVG, visible keyboard focus, labeled terminal input, polite live output, pressed/expanded control states and decorative geometry hidden from assistive technology. This is an implementation record, not a formal accessibility certification; final rendered contrast, zoom and keyboard behavior still require verification.
+## Motion, accessibility and truthful content
 
-Visual direction references: Cyber Grotesk (Olga Ryzhychenko), Nothing Portfolio MIT (Ankit Shrestha), Cybersecurity Portfolio (Pixiei Studio LLC). References inform direction only.
+Finite wordmark and label glitches, project reveals, pointer lighting and the reading-progress line remain from prior refinements. Stable readable text and the original base wordmark remain present; decorative copies are hidden from assistive technology. OS reduced motion controls eligibility, including preference changes. There is no app-specific effects toggle, persisted effects setting or current light-mode toggle; retained light-mode CSS is compatibility styling.
 
-## Chromatic motion refinement — Gemini collaboration
+Keep the skip link, semantic landmarks, visible focus, labeled terminal input, polite live output and accessible selection states. Preserve real paid software work and studies. Offline prototype behavior, synthetic data, optional proxy-backed LLM integration and demo-test boundaries must stay explicit. Do not turn demonstrations into enterprise results or assert unverified availability.
 
-Implemented in src/cyber-motion.css and src/useCyberMotion.js. Gemini provided an independent motion critique and snippets; original implementation and primary references are recorded in design/motion/GEMINI-REVIEW.md and SOURCES.md.
+## Verification scope
 
-Two decorative copies of the original SVG are clipped into cyan/magenta fragments during a finite 580ms animation. The React trigger guard expires at 620ms. One burst starts 240ms after entry; later fine-pointer entries can trigger a burst with a 1500ms cooldown. EXEC_GLITCH was removed. The stable base remains visible.
+The current `scripts/e2e_recon.py` suite passed at 320, 390, 768, 1280 and 1440px. Coverage includes horizontal overflow, the new palette/mark, two contact channels, rendered-page and terminal privacy, an animating WebGL field, offscreen pause, reduced-motion stability, mobile navigation hit targeting and unavailable-WebGL fallback. Hidden-document pause is also implemented in the reviewed source; it is not a separate assertion in this suite.
 
-The effects toggle and app-specific localStorage preference were removed. OS prefers-reduced-motion controls eligibility automatically and disables triggering, including live preference changes. All content remains readable without IntersectionObserver or with effects off. The document's smooth scrolling also stops when effects are off.
+The design detector returned `[]`. Independent finish review returned **SHIP**, with no material findings in the inspected desktop/mobile hero and contact, profile panels, and full SignalField/App/recon CSS sources. These are scoped review results, not a formal accessibility audit. Screenshots are retained in `design/recon/`.
 
-Project reveals use a single observer and only prepare initially offscreen content; all rows recover on cleanup. Pointer light is desktop-only and updated through requestAnimationFrame, without a replacement cursor. CTA sweep, skill selection, nav focus, progress line and preview corners have their own scoped states.
+## Reference and implementation history
 
-Optional light-mode outline and ticker colors have dedicated dark overrides. Contrast regressions and opt-out behavior are covered by browser tests.
+The 2026-11-07 direction used industrial yellow, editorial screenshot rows and a Cyber Grotesk-led typographic reference. Historical visual references remain Cyber Grotesk (Olga Ryzhychenko), Nothing Portfolio MIT (Ankit Shrestha) and Cybersecurity Portfolio (Pixiei Studio LLC). They are historical direction, not descriptions of the current palette.
 
-## Datashard Archive — replacement project surface
+Chromatic choreography and Gemini review are recorded in `design/motion/`; the Datashard Archive research is in `design/datashards/`. The existing MIT Cybercore glitch/scanline adaptation remains attributed in `design/contextual-signals/RESEARCH.md` and the retained license files. No Cybercore package is installed.
 
-The old three static screenshot rows are replaced by an original media catalogue and in-place dossier reader, inspired by datashard inventory/reading interfaces. The hero, paid experience, toolkit and contact remain unchanged.
-
-Original vector geometry defines each cartridge silhouette; notches, contacts and a project mark identify three project records. Selected media is yellow. Reader content is cyan-tinted, with restrained coral frame details and accent variations. It is not an encrypted record or fake hacking simulation.
-
-Default record is EvalForge. Catalogue selection resets the dossier to its first tab, marks the record read for this visit, and updates the shareable URL without page navigation. Dossiê / Implementação / Evidências use accessible tabs. Demo and code remain visible; JSON export contains the actual dossier.
-
-The reader uses a two-column catalogue/detail layout above 850px and a horizontal selector above the full-width reader on smaller displays. No modal, nested scroll trap or blocking typewriter. Global effects and reduced-motion controls apply. Dark catalogue has explicit bright tokens in light mode.
-
-Research, Gemini proposal and screenshots: design/datashards. Rendering is implemented in src/components/DatashardArchive.jsx, datashards.js and datashard-archive.css.
-
-## Contextual signals refinement
-
-See design/contextual-signals/RESEARCH.md. Opposing polygon bands and hardware scanlines adapt selected MIT Cybercore CSS; no package dependency. The annotation adopts a restrained oxblood HUD edge, CTA a notched corner. Accessible text remains stable with aria-hidden signal copies. Mobile menu header has explicit stacking order; the CTA uses an inset keyboard focus outline.
+Current reconstruction sources and the distinction between inspiration and original work are recorded in `design/recon/RESEARCH.md`. CyberArch scanline/displacement/channel techniques inform the visual vocabulary; its shader was not copied into the independently authored contour field.

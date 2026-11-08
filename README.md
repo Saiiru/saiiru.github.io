@@ -123,6 +123,6 @@ Para referências adicionais, veja [DESIGN_REFERENCES.md](DESIGN_REFERENCES.md).
 
 ---
 
-**[GitHub](https://github.com/Saiiru)** · **[LinkedIn](https://www.linkedin.com/in/sairu/)** · **[Contato](mailto:sairufsa@gmail.com)**
+**[GitHub](https://github.com/Saiiru)** · **[LinkedIn](https://www.linkedin.com/in/sairu/)** · **[Contato](https://www.linkedin.com/in/sairu/)**
 
 <sub>Feira de Santana, BA. Feito com código que eu consigo abrir, testar e explicar.</sub>
