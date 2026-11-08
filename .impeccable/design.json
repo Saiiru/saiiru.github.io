@@ -256,12 +256,18 @@
     "finiteGlitchMs": 580,
     "guardMs": 620,
     "revealMs": 560,
-    "control": "EFEITOS ON/OFF",
-    "preferenceKey": "blacksite-effects",
+    "control": null,
+    "preferenceKey": null,
     "systemReducedMotionPrecedence": true,
     "missingStorageFallback": true,
     "missingObserverContentVisible": true,
-    "continuousGlitch": false
+    "continuousGlitch": false,
+    "trigger": "240ms after mount, then fine-pointer entry",
+    "cooldownMs": 1500,
+    "labelGlitchMs": 260,
+    "contextualCSS": "src/contextual-signals.css",
+    "sources": "design/contextual-signals/RESEARCH.md",
+    "dependencyAdded": false
   },
   "datashardArchive": {
     "mode": "Operate within Experience portfolio",

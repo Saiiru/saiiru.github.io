@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { ArrowUpRight, ArrowDown, Check, Copy, Download, FileCode2, Layers, Plus } from 'lucide-react'
 import { datashards, resolveShard, createRecord } from './datashards'
 import './datashard-archive.css'
+import SignalText from './SignalText'
 
 const sections = [
   { id: 'brief', label: 'Dossiê' },
@@ -115,7 +116,7 @@ export default function DatashardArchive() {
           <div className="shard-choices" role="group" aria-label="Selecionar projeto">
             {datashards.map((item,i)=><button key={item.id} type="button" className={'shard-select accent-'+item.accent} data-shard={item.id} aria-label={'Abrir datashard '+item.name} aria-pressed={item.id===selectedId} aria-controls="shard-reader" onClick={()=>select(item.id)} onKeyDown={event=>catalogKeys(event,i)} ref={el=>buttons.current[i]=el}>
               <span className="shard-slot"><ShardModule code={item.code} serial={item.serial}/></span>
-              <span className="shard-label"><span className="shard-serial">{item.serial}</span><strong>{item.name}</strong><span className="shard-descriptor">{item.descriptor}</span><span className="shard-read">{read.has(item.id)?<Check size={11}/>:<Plus size={11}/>} {read.has(item.id)?'LIDO':'NÃO LIDO'}</span></span>
+              <span className="shard-label"><span className="shard-serial">{item.serial}</span><strong><SignalText>{item.name}</SignalText></strong><span className="shard-descriptor">{item.descriptor}</span><span className="shard-read">{read.has(item.id)?<Check size={11}/>:<Plus size={11}/>} {read.has(item.id)?'LIDO':'NÃO LIDO'}</span></span>
               <span className="shard-selected-mark" aria-hidden="true">{item.id===selectedId?<ArrowUpRight size={17}/>:null}</span>
             </button>)}
           </div>
@@ -124,7 +125,7 @@ export default function DatashardArchive() {
 
         <div id="shard-reader" className={'shard-reader accent-'+shard.accent} role="region" aria-labelledby="reader-title">
           <div className="reader-ribbon"><span className="reader-bus" aria-hidden="true"/><span>LEITURA DE REGISTRO</span><span>{String(index+1).padStart(2,'0')} / 03</span></div>
-          <div className="reader-title-row"><div><span className="reader-path">{shard.serial} / {shard.category}</span><h3 id="reader-title">{shard.name}</h3></div><span className="reader-file-icon" aria-hidden="true"><FileCode2 size={29} strokeWidth={1}/></span></div>
+          <div className="reader-title-row"><div><span className="reader-path">{shard.serial} / {shard.category}</span><h3 id="reader-title"><SignalText>{shard.name}</SignalText></h3></div><span className="reader-file-icon" aria-hidden="true"><FileCode2 size={29} strokeWidth={1}/></span></div>
           <div className="reader-meta"><span>PROTÓTIPO</span><span>REGRAS / DADOS SINTÉTICOS</span><span>CÓDIGO ABERTO</span></div>
 
           <div className="reader-tabs" role="tablist" aria-label={'Seções do dossiê '+shard.name}>

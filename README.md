@@ -72,7 +72,7 @@ Os projetos [Cyber Grotesk de Olga Ryzhychenko](https://www.behance.net/gallery/
 
 ## Cyberpunk motion pass
 
-The current version expands the palette with cyan, magenta and violet, and keeps yellow as its primary identity. It uses original finite SVG layer glitches, a persistent effects toggle, observer-based project reveals, precise CTA scans and a lightweight desktop pointer light.
+The current version expands the palette with cyan, magenta and violet, and keeps yellow as its primary identity. It uses finite SVG channel glitches on entry and hover, automatic OS motion preference, observer-based project reveals, precise CTA scans and a lightweight desktop pointer light.
 
 Gemini contributed an independent critique and proposed motion tokens. Research and the full response are preserved in design/motion. Sources include the Codrops CSSGlitchEffect technique and primary MDN documentation; implementation is purpose-built for this site.
 
@@ -81,7 +81,7 @@ Browser behavior tests:
     python3 scripts/e2e_motion.py
     python3 scripts/e2e_motion_fixes.py
 
-The second suite covers light-theme contrast, document scrolling opt-out, dynamic reduced-motion and missing IntersectionObserver. OS reduced-motion disables the optional effects; preference storage can fail without breaking the site.
+The second suite covers light-theme contrast, document scrolling opt-out, dynamic reduced-motion and missing IntersectionObserver. OS reduced-motion disables the effects automatically. Legacy localStorage preferences are ignored; no preference storage is required.
 
 ## Datashard Archive
 
@@ -95,3 +95,9 @@ The project section is now a three-media archive with an in-place reader. Select
     python3 scripts/e2e_datashard_contrast.py
 
 Current archive screenshots are in design/datashards/. Earlier images preserve prior visual iterations.
+
+## Contextual signals — Codex + Agy/Gemini
+
+EXEC_GLITCH and EFEITOS ON/OFF were removed at the user's request. The letreiro plays a short entrance signal and responds to fine-pointer entry, with a quiet interval between bursts. Navigation and datashard labels use smaller finite signals. Text and hit targets remain stable; OS reduced motion takes precedence.
+
+The actual Cybercore glitch/scanline SCSS was inspected and selected CSS patterns adapted locally; no Cybercore package, stylesheet link or runtime dependency was installed. Attribution and MIT notice: [licenses](public/licenses/cybercore-css-MIT.txt). Research, consultant reviews and desktop/mobile captures: [contextual signals](design/contextual-signals/RESEARCH.md).
