@@ -5,9 +5,9 @@ import './datashard-archive.css'
 import SignalText from './SignalText'
 
 const sections = [
-  { id: 'brief', label: 'Dossiê' },
-  { id: 'implementation', label: 'Implementação' },
-  { id: 'evidence', label: 'Evidências' }
+  { id: 'brief', label: 'O problema' },
+  { id: 'implementation', label: 'Como construí' },
+  { id: 'evidence', label: 'Testes e provas' }
 ]
 function initialShard() {
   return resolveShard(new URL(window.location.href).searchParams.get('shard'))
@@ -43,6 +43,14 @@ export default function DatashardArchive() {
   const shard = resolveShard(selectedId)
   const index = datashards.findIndex(item => item.id === selectedId)
   const shareURL = 'https://saiiru.github.io/?shard=' + shard.id + '#labs'
+
+  function trackPointer(event) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (event.pointerType === 'touch') return
+    const rect=event.currentTarget.getBoundingClientRect()
+    event.currentTarget.style.setProperty('--card-x', ((event.clientX-rect.left)/rect.width*100).toFixed(2)+'%')
+    event.currentTarget.style.setProperty('--card-y', ((event.clientY-rect.top)/rect.height*100).toFixed(2)+'%')
+  }
 
   function select(id) {
     setSelectedId(id)
@@ -105,28 +113,35 @@ export default function DatashardArchive() {
   return <section id="labs" className="section-wrap datashards-section">
     <header className="archive-heading">
       <div><h2>DATASHARD<br/><span>ARCHIVE.</span></h2></div>
-      <div className="archive-intro"><p>Projetos que você pode abrir.<br/>Decisões que você pode inspecionar.</p><span>Selecione uma mídia para ler o dossiê, testar a demo ou examinar o código.</span></div>
+      <div className="archive-intro"><p>Três projetos. Três problemas.<br/>Nenhum deles é só uma imagem.</p><span>Um datashard é um projeto interativo. Escolha um dos três cartões, veja como funciona e abra a demonstração no navegador.</span></div>
     </header>
+    <div className="archive-wayfinding" aria-label="Como navegar pelos projetos">
+      <span><b>01</b> ESCOLHA UM DATASHARD</span>
+      <span aria-hidden="true">/</span>
+      <span><b>02</b> ENTENDA A DECISÃO</span>
+      <span aria-hidden="true">/</span>
+      <span><b>03</b> TESTE A DEMO</span>
+    </div>
 
-    <div className="datashard-archive" data-reveal>
-      <div className="archive-topbar"><span><Layers size={15}/> BLACKSITE / ARQUIVOS DE CAMPO</span><span className="archive-read-count">{String(read.size).padStart(2,'0')} / 03 LIDOS NESTA VISITA</span></div>
+    <div className="datashard-archive">
+      <div className="archive-topbar"><span><Layers size={15}/> BLACKSITE / ARQUIVOS DE CAMPO</span><span className="archive-read-count">{String(read.size).padStart(2,'0')} / 03 EXPLORADOS NESTA VISITA</span></div>
       <div className="archive-layout">
         <aside className="shard-catalog" aria-label="Catálogo de datashards">
-          <div className="catalog-label"><span>SELECIONAR MÍDIA</span><ArrowDown size={14}/></div>
+          <div className="catalog-label"><span>CLIQUE NUM PROJETO PARA ABRIR SEU DOSSIÊ</span><ArrowDown size={14}/></div>
           <div className="shard-choices" role="group" aria-label="Selecionar projeto">
-            {datashards.map((item,i)=><button key={item.id} type="button" className={'shard-select accent-'+item.accent} data-shard={item.id} aria-label={'Abrir datashard '+item.name} aria-pressed={item.id===selectedId} aria-controls="shard-reader" onClick={()=>select(item.id)} onKeyDown={event=>catalogKeys(event,i)} ref={el=>buttons.current[i]=el}>
+            {datashards.map((item,i)=><button key={item.id} type="button" className={'shard-select accent-'+item.accent} data-shard={item.id} aria-label={'Abrir datashard '+item.name} aria-pressed={item.id===selectedId} aria-controls="shard-reader" onClick={()=>select(item.id)} onPointerMove={trackPointer} onKeyDown={event=>catalogKeys(event,i)} ref={el=>buttons.current[i]=el}>
               <span className="shard-slot"><ShardModule code={item.code} serial={item.serial}/></span>
-              <span className="shard-label"><span className="shard-serial">{item.serial}</span><strong><SignalText>{item.name}</SignalText></strong><span className="shard-descriptor">{item.descriptor}</span><span className="shard-read">{read.has(item.id)?<Check size={11}/>:<Plus size={11}/>} {read.has(item.id)?'LIDO':'NÃO LIDO'}</span></span>
+              <span className="shard-label"><span className="shard-serial">{item.serial}</span><strong><SignalText>{item.name}</SignalText></strong><span className="shard-descriptor">{item.descriptor}</span><span className="shard-read">{read.has(item.id)?<Check size={11}/>:<Plus size={11}/>} {item.id===selectedId?'SELECIONADO':read.has(item.id)?'JÁ ABERTO':'CLIQUE PARA EXPLORAR'}</span></span>
               <span className="shard-selected-mark" aria-hidden="true">{item.id===selectedId?<ArrowUpRight size={17}/>:null}</span>
             </button>)}
           </div>
-          <div className="catalog-footer"><span>CATÁLOGO PESSOAL / 03 REGISTROS</span><span>Use as setas para navegar.</span></div>
+          <div className="catalog-footer"><span>03 PROJETOS EM DESTAQUE</span><span>Clique ou navegue com as setas.</span></div>
         </aside>
 
         <div id="shard-reader" className={'shard-reader accent-'+shard.accent} role="region" aria-labelledby="reader-title">
-          <div className="reader-ribbon"><span className="reader-bus" aria-hidden="true"/><span>LEITURA DE REGISTRO</span><span>{String(index+1).padStart(2,'0')} / 03</span></div>
+          <div className="reader-ribbon"><span className="reader-bus" aria-hidden="true"/><span>PROJETO SELECIONADO · COMO FUNCIONA</span><span>{String(index+1).padStart(2,'0')} / 03</span></div>
           <div className="reader-title-row"><div><span className="reader-path">{shard.serial} / {shard.category}</span><h3 id="reader-title"><SignalText>{shard.name}</SignalText></h3></div><span className="reader-file-icon" aria-hidden="true"><FileCode2 size={29} strokeWidth={1}/></span></div>
-          <div className="reader-meta"><span>PROTÓTIPO</span><span>REGRAS / DADOS SINTÉTICOS</span><span>CÓDIGO ABERTO</span></div>
+          <div className="reader-meta"><span>DEMO FUNCIONAL</span><span>DADOS DE EXEMPLO</span><span>CÓDIGO + TESTES</span></div>
 
           <div className="reader-tabs" role="tablist" aria-label={'Seções do dossiê '+shard.name}>
             {sections.map((section,i)=><button key={section.id} ref={el=>tabs.current[i]=el} id={'shard-tab-'+section.id} type="button" role="tab" aria-selected={tab===section.id} aria-controls={'shard-panel-'+section.id} tabIndex={tab===section.id?0:-1} onClick={()=>setTab(section.id)} onKeyDown={event=>tabKeys(event,i)}>{section.label}</button>)}
@@ -135,7 +150,7 @@ export default function DatashardArchive() {
           <div className="reader-sheet" key={shard.id}>
             <div id="shard-panel-brief" role="tabpanel" aria-labelledby="shard-tab-brief" tabIndex="0" hidden={tab!=='brief'}>
               <p className="reader-question">{shard.question}</p>
-              <p className="reader-body-copy">{shard.summary}</p>
+              <p className="reader-body-copy">{shard.summary}</p><div className="reader-decision"><span>DECISÃO DE ENGENHARIA / TRADE-OFF</span><p>{shard.decision}</p></div>
               <div className="reader-block"><h4>COMO EXPLORAR</h4><p>{shard.method}</p></div>
               <div className="reader-limit"><span aria-hidden="true">!</span><div><h4>CONTEXTO DO PROTÓTIPO</h4><p>{shard.limitation}</p></div></div>
             </div>
@@ -151,15 +166,16 @@ export default function DatashardArchive() {
             </div>
           </div>
 
-          <div className="reader-actions"><a className="shard-demo-link" href={shard.demo}>ABRIR DEMO<ArrowUpRight size={20}/></a><a className="shard-source-link" href={shard.source} target="_blank" rel="noopener noreferrer">CÓDIGO E TESTES<ArrowUpRight size={16}/></a></div>
+          <div className="reader-actions"><a className="shard-demo-link" href={shard.demo}>TESTAR O PROJETO <ArrowUpRight size={20}/></a><a className="shard-source-link" href={shard.source} target="_blank" rel="noopener noreferrer">ENTENDER O CÓDIGO <ArrowUpRight size={16}/></a></div>
           <div className="reader-utilities"><button type="button" className="shard-export" onClick={exportRecord}><Download size={14}/> EXPORTAR .JSON</button><button type="button" className="shard-share" onClick={copyLink}><Copy size={13}/> COPIAR LINK</button><span>FORMATO ABERTO / SEM BLOQUEIO</span></div>
           {copyStatus&&<div className="reader-share-status" role="status"><span>{copyStatus}</span>{copyStatus.startsWith('Selecione')&&<input aria-label="Link do datashard" readOnly value={shareURL} onFocus={event=>event.target.select()}/>}</div>}
           <span className="sr-only" role="status">{shard.name+' aberto. '+read.size+' de três registros lidos nesta visita.'}</span>
         </div>
       </div>
-      <div className="archive-bottom"><span>LOCAL-FIRST / DEMOS DETERMINÍSTICAS</span><span>LLM OPCIONAL VIA PROXY LOCAL <ArrowUpRight size={12}/></span></div>
+      <div className="archive-bottom"><span>OS EXEMPLOS SÃO SINTÉTICOS, E OS TESTES SÃO REPRODUZÍVEIS</span><span>MODELO DE LINGUAGEM OPCIONAL VIA PROXY LOCAL <ArrowUpRight size={12}/></span></div>
     </div>
 
-    <div className="archive-linked-repos"><span>OUTROS ARQUIVOS DE CÓDIGO</span><a href="https://github.com/Saiiru/ada-commerce" target="_blank" rel="noopener noreferrer">Ada Commerce<ArrowUpRight size={18}/></a><a href="https://github.com/Saiiru/Plann.er" target="_blank" rel="noopener noreferrer">Plann.er API<ArrowUpRight size={18}/></a></div>
+    <div className="archive-linked-repos"><span>PREFERE UMA LISTA DE PROJETOS?</span><a href="https://github.com/Saiiru/ada-commerce" target="_blank" rel="noopener noreferrer">Ada Commerce<ArrowUpRight size={18}/></a><a href="https://github.com/Saiiru/Plann.er" target="_blank" rel="noopener noreferrer">Plann.er API<ArrowUpRight size={18}/></a></div>
+    <a className="archive-complete-link" href="#todos-projetos">ABRIR O ARQUIVO COMPLETO DE REPOSITÓRIOS <ArrowDown size={18}/></a>
   </section>
 }

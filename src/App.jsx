@@ -3,15 +3,21 @@ import { ArrowDownRight, ArrowUpRight, ArrowRight, Menu, X, Plus, TerminalSquare
 import './blacksite.css'
 import './cyber-motion.css'
 import './contextual-signals.css'
+import './human-interactions.css'
+import './recon-identity.css'
+import SignalField from './components/SignalField'
 import SignalText from './components/SignalText'
 import DatashardArchive from './components/DatashardArchive'
+import PublicArchive from './components/PublicArchive'
+import repositorySnapshot from './data/repositories.json'
 import { useCyberMotion, useGlitch } from './useCyberMotion'
 
 const commandOutput = {
-  help: ['COMANDOS DISPONÍVEIS', 'help     lista comandos', 'status   estado dos demos', 'labs     abre as demonstrações', 'stack    mostra tecnologias', 'contact  mostra canais', 'clear    limpa o terminal'],
+  help: ['COMANDOS DISPONÍVEIS', 'help     lista comandos', 'status   estado dos demos', 'labs     abre os 3 laboratórios', 'repos    busca os 62 repositórios públicos', 'stack    mostra tecnologias', 'contact  mostra canais', 'clear    limpa o terminal'],
+  repos: ['ARQUIVO GITHUB / REPOSITÓRIOS PÚBLICOS', repositorySnapshot.repositories.length+' repositórios inventariados: '+repositorySnapshot.repositories.filter(item=>!item.fork).length+' próprios e '+repositorySnapshot.repositories.filter(item=>item.fork).length+' forks.', 'Use a busca do arquivo para encontrar tecnologias ou projetos.'],
   status: ['STATUS // 07.11.2026', 'Portfólio: online neste navegador.', 'Labs: demos exploratórias com dados sintéticos.', 'Execução: modo offline; LLM local opcional quando indicado.', 'Nenhuma métrica de produção é reivindicada.'],
   stack: ['STACK // FERRAMENTAS', 'React · JavaScript · Python · APIs', 'Interfaces, fluxos de avaliação, RAG e sistemas com IA aplicada.'],
-  contact: ['CONTATO // URIAS MACHADO SANTOS', 'sairufsa@gmail.com', 'github.com/Saiiru', 'linkedin.com/in/sairu/'],
+  contact: ['CONTATO // URIAS MACHADO SANTOS', 'github.com/Saiiru', 'linkedin.com/in/sairu/'],
 }
 
 function Terminal() {
@@ -27,7 +33,10 @@ function Terminal() {
     else {
       const output = command === 'labs' ? ['LABS // DEMONSTRAÇÕES', 'EvalForge · OpsPilot · DocTrace', 'Acesse as três experiências em /labs/.'] : commandOutput[command] || [`Comando desconhecido: ${command}`, 'Digite help para ver as opções.']
       setRows(current => [...current, { type: 'command', text: `> ${command}` }, ...output.map(text => ({ type: 'system', text }))])
-      if (command === 'labs') document.getElementById('labs')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+      if (command === 'labs' || command === 'repos') {
+        if (command === 'repos') window.dispatchEvent(new Event('blacksite:open-archive'))
+        document.getElementById(command === 'labs' ? 'labs' : 'todos-projetos')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+      }
     }
     setInput('')
     requestAnimationFrame(() => outputRef.current?.scrollTo({ top: outputRef.current.scrollHeight, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }))
@@ -73,13 +82,13 @@ function Skills(){
  </div>
 }
 function GlitchLogo({ enabled }) {
- const { active, onPointerEnter }=useGlitch(enabled)
+ const { active, onPointerEnter, pulse }=useGlitch(enabled)
  return <>
   <h1 id="sairu-title" className="wordmark-stage" data-glitch={active?'active':'idle'} onPointerEnter={onPointerEnter}>
    <span className="sr-only">Sairu. Software, sistemas e IA aplicada.</span>
    <Wordmark/>
-   <span className="glitch-layer glitch-cyan" aria-hidden="true"><Wordmark/></span>
-   <span className="glitch-layer glitch-magenta" aria-hidden="true"><Wordmark/></span>
+   <span className="glitch-layer glitch-cyan" key={"cyan-"+pulse} aria-hidden="true"><Wordmark/></span>
+   <span className="glitch-layer glitch-magenta" key={"magenta-"+pulse} aria-hidden="true"><Wordmark/></span>
   </h1>
   <div className="hero-annotation"><span className="crosshair" aria-hidden="true">+</span><span>HUMAN / IN / THE / LOOP</span><span className="annotation-rule" aria-hidden="true"/><span className="annotation-end" aria-hidden="true">/ 01</span></div>
  </>
@@ -88,15 +97,15 @@ function App(){
  const rootRef=useRef(null)
  const { enabled:effectsEnabled }=useCyberMotion(rootRef)
  const [menuOpen,setMenuOpen]=useState(false)
- const [contrast,setContrast]=useState(false)
  const close=()=>setMenuOpen(false)
- return <div ref={rootRef} data-effects={effectsEnabled?'on':'off'} className={'portfolio '+(contrast?'light-mode':'')}>
+ return <div ref={rootRef} data-effects={effectsEnabled?'on':'off'} className="portfolio">
+ <div className="ambient-field" aria-hidden="true"><span className="ambient-grid"/><span className="ambient-signal"/></div>
  <div className="reading-progress" aria-hidden="true"/>
  <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
  <div className="edge-code" aria-hidden="true">BLACKSITE // OPEN WORKSPACE — FEIRA DE SANTANA, BR</div>
  <header className="site-nav">
-  <a href="#inicio" onClick={close} className="brand" aria-label="Sairu, início"><svg viewBox="0 0 36 36" width="33" height="33" aria-hidden="true"><path d="M31 3H11L4 10V17L10 23H25V29H4V34H26L32 28V20L26 14H11V8H31Z" fill="currentColor"/></svg><span>SAIRU<span className="brand-detail"> / BLACKSITE</span></span></a>
-  <nav aria-label="Navegação principal" className={menuOpen?'navigation open':'navigation'}><a href="#labs" onClick={close}><SignalText>PROJETOS</SignalText></a><a href="#sobre" onClick={close}><SignalText>SOBRE</SignalText></a><a href="#stack" onClick={close}><SignalText>STACK</SignalText></a><a href="#contato" onClick={close}><SignalText>CONTATO</SignalText><ArrowUpRight size={13}/></a></nav>
+  <a href="#inicio" onClick={close} className="brand" aria-label="Sairu, início"><img src="/brand/sairu-mark.svg" alt="" width="38" height="38"/><span className="brand-label"><SignalText>SAIRU</SignalText><span className="brand-detail"> / BLACKSITE</span></span></a>
+  <nav aria-label="Navegação principal" className={menuOpen?'navigation open':'navigation'}><a href="#labs" onClick={close}><SignalText>PROJETOS</SignalText></a><a href="#todos-projetos" onClick={close}><SignalText>ARQUIVO COMPLETO</SignalText></a><a href="#sobre" onClick={close}><SignalText>SOBRE</SignalText></a><a href="#stack" onClick={close}><SignalText>STACK</SignalText></a><a href="#contato" onClick={close}><SignalText>CONTATO</SignalText><ArrowUpRight size={13}/></a></nav>
   <button className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen?'Fechar menu':'Abrir menu'}>{menuOpen?<X/>:<Menu/>}</button>
  </header>
  <main id="conteudo">
@@ -106,14 +115,15 @@ function App(){
     <div className="type-side" aria-hidden="true"><span>PERSONAL<br/>WORK<br/>ARCHIVE</span><div className="registration"><i/><i/></div><span className="type-side-bottom">DESIGN<br/>BUILD<br/>REPEAT</span></div>
     <GlitchLogo enabled={effectsEnabled}/>
     <div className="hero-titleline"><span>SOFTWARE<span className="dot">.</span></span><span>SISTEMAS<span className="dot">.</span></span><span>IA APLICADA<span className="dot">.</span></span></div>
-    <div className="hero-bottom"><div className="hero-copy"><p>Entre o código e o mundo real.</p><p>Desenvolvimento web, experimentos com IA e uma formação em Eletromecânica. Construindo ferramentas para entender e resolver problemas.</p></div><a className="hero-cta" href="#labs"><span>EXPLORE<br/>OS PROJETOS</span><ArrowDownRight size={42} strokeWidth={1.2}/></a><div className="hero-barcode" aria-hidden="true"><div/><span>SAIRU—BLACKSITE—2026</span></div></div>
+    <div className="hero-bottom"><div className="hero-copy"><p>Entre o código e o mundo real.</p><p>Passei por times de desenvolvimento web e hoje estudo Eletromecânica. Gosto de abrir sistemas, descobrir por que algo falhou e construir uma solução que outra pessoa consiga entender e testar.</p></div><a className="hero-cta" href="#labs"><span>EXPLORE<br/>OS PROJETOS</span><ArrowDownRight size={42} strokeWidth={1.2}/></a><div className="hero-barcode" aria-hidden="true"><div/><span>SAIRU—BLACKSITE—2026</span></div></div>
    </div>
-   <div className="hero-footerline"><span>SEM ATALHOS PARA A EVIDÊNCIA.</span><span><span className="live-indicator"/> PORTFÓLIO EM CONSTRUÇÃO CONTÍNUA</span><span>SCROLL TO EXPLORE ↓</span></div>
+   <div className="hero-footerline"><span>EXPERIÊNCIA REAL. PROJETOS ABERTOS. TESTES REPRODUZÍVEIS.</span><span><span className="live-indicator"/> PORTFÓLIO EM CONSTRUÇÃO CONTÍNUA</span><span>SCROLL TO EXPLORE ↓</span></div>
   </section>
   <Marquee/>
   <DatashardArchive/>
+  <PublicArchive/>
   <section id="sobre" className="about-section">
-   <div className="about-inner section-wrap"><div className="about-main"><h2>CURIOSIDADE<br/>É O <span>COMEÇO.</span><br/>CÓDIGO É<br/>O CAMINHO.</h2><p>Sou Urias Machado Santos — <strong>Sairu</strong>. Minha base é desenvolvimento de software. Meu interesse é entender como as coisas funcionam: de uma interface web a um circuito na bancada.</p><p>Tenho experiência com aplicações corporativas e hoje estudo Eletromecânica no SENAI. Neste espaço, conecto essas áreas em experimentos com ferramentas, automação e modelos de linguagem.</p><button type="button" className="theme-control" onClick={()=>setContrast(!contrast)} aria-pressed={contrast}><span className="theme-swatch"/>{contrast?'VOLTAR AO MODO ESCURO':'EXPERIMENTAR O MODO CLARO'}<ArrowUpRight size={16}/></button></div>
+   <div className="about-inner section-wrap"><div className="about-main"><h2>CURIOSIDADE<br/>É O <span>COMEÇO.</span><br/>CÓDIGO É<br/>O CAMINHO.</h2><p>Sou Urias — ou Sairu, como apareço na maioria dos meus projetos. Comecei desenvolvendo aplicações web. O que mais me prende à programação é aquele momento em que um erro deixa de ser misterioso: você encontra a causa, testa uma hipótese e vê o sistema funcionar.</p><p>Trabalhei com software na Capgemini, Infomakers e Agência Digital S/A. Hoje estudo Eletromecânica no SENAI e exploro ferramentas, eletrônica e modelos de linguagem. O portfólio reúne projetos concluídos, estudos e protótipos — cada um identificado pelo que realmente foi testado.</p><a className="about-projects-link" href="#todos-projetos">VER TODOS OS PROJETOS <ArrowUpRight size={18}/></a></div>
    <div className="about-history" id="trajetoria"><h3>EXPERIÊNCIA</h3>
     <div className="history-item"><span>2022 — 2023</span><h4>Capgemini</h4><p>Analista de Soluções / Desenvolvimento de Software</p><span>Java · Spring Boot · Angular · SQL Server</span></div>
     <div className="history-item"><span>2022</span><h4>Infomakers</h4><p>Desenvolvimento Front-end</p><span>React · Redux · JavaScript · SASS</span></div>
@@ -121,9 +131,19 @@ function App(){
     <h3 className="education-label">FORMAÇÃO / SENAI BAHIA</h3><div className="study-row"><span>EM ANDAMENTO</span><p>Técnico em<br/><strong>Eletromecânica</strong></p><span>DESDE AGO. 2026</span></div><div className="study-row"><span>CONCLUÍDO</span><p>Técnico em<br/><strong>Desenvolvimento de Sistemas</strong></p><span>FEV. 2022</span></div>
    </div></div>
   </section>
-  <section id="stack" className="stack-section section-wrap"><header className="section-heading"><h2>THE<br/><span className="outlined">TOOLKIT.</span></h2><p className="stack-intro">Tecnologia com contexto.<br/>Escolha uma ferramenta para ver onde ela entra no meu trabalho.</p></header><Skills/></section>
+  <section id="stack" className="stack-section section-wrap"><header className="section-heading"><h2>THE<br/><span className="outlined">TOOLKIT.</span></h2><p className="stack-intro">Não é uma coleção de logos.<br/>Clique numa tecnologia para ver onde eu a usei e o que consigo demonstrar.</p></header><Skills/></section>
   <section className="terminal-section section-wrap"><div className="terminal-title"><TerminalSquare size={22}/><h2>Quer explorar por comando?</h2><p>Digite <code>help</code> para começar.</p></div><Terminal/></section>
-  <section id="contato" className="contact-section section-wrap"><div className="contact-header"><span>BOAS IDEIAS COMEÇAM NUMA CONVERSA.</span><span>CANAL ABERTO ↙</span></div><a className="contact-heading" href="mailto:sairufsa@gmail.com">LET’S<br/><span>BUILD.</span><ArrowUpRight strokeWidth={.85}/></a><div className="contact-bottom"><a href="mailto:sairufsa@gmail.com">sairufsa@gmail.com<ArrowUpRight size={16}/></a><div><a href="https://github.com/Saiiru" target="_blank" rel="noopener noreferrer">GITHUB<ArrowUpRight size={16}/></a><a href="https://www.linkedin.com/in/sairu/" target="_blank" rel="noopener noreferrer">LINKEDIN<ArrowUpRight size={16}/></a></div></div></section>
+  <section id="contato" className="contact-section" aria-labelledby="contact-title">
+   <SignalField/><div className="contact-shade" aria-hidden="true"/>
+   <div className="contact-layout">
+    <div className="contact-copy"><h2 id="contact-title">O próximo passo<br/>é uma <span>conversa.</span></h2><p>Sobre software, automação ou uma oportunidade no seu time. Me conta o que você está construindo.</p></div>
+    <div className="contact-channels">
+     <a className="contact-channel" href="https://www.linkedin.com/in/sairu/" target="_blank" rel="noopener noreferrer"><div><span>Vamos conversar</span><small>Me encontre no LinkedIn e mande uma mensagem.</small></div><ArrowUpRight size={27}/></a>
+     <a className="contact-channel" href="https://github.com/Saiiru" target="_blank" rel="noopener noreferrer"><div><span>Explore o código</span><small>Meu perfil, estudos e contribuições no GitHub.</small></div><ArrowUpRight size={27}/></a>
+    </div>
+   </div>
+   <div className="contact-signoff"><div className="contact-signature"><img src="/brand/sairu-mark.svg" alt="" width="48" height="48"/><span>SAIRU</span></div><span>URIAS MACHADO SANTOS<br/>FEIRA DE SANTANA, BAHIA</span></div>
+  </section>
  </main>
  <footer className="site-footer"><a href="#inicio">SAIRU / BLACKSITE</a><span>URIAS MACHADO SANTOS © 2026</span><a href="#inicio">VOLTAR AO TOPO ↑</a></footer>
  </div>

@@ -1,0 +1,36 @@
+from playwright.sync_api import sync_playwright
+from pathlib import Path
+ROOT=Path('/home/sairu/workspace/blacksite-ai-builder-20261107/site')
+OUT=ROOT/'design/previews'
+OUT.mkdir(parents=True,exist_ok=True)
+BASE='http://127.0.0.1:4389'
+with sync_playwright() as p:
+ b=p.chromium.launch(headless=True,executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-gpu'])
+ desktop=b.new_page(viewport={'width':1440,'height':960},device_scale_factor=1)
+ desktop.goto(BASE,wait_until='networkidle')
+ desktop.wait_for_timeout(700)
+ desktop.mouse.move(2,2)
+ desktop.locator('#inicio').screenshot(path=str(OUT/'human-hero-desktop.png'))
+ desktop.locator('.shard-select[data-shard="evalforge"]').click()
+ desktop.get_by_role('tab',name='O problema').click()
+ desktop.mouse.move(2,2)
+ desktop.locator('#labs').screenshot(path=str(OUT/'human-datashards-desktop.png'))
+ desktop.get_by_role('button',name='EXPLORAR O ARQUIVO').click()
+ desktop.locator('#todos-projetos').screenshot(path=str(OUT/'human-repository-list-desktop.png'))
+ desktop.get_by_role('button',name='FECHAR ARQUIVO').click()
+ desktop.locator('#terminal-input').fill('repos')
+ desktop.locator('#terminal-input').press('Enter')
+ assert desktop.locator('.archive-table-panel').is_visible()
+ assert '62' in desktop.locator('.terminal-output').inner_text()
+ print('PASS terminal repos opens archive and shows derived count')
+ mobile=b.new_page(viewport={'width':390,'height':844},device_scale_factor=1)
+ mobile.goto(BASE,wait_until='networkidle')
+ mobile.wait_for_timeout(500)
+ mobile.locator('#labs').screenshot(path=str(OUT/'human-datashards-mobile.png'))
+ mobile.get_by_role('button',name='EXPLORAR O ARQUIVO').click()
+ mobile.locator('#todos-projetos').screenshot(path=str(OUT/'human-repository-list-mobile.png'))
+ assert mobile.evaluate('document.documentElement.scrollWidth <= innerWidth+2')
+ b.close()
+print('SCREENSHOTS')
+for f in sorted(OUT.glob('human-*.png')):
+ print(f.name,f.stat().st_size)

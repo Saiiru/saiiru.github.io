@@ -1,7 +1,8 @@
 const repo = 'https://github.com/Saiiru/saiiru.github.io/tree/main/projects/ai-builder-labs'
 export const datashards = [
   {
-    id: 'evalforge', serial: 'DSH—001', name: 'EvalForge', code: 'EF',
+    id: 'evalforge',
+    decision: 'Escolhi critérios determinísticos para tornar cada falha reproduzível. É simples de auditar, mas não mede nuance semântica; o modo LLM é opcional e separado.', serial: 'DSH—001', name: 'EvalForge', code: 'EF',
     category: 'AVALIAÇÃO DE RESPOSTAS', accent: 'cyan',
     descriptor: 'Saídas de modelos / critérios explícitos',
     question: 'Como avaliar uma resposta antes de confiar nela?',
@@ -24,7 +25,8 @@ export const datashards = [
     demo: '/labs/index.html?lab=evalforge', source: repo
   },
   {
-    id: 'opspilot', serial: 'DSH—002', name: 'OpsPilot', code: 'OP',
+    id: 'opspilot',
+    decision: 'Uma regra pode sugerir o destino de um chamado, mas não deve decidir por uma pessoa. Por isso a exportação exige aprovação e qualquer edição invalida a autorização anterior.', serial: 'DSH—002', name: 'OpsPilot', code: 'OP',
     category: 'OPERAÇÕES COM REVISÃO HUMANA', accent: 'magenta',
     descriptor: 'Triagem de chamados / decisão humana',
     question: 'Como automatizar a triagem sem abrir mão da decisão?',
@@ -47,7 +49,8 @@ export const datashards = [
     demo: '/labs/index.html?lab=opspilot', source: repo
   },
   {
-    id: 'doctrace', serial: 'DSH—003', name: 'DocTrace', code: 'DT',
+    id: 'doctrace',
+    decision: 'A busca BM25 permite mostrar de onde saiu cada trecho e funciona offline. O trade-off é que recuperar texto não equivale a compreender documentos; sem fonte, a ferramenta prefere não responder.', serial: 'DSH—003', name: 'DocTrace', code: 'DT',
     category: 'DOCUMENTOS COM EVIDÊNCIAS', accent: 'violet',
     descriptor: 'Markdown / recuperação com fontes',
     question: 'De onde veio a informação usada na resposta?',

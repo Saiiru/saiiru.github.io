@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "name": "SAIRU / BLACKSITE",
-  "documentedAt": "2026-11-07",
+  "documentedAt": "2026-11-08",
   "mode": "Experience",
   "sourceFiles": [
     "PRODUCT.md",
@@ -11,52 +11,58 @@
     "src/useCyberMotion.js",
     "src/components/DatashardArchive.jsx",
     "src/components/datashards.js",
-    "src/components/datashard-archive.css"
+    "src/components/datashard-archive.css",
+    "src/recon-identity.css",
+    "src/components/SignalField.jsx",
+    "src/contextual-signals.css",
+    "src/human-interactions.css",
+    "src/components/PublicArchive.jsx",
+    "public/brand/sairu-mark.svg"
   ],
-  "intent": "A typographic sci-fi editorial portfolio that leads with an original SAIRU wordmark and invites recruiters to inspect real work and test honest offline prototypes.",
+  "intent": "A typography-led portfolio with an original SAIRU identity, factual software evidence, inspectable prototype limits and private professional contact channels.",
   "principles": [
     "Typography before decoration",
-    "Continuous editorial project sequence rather than a dashboard or bento hero",
     "Evidence before claims",
-    "Original vector geometry and licensed open-source typography",
-    "Warm black with industrial yellow as the primary signal"
+    "Original vector identity and licensed open-source typography",
+    "Charcoal foundation with restrained mint interaction and coral signature",
+    "Decorative motion never blocks readable content"
   ],
   "tokens": {
     "color": {
+      "scope": ".portfolio overrides in src/recon-identity.css; replaces previous yellow surfaces",
       "dark": {
-        "ink": "#11130f",
-        "paper": "#dfdfd1",
-        "muted": "#a4a79c",
-        "signal": "#ffd22e",
-        "line": "#3d4035",
-        "annotation": "#41f4e5",
-        "tape": "#16151f",
-        "terminal": "#0b0e09",
-        "cyan": "#41f4e5",
-        "magenta": "#ff4aad",
-        "violet": "#a88bff"
+        "ink": "#0b1110",
+        "paper": "#e3eee7",
+        "muted": "#a9beb3",
+        "signal": "#9ce8bf",
+        "line": "#30483d",
+        "coral": "#ee6674",
+        "cyan": "#9ce8bf",
+        "magenta": "#ee6674",
+        "violet": "#b7c7c0",
+        "tape": "#151b18",
+        "about": "#131c17",
+        "contact": "#09110d",
+        "terminal": "#0b0e09"
       },
-      "light": {
-        "ink": "#e8e8d8",
-        "paper": "#20241b",
-        "muted": "#555e45",
-        "signal": "#4a5c1c",
-        "line": "#bec2ad",
-        "titleStrip": "#d2d947",
-        "about": "#d1d847",
-        "annotation": "#3e6a63",
-        "cyan": "#07616d",
-        "magenta": "#a41d5c",
-        "violet": "#6940b0"
+      "lightCompatibilityOnly": {
+        "ink": "#e6eee7",
+        "paper": "#15261c",
+        "muted": "#3a5946",
+        "signal": "#226342",
+        "line": "#a2b9a9",
+        "magenta": "#a3344d",
+        "note": "Retained CSS compatibility; no current light-mode control in App.jsx. Contact remains dark."
       },
       "usage": {
-        "signal": "Dominant wordmark and industrial brand",
-        "annotation": "Tiny technical notes only; never the dominant accent",
-        "line": "Quiet continuous editorial dividers",
-        "terminal": "Terminal remains dark in both themes",
-        "cyan": "Interactions and first project",
-        "magenta": "Finite glitch fragments and second project",
-        "violet": "Third project and secondary technical states"
+        "ink": "Neutral charcoal foundation",
+        "paper": "Primary readable copy",
+        "muted": "Supporting text and metadata",
+        "line": "Quiet structural dividers",
+        "signal": "Mint identity, interactions, focus and selected states",
+        "coral": "Limited signature detail and brief chromatic separation",
+        "terminal": "Dark local terminal",
+        "ratioBoundary": "Color roles are documented; no unmeasured contrast ratios or certification asserted."
       }
     },
     "typography": {
@@ -94,7 +100,7 @@
       "displayScale": {
         "sectionHeading": "clamp(42px, 6.6vw, 100px)",
         "projectHeading": "clamp(28px, 3vw, 48px)",
-        "contactHeading": "clamp(86px, 15vw, 230px)",
+        "contactHeading": "clamp(48px, 6.7vw, 96px); 44–68px below 760px; 40–52px below 520px",
         "letterSpacing": "-0.03em to -0.04em"
       }
     },
@@ -103,8 +109,6 @@
       "minViewportPx": 320,
       "pageGutter": "clamp(22px, 4.2vw, 72px)",
       "mobileGutterPx": 23,
-      "projectColumns": "minmax(0, 1.1fr) minmax(0, 1fr)",
-      "projectGapPx": 64,
       "sectionPaddingPx": [
         65,
         78,
@@ -157,13 +161,19 @@
         100,
         110,
         120
-      ]
+      ],
+      "contactColumns": "minmax(0,1.25fr) minmax(280px,.75fr); one column below 760px",
+      "contactGapPx": {
+        "desktop": 80,
+        "max1100": 45,
+        "max760": 38
+      }
     },
     "shape": {
       "radius": "Square editorial surfaces; round only the small status dot",
       "rulePx": 1,
       "focusRingPx": 2,
-      "focusOffsetPx": 6
+      "focusOffsetPx": 5
     },
     "motion": {
       "wordmarkEntry": {
@@ -189,24 +199,58 @@
         400,
         600
       ],
-      "reducedMotion": "Disable animations, transitions and smooth scrolling; ensure wordmark is fully revealed"
+      "reducedMotion": "OS preference disables decorative animations, transitions and smooth scrolling; wordmark stays readable and SignalField draws a stable frame.",
+      "signalField": {
+        "implementation": "src/components/SignalField.jsx",
+        "kind": "Original layered-noise/domain-warped WebGL contour field",
+        "targetMaxFps": 30,
+        "maxDevicePixelRatio": 1.25,
+        "observerMarginPx": 80,
+        "pause": [
+          "outside observed viewport margin",
+          "document hidden"
+        ],
+        "reducedMotion": "Stable rendered frame; no animation loop",
+        "fallback": "Static CSS radial gradient when context or shader setup fails",
+        "dependencyAdded": false,
+        "externalMedia": false,
+        "sourceCopied": false
+      }
     }
   },
   "components": {
-    "hero": "Full-width original geometric SAIRU wordmark, technical margin, yellow reverse type strip, asymmetric copy/CTA/barcode lower composition. No bento layout.",
-    "navigation": "Desktop inline section anchors; toggleable yellow menu at <=520px, aria-expanded and menu-specific accessible label.",
-    "projectRow": "Number and name above a real browser screenshot and editorial description. Primary test-demo CTA and visible source/tests link. Decorative screenshot link is hidden from the accessibility tree to avoid duplicate focus stops.",
+    "hero": "Original full-width geometric SAIRU wordmark, technical margin, segmented dark green/oxblood type strip and asymmetric lower composition.",
+    "navigation": "Desktop section anchors; toggleable mobile menu at <=520px with aria-expanded and descriptive control label.",
     "evidenceInspector": "Selectable skill inventory with aria-pressed buttons, explicit experience/prototype status, evidence description and relevant source link; polite atomic live update.",
-    "biography": "Yellow full-width section preserving paid software roles and education dates.",
+    "biography": "Dark green editorial section preserving real paid software roles and education dates.",
     "terminal": "Deterministic local command exploration, labeled input, polite live log, clear/help/status/labs/stack/contact commands.",
-    "contact": "Large typographic mailto invitation plus explicit email, GitHub and LinkedIn links.",
-    "themeControl": "Local React light-mode toggle; aria-pressed. No persisted preference is implemented."
+    "contact": {
+      "heading": "O próximo passo é uma conversa.",
+      "layout": "Portuguese editorial copy and two direct channels over a shaded original contour field",
+      "channels": [
+        "LinkedIn",
+        "GitHub"
+      ],
+      "personalEmail": false,
+      "mailto": false
+    },
+    "brand": {
+      "asset": "public/brand/sairu-mark.svg",
+      "kind": "Original mint/coral S monogram",
+      "locations": [
+        "navigation",
+        "contact signoff",
+        "authored profile panel"
+      ]
+    },
+    "projectSurface": "Existing Datashard Archive catalogue and in-place accessible dossier reader, followed by the PublicArchive repository inventory; this identity pass adds no project claims.",
+    "edgeRegistration": "Fixed decorative edge code. Explicit override prevents the prior relative-positioning flow defect that added about 296px."
   },
   "responsive": {
     "min1700": "Increase hero top and lower spacing.",
     "max1100": "Reduce grid gaps and navigation spacing; hide hero barcode.",
-    "max760": "Project sequence becomes one column; toolkit becomes one column with a two-column selector; readout loses sticky positioning.",
-    "max520": "Mobile menu, one-column hero lower area and toolkit selector, stacked biography/contact, 23px gutters, simplified decorative details."
+    "max760": "Contact and toolkit become one column; toolkit selector has two columns and evidence readout loses sticky positioning.",
+    "max520": "Mobile menu, one-column hero lower area and toolkit selector, stacked biography/contact, 23px gutters, simplified decorations."
   },
   "accessibility": {
     "implemented": [
@@ -215,40 +259,72 @@
       "Screen-reader h1 equivalent for SVG wordmark",
       "Visible focus indicators",
       "Labeled terminal input and polite live output",
-      "Pressed state for toolkit and theme buttons",
       "Expanded state for mobile menu",
       "Decorative geometry hidden from assistive technology",
       "Reduced-motion alternative",
-      "External links use noopener noreferrer"
+      "External links use noopener noreferrer",
+      "Pressed state for toolkit and archive selection",
+      "Accessible dossier tabs",
+      "Decorative WebGL canvas hidden from assistive technology",
+      "Static reduced-motion field and unavailable-WebGL fallback"
     ],
-    "verificationBoundary": "This documents implementation, not a formal WCAG conformance audit. Check contrast, zoom, keyboard navigation and tiny decorative labels against the final rendered build."
+    "verificationBoundary": "Scoped browser and finish review passed; this record is not a formal accessibility certification."
   },
   "contentConstraints": [
-    "Preserve actual paid software experience, education, GitHub and contact information.",
+    "Preserve actual paid software experience, education, GitHub and professional contact channels.",
     "EvalForge, OpsPilot and DocTrace are exploratory offline demos with synthetic data.",
     "Rules and local retrieval do not imply real LLM inference; an LLM via local proxy is optional where indicated.",
     "Benchmarks and tests describe demos, not enterprise outcomes or production impact.",
     "Do not claim unverified availability.",
-    "No commercial Cyber Grotesk font files or copyrighted reference artwork."
+    "No commercial Cyber Grotesk font files or copyrighted reference artwork.",
+    "Do not expose personal email or mailto links in rendered page content or terminal contact output."
   ],
   "references": [
     {
       "name": "Cyber Grotesk",
       "author": "Olga Ryzhychenko",
-      "role": "Typography and industrial editorial direction only"
+      "role": "Typography and industrial editorial direction only",
+      "status": "Historical visual direction"
     },
     {
       "name": "Nothing Portfolio",
       "author": "Ankit Shrestha",
-      "role": "MIT portfolio reference"
+      "role": "MIT portfolio reference",
+      "status": "Historical visual direction"
     },
     {
       "name": "Cybersecurity Portfolio",
       "author": "Pixiei Studio LLC",
-      "role": "Visual direction reference"
+      "role": "Visual direction reference",
+      "status": "Historical visual direction"
+    },
+    {
+      "name": "Mille profile and languages panels",
+      "url": "https://github.com/mille-okws/mille-okws/tree/main",
+      "role": "SVG format and structure inspiration; Sairu panels authored afresh"
+    },
+    {
+      "name": "CyberArch glitch.frag",
+      "url": "https://github.com/ARCANGEL0/CyberArch-Shell/blob/master/components/glitch.frag",
+      "role": "Scanline/displacement/channel-separation technique inspiration; shader not copied"
+    },
+    {
+      "name": "CyberArch login Background.qml",
+      "url": "https://github.com/ARCANGEL0/CyberArch-Shell/blob/master/components/login/sddm-theme/Background.qml",
+      "role": "Inspected image/video fallback implementation, not a fluid shader"
+    },
+    {
+      "name": "sandrina-p / RRWaYO",
+      "url": "https://codepen.io/sandrina-p/pen/RRWaYO",
+      "role": "Stepped chromatic text-shadow technique reference"
+    },
+    {
+      "name": "mostafazke / XERXeY",
+      "url": "https://codepen.io/mostafazke/pen/XERXeY",
+      "role": "Layered clipped-image glitch technique reference"
     }
   ],
-  "scope": "Documentation only; no UI changes or publishing performed by this documentation task.",
+  "scope": "Documentation of finished identity refinement only; no code edits, commits or publishing by this documentation task.",
   "chromaticMotion": {
     "consultant": "Gemini via Agy, source response in design/motion",
     "css": "src/cyber-motion.css",
@@ -267,19 +343,24 @@
     "labelGlitchMs": 260,
     "contextualCSS": "src/contextual-signals.css",
     "sources": "design/contextual-signals/RESEARCH.md",
-    "dependencyAdded": false
+    "dependencyAdded": false,
+    "currentColors": {
+      "first": "#9ce8bf",
+      "second": "#ee6674"
+    },
+    "attribution": "Existing Cybercore MIT bands/scanlines adaptation retained in design/contextual-signals/RESEARCH.md and license files; no package dependency."
   },
   "datashardArchive": {
     "mode": "Operate within Experience portfolio",
     "layout": "catalogue + dossier reader",
     "breakpointPx": 850,
-    "background": "#0b1518",
-    "reader": "#0a1b20",
-    "border": "#275159",
-    "text": "#dbede6",
-    "body": "#b1cbc7",
-    "metadata": "#8ca5a2",
-    "coral": "#ef747b",
+    "background": "#0c1511",
+    "reader": "#101d16",
+    "border": "#355244",
+    "text": "#e3eee7",
+    "body": "#bfd2c7",
+    "metadata": "#a6bdaf",
+    "coral": "#ee6674",
     "readState": "per component visit, explicitly labeled",
     "default": "evalforge",
     "tabs": [
@@ -290,6 +371,57 @@
     "shareParameter": "shard",
     "jsonSchema": "blacksite.datashard/1",
     "scanMs": 210,
-    "copiedGameAssets": false
+    "copiedGameAssets": false,
+    "selectedBackground": "#20362a",
+    "selectedSignal": "#9ce8bf"
+  },
+  "verification": {
+    "suite": "scripts/e2e_recon.py",
+    "reportedStatus": "PASS",
+    "widthsPx": [
+      320,
+      390,
+      768,
+      1280,
+      1440
+    ],
+    "covers": [
+      "overflow",
+      "mark and palette",
+      "contact channels",
+      "rendered email/mailto privacy",
+      "terminal privacy",
+      "WebGL frame progression",
+      "offscreen pause",
+      "reduced motion",
+      "mobile menu hit targeting",
+      "unavailable-WebGL fallback"
+    ],
+    "sourceInspected": [
+      "hidden-document pause and resource cleanup"
+    ],
+    "detector": [],
+    "finishReview": {
+      "reviewer": "/root/recon_finish_review",
+      "disposition": "SHIP",
+      "materialFindings": [],
+      "scope": [
+        "desktop/mobile hero and contact",
+        "profile panels",
+        "full SignalField/App/recon CSS sources"
+      ]
+    },
+    "screenshots": "design/recon/",
+    "documentationPassReranBrowserSuite": false
+  },
+  "history": {
+    "initialDirection": "2026-11-07 industrial yellow and editorial screenshot rows; superseded by recon palette and catalogue/dossier surfaces",
+    "currentResearch": "design/recon/RESEARCH.md",
+    "priorResearch": [
+      "design/motion/",
+      "design/datashards/",
+      "design/contextual-signals/RESEARCH.md"
+    ],
+    "edgeFlowFix": "Explicit fixed-position override for decorative edge code after broad relative positioning created about 296px of flow space."
   }
 }
