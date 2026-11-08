@@ -29,3 +29,40 @@ export function evaluateSuite(cases=evalCases, overrides={}) {
   const passed=results.filter(r=>r.passed).length;
   return {total:results.length,passed,failed:results.length-passed,rate:results.length?passed/results.length:0,results};
 }
+
+
+export function formatObsidianNote({instruction, cases=evalCases, overrides={}, generatedAt=new Date().toISOString()}) {
+  const suite=evaluateSuite(cases,overrides);
+  const lines=[
+    '---','type: experimento','projeto: "[[01-Projetos/EvalForge/Project|EvalForge]]"','status: revisar',
+    '---','# EvalForge — experimento',
+    '',
+    'Origem: [EvalForge](https://saiiru.github.io/labs/index.html?lab=evalforge)',
+    `Registro: ${generatedAt}`,
+    '',
+    '> [!warning] Escopo',
+    '> Casos sintéticos e asserções explícitas. O resultado não mede verdade factual, qualidade geral nem desempenho em produção. Uma instrução editada só influencia respostas geradas pela opção LLM local.',
+    '',
+    '## Pergunta',
+    'O que esta execução verificou e o que ficou sem verificar?',
+    '',
+    '## Configuração',
+    `Instrução: ${instruction.trim() || '(vazia)'}`,
+    `Casos aprovados: ${suite.passed}/${suite.total}`,
+    '',
+    '## Resultados'
+  ];
+  for(const result of suite.results){
+    const testCase=cases.find(c=>c.id===result.id);
+    const response=String(overrides[result.id]??testCase.response);
+    const fence='`'.repeat(Math.max(3,...[...response.matchAll(/`+/g)].map(m=>m[0].length+1)));
+    lines.push('',`### ${result.id} — ${result.passed?'passou':'falhou'}`,
+      `Caso: ${testCase.task}`,
+      `Critérios: ${JSON.stringify(testCase.assertions)}`,
+      `Motivos: ${result.reasons.join('; ')}`,
+      '',fence,response,fence);
+  }
+  lines.push('','## Interpretação','O que a falha ou aprovação significa para este caso?','','## Próximo teste','Qual caso realista ou critério faltou?','',
+    '## Relações','[[01-Projetos/EvalForge/Project|EvalForge]] — projeto que usa esta evidência.','');
+  return lines.join('\n');
+}

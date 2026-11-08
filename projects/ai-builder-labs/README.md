@@ -30,6 +30,10 @@ npm run serve:ai
 
 `.env.example` documenta as variáveis, mas o app não lê `.env` automaticamente. A chave nunca é enviada ao navegador; o proxy só aceita chamadas do site local na mesma porta, limita entrada, usa timeout de 15 segundos e escuta em `127.0.0.1`. Escolha um modelo disponível no provedor usado. O botão LLM só funciona nessa execução local configurada; a versão estática publicada permanece útil offline.
 
+## EvalForge → Obsidian
+
+Abra o [laboratório](https://saiiru.github.io/labs/index.html?lab=evalforge), escolha um caso e edite a resposta. A instrução só influencia a geração opcional via LLM local; a execução offline compara respostas com asserções fixas. Clique **Nota para Obsidian (.md)** e coloque o arquivo no projeto EvalForge do vault CyberArch. Complete a interpretação e o próximo teste em suas palavras, depois ligue uma ideia pequena à evidência. A exportação JSON continua disponível para inspeção por ferramenta. Não use 6/6 da base sintética como medida da qualidade de um modelo real.
+
 ## Projetos
 
 | Ferramenta | Problema e solução | Limitação |

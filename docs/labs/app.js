@@ -1,4 +1,4 @@
-import {evalCases,defaultInstruction,evaluateSuite} from './core/evalforge.mjs';
+import {evalCases,defaultInstruction,evaluateSuite,formatObsidianNote} from './core/evalforge.mjs';
 import {tickets,routeTicket,benchmarkTickets,createReview,approveReview,exportApproved} from './core/opspilot.mjs';
 import {corpusPaths,chunkDocuments,retrieve,groundedAnswer} from './core/doctrace.mjs';
 
@@ -6,6 +6,7 @@ const $=id=>document.getElementById(id);
 const state={overrides:{},review:null,passages:[],docs:[],search:[],llm:false};
 const pct=n=>`${(n*100).toFixed(1)}%`;
 function el(tag,cls,text){const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node;}
+function downloadText(name,content,type='text/plain'){const url=URL.createObjectURL(new Blob([content],{type}));const link=el('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 function download(name,data){const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const link=el('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 function setStatus(id,message){ $(id).textContent=message; }
 function metric(label,value){const box=el('div','metric');box.append(el('strong','',String(value)),el('span','',label));return box;}
@@ -40,6 +41,7 @@ $('ef-case').addEventListener('change',loadEval);
 $('ef-response').addEventListener('input',()=>{state.overrides[$('ef-case').value]=$('ef-response').value;renderEval();});
 $('ef-run').addEventListener('click',()=>{const s=renderEval();setStatus('ef-status',`${s.passed} de ${s.total} casos passaram na execução atual.`);});
 $('ef-export').addEventListener('click',()=>download('evalforge-report.json',{mode:'deterministic-offline',instruction:$('ef-prompt').value,cases:evalCases.map(c=>({id:c.id,task:c.task,assertions:c.assertions,response:state.overrides[c.id]??c.response})),summary:renderEval()}));
+$('ef-note').addEventListener('click',()=>{downloadText('evalforge-experimento.md',formatObsidianNote({instruction:$('ef-prompt').value,overrides:state.overrides}),'text/markdown');setStatus('ef-status','Nota Markdown baixada. Revise a interpretação antes de colocá-la no Obsidian.');});
 $('ef-llm').addEventListener('click',async()=>{const c=evalCases.find(x=>x.id===$('ef-case').value);setStatus('ef-status','Consultando LLM local...');try{const answer=await callLLM($('ef-prompt').value,`Caso ${c.id}: ${c.task}`);state.overrides[c.id]=answer;$('ef-response').value=answer;const s=renderEval();setStatus('ef-status',`Resposta do LLM local avaliada pelas mesmas asserções. ${s.passed}/${s.total} casos passaram.`);}catch(e){setStatus('ef-status',e.message);}});
 loadEval();renderEval();
 
