@@ -1,18 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
-const STORAGE_KEY = 'blacksite-effects'
 const reducedQuery = '(prefers-reduced-motion: reduce)'
 
-function readPreference() {
-  try { return window.localStorage.getItem(STORAGE_KEY) !== 'off' }
-  catch { return true }
-}
 
 /** Coordinate motion once; effects never gate content. */
 export function useCyberMotion(rootRef) {
-  const [preferred, setPreferred] = useState(readPreference)
   const [reduced, setReduced] = useState(() => window.matchMedia(reducedQuery).matches)
-  const enabled = preferred && !reduced
+  const enabled = !reduced
 
   useEffect(() => {
     const media = window.matchMedia(reducedQuery)
@@ -20,10 +14,6 @@ export function useCyberMotion(rootRef) {
     media.addEventListener('change', update)
     return () => media.removeEventListener('change', update)
   }, [])
-
-  useEffect(() => {
-    try { window.localStorage.setItem(STORAGE_KEY, preferred ? 'on' : 'off') } catch { /* Storage may be blocked. */ }
-  }, [preferred])
 
   useEffect(() => {
     const root = rootRef.current
@@ -86,26 +76,51 @@ export function useCyberMotion(rootRef) {
     }
   }, [enabled, rootRef])
 
-  return { enabled, reduced, toggleEffects: () => setPreferred(value => !value) }
+  return { enabled }
 }
 
-/** Finite burst with a re-entry guard: never a permanent glitch loop. */
+/** A short entry pulse, then deliberate pointer responses with a quiet interval. */
 export function useGlitch(enabled) {
   const [active, setActive] = useState(false)
   const running = useRef(false)
   const timeout = useRef()
-  useEffect(() => {
-    if (!enabled) { running.current = false; clearTimeout(timeout.current); setActive(false) }
-    return () => clearTimeout(timeout.current)
-  }, [enabled])
-  const trigger = () => {
-    if (!enabled || running.current) return
+  const lastPulse = useRef(-Infinity)
+  const entered = useRef(false)
+
+  const trigger = useCallback(() => {
+    const now = performance.now()
+    if (!enabled || running.current || now - lastPulse.current < 1500) return
     running.current = true
+    lastPulse.current = now
     setActive(true)
     timeout.current = setTimeout(() => {
       running.current = false
       setActive(false)
     }, 620)
+  }, [enabled])
+
+  useEffect(() => {
+    let entry
+    if (enabled && !entered.current) {
+      // Mark only when the callback runs: StrictMode's setup/cleanup rehearsal
+      // cannot consume the entrance or leave the running guard stuck.
+      entry = setTimeout(() => {
+        entered.current = true
+        trigger()
+      }, 240)
+    }
+    if (!enabled) setActive(false)
+    return () => {
+      clearTimeout(entry)
+      clearTimeout(timeout.current)
+      running.current = false
+    }
+  }, [enabled, trigger])
+
+  const onPointerEnter = event => {
+    if (event.pointerType === 'touch' ||
+        !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
+    trigger()
   }
-  return { active, trigger }
+  return { active, onPointerEnter }
 }

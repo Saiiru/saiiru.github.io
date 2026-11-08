@@ -30,9 +30,9 @@ Visual direction references: Cyber Grotesk (Olga Ryzhychenko), Nothing Portfolio
 
 Implemented in src/cyber-motion.css and src/useCyberMotion.js. Gemini provided an independent motion critique and snippets; original implementation and primary references are recorded in design/motion/GEMINI-REVIEW.md and SOURCES.md.
 
-Two decorative copies of the original SVG are clipped into cyan/magenta fragments during a finite 580ms animation. The React trigger guard expires at 620ms. A visitor can trigger the effect with pointer entry or EXEC_GLITCH. The stable base remains visible.
+Two decorative copies of the original SVG are clipped into cyan/magenta fragments during a finite 580ms animation. The React trigger guard expires at 620ms. One burst starts 240ms after entry; later fine-pointer entries can trigger a burst with a 1500ms cooldown. EXEC_GLITCH was removed. The stable base remains visible.
 
-EFEITOS ON/OFF persists preference in localStorage with failure handling. OS prefers-reduced-motion takes precedence and disables triggering. All content remains readable without IntersectionObserver or with effects off. The document's smooth scrolling also stops when effects are off.
+The effects toggle and app-specific localStorage preference were removed. OS prefers-reduced-motion controls eligibility automatically and disables triggering, including live preference changes. All content remains readable without IntersectionObserver or with effects off. The document's smooth scrolling also stops when effects are off.
 
 Project reveals use a single observer and only prepare initially offscreen content; all rows recover on cleanup. Pointer light is desktop-only and updated through requestAnimationFrame, without a replacement cursor. CTA sweep, skill selection, nav focus, progress line and preview corners have their own scoped states.
 
@@ -49,3 +49,7 @@ Default record is EvalForge. Catalogue selection resets the dossier to its first
 The reader uses a two-column catalogue/detail layout above 850px and a horizontal selector above the full-width reader on smaller displays. No modal, nested scroll trap or blocking typewriter. Global effects and reduced-motion controls apply. Dark catalogue has explicit bright tokens in light mode.
 
 Research, Gemini proposal and screenshots: design/datashards. Rendering is implemented in src/components/DatashardArchive.jsx, datashards.js and datashard-archive.css.
+
+## Contextual signals refinement
+
+See design/contextual-signals/RESEARCH.md. Opposing polygon bands and hardware scanlines adapt selected MIT Cybercore CSS; no package dependency. The annotation adopts a restrained oxblood HUD edge, CTA a notched corner. Accessible text remains stable with aria-hidden signal copies. Mobile menu header has explicit stacking order; the CTA uses an inset keyboard focus outline.

@@ -2,6 +2,8 @@ import { useRef, useState } from 'react'
 import { ArrowDownRight, ArrowUpRight, ArrowRight, Menu, X, Plus, TerminalSquare } from 'lucide-react'
 import './blacksite.css'
 import './cyber-motion.css'
+import './contextual-signals.css'
+import SignalText from './components/SignalText'
 import DatashardArchive from './components/DatashardArchive'
 import { useCyberMotion, useGlitch } from './useCyberMotion'
 
@@ -71,20 +73,20 @@ function Skills(){
  </div>
 }
 function GlitchLogo({ enabled }) {
- const { active, trigger } = useGlitch(enabled)
+ const { active, onPointerEnter }=useGlitch(enabled)
  return <>
-  <h1 id="sairu-title" className="wordmark-stage" data-glitch={active?'active':'idle'} onPointerEnter={trigger}>
+  <h1 id="sairu-title" className="wordmark-stage" data-glitch={active?'active':'idle'} onPointerEnter={onPointerEnter}>
    <span className="sr-only">Sairu. Software, sistemas e IA aplicada.</span>
    <Wordmark/>
    <span className="glitch-layer glitch-cyan" aria-hidden="true"><Wordmark/></span>
    <span className="glitch-layer glitch-magenta" aria-hidden="true"><Wordmark/></span>
   </h1>
-  <div className="hero-annotation"><span className="crosshair" aria-hidden="true">+</span><span>HUMAN / IN / THE / LOOP</span><span className="annotation-rule" aria-hidden="true"/><button type="button" className="glitch-trigger" disabled={!enabled} onClick={trigger} aria-controls="sairu-title" aria-label="Disparar glitch no letreiro"><span aria-hidden="true">↯</span> EXEC_GLITCH</button></div>
+  <div className="hero-annotation"><span className="crosshair" aria-hidden="true">+</span><span>HUMAN / IN / THE / LOOP</span><span className="annotation-rule" aria-hidden="true"/><span className="annotation-end" aria-hidden="true">/ 01</span></div>
  </>
 }
 function App(){
  const rootRef=useRef(null)
- const { enabled:effectsEnabled, reduced, toggleEffects }=useCyberMotion(rootRef)
+ const { enabled:effectsEnabled }=useCyberMotion(rootRef)
  const [menuOpen,setMenuOpen]=useState(false)
  const [contrast,setContrast]=useState(false)
  const close=()=>setMenuOpen(false)
@@ -94,8 +96,8 @@ function App(){
  <div className="edge-code" aria-hidden="true">BLACKSITE // OPEN WORKSPACE — FEIRA DE SANTANA, BR</div>
  <header className="site-nav">
   <a href="#inicio" onClick={close} className="brand" aria-label="Sairu, início"><svg viewBox="0 0 36 36" width="33" height="33" aria-hidden="true"><path d="M31 3H11L4 10V17L10 23H25V29H4V34H26L32 28V20L26 14H11V8H31Z" fill="currentColor"/></svg><span>SAIRU<span className="brand-detail"> / BLACKSITE</span></span></a>
-  <nav aria-label="Navegação principal" className={menuOpen?'navigation open':'navigation'}><a href="#labs" onClick={close}>PROJETOS</a><a href="#sobre" onClick={close}>SOBRE</a><a href="#stack" onClick={close}>STACK</a><a href="#contato" onClick={close}>CONTATO<ArrowUpRight size={13}/></a></nav>
-  <button className="effects-toggle" type="button" aria-label="Ativar efeitos visuais" aria-pressed={effectsEnabled} disabled={reduced} onClick={toggleEffects}><span className="fx-indicator" aria-hidden="true"/>{reduced?'MOVIMENTO REDUZIDO':'EFEITOS '+(effectsEnabled?'ON':'OFF')}</button><button className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen?'Fechar menu':'Abrir menu'}>{menuOpen?<X/>:<Menu/>}</button>
+  <nav aria-label="Navegação principal" className={menuOpen?'navigation open':'navigation'}><a href="#labs" onClick={close}><SignalText>PROJETOS</SignalText></a><a href="#sobre" onClick={close}><SignalText>SOBRE</SignalText></a><a href="#stack" onClick={close}><SignalText>STACK</SignalText></a><a href="#contato" onClick={close}><SignalText>CONTATO</SignalText><ArrowUpRight size={13}/></a></nav>
+  <button className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen?'Fechar menu':'Abrir menu'}>{menuOpen?<X/>:<Menu/>}</button>
  </header>
  <main id="conteudo">
   <section id="inicio" className="hero">
