@@ -423,5 +423,21 @@
       "design/contextual-signals/RESEARCH.md"
     ],
     "edgeFlowFix": "Explicit fixed-position override for decorative edge code after broad relative positioning created about 296px of flow space."
+  },
+  "toolkit": {
+    "component": "src/components/Toolkit.jsx",
+    "data": "src/data/toolkit.js",
+    "groups": [
+      "Software",
+      "Sistemas embarcados",
+      "Eletromecânica e controle"
+    ],
+    "containsProjects": false,
+    "clpStatus": "learning interest",
+    "frequencyDrivesStatus": "planned study"
+  },
+  "featuredPrototypes": {
+    "visible": false,
+    "reason": "User will select and build projects before featuring them."
   }
 }

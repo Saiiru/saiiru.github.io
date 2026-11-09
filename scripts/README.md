@@ -1,10 +1,9 @@
-# Verificação do portfólio
+# Verificação da interface atual
 
-Sirva o build atual na porta 4392 antes de executar os testes de navegador.
+Sirva docs/ na porta 4392 após npm run build.
 
-Comandos atuais:
-- python3 scripts/e2e_recon.py — privacidade do contato, marca/paleta, animação WebGL, pausa fora de tela, movimento reduzido, fallback, cinco larguras e menu.
-- python3 scripts/e2e_human.py — arquivo público, busca/forks/paginação, datashards, abas, glitch em cada entrada do mouse, fundo reativo, menu e mobile.
-- npm --prefix projects/ai-builder-labs test — regras e recuperação das três demos.
+- python3 scripts/e2e_toolkit.py — tecnologias sem projetos, identificação de estudos, retirada dos protótipos sugeridos da vitrine, terminal, âncoras e quatro larguras.
+- python3 scripts/e2e_recon.py — identidade, privacidade e campo de contato WebGL.
+- npm --prefix projects/ai-builder-labs test — lógica dos protótipos preservados no código; não representam projetos selecionados para a vitrine.
 
-Os scripts e2e_blacksite, e2e_cybergrotesk e e2e_motion* preservam expectativas de versões anteriores, como botão de tema claro, cooldown do glitch e nomes antigos de abas. Não são o conjunto de aceitação da interface atual.
+Os demais scripts registram expectativas de interfaces anteriores (datashards sugeridos, tema claro, nomes de abas e cooldown). Não são os critérios de aceitação da vitrine atual.

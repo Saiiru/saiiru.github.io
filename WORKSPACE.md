@@ -17,7 +17,7 @@ Entre em site/ e use npm run dev. npm run build gera docs/, o diretório do GitH
 - Identidade e contato: src/recon-identity.css, src/components/SignalField.jsx e public/brand/sairu-mark.svg.
 - Dados e leitores de projeto: src/components/ e src/data/.
 - Evidências e decisões: design/.
-- Verificações atuais: python3 scripts/e2e_recon.py e python3 scripts/e2e_human.py, com docs servido na porta 4392.
+- Verificações atuais: python3 scripts/e2e_toolkit.py e python3 scripts/e2e_recon.py, com docs servido na porta 4392.
 - Testes de lógica das demos: npm --prefix projects/ai-builder-labs test.
 - Os scripts e2e antigos preservam expectativas de versões anteriores; consulte scripts/README.md.
 
