@@ -46,7 +46,7 @@ A cópia `public/labs/` é gerada por `node scripts/sync-labs.mjs`, na raiz do r
 
 ## Origem e limites
 
-Desenvolvimento e dataset produzidos com assistência de IA a pedido de Sairu. Revisão e domínio pessoal do código pelo autor do portfólio não são presumidos. Dados fictícios, sem clientes reais e sem vínculo com iFood. Projetos de estudo: não representam experiência profissional de ML ou sistemas de produção.
+Desenvolvimento e dataset produzidos com assistência de IA a pedido de Sairu. Dados fictícios, sem clientes reais e sem vínculo com iFood. Projetos de estudo: não representam experiência profissional de ML ou sistemas de produção.
 
 - Um classificador supervisionado foi treinado; nenhum LLM foi treinado ou ajustado.
 - Crivo verifica critérios explícitos, não verdade factual ou qualidade semântica.

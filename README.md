@@ -10,7 +10,7 @@ Site pessoal de Urias Machado Santos: software, sistemas embarcados e formação
 
 ## Interface atual
 
-O Toolkit contém tecnologias e conhecimentos, com distinção entre experiência profissional, prática de bancada e conteúdos em estudo. O arquivo lista repositórios existentes e identifica forks. Os estudos Crivo, Vetor e Lastro têm demos executáveis, código e relatórios; foram desenvolvidos com assistência de IA e ainda devem ser revisados pelo autor.
+O Toolkit contém tecnologias e conhecimentos, com distinção entre experiência profissional, prática de bancada e conteúdos em estudo. O arquivo lista repositórios existentes e identifica forks. Os estudos Crivo, Vetor e Lastro têm demos executáveis, código e relatórios; foram desenvolvidos com assistência de IA com resultados e limitações documentados.
 
 Os repositórios Ada Commerce e Plann.er receberam revisão funcional: [CLI Java](https://github.com/Saiiru/ada-commerce) e [API TypeScript](https://github.com/Saiiru/Plann.er). Os READMEs explicam como executar e o escopo educacional de cada um. O Plann.er não inclui frontend nem autenticação.
 

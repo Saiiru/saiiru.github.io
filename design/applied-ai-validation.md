@@ -1,6 +1,6 @@
 # Crivo, Vetor e Lastro — validação de entrega
 
-Verificado em 2026-11-09. Desenvolvimento assistido por IA; este registro não comprova domínio pessoal do código pelo autor do portfólio.
+Verificado em 2026-11-09. Registro dos testes executados no desenvolvimento assistido por IA.
 
 ## Implementação
 

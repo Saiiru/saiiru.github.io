@@ -24,4 +24,4 @@ Macro-F1 0,8799, baseline 0,8571 em 32 exemplos. Cobertura 62,5%; recusa de 12/1
 
 ## Autoria e proveniência
 
-Desenvolvimento assistido por IA para o portfólio de Sairu. Não representa pesquisa revisada, experiência de produção ou validação pessoal do autor. Código/modelo: MIT; dataset: CC0-1.0; dependências mantêm suas licenças.
+Desenvolvimento assistido por IA para o portfólio de Sairu. Projeto de estudo; sem validação em produção ou revisão científica. Código/modelo: MIT; dataset: CC0-1.0; dependências mantêm suas licenças.
