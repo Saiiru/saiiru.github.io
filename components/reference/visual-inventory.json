@@ -1,0 +1,1235 @@
+{
+  "repository": "ARCANGEL0/CyberArch-Shell",
+  "requestedAlias": "ARCANGEL0/CyberArch-Dotfiles",
+  "commit": "8c6fa4fae6cc043f8d7f809d48f1a642381a05dc",
+  "branch": "master",
+  "recursiveTreeEntries": 14400,
+  "treeTruncated": false,
+  "relevantFileCount": 142,
+  "files": [
+    {
+      "path": "assets/cool-retro-term/netrunner.json",
+      "sha": "f57179d76072f194fc1dde99ec11349665ab5c31",
+      "bytes": 637
+    },
+    {
+      "path": "assets/gtk/DaemonKvantum/Daemon.kvconfig",
+      "sha": "91af973fa64d197a6a0ec2f82bf3b8e8c763fa55",
+      "bytes": 9077
+    },
+    {
+      "path": "assets/gtk/gtk.css",
+      "sha": "0b453d22beb26f94c0aac976cc25a9e4d345251f",
+      "bytes": 8518
+    },
+    {
+      "path": "assets/kitty/kitty.conf",
+      "sha": "2aff23223b1707d5cea9a751fe985af063662716",
+      "bytes": 4121
+    },
+    {
+      "path": "assets/rio/shaders/arctic-facility/accumulate.slang",
+      "sha": "7d5312b2fd654e1c59979039e7f62261e76e7c2d",
+      "bytes": 3766
+    },
+    {
+      "path": "assets/rio/shaders/arctic-facility/arctic-facility.slang",
+      "sha": "d4f171c3a4f559d5bd38165d455f68ff8989dfe2",
+      "bytes": 11086
+    },
+    {
+      "path": "assets/rio/shaders/arctic-facility/arctic-facility.slangp",
+      "sha": "e479ff11296e1098fb7903467d8c67f2ba3f9831",
+      "bytes": 464
+    },
+    {
+      "path": "assets/rio/shaders/arctic-facility/blur_horiz.slang",
+      "sha": "7361edf0d48a753ad702606ff9302f10a0566a0b",
+      "bytes": 4371
+    },
+    {
+      "path": "assets/rio/shaders/arctic-facility/blur_vert.slang",
+      "sha": "91d42c8b2773747dc9f8d34406b3088be5da2380",
+      "bytes": 4369
+    },
+    {
+      "path": "assets/rio/shaders/blade-baseline/accumulate.slang",
+      "sha": "7d5312b2fd654e1c59979039e7f62261e76e7c2d",
+      "bytes": 3766
+    },
+    {
+      "path": "assets/rio/shaders/blade-baseline/blade-baseline.slang",
+      "sha": "88b5575e5774ba6f0baf67ef04653a3957f1bfc4",
+      "bytes": 4752
+    },
+    {
+      "path": "assets/rio/shaders/blade-baseline/blade-baseline.slangp",
+      "sha": "24fc84cb2e472e4f91e2ad91b815e53800f713ed",
+      "bytes": 462
+    },
+    {
+      "path": "assets/rio/shaders/blade-baseline/blur_horiz.slang",
+      "sha": "7361edf0d48a753ad702606ff9302f10a0566a0b",
+      "bytes": 4371
+    },
+    {
+      "path": "assets/rio/shaders/blade-baseline/blur_vert.slang",
+      "sha": "91d42c8b2773747dc9f8d34406b3088be5da2380",
+      "bytes": 4369
+    },
+    {
+      "path": "assets/rio/shaders/bloodmoon-veil/accumulate.slang",
+      "sha": "7d5312b2fd654e1c59979039e7f62261e76e7c2d",
+      "bytes": 3766
+    },
+    {
+      "path": "assets/rio/shaders/bloodmoon-veil/bloodmoon-veil.slang",
+      "sha": "ff9abd56793ec5b0a843c6f073ddd663185a7014",
+      "bytes": 5102
+    },
+    {
+      "path": "assets/rio/shaders/bloodmoon-veil/bloodmoon-veil.slangp",
+      "sha": "7a56043d5fc5de96085e57158c8195b3cdace44d",
+      "bytes": 460
+    },
+    {
+      "path": "assets/rio/shaders/bloodmoon-veil/blur_horiz.slang",
+      "sha": "7361edf0d48a753ad702606ff9302f10a0566a0b",
+      "bytes": 4371
+    },
+    {
+      "path": "assets/rio/shaders/bloodmoon-veil/blur_vert.slang",
+      "sha": "91d42c8b2773747dc9f8d34406b3088be5da2380",
+      "bytes": 4369
+    },
+    {
+      "path": "assets/rio/shaders/crimson-smooth/accumulate.slang",
+      "sha": "7d5312b2fd654e1c59979039e7f62261e76e7c2d",
+      "bytes": 3766
+    },
+    {
+      "path": "assets/rio/shaders/crimson-smooth/blur_horiz.slang",
+      "sha": "7361edf0d48a753ad702606ff9302f10a0566a0b",
+      "bytes": 4371
+    },
+    {
+      "path": "assets/rio/shaders/crimson-smooth/blur_vert.slang",
+      "sha": "91d42c8b2773747dc9f8d34406b3088be5da2380",
+      "bytes": 4369
+    },
+    {
+      "path": "assets/rio/shaders/crimson-smooth/crimson-smooth.slang",
+      "sha": "75f7b9e306e7fc7699eff182caea722d199e7749",
+      "bytes": 3263
+    },
+    {
+      "path": "assets/rio/shaders/crimson-smooth/crimson-smooth.slangp",
+      "sha": "5f52ca4a8803909521aacc682b1116099484a81b",
+      "bytes": 462
+    },
+    {
+      "path": "assets/rio/shaders/ghost-holo/accumulate.slang",
+      "sha": "7d5312b2fd654e1c59979039e7f62261e76e7c2d",
+      "bytes": 3766
+    },
+    {
+      "path": "assets/rio/shaders/ghost-holo/blur_horiz.slang",
+      "sha": "7361edf0d48a753ad702606ff9302f10a0566a0b",
+      "bytes": 4371
+    },
+    {
+      "path": "assets/rio/shaders/ghost-holo/blur_vert.slang",
+      "sha": "91d42c8b2773747dc9f8d34406b3088be5da2380",
+      "bytes": 4369
+    },
+    {
+      "path": "assets/rio/shaders/ghost-holo/ghost-holo.slangp",
+      "sha": "8360617d07ea5730a4e62a238161b3fd3be8dc0b",
+      "bytes": 674
+    },
+    {
+      "path": "assets/rio/shaders/ghost-holo/newpixie-crt.slang",
+      "sha": "b2c12b41968304cd847f9151c93a184ee4f0abe0",
+      "bytes": 8481
+    },
+    {
+      "path": "assets/rio/shaders/johnny-crt/accumulate.slang",
+      "sha": "7d5312b2fd654e1c59979039e7f62261e76e7c2d",
+      "bytes": 3766
+    },
+    {
+      "path": "assets/rio/shaders/johnny-crt/blur_horiz.slang",
+      "sha": "7361edf0d48a753ad702606ff9302f10a0566a0b",
+      "bytes": 4371
+    },
+    {
+      "path": "assets/rio/shaders/johnny-crt/blur_vert.slang",
+      "sha": "91d42c8b2773747dc9f8d34406b3088be5da2380",
+      "bytes": 4369
+    },
+    {
+      "path": "assets/rio/shaders/johnny-crt/johnny-crt.slang",
+      "sha": "b63a29b22cb8ffab4e251bcf52dace2d67408b5c",
+      "bytes": 6940
+    },
+    {
+      "path": "assets/rio/shaders/johnny-crt/johnny-crt.slangp",
+      "sha": "af311724d901bcc9f67280d4430dac3cabc6100c",
+      "bytes": 605
+    },
+    {
+      "path": "assets/rio/shaders/kitty-pop/accumulate.slang",
+      "sha": "7d5312b2fd654e1c59979039e7f62261e76e7c2d",
+      "bytes": 3766
+    },
+    {
+      "path": "assets/rio/shaders/kitty-pop/blur_horiz.slang",
+      "sha": "7361edf0d48a753ad702606ff9302f10a0566a0b",
+      "bytes": 4371
+    },
+    {
+      "path": "assets/rio/shaders/kitty-pop/blur_vert.slang",
+      "sha": "91d42c8b2773747dc9f8d34406b3088be5da2380",
+      "bytes": 4369
+    },
+    {
+      "path": "assets/rio/shaders/kitty-pop/kitty-pop.slang",
+      "sha": "ea2b33749f7a527a5276ad0b0f0e642a1cdbdfff",
+      "bytes": 9387
+    },
+    {
+      "path": "assets/rio/shaders/kitty-pop/kitty-pop.slangp",
+      "sha": "9e60f43bf030b6d5fede9d97c9dbf7add6047fde",
+      "bytes": 606
+    },
+    {
+      "path": "assets/rio/shaders/newpixie-flat/accumulate.slang",
+      "sha": "7d5312b2fd654e1c59979039e7f62261e76e7c2d",
+      "bytes": 3766
+    },
+    {
+      "path": "assets/rio/shaders/newpixie-flat/blur_horiz.slang",
+      "sha": "7361edf0d48a753ad702606ff9302f10a0566a0b",
+      "bytes": 4371
+    },
+    {
+      "path": "assets/rio/shaders/newpixie-flat/blur_vert.slang",
+      "sha": "91d42c8b2773747dc9f8d34406b3088be5da2380",
+      "bytes": 4369
+    },
+    {
+      "path": "assets/rio/shaders/newpixie-flat/newpixie-crt.slang",
+      "sha": "7cf5f361c78d4b640ff45af818902e2d0f37c780",
+      "bytes": 6752
+    },
+    {
+      "path": "assets/rio/shaders/newpixie-flat/newpixie-crt.slangp",
+      "sha": "9920bb9e2202e86b405e0f9b1a76295eab849a9d",
+      "bytes": 607
+    },
+    {
+      "path": "assets/rio/shaders/synth-crt/accumulate.slang",
+      "sha": "7d5312b2fd654e1c59979039e7f62261e76e7c2d",
+      "bytes": 3766
+    },
+    {
+      "path": "assets/rio/shaders/synth-crt/blur_horiz.slang",
+      "sha": "7361edf0d48a753ad702606ff9302f10a0566a0b",
+      "bytes": 4371
+    },
+    {
+      "path": "assets/rio/shaders/synth-crt/blur_vert.slang",
+      "sha": "91d42c8b2773747dc9f8d34406b3088be5da2380",
+      "bytes": 4369
+    },
+    {
+      "path": "assets/rio/shaders/synth-crt/newpixie-crt.slang",
+      "sha": "14d0d40bfc00e0964276ef5ea2cd0e90934f061b",
+      "bytes": 6752
+    },
+    {
+      "path": "assets/rio/shaders/synth-crt/newpixie-crt.slangp",
+      "sha": "9920bb9e2202e86b405e0f9b1a76295eab849a9d",
+      "bytes": 607
+    },
+    {
+      "path": "assets/rio/styles/arctic.toml",
+      "sha": "c9b71459b4d2131f2173783df3325615e37e64d0",
+      "bytes": 2935
+    },
+    {
+      "path": "assets/rio/styles/blade.toml",
+      "sha": "a6f0214f08e7526c0ed3b4fc1322415b18c256e0",
+      "bytes": 2934
+    },
+    {
+      "path": "assets/rio/styles/bloodmoon.toml",
+      "sha": "dd14a91db8b71a23540089b2d51ae0ef6916eec6",
+      "bytes": 2937
+    },
+    {
+      "path": "assets/rio/styles/cybercore.toml",
+      "sha": "2b16c4adcb6b8cc3ca0df1d6f20113b74fee25ca",
+      "bytes": 2934
+    },
+    {
+      "path": "assets/rio/styles/ghost.toml",
+      "sha": "8aa2113964c7167a642daaea6d2187a0cb6a3070",
+      "bytes": 3059
+    },
+    {
+      "path": "assets/rio/styles/johnny.toml",
+      "sha": "e13337dbe1cba19504bafbbd4e0b56b2c52550c8",
+      "bytes": 2926
+    },
+    {
+      "path": "assets/rio/styles/kitty.toml",
+      "sha": "1501cc235edd302bf441f1d3167d6860ac1ac199",
+      "bytes": 3127
+    },
+    {
+      "path": "assets/rio/styles/synthwave.toml",
+      "sha": "6b08cffa10f5b90c25ed81a80dffa35dfd2156ab",
+      "bytes": 2930
+    },
+    {
+      "path": "assets/rio/themes/arctic.toml",
+      "sha": "05c8455a2d75142d20e9d6e038f600db75188a6d",
+      "bytes": 1152
+    },
+    {
+      "path": "assets/rio/themes/blade.toml",
+      "sha": "04ccbedafddce3790a26249cc7b9d83a5c0a7740",
+      "bytes": 1152
+    },
+    {
+      "path": "assets/rio/themes/bloodmoon.toml",
+      "sha": "9616079de1f51d8cf22173989704bcadd1287531",
+      "bytes": 1152
+    },
+    {
+      "path": "assets/rio/themes/cp2077.toml",
+      "sha": "f50143c5df12267965c586140716abeccb442644",
+      "bytes": 1371
+    },
+    {
+      "path": "assets/rio/themes/crimson.toml",
+      "sha": "b7ab84a3af7aa878c725135544dea3f816bfe50f",
+      "bytes": 1152
+    },
+    {
+      "path": "assets/rio/themes/crt-hologram.toml",
+      "sha": "3531e6a11a48a1217663288e1d8ce467872c81d4",
+      "bytes": 1152
+    },
+    {
+      "path": "assets/rio/themes/cybercore.toml",
+      "sha": "f81cf52da1492f8f52e024452080857eaf3f3408",
+      "bytes": 1152
+    },
+    {
+      "path": "assets/rio/themes/gits-glass.toml",
+      "sha": "1f8d00c5de3af36252142c0eb57c8fe98f7d8e8c",
+      "bytes": 1152
+    },
+    {
+      "path": "assets/rio/themes/johnny.toml",
+      "sha": "2e82a03d91e938d1e128d131844434dcefb7ca3b",
+      "bytes": 1152
+    },
+    {
+      "path": "assets/rio/themes/kitty-pop.toml",
+      "sha": "99f7cdb4bfcd19e56ddef514fc02ce581ddc2ebb",
+      "bytes": 1152
+    },
+    {
+      "path": "assets/rio/themes/synthwave.toml",
+      "sha": "b43c3412f311e045931fb1cc8510e0ce04ac6908",
+      "bytes": 1152
+    },
+    {
+      "path": "components/apps/CyberSpace/cyberspace.c",
+      "sha": "0c066a4faea4d826b31b666217e87f8f5a3dcc27",
+      "bytes": 8842
+    },
+    {
+      "path": "components/glitch.frag",
+      "sha": "d50b5cf791b81670a5dd57fcc8660dd6986688f6",
+      "bytes": 8306
+    },
+    {
+      "path": "components/login/lock.sh",
+      "sha": "f06214c9d841a86d9fc6fdb8fd29edb02da2577c",
+      "bytes": 1541
+    },
+    {
+      "path": "components/login/lock_shell.qml",
+      "sha": "89e1cc925055a6b15d7ddf2b78ffb82183c36317",
+      "bytes": 4321
+    },
+    {
+      "path": "components/login/sddm-theme/Background.qml",
+      "sha": "0a77b2ac4cbb24d89624eafa75dcf5c57a6b1586",
+      "bytes": 1795
+    },
+    {
+      "path": "components/login/sddm-theme/Bracket.qml",
+      "sha": "f4d3bd6447b7e1ef03dbc753f4f827e9a2cdeb15",
+      "bytes": 703
+    },
+    {
+      "path": "components/login/sddm-theme/CutPanel.qml",
+      "sha": "25c023211d95ea909d53f5f71d6a20a4bff9dcce",
+      "bytes": 1457
+    },
+    {
+      "path": "components/login/sddm-theme/Main.qml",
+      "sha": "478dcfb6d2d837dcaae2779c36d1ccec38b49898",
+      "bytes": 24123
+    },
+    {
+      "path": "components/login/sddm-theme/cache-news.sh",
+      "sha": "dba38b8303df173b4b3b01a2edd86e3776a187e2",
+      "bytes": 2396
+    },
+    {
+      "path": "components/login/sddm-theme/metadata.desktop",
+      "sha": "031a65208a1ee6e5f536a97af7a42f41a52137e2",
+      "bytes": 283
+    },
+    {
+      "path": "components/login/sddm-theme/theme.conf",
+      "sha": "4921234060be25fbd82ab4dd29df4470d3cf80d0",
+      "bytes": 84
+    },
+    {
+      "path": "components/login/themes/netwatch/Background.qml",
+      "sha": "bb2eb19c850810c2c82692fcf61a6453a88de32b",
+      "bytes": 1183
+    },
+    {
+      "path": "components/login/themes/netwatch/Bracket.qml",
+      "sha": "f4d3bd6447b7e1ef03dbc753f4f827e9a2cdeb15",
+      "bytes": 703
+    },
+    {
+      "path": "components/login/themes/netwatch/CutPanel.qml",
+      "sha": "25c023211d95ea909d53f5f71d6a20a4bff9dcce",
+      "bytes": 1457
+    },
+    {
+      "path": "components/login/themes/netwatch/Main.qml",
+      "sha": "80e194464090ff3fae9bba9bb20085acafe7c7e4",
+      "bytes": 23295
+    },
+    {
+      "path": "components/login/themes/netwatch/theme.conf",
+      "sha": "afbef194245636f3b90c00f7b0d31bf98285aa27",
+      "bytes": 77
+    },
+    {
+      "path": "components/modules/anim.ts",
+      "sha": "4e4d3f408cd6ab3e56a9f85c264d8c1a21689115",
+      "bytes": 40408
+    },
+    {
+      "path": "components/modules/appsmenu.ts",
+      "sha": "b689afacbf5bcec58760313e209a20a9c27182cc",
+      "bytes": 21994
+    },
+    {
+      "path": "components/modules/aurbar.ts",
+      "sha": "76d52cfa0338a819176ada2475ea18b75d3c50f2",
+      "bytes": 15649
+    },
+    {
+      "path": "components/modules/cmodal.ts",
+      "sha": "58a5c3e97c93165bd7c14a3e13684d8b104ed615",
+      "bytes": 116526
+    },
+    {
+      "path": "components/modules/colors.ts",
+      "sha": "ba2229ea7f7c2fba799120e373408159c14ea0bf",
+      "bytes": 29060
+    },
+    {
+      "path": "components/modules/config.ts",
+      "sha": "5ce1e8cca0a4c288b55df5766e94845c28345a5c",
+      "bytes": 7448
+    },
+    {
+      "path": "components/modules/cyberdeck.ts",
+      "sha": "27255fc2be923c2007e250dd6f394f61d6b0e6d1",
+      "bytes": 2126
+    },
+    {
+      "path": "components/modules/dock.ts",
+      "sha": "cb17bd2899b4ed96a31d51dfedf26046cc12d27e",
+      "bytes": 17300
+    },
+    {
+      "path": "components/modules/fonts.ts",
+      "sha": "e9e2f733ccd2ae5f23bd0baa74ba01a5e0316c97",
+      "bytes": 557
+    },
+    {
+      "path": "components/modules/glass.ts",
+      "sha": "5f19892983db931011ef73c89d0efe53b463e93d",
+      "bytes": 12498
+    },
+    {
+      "path": "components/modules/hud-layout-editor.ts",
+      "sha": "6da4bbd2d2d3ff2e13a5831efb72c3b4130dd27b",
+      "bytes": 4576
+    },
+    {
+      "path": "components/modules/hud-layout-policy.js",
+      "sha": "d13da501afdfc311d55c4a3aa6e1173fdb142314",
+      "bytes": 2414
+    },
+    {
+      "path": "components/modules/hud-layout.ts",
+      "sha": "1179ea7fdff0d547a08dce94137e84545a6f0dea",
+      "bytes": 1802
+    },
+    {
+      "path": "components/modules/i18n.ts",
+      "sha": "6f4b031874b126b664e635d2a704886b9ecac738",
+      "bytes": 28414
+    },
+    {
+      "path": "components/modules/kbconflicts.ts",
+      "sha": "de4c8fc73e65e88a82c6f87fe4c7bc8dfbc58ede",
+      "bytes": 4534
+    },
+    {
+      "path": "components/modules/launcher.ts",
+      "sha": "1e54ec1aac802e648e0fdd9abcc8af3a8178c148",
+      "bytes": 5115
+    },
+    {
+      "path": "components/modules/markets.ts",
+      "sha": "8cd0d9bbd4d452f054cd3bceb4dcaf2c4efbd007",
+      "bytes": 88926
+    },
+    {
+      "path": "components/modules/monitors.ts",
+      "sha": "63d4a28c69d5d6090ef9b589312c72d49dbbd1bd",
+      "bytes": 21955
+    },
+    {
+      "path": "components/modules/network-policy.js",
+      "sha": "86f0763c4151d9e20a49cb63a06dd38c2a56b7a1",
+      "bytes": 1266
+    },
+    {
+      "path": "components/modules/network.ts",
+      "sha": "43a028a30d2a303f9155e718c720a12d90c4012a",
+      "bytes": 2783
+    },
+    {
+      "path": "components/modules/notifmessages.ts",
+      "sha": "db82754aa8c79245e7af3c744df8248186c17578",
+      "bytes": 49345
+    },
+    {
+      "path": "components/modules/notifpopup.ts",
+      "sha": "dba3d0664918a9cfe23f18a062d77b351dc95f5a",
+      "bytes": 18168
+    },
+    {
+      "path": "components/modules/nowplaying.ts",
+      "sha": "7966502fe62300c240c45ee66cd19d70f129cf2e",
+      "bytes": 7677
+    },
+    {
+      "path": "components/modules/osd.ts",
+      "sha": "79df4fcaa5faa44d5c3bb439d047e6cd8b109dc5",
+      "bytes": 3816
+    },
+    {
+      "path": "components/modules/player.ts",
+      "sha": "717e213f88b65df445bdf9b388bf0fd2797ddac7",
+      "bytes": 23726
+    },
+    {
+      "path": "components/modules/proj.ts",
+      "sha": "0e2cd6a2970575159738d9f56cd391c8587664dd",
+      "bytes": 10437
+    },
+    {
+      "path": "components/modules/provider-client.js",
+      "sha": "f2938c7d78cfa07ef126879ab6ea4d8f20335df0",
+      "bytes": 2991
+    },
+    {
+      "path": "components/modules/providers.ts",
+      "sha": "d879a18744353dad5518f9463be51bdfa1dc44a3",
+      "bytes": 2491
+    },
+    {
+      "path": "components/modules/region.ts",
+      "sha": "ee3522a81f89fc9c2105cd6127508b549b598e58",
+      "bytes": 20580
+    },
+    {
+      "path": "components/modules/sidepanel.ts",
+      "sha": "ef505c0d582de310563002693163f9a09e5eb8d2",
+      "bytes": 32214
+    },
+    {
+      "path": "components/modules/sys.ts",
+      "sha": "ac7b64a9c412305998bb50422f468c7d25e7648c",
+      "bytes": 8663
+    },
+    {
+      "path": "components/modules/terminal_theme.ts",
+      "sha": "f0bd31ebe825e61101b385e4cc4229aa09e14f9e",
+      "bytes": 6723
+    },
+    {
+      "path": "components/modules/themesettings.ts",
+      "sha": "c2548ea342d194e4f211e5e1957be5eaa84cb866",
+      "bytes": 121439
+    },
+    {
+      "path": "components/modules/themesettings.ts.backup",
+      "sha": "0f94bea09da0333e7f98a4e02a2f03125781f6b8",
+      "bytes": 96571
+    },
+    {
+      "path": "components/modules/timeset.ts",
+      "sha": "cbed632facf3870f5dd2867d93360d6146dd287c",
+      "bytes": 19215
+    },
+    {
+      "path": "components/modules/toast.ts",
+      "sha": "82f9d7e7128102006c374b312a05124ff139ac99",
+      "bytes": 6944
+    },
+    {
+      "path": "components/modules/tray.ts",
+      "sha": "f6a3804ab636904c8cac20675c4793d3e7a91340",
+      "bytes": 10820
+    },
+    {
+      "path": "components/modules/userbinds.ts",
+      "sha": "43bc7e8483fac0cf50928ed211e608f489e7b5d1",
+      "bytes": 21333
+    },
+    {
+      "path": "components/modules/widget.ts",
+      "sha": "b583187a1ee7d6539dad6cae84f1e6d6a755ce3f",
+      "bytes": 1277
+    },
+    {
+      "path": "components/modules/wmconfig.ts",
+      "sha": "12406090bd92ad9fd156be5057c53a33831c47ea",
+      "bytes": 8254
+    },
+    {
+      "path": "components/style/cyber.css",
+      "sha": "9dc21faed0d1845527432b2904e76014594fe205",
+      "bytes": 10425
+    },
+    {
+      "path": "components/style/cyber.scss",
+      "sha": "0ffd7a3813b25b5d31b97b5aa6e5e1028641cb49",
+      "bytes": 13289
+    },
+    {
+      "path": "config/keybinds.lua",
+      "sha": "5203d44faa9d24e35ddabdb95175a6d7b55461ce",
+      "bytes": 14670
+    },
+    {
+      "path": "core.ts",
+      "sha": "b0b99b1e67dd45ed20ed3bf25b507faf40d5904e",
+      "bytes": 16142
+    },
+    {
+      "path": "env.ts",
+      "sha": "40b6211370c38561fb30cd36091bd7c630fd020e",
+      "bytes": 2801
+    },
+    {
+      "path": "scripts/apply_theme",
+      "sha": "67f3fd97e7ab6b6ebcad049e025bbdbfd5ab7f26",
+      "bytes": 2762
+    },
+    {
+      "path": "scripts/gen-map.py",
+      "sha": "e8052bf0677e2498484ab43dec1a959dacee444d",
+      "bytes": 1981
+    },
+    {
+      "path": "scripts/netrunner-terminal",
+      "sha": "4f40d857f869a8b5c03f9ad89c0cb6284acb6200",
+      "bytes": 4260
+    },
+    {
+      "path": "scripts/overkill",
+      "sha": "b14074589beda3c4a630f5734953b97f35238ffe",
+      "bytes": 22184
+    },
+    {
+      "path": "scripts/rio-style",
+      "sha": "25c0aaac487af21b4f994ecf111dcd976eb431a4",
+      "bytes": 851
+    },
+    {
+      "path": "scripts/screenrecord",
+      "sha": "00c0eb563a0b1f6df6a74f4a8e580600a01700fa",
+      "bytes": 688
+    },
+    {
+      "path": "scripts/screenshot",
+      "sha": "058e15bcc616583c2213aaeb1d019f2cc39abfe4",
+      "bytes": 1456
+    },
+    {
+      "path": "scripts/set-wallpaper",
+      "sha": "20745564324132490c9ae66817e8d60ff8fe8269",
+      "bytes": 4905
+    },
+    {
+      "path": "scripts/shell-theme",
+      "sha": "15cb84d8e3774e533cae9df007b021a35b988f6b",
+      "bytes": 9032
+    },
+    {
+      "path": "scripts/theme-state",
+      "sha": "7666fc9b527100f1c9f1189d33634509f63a56dc",
+      "bytes": 3547
+    },
+    {
+      "path": "scripts/theme-wallpaper",
+      "sha": "008be5b3e8467d7a1f17c7e741e4aa65e5689533",
+      "bytes": 1184
+    },
+    {
+      "path": "scripts/ws",
+      "sha": "c80a59b245293cbd43faa8f602d196ca82349a0d",
+      "bytes": 6910
+    },
+    {
+      "path": "theme.lua",
+      "sha": "007c36ade34febfd2e6f90378cd904273e012020",
+      "bytes": 11395
+    }
+  ],
+  "families": [
+    {
+      "id": "surface",
+      "sources": [
+        "components/modules/glass.ts",
+        "components/modules/proj.ts",
+        "components/modules/widget.ts"
+      ],
+      "effects": [
+        "chamfered glass",
+        "perspective plane",
+        "neon halo",
+        "translucent plate",
+        "horizontal sliced warp reveal",
+        "RGB line split",
+        "text scramble"
+      ],
+      "browser": "CSS clip-path, perspective transforms, SVG filter glow; Canvas band reveal"
+    },
+    {
+      "id": "gauges",
+      "sources": [
+        "components/modules/monitors.ts"
+      ],
+      "effects": [
+        "storage line",
+        "CPU solid polygon",
+        "RAM segmented battery blocks",
+        "battery slant bar",
+        "metric badge",
+        "charging arrows",
+        "smoothed values",
+        "scanlined bloom"
+      ],
+      "browser": "SVG/DOM meters with CSS variables and requestAnimationFrame easing"
+    },
+    {
+      "id": "map-weather-network",
+      "sources": [
+        "components/modules/sidepanel.ts"
+      ],
+      "effects": [
+        "city minimap frame",
+        "compass scanner",
+        "overlay grid",
+        "network speed",
+        "weather card",
+        "7-day temperature graph"
+      ],
+      "browser": "SVG map/radar and charts with local demo data; injectable provider callbacks"
+    },
+    {
+      "id": "dock",
+      "sources": [
+        "components/modules/dock.ts",
+        "components/modules/cyberdeck.ts"
+      ],
+      "effects": [
+        "vertical and horizontal slots",
+        "active/hover glows",
+        "unread badge",
+        "audio equalizer"
+      ],
+      "browser": "DOM buttons, CSS hover/focus transitions, SVG EQ"
+    },
+    {
+      "id": "launcher",
+      "sources": [
+        "components/modules/launcher.ts",
+        "components/modules/appsmenu.ts"
+      ],
+      "effects": [
+        "weapon/ammo-style launcher HUD",
+        "searchable quickhack list",
+        "focused-row highlight",
+        "smooth scrolling",
+        "intro glitch",
+        "search corruption"
+      ],
+      "browser": "Accessible command palette with keyboard navigation and CSS/Canvas glitch"
+    },
+    {
+      "id": "notifications",
+      "sources": [
+        "components/modules/notifpopup.ts",
+        "components/modules/notifmessages.ts",
+        "components/modules/tray.ts"
+      ],
+      "effects": [
+        "tilted popup",
+        "icon slice glitch",
+        "scrambled text reveal",
+        "notification queue",
+        "grouped contacts center",
+        "detail view",
+        "tray menu",
+        "data-corruption dismissal"
+      ],
+      "browser": "DOM toast queue/history, pointer/keyboard interactions, SVG clipping"
+    },
+    {
+      "id": "controls",
+      "sources": [
+        "components/modules/cmodal.ts",
+        "components/modules/timeset.ts",
+        "components/modules/themesettings.ts",
+        "components/modules/kbconflicts.ts",
+        "components/modules/userbinds.ts",
+        "components/modules/wmconfig.ts"
+      ],
+      "effects": [
+        "shared modal warp open/close",
+        "tabs",
+        "chamfered buttons",
+        "switches",
+        "sliders",
+        "device rows",
+        "graphs",
+        "color mixer",
+        "key recorder",
+        "confirmation state"
+      ],
+      "browser": "Native dialog/forms with explicit visual state; scoped page shortcuts"
+    },
+    {
+      "id": "layout-editor",
+      "sources": [
+        "components/modules/hud-layout-editor.ts",
+        "components/modules/hud-layout.ts",
+        "components/modules/hud-layout-policy.js"
+      ],
+      "effects": [
+        "minimal/balanced/cinematic/custom profiles",
+        "per-widget scale/visibility/anchors/offsets"
+      ],
+      "browser": "CSS grid/absolute HUD with drag placement and localStorage presets"
+    },
+    {
+      "id": "palette",
+      "sources": [
+        "components/modules/colors.ts",
+        "components/modules/fonts.ts",
+        "components/style/cyber.scss",
+        "components/style/cyber.css"
+      ],
+      "effects": [
+        "8 palettes: NETWATCH/BLADE/KITTY/BLOODMOON/ARCTIC/SYNTHWAVE/JOHNNY/GHOST",
+        "component tint/opacity modes"
+      ],
+      "browser": "CSS custom property themes with original/system fonts and original SVG icons"
+    },
+    {
+      "id": "markets-news",
+      "sources": [
+        "components/modules/markets.ts"
+      ],
+      "effects": [
+        "quest-style feed widget",
+        "market terminal shell",
+        "sparkline/detail charts",
+        "headline list",
+        "filters/search",
+        "loading/error states"
+      ],
+      "browser": "SVG chart and DOM feed views with bundled example data and optional CORS API"
+    },
+    {
+      "id": "music",
+      "sources": [
+        "components/modules/player.ts",
+        "components/modules/nowplaying.ts"
+      ],
+      "effects": [
+        "radioport panel",
+        "album-art plate",
+        "track metadata",
+        "transport controls",
+        "animated equalizer",
+        "now-playing banner",
+        "smooth intro"
+      ],
+      "browser": "HTMLAudioElement/Web Audio for owned page media; optional Media Session metadata"
+    },
+    {
+      "id": "toast-update-osd",
+      "sources": [
+        "components/modules/toast.ts",
+        "components/modules/aurbar.ts",
+        "components/modules/osd.ts"
+      ],
+      "effects": [
+        "accent-line toast",
+        "Street Cred package chip",
+        "update banner phases",
+        "progress bars",
+        "volume/brightness OSD"
+      ],
+      "browser": "Local demo event bus and page-level controls"
+    },
+    {
+      "id": "workspace-glitch",
+      "sources": [
+        "components/modules/anim.ts",
+        "scripts/ws"
+      ],
+      "effects": [
+        "140ms screen switch bands",
+        "captured-screen displacement",
+        "procedural fallback",
+        "cyan/red tears",
+        "RGB blocks"
+      ],
+      "browser": "Canvas snapshot of owned scene or layered DOM clones; trigger on page section switch"
+    },
+    {
+      "id": "glsl-reference",
+      "sources": [
+        "components/glitch.frag"
+      ],
+      "effects": [
+        "scanlines/bands",
+        "vertical streaks",
+        "diagonal tears",
+        "displacement blocks",
+        "chromatic aberration",
+        "noise pixels",
+        "white flash"
+      ],
+      "browser": "Original WebGL2 postprocess on own Canvas texture; CSS low-cost fallback",
+      "note": "No runtime reference found beyond README; theme.lua screen_shader is empty. Actual workspace implementation is anim.ts."
+    },
+    {
+      "id": "capture",
+      "sources": [
+        "components/modules/anim.ts",
+        "components/modules/region.ts",
+        "scripts/screenshot",
+        "scripts/screenrecord"
+      ],
+      "effects": [
+        "breach/snapshot banner",
+        "shutter flash",
+        "targeting crosshair",
+        "traced selection rectangle",
+        "region dimension/coordinates",
+        "intercept banner",
+        "REC camera HUD",
+        "timecode/blink",
+        "multi-scale bloom",
+        "record start/stop transition",
+        "record frame"
+      ],
+      "browser": "Demo overlay selection and recording state; optional getDisplayMedia/MediaRecorder only on user gesture"
+    },
+    {
+      "id": "overkill-scanner",
+      "sources": [
+        "scripts/overkill"
+      ],
+      "effects": [
+        "radial vignette",
+        "cyan scanner line draw-in",
+        "rotating cursor emblem",
+        "glitch-type banner",
+        "alert/icon glow",
+        "edge sweep"
+      ],
+      "browser": "Canvas/SVG pointer-following scanner overlay; local demo close action"
+    },
+    {
+      "id": "login",
+      "sources": [
+        "components/login/lock_shell.qml",
+        "components/login/sddm-theme/Background.qml",
+        "components/login/sddm-theme/Bracket.qml",
+        "components/login/sddm-theme/CutPanel.qml",
+        "components/login/sddm-theme/Main.qml",
+        "components/login/themes/netwatch/Background.qml",
+        "components/login/themes/netwatch/Bracket.qml",
+        "components/login/themes/netwatch/CutPanel.qml",
+        "components/login/themes/netwatch/Main.qml"
+      ],
+      "effects": [
+        "image/video background fallback",
+        "dark gradient veil",
+        "drifting scanlines",
+        "clock/date/status blocks",
+        "chamfered auth panel",
+        "bracket corners",
+        "focus color transitions",
+        "blinking caret",
+        "news ticker with glitch/hex separators",
+        "700ms fade/rise",
+        "245ms failure shake",
+        "error fade"
+      ],
+      "browser": "Fictional form demo with no OS credentials; CSS video/object-fit, marquee, keyframes and focus states"
+    },
+    {
+      "id": "window-transitions",
+      "sources": [
+        "theme.lua",
+        "components/modules/config.ts"
+      ],
+      "effects": [
+        "window slide-left entrance",
+        "slide-right exit",
+        "move slide",
+        "fade",
+        "workspace slide toggle",
+        "layer fade",
+        "backdrop blur"
+      ],
+      "browser": "WAAPI/CSS transitions on owned panels and page sections"
+    },
+    {
+      "id": "terminal-crt",
+      "sources": [
+        "assets/cool-retro-term/netrunner.json",
+        "scripts/netrunner-terminal"
+      ],
+      "effects": [
+        "red netrunner phosphor",
+        "bloom",
+        "rasterization",
+        "jitter",
+        "RGB shift",
+        "blinking cursor",
+        "translucency"
+      ],
+      "browser": "DOM terminal presentation and CSS scanline/RGB overlays; Canvas for real displacement"
+    },
+    {
+      "id": "cyberspace-boot",
+      "sources": [
+        "components/apps/CyberSpace/cyberspace.c"
+      ],
+      "effects": [
+        "75ms boot text rows",
+        "module-loading block progress",
+        "terminal scroll",
+        "boot-to-site reveal"
+      ],
+      "browser": "Original local boot sequence/progress UI; no dependency on external framed site"
+    },
+    {
+      "id": "system-chrome",
+      "sources": [
+        "assets/gtk/gtk.css",
+        "assets/gtk/DaemonKvantum/Daemon.kvconfig",
+        "assets/kitty/kitty.conf",
+        "scripts/shell-theme"
+      ],
+      "effects": [
+        "application dark palette",
+        "neon selected/hover/focus",
+        "buttons/menus/tooltips/scrollbars",
+        "window and terminal chrome"
+      ],
+      "browser": "Scoped CSS component skin only"
+    },
+    {
+      "id": "rio-arctic-facility",
+      "sources": [
+        "assets/rio/shaders/arctic-facility/accumulate.slang",
+        "assets/rio/shaders/arctic-facility/blur_horiz.slang",
+        "assets/rio/shaders/arctic-facility/blur_vert.slang",
+        "assets/rio/shaders/arctic-facility/arctic-facility.slang",
+        "assets/rio/shaders/arctic-facility/arctic-facility.slangp"
+      ],
+      "effects": [
+        "White beveled facility frame, bolts/braces, teal phosphor scan, shadow, rotating DNA double helix",
+        "four-pass feedback accumulation and separable blur"
+      ],
+      "browser": "Original Canvas/WebGL shader or SVG/CSS approximation using own scene, never a drop-in Vulkan Slang shader"
+    },
+    {
+      "id": "rio-blade-baseline",
+      "sources": [
+        "assets/rio/shaders/blade-baseline/accumulate.slang",
+        "assets/rio/shaders/blade-baseline/blur_horiz.slang",
+        "assets/rio/shaders/blade-baseline/blur_vert.slang",
+        "assets/rio/shaders/blade-baseline/blade-baseline.slang",
+        "assets/rio/shaders/blade-baseline/blade-baseline.slangp"
+      ],
+      "effects": [
+        "Machined deck bezel and screws, pulsing indicator, teal phosphor bloom, scanlines, flicker and grain",
+        "four-pass feedback accumulation and separable blur"
+      ],
+      "browser": "Original Canvas/WebGL shader or SVG/CSS approximation using own scene, never a drop-in Vulkan Slang shader"
+    },
+    {
+      "id": "rio-bloodmoon-veil",
+      "sources": [
+        "assets/rio/shaders/bloodmoon-veil/accumulate.slang",
+        "assets/rio/shaders/bloodmoon-veil/blur_horiz.slang",
+        "assets/rio/shaders/bloodmoon-veil/blur_vert.slang",
+        "assets/rio/shaders/bloodmoon-veil/bloodmoon-veil.slang",
+        "assets/rio/shaders/bloodmoon-veil/bloodmoon-veil.slangp"
+      ],
+      "effects": [
+        "Red moon disc/halo, drifting layered fog, vignette/grain, red rim/ticks and blood text glow",
+        "four-pass feedback accumulation and separable blur"
+      ],
+      "browser": "Original Canvas/WebGL shader or SVG/CSS approximation using own scene, never a drop-in Vulkan Slang shader"
+    },
+    {
+      "id": "rio-crimson-smooth",
+      "sources": [
+        "assets/rio/shaders/crimson-smooth/accumulate.slang",
+        "assets/rio/shaders/crimson-smooth/blur_horiz.slang",
+        "assets/rio/shaders/crimson-smooth/blur_vert.slang",
+        "assets/rio/shaders/crimson-smooth/crimson-smooth.slang",
+        "assets/rio/shaders/crimson-smooth/crimson-smooth.slangp"
+      ],
+      "effects": [
+        "Smooth translucent rounded crimson plate, ember gradient/halo, subtle sheen/grain and text bloom",
+        "four-pass feedback accumulation and separable blur"
+      ],
+      "browser": "Original Canvas/WebGL shader or SVG/CSS approximation using own scene, never a drop-in Vulkan Slang shader"
+    },
+    {
+      "id": "rio-ghost-holo",
+      "sources": [
+        "assets/rio/shaders/ghost-holo/accumulate.slang",
+        "assets/rio/shaders/ghost-holo/blur_horiz.slang",
+        "assets/rio/shaders/ghost-holo/blur_vert.slang",
+        "assets/rio/shaders/ghost-holo/newpixie-crt.slang",
+        "assets/rio/shaders/ghost-holo/ghost-holo.slangp"
+      ],
+      "effects": [
+        "Green hologram tint, dual frame lines/corner details, CRT ghosting/bloom, scanline/vignette controls",
+        "four-pass feedback accumulation and separable blur"
+      ],
+      "browser": "Original Canvas/WebGL shader or SVG/CSS approximation using own scene, never a drop-in Vulkan Slang shader"
+    },
+    {
+      "id": "rio-johnny-crt",
+      "sources": [
+        "assets/rio/shaders/johnny-crt/accumulate.slang",
+        "assets/rio/shaders/johnny-crt/blur_horiz.slang",
+        "assets/rio/shaders/johnny-crt/blur_vert.slang",
+        "assets/rio/shaders/johnny-crt/johnny-crt.slang",
+        "assets/rio/shaders/johnny-crt/johnny-crt.slangp"
+      ],
+      "effects": [
+        "Warm monochrome/yellow phosphor CRT, ghosting, bloom, scanlines, vignette, frame texture option",
+        "four-pass feedback accumulation and separable blur"
+      ],
+      "browser": "Original Canvas/WebGL shader or SVG/CSS approximation using own scene, never a drop-in Vulkan Slang shader"
+    },
+    {
+      "id": "rio-kitty-pop",
+      "sources": [
+        "assets/rio/shaders/kitty-pop/accumulate.slang",
+        "assets/rio/shaders/kitty-pop/blur_horiz.slang",
+        "assets/rio/shaders/kitty-pop/blur_vert.slang",
+        "assets/rio/shaders/kitty-pop/kitty-pop.slang",
+        "assets/rio/shaders/kitty-pop/kitty-pop.slangp"
+      ],
+      "effects": [
+        "Pink/lilac glass and rounded rings, bloom/ghosting, twinkling dust and star glints, bow/sticker decoration",
+        "four-pass feedback accumulation and separable blur"
+      ],
+      "browser": "Original Canvas/WebGL shader or SVG/CSS approximation using own scene, never a drop-in Vulkan Slang shader"
+    },
+    {
+      "id": "rio-newpixie-flat",
+      "sources": [
+        "assets/rio/shaders/newpixie-flat/accumulate.slang",
+        "assets/rio/shaders/newpixie-flat/blur_horiz.slang",
+        "assets/rio/shaders/newpixie-flat/blur_vert.slang",
+        "assets/rio/shaders/newpixie-flat/newpixie-crt.slang",
+        "assets/rio/shaders/newpixie-flat/newpixie-crt.slangp"
+      ],
+      "effects": [
+        "Flat CRT phosphor, accumulation trails, RGB ghosts, bloom, scanlines and vignette",
+        "four-pass feedback accumulation and separable blur"
+      ],
+      "browser": "Original Canvas/WebGL shader or SVG/CSS approximation using own scene, never a drop-in Vulkan Slang shader"
+    },
+    {
+      "id": "rio-synth-crt",
+      "sources": [
+        "assets/rio/shaders/synth-crt/accumulate.slang",
+        "assets/rio/shaders/synth-crt/blur_horiz.slang",
+        "assets/rio/shaders/synth-crt/blur_vert.slang",
+        "assets/rio/shaders/synth-crt/newpixie-crt.slang",
+        "assets/rio/shaders/synth-crt/newpixie-crt.slangp"
+      ],
+      "effects": [
+        "Same final shader bytes as newpixie-flat, with preset/theme integration for synth colors",
+        "four-pass feedback accumulation and separable blur"
+      ],
+      "browser": "Original Canvas/WebGL shader or SVG/CSS approximation using own scene, never a drop-in Vulkan Slang shader"
+    }
+  ],
+  "license": {
+    "repositoryMetadata": null,
+    "rootLicense": false,
+    "sourceCode": "Most project QML/TS/CSS/custom shader sources have no license grant; recreate concepts independently, do not copy code/assets",
+    "embeddedException": "27 accumulate.slang/blur_horiz.slang/blur_vert.slang copies have Mattias Gustavsson 2016 MIT OR public-domain/Unlicense text; preserve license if reusing these isolated files",
+    "assets": "No blanket license for bundled game motifs, fonts, icons, audio, wallpapers or images; use original replacements",
+    "readme": "Explicitly describes recreating Cyberpunk 2077 UI; credits include cool-retro-term"
+  },
+  "limits": {
+    "scope": "Browser effects operate within page bounds and its own DOM/Canvas; cannot decorate/control arbitrary OS windows",
+    "native": "No PAM/SDDM/Wayland lock, Hyprland workspace/window control, arbitrary process launch/kill, package install/update, D-Bus tray/notifications, pactl/wpctl mixers, bluetoothctl/nmcli, brightnessctl, native global hotkeys or /proc/hw telemetry from an ordinary browser page",
+    "capture": "getDisplayMedia requires secure context and user selection/gesture; MediaRecorder support differs; cannot silently capture desktop or simulate an OS lock",
+    "media": "Only page-owned media via HTML media/WebAudio/MediaSession; cannot read arbitrary system MPRIS sessions",
+    "notifications": "In-page demos work; OS web notifications require permission and differ from native notification history",
+    "data": "RSS/market/weather/map endpoints need CORS, keys/rate-limit handling, attribution or a trusted backend; bundle sample data as fallback",
+    "accessibility": "Provide reduced-motion mode, keyboard/focus, pause/stop effects, mute-by-default audio; avoid automatic high-intensity flashes"
+  }
+}

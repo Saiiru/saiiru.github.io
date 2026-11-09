@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <meta name="description" content="Biblioteca de componentes web de Sairu: efeitos e interfaces originais em HTML, CSS e JavaScript, com referências e limites verificáveis." />
+ <link rel="icon" type="image/svg+xml" href="/brand/sairu-mark.svg" />
+ <title>BLACKSITE — Biblioteca de interfaces</title>
+ <link rel="stylesheet" href="./gallery.css" />
+</head>
+<body class="ca-library" data-palette="portfolio">
+ <a class="ca-skip" href="#preview">Pular para a demonstração</a>
+ <header class="ca-header">
+  <a href="/" class="ca-home"><img src="/brand/sairu-mark.svg" width="36" height="36" alt="" /><span>SAIRU / BLACKSITE</span></a>
+  <a href="https://github.com/Saiiru/saiiru.github.io/tree/main/components" target="_blank" rel="noopener noreferrer">Código da biblioteca ↗</a>
+ </header>
+ <main class="ca-main">
+  <section class="ca-intro"><h1>INTERFACES.<br/><span>EM ESTADO VIVO.</span></h1><div><p>Geometria, sinal e movimento.<br/>Peças de interface para testar, inspecionar e reutilizar.</p><p class="ca-intro-note">HTML, CSS e JavaScript originais. Equivalentes visuais do CyberArch e estudos de CodePen; as prévias não controlam seu sistema.</p></div></section>
+  <div class="ca-workbench">
+   <aside class="ca-catalog" aria-label="Catálogo de componentes">
+    <label class="ca-control-label" for="component-search">Buscar componente<input id="component-search" type="search" placeholder="Glitch, painel, CRT…" autocomplete="off" /></label>
+    <div class="ca-filters" aria-label="Categorias"><button type="button" data-category="Todos" aria-pressed="true">Todos</button><button type="button" data-category="Sinal" aria-pressed="false">Sinal</button><button type="button" data-category="Interfaces" aria-pressed="false">Interfaces</button><button type="button" data-category="Displays" aria-pressed="false">Displays</button></div>
+    <p id="result-count" class="ca-fine" role="status"></p>
+    <nav id="component-list" aria-label="Escolher componente"></nav>
+   </aside>
+   <section class="ca-inspector" aria-labelledby="effect-title">
+    <div class="ca-mobile-picker"><label class="ca-control-label" for="effect-picker">Escolher componente<select id="effect-picker"></select></label></div>
+    <header class="ca-effect-header"><div><h2 id="effect-title"></h2><p id="effect-summary"></p></div><label class="ca-control-label ca-palette-control" for="palette-picker">Superfície<select id="palette-picker"><option value="portfolio">Portfólio / Mint + Coral</option><option value="nord">Nord Recon / adaptador</option></select></label></header>
+    <div class="ca-preview-shell"><div id="preview" class="ca-demo" tabindex="-1" aria-label="Demonstração do componente"></div><p class="ca-demo-boundary">DEMONSTRAÇÃO LOCAL · SEM ACESSO A DADOS OU CONTROLES DO DESKTOP</p></div>
+    <div class="ca-implementation"><div><h3>Leve a peça.</h3><p>O comportamento é um módulo independente. Monte na entrada da tela e descarte ao sair; o lifecycle cuida da pausa e da limpeza.</p><div id="effect-sources" class="ca-source-links"></div></div><div class="ca-example"><pre><code id="example-code"></code></pre><button type="button" id="copy-example" class="ca-button">Copiar exemplo</button><p id="copy-status" role="status" class="ca-fine"></p></div></div>
+   </section>
+  </div>
+  <section class="ca-provenance"><h2>Da referência<br/>ao navegador.</h2><div><p>O inventário registra 30 famílias visuais em 142 arquivos de origem. Cada família aponta para um ou mais componentes desta biblioteca. Os nove presets CRT são aproximações originais em Canvas, com motivos próprios de cada perfil.</p><p>Isso não é uma conversão executável do shell: PAM, Hyprland, captura de tela, áudio do sistema e serviços nativos continuam dependentes da plataforma. Não foram copiados fontes comerciais, imagens de jogos, sons ou shaders sem licença.</p><a href="https://github.com/Saiiru/saiiru.github.io/blob/main/components/reference/coverage-map.json" target="_blank" rel="noopener noreferrer">Abrir mapa completo de origem e cobertura ↗</a><div id="reference-links" class="ca-reference-links"></div></div></section>
+ </main>
+ <footer class="ca-footer"><a href="/">Voltar ao portfólio</a><span>COMPONENTES / EXPERIÊNCIAS LOCAIS / MOVIMENTO REDUZIDO RESPEITADO</span></footer>
+ <noscript><p class="ca-nojs">As demonstrações precisam de JavaScript. <a href="https://github.com/Saiiru/saiiru.github.io/tree/main/components">Leia os componentes e as referências no GitHub.</a> <a href="/">Voltar ao portfólio.</a></p></noscript>
+ <script type="module" src="./gallery.js"></script>
+</body>
+</html>

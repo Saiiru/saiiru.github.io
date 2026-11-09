@@ -64,3 +64,7 @@ The 2026-11-07 direction used industrial yellow and editorial screenshot rows. H
 Chromatic choreography and Gemini review remain in `design/motion/`. The existing MIT Cybercore bands/scanlines adaptation remains attributed in `design/contextual-signals/RESEARCH.md` and retained license files; no Cybercore package is installed. `design/recon/RESEARCH.md` records Mille SVG format inspiration and CyberArch/CodePen technique references. CyberArch’s shader was not copied into the original contour field; its inspected login background uses image/video fallbacks.
 
 Preserve actual paid software history and studies, distinguish learning from experience, and avoid unverified availability, production-impact or guaranteed-security claims. Any preserved offline prototypes retain their synthetic-data, deterministic/local-retrieval and optional-LLM boundaries if surfaced again.
+
+## Browser component library
+
+components/ is a separate HTML/CSS/ES-module experience: 24 original demos, nine approximate CRT profiles and a source-family map pinned to CyberArch Shell. It does not replace the native desktop. Main-page archive/contact links share only finite frame feedback; gallery modules are not in the portfolio initial bundle. components/README.md documents reuse, lifecycle, generated Nord adapter, provenance and limitations. Desktop/mobile captures and local verification scope are in design/quality/components/.

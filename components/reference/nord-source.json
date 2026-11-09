@@ -1,0 +1,13 @@
+{
+  "source": "Saiiru/dotfiles/themes/palettes/nord-recon.toml",
+  "sha256": "df83c5491451ad097f35f3094c9768fb6356af8337ba580ebb1fb1066c0a67d9",
+  "mapping": {
+    "bg": "background",
+    "panel": "surface",
+    "text": "text",
+    "muted": "subtext",
+    "line": "border",
+    "signal": "focus_text",
+    "coral": "danger"
+  }
+}

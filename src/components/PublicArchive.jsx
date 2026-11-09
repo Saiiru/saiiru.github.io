@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
+import { bindFrameSignal } from '../../components/effects/frame.js'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowDown, ArrowUpRight, BookOpen, GitFork, GitBranch, Search, X } from 'lucide-react'
 import inventory from '../data/repositories.json'
 import notes from '../data/repository-notes.json'
@@ -21,6 +22,7 @@ const repositories=inventory.repositories.map(item=>{
 })
 
 export default function PublicArchive(){
+  const archiveRef=useRef(null)
   const [query,setQuery]=useState('')
   const [filter,setFilter]=useState('Todos')
   const [includeForks,setIncludeForks]=useState(true)
@@ -54,6 +56,10 @@ export default function PublicArchive(){
     return list
   },[query,filter,includeForks,sort])
   const shown=projects.slice(0,limit)
+  useEffect(()=>{
+    const cleanups=Array.from(archiveRef.current?.querySelectorAll('.public-repo')||[]).map(bindFrameSignal)
+    return()=>cleanups.forEach(cleanup=>cleanup())
+  },[open,projects,limit])
   function resetVisible(){setLimit(visiblePerPage)}
   function highlightName(name) {
     const q=query.trim().toLocaleLowerCase('pt-BR')
@@ -61,7 +67,7 @@ export default function PublicArchive(){
     if(idx<0)return <SignalText>{name}</SignalText>
     return <><span>{name.slice(0,idx)}</span><mark>{name.slice(idx,idx+q.length)}</mark><span>{name.slice(idx+q.length)}</span></>
   }
-  return <section className="public-archive section-wrap" id="todos-projetos" aria-labelledby="public-archive-heading">
+  return <section ref={archiveRef} className="public-archive section-wrap" id="todos-projetos" aria-labelledby="public-archive-heading">
     <div className="public-archive-heading" data-reveal>
       <div className="archive-eyebrow"><span>INDEX/002</span><span>ALL PUBLIC REPOSITORIES</span></div>
       <div className="public-archive-title-row">

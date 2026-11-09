@@ -396,9 +396,9 @@
       1280,
       1440
     ],
-    "initialJSBytes": 197920,
-    "initialJSGzipBytes": 61972,
-    "cssGzipBytes": 14104,
+    "initialJSBytes": 199030,
+    "initialJSGzipBytes": 62519,
+    "cssGzipBytes": 14244,
     "finishReview": {
       "disposition": "SHIP",
       "scope": "Desktop/mobile hero, contact and public archive plus scoped changed sources",
@@ -569,5 +569,17 @@
       ],
       "lazyFieldExcludedFromInitialJS": true
     }
+  },
+  "componentLibrary": {
+    "path": "components/",
+    "mode": "Operate and Experience",
+    "components": 24,
+    "CRTProfiles": 9,
+    "sourceFamilies": 30,
+    "inventoriedFiles": 142,
+    "mainPageIntegration": "Finite frame feedback on repository/contact links only",
+    "nativeOSBridge": false,
+    "shaderParity": "Original Canvas2D approximations, no Slang feedback pipeline",
+    "docs": "components/README.md"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "components": 24,
+  "crtVariants": 9,
+  "widths": [
+    320,
+    390,
+    1440
+  ],
+  "pageErrors": [],
+  "localAssetsOnly": true
+}

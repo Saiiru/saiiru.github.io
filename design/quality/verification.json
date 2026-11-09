@@ -1,9 +1,9 @@
 {
   "build": "PASS",
-  "initialJSBytes": 197920,
-  "initialJSGzipBytes": 61972,
-  "cssBytes": 62685,
-  "cssGzipBytes": 14104,
+  "initialJSBytes": 199030,
+  "initialJSGzipBytes": 62519,
+  "cssBytes": 63412,
+  "cssGzipBytes": 14244,
   "npmAuditFindings": 0,
   "browserSuites": [
     "TOOLKIT_SUITE_PASS",
@@ -15,5 +15,6 @@
   "plannerIntegrationTests": 22,
   "adaRemoteCI": "Not started: account billing lock",
   "scope": "Local production build and scoped tests; no formal audit",
-  "incrementalEvidence": "REFERENCES-EXTRA.md"
+  "incrementalEvidence": "REFERENCES-EXTRA.md",
+  "componentLibraryEvidence": "components/"
 }

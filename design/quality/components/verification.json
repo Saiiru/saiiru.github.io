@@ -1,0 +1,70 @@
+{
+  "scope": "Local production build and bounded browser/source review, not a formal audit",
+  "status": "PASS",
+  "components": 24,
+  "CRTProfiles": 9,
+  "sourceFamilies": 30,
+  "inventoriedFiles": 142,
+  "widths": [
+    320,
+    390,
+    1440
+  ],
+  "checks": [
+    "COMPONENT_LIBRARY_SUITE_PASS",
+    "TOOLKIT_SUITE_PASS",
+    "RECON_SUITE_PASS",
+    "HARDENING_SUITE_PASS",
+    "MOTION_BUDGET_SUITE_PASS",
+    "MEDIA_REDUCED_TRANSITION_PASS",
+    "npm audit: zero findings",
+    "Nord adapter matches canonical TOML"
+  ],
+  "independentSourceReview": "SHIP",
+  "metrics": {
+    "portfolio": {
+      "initialJS": {
+        "bytes": 199030,
+        "gzip": 62519,
+        "files": [
+          "assets/index-DchmHX55.js",
+          "assets/frame-DCer7uys.js"
+        ]
+      },
+      "css": {
+        "bytes": 63412,
+        "gzip": 14244,
+        "files": [
+          "assets/index-CE8oGbYf.css"
+        ]
+      }
+    },
+    "components": {
+      "initialJS": {
+        "bytes": 58258,
+        "gzip": 22914,
+        "files": [
+          "assets/components-C663r0zq.js",
+          "assets/frame-DCer7uys.js"
+        ]
+      },
+      "css": {
+        "bytes": 45848,
+        "gzip": 10638,
+        "files": [
+          "assets/components-wBmIlSph.css"
+        ]
+      }
+    },
+    "repositoryURLs": 62,
+    "policy": "Self-only static CSP, no eval, no debug maps; initial budgets include shared module preloads"
+  },
+  "publication": "verify after merge",
+  "mechanicalReview": {
+    "warningsAddressed": [
+      "Functional gallery navigation/filter/footer text raised to 11px",
+      "Dock easing changed to non-overshooting deceleration"
+    ],
+    "retainedDecision": "Arial is supporting body text; authored display typography remains self-hosted Oxanium. No formal certification."
+  }
+}

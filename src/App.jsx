@@ -1,3 +1,5 @@
+import { bindFrameSignal } from '../components/effects/frame.js'
+import '../components/effects/frame.css'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowDownRight, ArrowUpRight, ArrowRight, Menu, X, Plus, TerminalSquare } from 'lucide-react'
 import './blacksite.css'
@@ -86,6 +88,10 @@ function App(){
   document.addEventListener('keydown',onKey)
   return()=>document.removeEventListener('keydown',onKey)
  },[menuOpen])
+ useEffect(()=>{
+  const cleanups=Array.from(rootRef.current.querySelectorAll('.contact-channel')).map(bindFrameSignal)
+  return()=>cleanups.forEach(cleanup=>cleanup())
+ },[])
  const close=()=>setMenuOpen(false)
  return <div ref={rootRef} data-effects={effectsEnabled?'on':'off'} className="portfolio">
  <div className="ambient-field" aria-hidden="true"><span className="ambient-grid"/><span className="ambient-signal"/></div>
@@ -133,7 +139,7 @@ function App(){
    <div className="contact-signoff"><div className="contact-signature"><img src="/brand/sairu-mark.svg" alt="" width="48" height="48"/><span>SAIRU</span></div><span>URIAS MACHADO SANTOS<br/>FEIRA DE SANTANA, BAHIA</span></div>
   </section>
  </main>
- <footer className="site-footer"><a href="#inicio">SAIRU / BLACKSITE</a><span>URIAS MACHADO SANTOS © 2026</span><a href="#inicio">VOLTAR AO TOPO ↑</a></footer>
+ <footer className="site-footer"><a href="#inicio">SAIRU / BLACKSITE</a><span>URIAS MACHADO SANTOS © 2026</span><a href="/components/">BIBLIOTECA DE INTERFACES ↗</a><a href="#inicio">VOLTAR AO TOPO ↑</a></footer>
  </div>
 }
 export default App

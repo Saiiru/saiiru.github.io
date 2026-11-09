@@ -1,0 +1,2 @@
+// Color facts from pinned colors.ts; independent surface adaptation.
+export const upstreamPalettes=[["netwatch", "NETWATCH", "#5ef4f8", "#0b1110"], ["blade", "BLADE", "#01b4b2", "#0b1110"], ["kitty", "KITTY", "#ff69be", "#0b1110"], ["bloodmoon", "BLOODMOON", "#ff3c3c", "#0b1110"], ["arctic", "ARCTIC", "#d2f5ff", "#0b1110"], ["synthwave", "SYNTHWAVE", "#2ddcd2", "#0b1110"], ["johnny", "JOHNNY", "#5ef4f8", "#0b1110"], ["ghost", "GHOST", "#28ff8c", "#0b1110"]]

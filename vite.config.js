@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { fileURLToPath } from 'node:url'
 
 const policy=[
  "default-src 'none'", "script-src 'self'", "style-src 'self'",
@@ -22,5 +23,5 @@ export default defineConfig({
  base:'/',
  server:{host:'127.0.0.1'},
  preview:{host:'127.0.0.1'},
- build:{outDir:'docs',sourcemap:false}
+ build:{outDir:'docs',sourcemap:false,rollupOptions:{input:{index:fileURLToPath(new URL('./index.html',import.meta.url)),components:fileURLToPath(new URL('./components/index.html',import.meta.url))}}}
 })

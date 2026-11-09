@@ -1,0 +1,5 @@
+.ca-frame-signal { position:relative; isolation:isolate }
+.ca-frame-signal::after { content:''; pointer-events:none; position:absolute; inset:0; opacity:0; border:1px solid var(--ca-signal,var(--signal,#9ce8bf)); clip-path:polygon(0 0,18% 0,18% 2px,2px 2px,2px 100%,0 100%); z-index:2 }
+.ca-frame-signal[data-signal=active]::after { animation:ca-frame-trace 440ms cubic-bezier(.16,1,.3,1) both }
+@keyframes ca-frame-trace { 0% {opacity:0;transform:translateX(-7px)} 18% {opacity:.8} 52% {clip-path:polygon(0 0,100% 0,100% 100%,0 100%)} 100% {opacity:0;transform:translateX(0);clip-path:polygon(82% 0,100% 0,100% 100%,98% 100%,98% 2px,82% 2px)} }
+@media(prefers-reduced-motion:reduce){.ca-frame-signal[data-signal=active]::after{animation:none}}
