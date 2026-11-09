@@ -1,7 +1,7 @@
 {
   "build": "PASS",
-  "initialJSBytes": 197227,
-  "initialJSGzipBytes": 61707,
+  "initialJSBytes": 197662,
+  "initialJSGzipBytes": 61899,
   "cssBytes": 62591,
   "cssGzipBytes": 14082,
   "npmAuditFindings": 0,

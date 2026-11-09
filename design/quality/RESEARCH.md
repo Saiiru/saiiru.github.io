@@ -38,7 +38,7 @@ Três contextos frios Chromium 390×844, CPU 4×, latência 80 ms e 200 KB/s. Ar
 
 | Medida | Antes | Depois |
 | --- | ---: | ---: |
-| JavaScript inicial sem compressão | ~420 KB | ~197 KB |
+| JavaScript inicial sem compressão | ~420 KB | ~198 KB |
 | JavaScript inicial gzip | ~118 KB | ~62 KB |
 | LCP mediano no cenário | 2.948 ms | 1.944 ms |
 | Soma mediana de long tasks | 293 ms | 66 ms |
@@ -51,3 +51,7 @@ A coleta posterior foi feita antes da última alteração textual nas descriçõ
 Uma rodada de capturas desktop/mobile de hero, contato e arquivo está nesta pasta. Revisão independente resultou SHIP sem bloqueadores materiais no escopo inspecionado; não é certificação de acessibilidade ou pentest.
 
 Suítes atuais: e2e_toolkit.py, e2e_recon.py e e2e_hardening.py. Verificam responsividade, conteúdo verdadeiro, links, movimento, pausa oculta/reduzida, fallback gráfico, CSP e navegação por teclado. A manutenção preserva as capturas históricas de design/recon/ em separado.
+
+## Falha de conexão no efeito
+
+Um teste adicional abortou o download do chunk do contato e reproduziu a remoção da interface pelo erro do lazy import. A correção adiciona um limite de erro local ao elemento decorativo. A regressão agora exige fundo estático, marca e dois links de contato ainda presentes. Build, orçamento e suíte hardening passaram novamente. O build final é 197.662 bytes de JS inicial, 61.899 bytes gzip; a coleta de laboratório acima antecede esse pequeno tratamento de erro.

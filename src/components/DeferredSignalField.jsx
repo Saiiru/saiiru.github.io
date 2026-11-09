@@ -1,7 +1,14 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import { Component, lazy, Suspense, useEffect, useRef, useState } from 'react'
 
 const SignalField=lazy(()=>import('./SignalField'))
-const StillField=()=> <div className="contact-field" data-renderer="deferred" aria-hidden="true"/>
+const StillField=({renderer='deferred'})=> <div className="contact-field" data-renderer={renderer} aria-hidden="true"/>
+
+// A failed decorative download must not unmount the portfolio or its contact links.
+class FieldBoundary extends Component {
+ state={failed:false}
+ static getDerivedStateFromError(){return {failed:true}}
+ render(){return this.state.failed?<StillField renderer="fallback"/>:this.props.children}
+}
 
 /** Load shader code and allocate GPU resources only as the closing scene approaches. */
 export default function DeferredSignalField(){
@@ -16,6 +23,6 @@ export default function DeferredSignalField(){
   return()=>observer.disconnect()
  },[])
  return <div ref={ref} className="contact-field-mount" aria-hidden="true">
-  {near?<Suspense fallback={<StillField/>}><SignalField/></Suspense>:<StillField/>}
+  {near?<FieldBoundary><Suspense fallback={<StillField/>}><SignalField/></Suspense></FieldBoundary>:<StillField/>}
  </div>
 }

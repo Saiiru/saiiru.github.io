@@ -226,7 +226,8 @@
         "initialChunkRequest": false,
         "initialGPUAllocation": false,
         "missingIntersectionObserver": "Load immediately as compatibility fallback",
-        "contextLoss": "Cancel pending frame, mark renderer fallback and stop drawing until unmount"
+        "contextLoss": "Cancel pending frame, mark renderer fallback and stop drawing until unmount",
+        "chunkFailure": "Local React error boundary replaces the decorative scene with a static field; content and links remain mounted."
       },
       "ambient": {
         "implementation": "src/recon-identity.css",
@@ -394,8 +395,8 @@
       1280,
       1440
     ],
-    "initialJSBytes": 197227,
-    "initialJSGzipBytes": 61707,
+    "initialJSBytes": 197662,
+    "initialJSGzipBytes": 61899,
     "cssGzipBytes": 14082,
     "finishReview": {
       "disposition": "SHIP",

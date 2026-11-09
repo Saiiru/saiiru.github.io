@@ -33,7 +33,7 @@ The Portuguese closing heading is “O próximo passo é uma conversa.” The tw
 
 `SignalField.jsx` is a newly authored native WebGL contour field using layered noise, domain warping, contour bands, subtle scanline modulation and eased pointer influence. It adds no library, external image, video or tracker. A dark shade keeps copy and channels readable.
 
-The field targets roughly 30fps and caps device pixel ratio at 1.25. Its loop pauses outside an **80px viewport margin** or while the document is hidden. Reduced motion renders a stable frame without a continuous loop. Unavailable WebGL, shader setup failure or subsequent context loss selects the static CSS fallback; context loss cancels pending animation. Cleanup removes observers/listeners and releases resources.
+The field targets roughly 30fps and caps device pixel ratio at 1.25. Its loop pauses outside an **80px viewport margin** or while the document is hidden. Reduced motion renders a stable frame without a continuous loop. Unavailable WebGL, shader setup failure or subsequent context loss selects the static CSS fallback; context loss cancels pending animation. Cleanup removes observers/listeners and releases resources. A local error boundary also catches a failed lazy chunk download, preserving the entire portfolio and contact links with a static field.
 
 Contact uses two columns on desktop and one below 760px, with 23px gutters below 520px. The decorative edge code remains fixed: the explicit override prevents the earlier relative-positioning defect that added about 296px in document flow.
 
