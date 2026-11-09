@@ -8,7 +8,7 @@ Os scripts Python precisam de playwright e Chromium em /usr/bin/chromium. No PC 
 
 - python3 scripts/e2e_toolkit.py — tecnologias sem projetos, níveis de estudo, retirada dos protótipos sugeridos da vitrine, terminal, âncoras e quatro larguras.
 - python3 scripts/e2e_recon.py — cinco larguras, identidade, privacidade, campo WebGL, pausa fora da tela, movimento reduzido e fallback gráfico. Atualiza imagens em design/recon/; mantenha evidências históricas separadas ao comparar versões.
-- python3 scripts/e2e_hardening.py — GPU/chunk adiados, assets locais, CSP, entrada escapada, Escape e foco, aba oculta, movimento reduzido, perda de contexto e fallback sem JavaScript; busca e categoria de Ada/Plann.er no arquivo.
+- python3 scripts/e2e_hardening.py — GPU/chunk adiados, assets locais, CSP, entrada escapada, Escape e foco, aba oculta, movimento reduzido, perda de contexto, download interrompido do shader e fallback sem JavaScript; busca e categoria de Ada/Plann.er no arquivo.
 - npm run check:build — orçamento de 75 KiB de JS inicial e 18 KiB de CSS em gzip, sem mapas de depuração, CSP/noscript presentes, destinos HTTPS GitHub no inventário.
 - npm audit — vulnerabilidades conhecidas das dependências instaladas.
 - npm --prefix projects/ai-builder-labs test — lógica dos protótipos preservados; não representa projetos selecionados para a vitrine.

@@ -66,5 +66,13 @@ with sync_playwright() as p:
  assert plain.get_by_role('heading',name='Sairu — Urias Machado Santos').is_visible()
  assert plain.get_by_role('link',name='LinkedIn',exact=True).is_visible()
  print('PASS no-JavaScript identity and contact fallback')
+ interrupted=b.new_page(viewport={'width':390,'height':844})
+ interrupted.route('**/SignalField-*.js',lambda route:route.abort())
+ interrupted.goto(BASE,wait_until='networkidle')
+ interrupted.locator('#contato').scroll_into_view_if_needed()
+ interrupted.wait_for_function('() => document.querySelector(".contact-field")?.dataset.renderer==="fallback"')
+ assert interrupted.locator('.contact-channel').count()==2
+ assert interrupted.locator('#sairu-title').count()==1
+ print('PASS failed decorative chunk leaves the whole portfolio and contact usable')
  b.close()
 print('HARDENING_SUITE_PASS')
