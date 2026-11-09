@@ -1,3 +1,5 @@
+import '../components/effects/signature.css'
+import '../components/effects/crt.css'
 import { bindFrameSignal } from '../components/effects/frame.js'
 import '../components/effects/frame.css'
 import { useEffect, useRef, useState } from 'react'
@@ -43,7 +45,7 @@ function Terminal() {
     setInput('')
     requestAnimationFrame(() => outputRef.current?.scrollTo({ top: outputRef.current.scrollHeight, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }))
   }
-  return <div className="terminal-panel" aria-label="Terminal interativo"><div className="terminal-bar"><span className="terminal-lights"><i/><i/><i/></span><span>guest@s4iru:~</span><span className="terminal-live">● LOCAL</span></div><div className="terminal-output" ref={outputRef} role="log" aria-live="polite">{rows.map((row, index) => <div className={row.type === 'command' ? 'terminal-command' : ''} key={index}>{row.text}</div>)}</div><form onSubmit={run} className="terminal-form"><label htmlFor="terminal-input" className="sr-only">Comando do terminal</label><span aria-hidden="true">❯</span><input id="terminal-input" ref={inputRef} value={input} onChange={event => setInput(event.target.value)} autoComplete="off" spellCheck="false" placeholder="digite help e pressione Enter"/><button type="submit" aria-label="Executar comando"><ArrowRight size={16}/></button></form></div>
+  return <div className="terminal-panel crt-surface" aria-label="Terminal interativo"><span className="crt-scanlines" aria-hidden="true"/><div className="terminal-bar"><span className="terminal-lights"><i/><i/><i/></span><span>guest@s4iru:~</span><span className="terminal-live">● LOCAL</span></div><div className="terminal-output" ref={outputRef} role="log" aria-live="polite">{rows.map((row, index) => <div className={row.type === 'command' ? 'terminal-command' : ''} key={index}>{row.text}</div>)}</div><form onSubmit={run} className="terminal-form"><label htmlFor="terminal-input" className="sr-only">Comando do terminal</label><span aria-hidden="true">❯</span><input id="terminal-input" ref={inputRef} value={input} onChange={event => setInput(event.target.value)} autoComplete="off" spellCheck="false" placeholder="digite help e pressione Enter"/><button type="submit" aria-label="Executar comando"><ArrowRight size={16}/></button></form></div>
 }
 
 
@@ -73,6 +75,11 @@ function GlitchLogo({ enabled }) {
    <Wordmark/>
    <span className="glitch-layer glitch-cyan" key={"cyan-"+pulse} aria-hidden="true"><Wordmark/></span>
    <span className="glitch-layer glitch-magenta" key={"magenta-"+pulse} aria-hidden="true"><Wordmark/></span>
+   <svg key={"hud-"+pulse} className="signature-frame" viewBox="0 0 828 168" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path vectorEffect="non-scaling-stroke" d="M2 30V2H110M718 2H826V30M2 138V166H110M718 166H826V138"/>
+    <path className="signature-coral" vectorEffect="non-scaling-stroke" d="M120 2H176M650 166H708M2 53V76M826 92V115"/>
+    <path className="signature-sweep" vectorEffect="non-scaling-stroke" d="M2 84H826"/>
+   </svg>
   </h1>
   <div className="hero-annotation"><span className="crosshair" aria-hidden="true">+</span><span>HUMAN / IN / THE / LOOP</span><span className="annotation-rule" aria-hidden="true"/><span className="annotation-end" aria-hidden="true">/ 01</span></div>
  </>
@@ -89,7 +96,7 @@ function App(){
   return()=>document.removeEventListener('keydown',onKey)
  },[menuOpen])
  useEffect(()=>{
-  const cleanups=Array.from(rootRef.current.querySelectorAll('.contact-channel')).map(bindFrameSignal)
+  const cleanups=Array.from(rootRef.current.querySelectorAll('.contact-channel,.terminal-panel')).map(bindFrameSignal)
   return()=>cleanups.forEach(cleanup=>cleanup())
  },[])
  const close=()=>setMenuOpen(false)
@@ -110,7 +117,7 @@ function App(){
     <div className="type-side" aria-hidden="true"><span>PERSONAL<br/>WORK<br/>ARCHIVE</span><div className="registration"><i/><i/></div><span className="type-side-bottom">DESIGN<br/>BUILD<br/>REPEAT</span></div>
     <GlitchLogo enabled={effectsEnabled}/>
     <div className="hero-titleline"><span>SOFTWARE<span className="dot">.</span></span><span>SISTEMAS<span className="dot">.</span></span><span>AUTOMAÇÃO<span className="dot">.</span></span></div>
-    <div className="hero-bottom"><div className="hero-copy"><p>Entre o código e o mundo real.</p><p>Passei por times de desenvolvimento web e hoje estudo Eletromecânica. Gosto de abrir sistemas, descobrir por que algo falhou e construir uma solução que outra pessoa consiga entender e testar.</p></div><a className="hero-cta" href="#todos-projetos"><span>VER ESTUDOS<br/>E CÓDIGO</span><ArrowDownRight size={42} strokeWidth={1.2}/></a><div className="hero-barcode" aria-hidden="true"><div/><span>SAIRU—BLACKSITE—2026</span></div></div>
+    <div className="hero-bottom"><div className="hero-copy"><p>Entre o código e o mundo real.</p><p>Passei por times de desenvolvimento web e hoje estudo Eletromecânica. Gosto de abrir sistemas, descobrir por que algo falhou e construir uma solução que outra pessoa consiga entender e testar.</p></div><div className="hero-actions"><a className="hero-cta" href="#todos-projetos"><span>VER ESTUDOS<br/>E CÓDIGO</span><ArrowDownRight size={42} strokeWidth={1.2}/></a><a className="hero-library-link" href="/components/">EXPLORAR INTERFACES <ArrowUpRight size={16} aria-hidden="true"/></a></div><div className="hero-barcode" aria-hidden="true"><div/><span>SAIRU—BLACKSITE—2026</span></div></div>
    </div>
    <div className="hero-footerline"><span>SOFTWARE, SISTEMAS EMBARCADOS E ELETROMECÂNICA.</span><span><span className="live-indicator"/> PORTFÓLIO EM CONSTRUÇÃO CONTÍNUA</span><span>SCROLL TO EXPLORE ↓</span></div>
   </section>

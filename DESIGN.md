@@ -68,3 +68,7 @@ Preserve actual paid software history and studies, distinguish learning from exp
 ## Browser component library
 
 components/ is a separate HTML/CSS/ES-module experience: 24 original demos, nine approximate CRT profiles and a source-family map pinned to CyberArch Shell. It does not replace the native desktop. Main-page archive/contact links share only finite frame feedback; gallery modules are not in the portfolio initial bundle. components/README.md documents reuse, lifecycle, generated Nord adapter, provenance and limitations. Desktop/mobile captures and local verification scope are in design/quality/components/.
+
+## Main-page signature and CRT surface
+
+The existing finite signature pulse also drives an original SVG registration frame and one bounded scan. The terminal uses a static CRT surface behind readable text and finite focus feedback. The hero includes a direct link to the component library. These refinements preserve the palette, factual copy, accessible title and local command behavior. Sources and scoped four-width verification: design/portfolio-signals/RESEARCH.md.

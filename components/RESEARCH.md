@@ -30,3 +30,7 @@ As 30 famílias são representadas por 24 demos e seus estados internos. Os CRT 
 A galeria é uma entrada separada. No site principal, molduras breves respondem ao foco e ao ponteiro nos links do arquivo e contato; o restante da biblioteca não entra no carregamento inicial. A identidade existente e o shader autoral do contato foram preservados.
 
 Uma rodada visual reuniu as 24 prévias desktop e amostras móveis. A revisão encontrou e corrigiu restauração de navegação e retenção de eventos nas buscas. A verificação de movimento encontrou o caso do relógio reduzido: informação temporal precisa continuar funcionando mesmo quando o movimento decorativo é eliminado. Capturas e resultados locais ficam em `design/quality/components/`.
+
+## Aplicação adicional no site principal
+
+Novas referências de HUD, recortes e CRT: [pesquisa e aplicação](../design/portfolio-signals/RESEARCH.md). São três Pens adicionais às oito referências acima. A página principal usa registro HUD finito na assinatura e superfície CRT no terminal; não importa o runtime das demos.

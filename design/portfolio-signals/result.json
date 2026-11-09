@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "widths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "scope": "Main page signature HUD, static CRT terminal, real command output, direct library navigation, repeated hover and OS reduced motion"
+}

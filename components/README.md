@@ -94,3 +94,7 @@ As oito paletas da demo são fatos de cor extraídos do `colors.ts` da referênc
 - A cobertura de arquivos registra origem e correspondência visual; não comprova paridade de cada função nativa nem fidelidade pixel a pixel.
 
 Validação local, capturas e escopo de revisão ficam em `design/quality/components/`. Isso não é um pentest nem certificação formal de acessibilidade.
+
+## Utilitários aplicados na página principal
+
+effects/signature.css define uma moldura SVG com pulso por data-glitch=active; effects/crt.css define a superfície crt-surface e o filho decorativo crt-scanlines. Exemplo real de HTML/estado em src/App.jsx. Ambos respeitam movimento reduzido e não criam loops permanentes. Pesquisa: design/portfolio-signals/RESEARCH.md.
