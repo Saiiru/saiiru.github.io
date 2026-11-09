@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "name": "SAIRU / BLACKSITE",
-  "documentedAt": "2026-11-08",
+  "documentedAt": "2026-11-09",
   "mode": "Experience",
   "sourceFiles": [
     "PRODUCT.md",
@@ -9,17 +9,23 @@
     "src/App.jsx",
     "src/cyber-motion.css",
     "src/useCyberMotion.js",
-    "src/components/DatashardArchive.jsx",
-    "src/components/datashards.js",
-    "src/components/datashard-archive.css",
     "src/recon-identity.css",
     "src/components/SignalField.jsx",
     "src/contextual-signals.css",
     "src/human-interactions.css",
     "src/components/PublicArchive.jsx",
-    "public/brand/sairu-mark.svg"
+    "public/brand/sairu-mark.svg",
+    "src/components/DeferredSignalField.jsx",
+    "src/components/Toolkit.jsx",
+    "src/data/toolkit.js",
+    "src/data/repository-notes.json",
+    "scripts/build.mjs",
+    "scripts/check-build.mjs",
+    "vite.config.js",
+    "index.html",
+    "package.json"
   ],
-  "intent": "A typography-led portfolio with an original SAIRU identity, factual software evidence, inspectable prototype limits and private professional contact channels.",
+  "intent": "A typography-led portfolio with original SAIRU identity, factual work history, a technologies-only Toolkit, public repository archive and professional contact channels.",
   "principles": [
     "Typography before decoration",
     "Evidence before claims",
@@ -99,7 +105,6 @@
       },
       "displayScale": {
         "sectionHeading": "clamp(42px, 6.6vw, 100px)",
-        "projectHeading": "clamp(28px, 3vw, 48px)",
         "contactHeading": "clamp(48px, 6.7vw, 96px); 44–68px below 760px; 40–52px below 520px",
         "letterSpacing": "-0.03em to -0.04em"
       }
@@ -210,20 +215,34 @@
           "outside observed viewport margin",
           "document hidden"
         ],
-        "reducedMotion": "Stable rendered frame; no animation loop",
-        "fallback": "Static CSS radial gradient when context or shader setup fails",
+        "reducedMotion": "Render a stable frame; no continuous loop",
+        "fallback": "Static CSS background for unavailable WebGL, shader setup failure or later context loss",
         "dependencyAdded": false,
         "externalMedia": false,
-        "sourceCopied": false
+        "sourceCopied": false,
+        "loader": "src/components/DeferredSignalField.jsx",
+        "lazy": true,
+        "lazyObserverMarginPx": 180,
+        "initialChunkRequest": false,
+        "initialGPUAllocation": false,
+        "missingIntersectionObserver": "Load immediately as compatibility fallback",
+        "contextLoss": "Cancel pending frame, mark renderer fallback and stop drawing until unmount"
+      },
+      "ambient": {
+        "implementation": "src/recon-identity.css",
+        "property": "transform: translate3d",
+        "durationMs": 24000,
+        "timing": "ease-in-out infinite alternate",
+        "documentHidden": "data-page-hidden pauses CSS animations",
+        "reducedMotion": "No drift animation; will-change reset to auto"
       }
     }
   },
   "components": {
     "hero": "Original full-width geometric SAIRU wordmark, technical margin, segmented dark green/oxblood type strip and asymmetric lower composition.",
-    "navigation": "Desktop section anchors; toggleable mobile menu at <=520px with aria-expanded and descriptive control label.",
-    "evidenceInspector": "Selectable skill inventory with aria-pressed buttons, explicit experience/prototype status, evidence description and relevant source link; polite atomic live update.",
+    "navigation": "Desktop anchors and mobile toggle with aria-expanded. Escape closes an open menu and restores focus to its trigger.",
     "biography": "Dark green editorial section preserving real paid software roles and education dates.",
-    "terminal": "Deterministic local command exploration, labeled input, polite live log, clear/help/status/labs/stack/contact commands.",
+    "terminal": "Local deterministic command exploration with labeled input, polite live log and truthful navigation/contact output.",
     "contact": {
       "heading": "O próximo passo é uma conversa.",
       "layout": "Portuguese editorial copy and two direct channels over a shaded original contour field",
@@ -243,13 +262,14 @@
         "authored profile panel"
       ]
     },
-    "projectSurface": "Existing Datashard Archive catalogue and in-place accessible dossier reader, followed by the PublicArchive repository inventory; this identity pass adds no project claims.",
-    "edgeRegistration": "Fixed decorative edge code. Explicit override prevents the prior relative-positioning flow defect that added about 296px."
+    "projectSurface": "PublicArchive repository inventory with snapshot metadata and curated descriptions. Datashard showcase and suggested lab prototypes are not mounted.",
+    "edgeRegistration": "Fixed decorative edge code. Explicit override prevents the prior relative-positioning flow defect that added about 296px.",
+    "toolkit": "Technologies and related concepts only, grouped into software, embedded systems and electromechanics/control. Buttons expose aria-pressed/aria-controls and update a polite atomic detail region."
   },
   "responsive": {
     "min1700": "Increase hero top and lower spacing.",
     "max1100": "Reduce grid gaps and navigation spacing; hide hero barcode.",
-    "max760": "Contact and toolkit become one column; toolkit selector has two columns and evidence readout loses sticky positioning.",
+    "max760": "Contact becomes one column; Toolkit follows the existing responsive inventory/detail layout.",
     "max520": "Mobile menu, one-column hero lower area and toolkit selector, stacked biography/contact, 23px gutters, simplified decorations."
   },
   "accessibility": {
@@ -263,21 +283,25 @@
       "Decorative geometry hidden from assistive technology",
       "Reduced-motion alternative",
       "External links use noopener noreferrer",
-      "Pressed state for toolkit and archive selection",
-      "Accessible dossier tabs",
       "Decorative WebGL canvas hidden from assistive technology",
-      "Static reduced-motion field and unavailable-WebGL fallback"
+      "Static reduced-motion field and unavailable-WebGL fallback",
+      "Toolkit pressed state and controlled detail relationship",
+      "Escape closes mobile menu and restores trigger focus",
+      "No-JavaScript identity and GitHub/LinkedIn summary",
+      "WebGL context-loss static fallback"
     ],
-    "verificationBoundary": "Scoped browser and finish review passed; this record is not a formal accessibility certification."
+    "verificationBoundary": "Scoped Chromium checks and desktop/mobile review passed; not a formal accessibility certification or security audit."
   },
   "contentConstraints": [
     "Preserve actual paid software experience, education, GitHub and professional contact channels.",
-    "EvalForge, OpsPilot and DocTrace are exploratory offline demos with synthetic data.",
-    "Rules and local retrieval do not imply real LLM inference; an LLM via local proxy is optional where indicated.",
-    "Benchmarks and tests describe demos, not enterprise outcomes or production impact.",
     "Do not claim unverified availability.",
     "No commercial Cyber Grotesk font files or copyrighted reference artwork.",
-    "Do not expose personal email or mailto links in rendered page content or terminal contact output."
+    "Do not expose personal email or mailto links in rendered page content or terminal contact output.",
+    "Keep Toolkit about technologies only; do not imply an active Datashard showcase.",
+    "Ada Commerce is an educational Java 17 in-memory CLI, not a production storefront.",
+    "Plann.er is a local educational TypeScript/Fastify/SQLite API without frontend or authentication.",
+    "If preserved lab prototypes are surfaced later, retain synthetic-data, deterministic/local-retrieval, optional-LLM and demo-test limitations.",
+    "Build controls and scoped checks do not guarantee security or constitute formal audits."
   ],
   "references": [
     {
@@ -324,13 +348,12 @@
       "role": "Layered clipped-image glitch technique reference"
     }
   ],
-  "scope": "Documentation of finished identity refinement only; no code edits, commits or publishing by this documentation task.",
+  "scope": "Current implementation and final local verification; historical visual iterations retained separately.",
   "chromaticMotion": {
     "consultant": "Gemini via Agy, source response in design/motion",
     "css": "src/cyber-motion.css",
     "controller": "src/useCyberMotion.js",
     "finiteGlitchMs": 580,
-    "guardMs": 620,
     "revealMs": 560,
     "control": null,
     "preferenceKey": null,
@@ -338,8 +361,7 @@
     "missingStorageFallback": true,
     "missingObserverContentVisible": true,
     "continuousGlitch": false,
-    "trigger": "240ms after mount, then fine-pointer entry",
-    "cooldownMs": 1500,
+    "trigger": "Finite initial entry pulse, then every eligible fine-pointer re-entry restarts the layers; no artificial cooldown. Touch entries ignored.",
     "labelGlitchMs": 260,
     "contextualCSS": "src/contextual-signals.css",
     "sources": "design/contextual-signals/RESEARCH.md",
@@ -348,36 +370,23 @@
       "first": "#9ce8bf",
       "second": "#ee6674"
     },
-    "attribution": "Existing Cybercore MIT bands/scanlines adaptation retained in design/contextual-signals/RESEARCH.md and license files; no package dependency."
-  },
-  "datashardArchive": {
-    "mode": "Operate within Experience portfolio",
-    "layout": "catalogue + dossier reader",
-    "breakpointPx": 850,
-    "background": "#0c1511",
-    "reader": "#101d16",
-    "border": "#355244",
-    "text": "#e3eee7",
-    "body": "#bfd2c7",
-    "metadata": "#a6bdaf",
-    "coral": "#ee6674",
-    "readState": "per component visit, explicitly labeled",
-    "default": "evalforge",
-    "tabs": [
-      "Dossiê",
-      "Implementação",
-      "Evidências"
-    ],
-    "shareParameter": "shard",
-    "jsonSchema": "blacksite.datashard/1",
-    "scanMs": 210,
-    "copiedGameAssets": false,
-    "selectedBackground": "#20362a",
-    "selectedSignal": "#9ce8bf"
+    "attribution": "Existing Cybercore MIT bands/scanlines adaptation retained in design/contextual-signals/RESEARCH.md and license files; no package dependency.",
+    "activeStateTimerMs": 570,
+    "entryDelayMs": 260,
+    "cooldown": "none"
   },
   "verification": {
-    "suite": "scripts/e2e_recon.py",
-    "reportedStatus": "PASS",
+    "scope": "Final local production build, scoped browser checks and independent desktop/mobile review",
+    "testsExecuted": true,
+    "buildExecuted": true,
+    "passed": [
+      "npm run build",
+      "npm run check:build",
+      "npm audit (0 findings)",
+      "scripts/e2e_toolkit.py",
+      "scripts/e2e_recon.py",
+      "scripts/e2e_hardening.py"
+    ],
     "widthsPx": [
       320,
       390,
@@ -385,44 +394,100 @@
       1280,
       1440
     ],
-    "covers": [
-      "overflow",
-      "mark and palette",
-      "contact channels",
-      "rendered email/mailto privacy",
-      "terminal privacy",
-      "WebGL frame progression",
-      "offscreen pause",
-      "reduced motion",
-      "mobile menu hit targeting",
-      "unavailable-WebGL fallback"
-    ],
-    "sourceInspected": [
-      "hidden-document pause and resource cleanup"
-    ],
-    "detector": [],
+    "initialJSBytes": 197227,
+    "initialJSGzipBytes": 61707,
+    "cssGzipBytes": 14082,
     "finishReview": {
-      "reviewer": "/root/recon_finish_review",
       "disposition": "SHIP",
-      "materialFindings": [],
-      "scope": [
-        "desktop/mobile hero and contact",
-        "profile panels",
-        "full SignalField/App/recon CSS sources"
-      ]
+      "scope": "Desktop/mobile hero, contact and public archive plus scoped changed sources",
+      "materialFindings": []
     },
-    "screenshots": "design/recon/",
-    "documentationPassReranBrowserSuite": false
+    "evidence": "design/quality/RESEARCH.md",
+    "boundary": "Local checks and lab metrics; no formal audit, guaranteed security or field-performance claim."
   },
   "history": {
-    "initialDirection": "2026-11-07 industrial yellow and editorial screenshot rows; superseded by recon palette and catalogue/dossier surfaces",
-    "currentResearch": "design/recon/RESEARCH.md",
+    "initialDirection": "2026-11-07 yellow editorial rows; later Datashard catalogue/dossier iteration is also historical and currently unmounted.",
+    "currentResearch": "design/quality/RESEARCH.md",
     "priorResearch": [
       "design/motion/",
       "design/datashards/",
       "design/contextual-signals/RESEARCH.md"
     ],
-    "edgeFlowFix": "Explicit fixed-position override for decorative edge code after broad relative positioning created about 296px of flow space."
+    "edgeFlowFix": "Explicit fixed-position override for decorative edge code after broad relative positioning created about 296px of flow space.",
+    "preservedDatashardArchive": {
+      "mode": "Operate within Experience portfolio",
+      "layout": "catalogue + dossier reader",
+      "breakpointPx": 850,
+      "background": "#0c1511",
+      "reader": "#101d16",
+      "border": "#355244",
+      "text": "#e3eee7",
+      "body": "#bfd2c7",
+      "metadata": "#a6bdaf",
+      "coral": "#ee6674",
+      "readState": "per component visit, explicitly labeled",
+      "default": "evalforge",
+      "tabs": [
+        "Dossiê",
+        "Implementação",
+        "Evidências"
+      ],
+      "shareParameter": "shard",
+      "jsonSchema": "blacksite.datashard/1",
+      "scanMs": 210,
+      "copiedGameAssets": false,
+      "selectedBackground": "#20362a",
+      "selectedSignal": "#9ce8bf",
+      "mounted": false,
+      "status": "Historical source and research only; not part of the current main-page experience."
+    },
+    "previousReconVerification": {
+      "suite": "scripts/e2e_recon.py",
+      "reportedStatus": "PASS",
+      "widthsPx": [
+        320,
+        390,
+        768,
+        1280,
+        1440
+      ],
+      "covers": [
+        "overflow",
+        "mark and palette",
+        "contact channels",
+        "rendered email/mailto privacy",
+        "terminal privacy",
+        "WebGL frame progression",
+        "offscreen pause",
+        "reduced motion",
+        "mobile menu hit targeting",
+        "unavailable-WebGL fallback"
+      ],
+      "sourceInspected": [
+        "hidden-document pause and resource cleanup"
+      ],
+      "detector": [],
+      "finishReview": {
+        "reviewer": "/root/recon_finish_review",
+        "disposition": "SHIP",
+        "materialFindings": [],
+        "scope": [
+          "desktop/mobile hero and contact",
+          "profile panels",
+          "full SignalField/App/recon CSS sources"
+        ]
+      },
+      "screenshots": "design/recon/",
+      "documentationPassReranBrowserSuite": false,
+      "date": "2026-11-08",
+      "appliesToCurrentRevision": false,
+      "note": "Dated review evidence; not rerun by the 2026-11-09 documentation task."
+    },
+    "unmountedSources": [
+      "src/components/DatashardArchive.jsx",
+      "src/components/datashards.js",
+      "src/components/datashard-archive.css"
+    ]
   },
   "toolkit": {
     "component": "src/components/Toolkit.jsx",
@@ -434,10 +499,66 @@
     ],
     "containsProjects": false,
     "clpStatus": "learning interest",
-    "frequencyDrivesStatus": "planned study"
+    "frequencyDrivesStatus": "planned study",
+    "selection": "Technology, related concepts and experience/learning context only"
   },
   "featuredPrototypes": {
     "visible": false,
-    "reason": "User will select and build projects before featuring them."
+    "mounted": false,
+    "reason": "Featured work will be selected after construction and validation; existing prototype source is preserved."
+  },
+  "repositoryArchive": {
+    "component": "src/components/PublicArchive.jsx",
+    "snapshot": "src/data/repositories.json",
+    "curatedNotes": "src/data/repository-notes.json",
+    "descriptions": {
+      "ada-commerce": "Educational team CLI in Java 17 with in-memory data and simulated order/payment/delivery flow.",
+      "Plann.er": "Educational local TypeScript/Fastify/SQLite travel API; no frontend or authentication layer."
+    },
+    "claimsBoundary": "Repository evidence and curated notes are not production impact or deployed-service claims."
+  },
+  "publication": {
+    "builder": "scripts/build.mjs",
+    "mode": "production",
+    "nodeEnvironment": "Set NODE_ENV=production before importing Vite; independent of caller shell value",
+    "viteVersion": "6.4.5",
+    "output": "docs/",
+    "sourceMaps": false,
+    "policy": {
+      "implementation": "Build-only HTML metadata in vite.config.js",
+      "defaultSource": "none",
+      "sameOriginOnly": [
+        "scripts",
+        "styles",
+        "images",
+        "fonts",
+        "connections"
+      ],
+      "disabled": [
+        "eval",
+        "inline style attributes",
+        "frames",
+        "workers",
+        "objects",
+        "form submissions"
+      ],
+      "baseURI": "none",
+      "referrer": "strict-origin-when-cross-origin",
+      "boundary": "Restrictive build controls, not a security guarantee or formal audit."
+    },
+    "noscript": "Factual identity plus GitHub/LinkedIn links in index.html",
+    "budgetCheck": {
+      "command": "npm run check:build",
+      "script": "scripts/check-build.mjs",
+      "initialJSGzipLimitKiB": 75,
+      "cssGzipLimitKiB": 18,
+      "otherChecks": [
+        "no published source maps",
+        "CSP present without unsafe-eval",
+        "noscript present",
+        "credential-free HTTPS github.com repository destinations"
+      ],
+      "lazyFieldExcludedFromInitialJS": true
+    }
   }
 }

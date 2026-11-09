@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { ArrowDown, ArrowUpRight, BookOpen, GitFork, GitBranch, Search, X } from 'lucide-react'
 import inventory from '../data/repositories.json'
+import notes from '../data/repository-notes.json'
 import SignalText from './SignalText'
 import './public-archive.css'
 
@@ -12,6 +13,12 @@ const visiblePerPage = 14
 const searchIndex = item => [
   item.name, item.description, item.language, item.category
 ].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()
+
+// Curated context survives inventory refreshes without changing repository ownership or URLs.
+const repositories=inventory.repositories.map(item=>{
+  const note=notes[item.name]
+  return note ? {...item,description:note.description,category:note.category} : item
+})
 
 export default function PublicArchive(){
   const [query,setQuery]=useState('')
@@ -29,13 +36,13 @@ export default function PublicArchive(){
     return ()=>window.removeEventListener('blacksite:open-archive',openFromTerminal)
   },[])
   const totals = useMemo(() => ({
-    all:inventory.repositories.length,
-    own:inventory.repositories.filter(item=>!item.fork).length,
-    forks:inventory.repositories.filter(item=>item.fork).length
+    all:repositories.length,
+    own:repositories.filter(item=>!item.fork).length,
+    forks:repositories.filter(item=>item.fork).length
   }),[])
   const projects=useMemo(()=>{
     const q=query.trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()
-    const list=inventory.repositories.filter(item=>
+    const list=repositories.filter(item=>
       (filter==='Todos'||item.category===filter) &&
       (includeForks||!item.fork) &&
       (!q||searchIndex(item).includes(q))
@@ -58,9 +65,9 @@ export default function PublicArchive(){
     <div className="public-archive-heading" data-reveal>
       <div className="archive-eyebrow"><span>INDEX/002</span><span>ALL PUBLIC REPOSITORIES</span></div>
       <div className="public-archive-title-row">
-        <h2 id="public-archive-heading">O RESTO DO<br/><em>LABORATÓRIO.</em></h2>
+        <h2 id="public-archive-heading">ARQUIVO<br/><em>DE CÓDIGO.</em></h2>
         <div className="public-archive-summary">
-          <p>Os três projetos acima são o ponto de partida. Aqui está o restante do meu trabalho público: código, estudos, experimentos, interfaces e ferramentas que fui construindo ou acompanhando.</p>
+          <p>Aqui estão os repositórios públicos: código, estudos, experimentos, interfaces e ferramentas que fui construindo ou acompanhando. Cada repositório tem seu próprio contexto e estado de desenvolvimento.</p>
           <p>Também há forks de outros autores. Eles aparecem identificados — porque estudar um projeto não é o mesmo que ter criado tudo do zero.</p>
           <button type="button" className="archive-reveal-button" onClick={()=>setOpen(v=>!v)} aria-expanded={open} aria-controls="all-public-repos">
             {open?'FECHAR ARQUIVO':'EXPLORAR O ARQUIVO'} <ArrowDown size={18} aria-hidden="true" className={open?'turn':''}/>

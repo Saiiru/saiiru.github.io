@@ -1,0 +1,17 @@
+{
+  "build": "PASS",
+  "initialJSBytes": 197227,
+  "initialJSGzipBytes": 61707,
+  "cssBytes": 62591,
+  "cssGzipBytes": 14082,
+  "npmAuditFindings": 0,
+  "browserSuites": [
+    "TOOLKIT_SUITE_PASS",
+    "RECON_SUITE_PASS",
+    "HARDENING_SUITE_PASS"
+  ],
+  "adaTests": 18,
+  "plannerIntegrationTests": 22,
+  "adaRemoteCI": "Not started: account billing lock",
+  "scope": "Local production build and scoped tests; no formal audit"
+}

@@ -47,7 +47,7 @@ export default function SignalField() {
     const canvas=ref.current
     const gl=canvas.getContext('webgl',{alpha:false,antialias:false,powerPreference:'low-power'})
     if(!gl){canvas.dataset.renderer='fallback';return}
-    let program,buffer,frame=0,visible=true,last=0,dead=false
+    let program,buffer,frame=0,visible=true,last=0,dead=false,lost=false
     const shaders=[]
     const media=window.matchMedia('(prefers-reduced-motion: reduce)')
     const point=[.72,.46],target=[.72,.46]
@@ -71,13 +71,15 @@ export default function SignalField() {
       shaders.forEach(s=>gl.deleteShader(s));if(program)gl.deleteProgram(program)
       canvas.dataset.renderer='fallback';return
     }
+    const onContextLost=()=>{lost=true;cancelAnimationFrame(frame);frame=0;canvas.dataset.renderer='fallback'}
+    canvas.addEventListener('webglcontextlost',onContextLost)
     canvas.dataset.renderer='webgl'
     const size=gl.getUniformLocation(program,'resolution')
     const clock=gl.getUniformLocation(program,'time')
     const cursor=gl.getUniformLocation(program,'pointer')
     const start=performance.now()
     function draw(now){
-      if(dead)return
+      if(dead||lost)return
       point[0]+=(target[0]-point[0])*.055;point[1]+=(target[1]-point[1])*.055
       gl.uniform2f(size,canvas.width,canvas.height)
       gl.uniform2f(cursor,point[0],point[1])
@@ -87,13 +89,13 @@ export default function SignalField() {
     }
     function tick(now){
       frame=0
-      if(dead||!visible||document.hidden||media.matches)return
+      if(dead||lost||!visible||document.hidden||media.matches)return
       if(now-last>33){draw(now);last=now}
       frame=requestAnimationFrame(tick)
     }
     function schedule(){
       cancelAnimationFrame(frame);frame=0
-      if(dead)return
+      if(dead||lost)return
       if(media.matches){draw(performance.now());return}
       if(visible&&!document.hidden)frame=requestAnimationFrame(tick)
     }
@@ -108,7 +110,7 @@ export default function SignalField() {
       const r=canvas.getBoundingClientRect()
       target[0]=(e.clientX-r.left)/r.width;target[1]=1-(e.clientY-r.top)/r.height
     }
-    const parent=canvas.parentElement
+    const parent=canvas.closest('.contact-section')||canvas.parentElement
     parent.addEventListener('pointermove',onPointer,{passive:true})
     const observer='IntersectionObserver' in window?new IntersectionObserver(entries=>{
       visible=entries[0].isIntersecting;schedule()
@@ -126,6 +128,7 @@ export default function SignalField() {
       window.removeEventListener('resize',resize)
       document.removeEventListener('visibilitychange',schedule)
       media.removeEventListener('change',schedule)
+      canvas.removeEventListener('webglcontextlost',onContextLost)
       gl.deleteBuffer(buffer);gl.deleteProgram(program);shaders.forEach(s=>gl.deleteShader(s))
     }
   },[])

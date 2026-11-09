@@ -24,6 +24,9 @@ export function useCyberMotion(rootRef) {
     let scrollFrame = 0
     let pointerFrame = 0
     let ambientFrame = 0
+    const onVisibility=()=>{root.dataset.pageHidden=String(document.hidden)}
+    onVisibility()
+    document.addEventListener('visibilitychange',onVisibility)
 
     // Readable before JS; only prepare elements currently below the fold.
     if (enabled && 'IntersectionObserver' in window) {
@@ -81,6 +84,8 @@ export function useCyberMotion(rootRef) {
 
     return () => {
       observer?.disconnect()
+      document.removeEventListener('visibilitychange',onVisibility)
+      delete root.dataset.pageHidden
       window.removeEventListener('scroll', onScroll)
       hero?.removeEventListener('pointermove', onPointerMove)
       window.removeEventListener('pointermove',onAmbientMove)

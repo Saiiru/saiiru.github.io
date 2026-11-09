@@ -1,35 +1,52 @@
 # SAIRU / BLACKSITE
 
-Site pessoal de Urias Machado Santos, com experiência em software, formação técnica e tecnologias em estudo.
+Site pessoal de Urias Machado Santos: software, sistemas embarcados e formação técnica em Eletromecânica.
 
 - [Site publicado](https://saiiru.github.io/)
 - [Perfil GitHub](https://github.com/Saiiru)
 - [Mapa do workspace](WORKSPACE.md)
+- [Decisões visuais](DESIGN.md) · [Pesquisa e medições](design/quality/RESEARCH.md) · [Segurança e limites](SECURITY.md)
 
 ## Interface atual
 
-O Toolkit apresenta tecnologias e conhecimentos, separados em software, sistemas embarcados e Eletromecânica/controle. Experiência profissional, prática de bancada e conteúdos planejados têm identificações diferentes.
+O Toolkit contém tecnologias e conhecimentos, com distinção entre experiência profissional, prática de bancada e conteúdos em estudo. O arquivo lista repositórios existentes e identifica forks. Novos projetos só entram na vitrine depois de construídos e validados pelo autor.
 
-Os três protótipos sugeridos anteriormente foram retirados da vitrine principal. A escolha de novos projetos fica para a etapa de construção e validação pelo autor. O arquivo público mantém os repositórios existentes e identifica os forks.
+Os repositórios Ada Commerce e Plann.er receberam revisão funcional: [CLI Java](https://github.com/Saiiru/ada-commerce) e [API TypeScript](https://github.com/Saiiru/Plann.er). Os READMEs explicam como executar e o escopo educacional de cada um. O Plann.er não inclui frontend nem autenticação.
 
 ## Desenvolvimento
+
+Node >=20.19; verificado com Node 24.14.0.
 
     npm ci
     npm run dev
 
-## Build e verificação
+Edite src/ e public/. npm run build gera docs/, publicado pelo GitHub Pages a partir de main/docs. O wrapper de build força produção no processo, mesmo se o ambiente do terminal estiver definido como development. Não edite bundles em docs/assets/.
+
+## Verificação
 
     npm run build
+    npm run check:build
+    npm audit
     python3 -m http.server 4392 --directory docs --bind 127.0.0.1
+
+Em outro terminal, com Python/Playwright e Chromium disponíveis:
+
     python3 scripts/e2e_toolkit.py
+    python3 scripts/e2e_recon.py
+    python3 scripts/e2e_hardening.py
 
-Edite src/ e public/. O build em docs/ é publicado pelo GitHub Pages.
+Veja [scripts/README.md](scripts/README.md) para os pré-requisitos e limites. Não há um score de Lighthouse ou certificação de segurança alegado.
 
-- Dados do Toolkit: src/data/toolkit.js
-- Interface do Toolkit: src/components/Toolkit.jsx
-- Identidade e contato: src/recon-identity.css e src/components/SignalField.jsx
-- Decisões visuais e fontes: DESIGN.md e design/recon/RESEARCH.md
+## Identidade e movimento
+
+Mint, coral e carvão mantêm a identidade cyberpunk. Glitches curtos respondem à entrada e ao ponteiro; o conteúdo permanece legível. O campo fluido do contato carrega perto da seção e pausa fora da tela ou com a aba oculta. A preferência do sistema por movimento reduzido é respeitada; falhas de WebGL usam fundo estático.
+
+- Tecnologias: src/data/toolkit.js e src/components/Toolkit.jsx
+- Inventário: src/data/repositories.json
+- Contexto revisado dos projetos: src/data/repository-notes.json
+- Identidade: src/recon-identity.css, src/useCyberMotion.js
+- Fundo: src/components/DeferredSignalField.jsx e SignalField.jsx
 
 ## Referências e licenças
 
-O ponto de partida Nothing Portfolio de Ankit Shrestha mantém seu aviso MIT em LICENSE. Oxanium é distribuída sob OFL. As adaptações MIT de CSS do Cybercore estão documentadas em design/contextual-signals/ e public/licenses/. Nenhum pacote Cybercore foi instalado.
+Nothing Portfolio de Ankit Shrestha mantém o aviso MIT em LICENSE. Oxanium é distribuída sob OFL. As adaptações MIT de CSS do Cybercore estão documentadas em design/contextual-signals/ e public/licenses/; nenhum pacote Cybercore foi instalado. A pesquisa atual distingue inspiração visual de código copiado.

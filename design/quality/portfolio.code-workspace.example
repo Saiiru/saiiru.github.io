@@ -1,0 +1,39 @@
+{
+  "folders": [
+    {
+      "name": "Site — Sairu",
+      "path": "site"
+    },
+    {
+      "name": "Perfil GitHub",
+      "path": "profile"
+    },
+    {
+      "name": "Experimentos",
+      "path": "experiments"
+    },
+    {
+      "name": "Referências",
+      "path": "references"
+    },
+    {
+      "name": "Ada Commerce — CLI Java",
+      "path": "../ada-commerce"
+    },
+    {
+      "name": "Plann.er — API TypeScript",
+      "path": "../planner-api"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/docs/assets": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/docs": true,
+      "**/.git": true
+    }
+  }
+}
