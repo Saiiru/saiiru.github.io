@@ -1,0 +1,10 @@
+{
+  "ada-commerce": {
+    "description": "CLI educacional em Java 17: clientes, produtos, estoque e fluxo de pedidos até pagamento e entrega simulados. Projeto em equipe, com dados em memória.",
+    "category": "APIs e backend"
+  },
+  "Plann.er": {
+    "description": "API educacional de viagens em TypeScript, Fastify e SQLite: participantes, atividades, links e convites. Execução local; não inclui interface web.",
+    "category": "APIs e backend"
+  }
+}

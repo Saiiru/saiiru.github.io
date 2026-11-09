@@ -124,3 +124,17 @@
 .skill-topics li { color:var(--paper); border-bottom:1px solid var(--line); padding:7px 0; font-size:13px; line-height:1.5 }
 .skill-readout .readout-caption { display:block; margin-top:32px; line-height:1.7 }
 @media(max-width:520px){ .skill-group-label { font-size:9px }.skill-topics li { font-size:12px } }
+
+/* Motion budget: one background scene, deferred until useful; compositor drift. */
+.contact-field-mount { position:absolute; inset:0; z-index:-2; pointer-events:none }
+.contact-field-mount > .contact-field { z-index:0 }
+.contact-field[data-renderer="deferred"] { background:#09110d }
+.portfolio .ambient-signal {
+ inset:-30vh -30vw; animation:ambient-drift 24s ease-in-out infinite alternate;
+ will-change:transform;
+}
+@keyframes ambient-drift { from { transform:translate3d(-5%,5%,0) } to { transform:translate3d(5%,-5%,0) } }
+.portfolio[data-page-hidden="true"] *, .portfolio[data-page-hidden="true"] *::before, .portfolio[data-page-hidden="true"] *::after { animation-play-state:paused!important }
+.noscript-summary { max-width:760px; padding:40px 24px; margin:auto; color:#e3eee7; background:#0b1110; font:18px/1.65 sans-serif }
+.noscript-summary a { color:#9ce8bf }
+@media(prefers-reduced-motion:reduce) { .portfolio .ambient-signal { animation:none; will-change:auto } }

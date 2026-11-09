@@ -18,7 +18,7 @@ with sync_playwright() as p:
  assert page.locator('.brand img').get_attribute('src')=='/brand/sairu-mark.svg'
  page.screenshot(path=str(OUT/'desktop-hero.png'))
  page.locator('#contato').scroll_into_view_if_needed();page.wait_for_timeout(400)
- field=page.locator('.contact-field');assert field.get_attribute('data-renderer')=='webgl',field.get_attribute('data-renderer')
+ field=page.locator('.contact-field');page.wait_for_function('() => (document.querySelector(".contact-field").dataset.renderer==="webgl")')
  frames=int(field.get_attribute('data-frames'));page.wait_for_timeout(350)
  assert int(field.get_attribute('data-frames'))>frames,'field not animating in viewport'
  page.locator('#contato').screenshot(path=str(OUT/'desktop-contact.png'))
@@ -49,8 +49,8 @@ with sync_playwright() as p:
   mobile.close();print('PASS width',w)
  ctx=b.new_context()
  ctx.add_init_script("""const old=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return type==='webgl'?null:old.call(this,type,...args)}""")
- fallback=ctx.new_page();fallback.goto(BASE,wait_until='networkidle')
- assert fallback.locator('.contact-field').get_attribute('data-renderer')=='fallback'
+ fallback=ctx.new_page();fallback.goto(BASE,wait_until='networkidle');fallback.locator('#contato').scroll_into_view_if_needed()
+ fallback.wait_for_function('() => (document.querySelector(".contact-field").dataset.renderer==="fallback")')
  assert fallback.locator('.contact-channel').count()==2
  print('PASS WebGL unavailable fallback')
  b.close()

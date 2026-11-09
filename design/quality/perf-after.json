@@ -1,0 +1,99 @@
+{
+  "profile": "Chromium headless mobile 390x844, CPU4x, 80ms latency, 200KB/s; 3 cold contexts; laboratory only",
+  "label": "after",
+  "runs": [
+    {
+      "lcp": 2152,
+      "cls": 0,
+      "longTasks": 255,
+      "dom": 1855,
+      "resources": [
+        {
+          "name": "/fonts/Oxanium.ttf",
+          "bytes": 43536
+        },
+        {
+          "name": "/assets/index-CT3Nr1Xn.js",
+          "bytes": 196516
+        },
+        {
+          "name": "/assets/index-Czqi6GEy.css",
+          "bytes": 62591
+        },
+        {
+          "name": "/brand/sairu-mark.svg",
+          "bytes": 345
+        },
+        {
+          "name": "/brand/sairu-mark.svg",
+          "bytes": 345
+        }
+      ],
+      "gpu": "deferred"
+    },
+    {
+      "lcp": 1944,
+      "cls": 0,
+      "longTasks": 66,
+      "dom": 1749.7000000029802,
+      "resources": [
+        {
+          "name": "/fonts/Oxanium.ttf",
+          "bytes": 43536
+        },
+        {
+          "name": "/assets/index-CT3Nr1Xn.js",
+          "bytes": 196516
+        },
+        {
+          "name": "/assets/index-Czqi6GEy.css",
+          "bytes": 62591
+        },
+        {
+          "name": "/brand/sairu-mark.svg",
+          "bytes": 345
+        },
+        {
+          "name": "/brand/sairu-mark.svg",
+          "bytes": 345
+        }
+      ],
+      "gpu": "deferred"
+    },
+    {
+      "lcp": 1924,
+      "cls": 0,
+      "longTasks": 63,
+      "dom": 1749.3999999985099,
+      "resources": [
+        {
+          "name": "/fonts/Oxanium.ttf",
+          "bytes": 43536
+        },
+        {
+          "name": "/assets/index-CT3Nr1Xn.js",
+          "bytes": 196516
+        },
+        {
+          "name": "/assets/index-Czqi6GEy.css",
+          "bytes": 62591
+        },
+        {
+          "name": "/brand/sairu-mark.svg",
+          "bytes": 345
+        },
+        {
+          "name": "/brand/sairu-mark.svg",
+          "bytes": 345
+        }
+      ],
+      "gpu": "deferred"
+    }
+  ],
+  "median": {
+    "lcp": 1944,
+    "cls": 0,
+    "longTasks": 66,
+    "dom": 1749.7
+  }
+}

@@ -1,11 +1,11 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ArrowDownRight, ArrowUpRight, ArrowRight, Menu, X, Plus, TerminalSquare } from 'lucide-react'
 import './blacksite.css'
 import './cyber-motion.css'
 import './contextual-signals.css'
 import './human-interactions.css'
 import './recon-identity.css'
-import SignalField from './components/SignalField'
+import DeferredSignalField from './components/DeferredSignalField'
 import SignalText from './components/SignalText'
 import Toolkit from './components/Toolkit'
 import PublicArchive from './components/PublicArchive'
@@ -79,6 +79,13 @@ function App(){
  const rootRef=useRef(null)
  const { enabled:effectsEnabled }=useCyberMotion(rootRef)
  const [menuOpen,setMenuOpen]=useState(false)
+ const menuButton=useRef(null)
+ useEffect(()=>{
+  if(!menuOpen)return
+  const onKey=event=>{if(event.key==='Escape'){setMenuOpen(false);menuButton.current?.focus()}}
+  document.addEventListener('keydown',onKey)
+  return()=>document.removeEventListener('keydown',onKey)
+ },[menuOpen])
  const close=()=>setMenuOpen(false)
  return <div ref={rootRef} data-effects={effectsEnabled?'on':'off'} className="portfolio">
  <div className="ambient-field" aria-hidden="true"><span className="ambient-grid"/><span className="ambient-signal"/></div>
@@ -88,7 +95,7 @@ function App(){
  <header className="site-nav">
   <a href="#inicio" onClick={close} className="brand" aria-label="Sairu, início"><img src="/brand/sairu-mark.svg" alt="" width="38" height="38"/><span className="brand-label"><SignalText>SAIRU</SignalText><span className="brand-detail"> / BLACKSITE</span></span></a>
   <nav aria-label="Navegação principal" className={menuOpen?'navigation open':'navigation'}><a href="#todos-projetos" onClick={close}><SignalText>REPOSITÓRIOS</SignalText></a><a href="#sobre" onClick={close}><SignalText>SOBRE</SignalText></a><a href="#stack" onClick={close}><SignalText>STACK</SignalText></a><a href="#contato" onClick={close}><SignalText>CONTATO</SignalText><ArrowUpRight size={13}/></a></nav>
-  <button className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen?'Fechar menu':'Abrir menu'}>{menuOpen?<X/>:<Menu/>}</button>
+  <button ref={menuButton} className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen?'Fechar menu':'Abrir menu'}>{menuOpen?<X/>:<Menu/>}</button>
  </header>
  <main id="conteudo">
   <section id="inicio" className="hero">
@@ -115,7 +122,7 @@ function App(){
   <section id="stack" className="stack-section section-wrap"><header className="section-heading"><h2>THE<br/><span className="outlined">TOOLKIT.</span></h2><p className="stack-intro">Software, embarcados e Eletromecânica.<br/>Escolha uma tecnologia para ver meu contato com ela e o que ainda estou estudando.</p></header><Toolkit/></section>
   <section className="terminal-section section-wrap"><div className="terminal-title"><TerminalSquare size={22}/><h2>Quer explorar por comando?</h2><p>Digite <code>help</code> para começar.</p></div><Terminal/></section>
   <section id="contato" className="contact-section" aria-labelledby="contact-title">
-   <SignalField/><div className="contact-shade" aria-hidden="true"/>
+   <DeferredSignalField/><div className="contact-shade" aria-hidden="true"/>
    <div className="contact-layout">
     <div className="contact-copy"><h2 id="contact-title">O próximo passo<br/>é uma <span>conversa.</span></h2><p>Sobre software, automação ou uma oportunidade no seu time. Me conta o que você está construindo.</p></div>
     <div className="contact-channels">

@@ -1,0 +1,99 @@
+{
+  "profile": "Chromium headless mobile 390x844, CPU4x, 80ms latency, 200KB/s; 3 cold contexts; laboratory only",
+  "label": "before",
+  "runs": [
+    {
+      "lcp": 3044,
+      "cls": 0.0005672483404904,
+      "longTasks": 235,
+      "dom": 2711.3000000044703,
+      "resources": [
+        {
+          "name": "/assets/index-B4I5yike.js",
+          "bytes": 419984
+        },
+        {
+          "name": "/assets/index-Cs0OrMCO.css",
+          "bytes": 61747
+        },
+        {
+          "name": "/brand/sairu-mark.svg",
+          "bytes": 345
+        },
+        {
+          "name": "/fonts/Oxanium.ttf",
+          "bytes": 43536
+        },
+        {
+          "name": "/brand/sairu-mark.svg",
+          "bytes": 345
+        }
+      ],
+      "gpu": "webgl"
+    },
+    {
+      "lcp": 2928,
+      "cls": 0.0005649184299446341,
+      "longTasks": 293,
+      "dom": 2695,
+      "resources": [
+        {
+          "name": "/assets/index-B4I5yike.js",
+          "bytes": 419984
+        },
+        {
+          "name": "/assets/index-Cs0OrMCO.css",
+          "bytes": 61747
+        },
+        {
+          "name": "/brand/sairu-mark.svg",
+          "bytes": 345
+        },
+        {
+          "name": "/fonts/Oxanium.ttf",
+          "bytes": 43536
+        },
+        {
+          "name": "/brand/sairu-mark.svg",
+          "bytes": 345
+        }
+      ],
+      "gpu": "webgl"
+    },
+    {
+      "lcp": 2948,
+      "cls": 0.0005649184299446341,
+      "longTasks": 306,
+      "dom": 2701.7000000029802,
+      "resources": [
+        {
+          "name": "/assets/index-B4I5yike.js",
+          "bytes": 419984
+        },
+        {
+          "name": "/assets/index-Cs0OrMCO.css",
+          "bytes": 61747
+        },
+        {
+          "name": "/brand/sairu-mark.svg",
+          "bytes": 345
+        },
+        {
+          "name": "/fonts/Oxanium.ttf",
+          "bytes": 43536
+        },
+        {
+          "name": "/brand/sairu-mark.svg",
+          "bytes": 345
+        }
+      ],
+      "gpu": "webgl"
+    }
+  ],
+  "median": {
+    "lcp": 2948,
+    "cls": 0.0,
+    "longTasks": 293,
+    "dom": 2701.7
+  }
+}
