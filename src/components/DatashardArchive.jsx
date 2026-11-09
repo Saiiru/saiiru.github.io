@@ -6,7 +6,7 @@ import SignalText from './SignalText'
 
 const sections = [
   { id: 'brief', label: 'O problema' },
-  { id: 'implementation', label: 'Como construí' },
+  { id: 'implementation', label: 'Implementação' },
   { id: 'evidence', label: 'Testes e provas' }
 ]
 function initialShard() {
@@ -113,7 +113,7 @@ export default function DatashardArchive() {
   return <section id="labs" className="section-wrap datashards-section">
     <header className="archive-heading">
       <div><h2>DATASHARD<br/><span>ARCHIVE.</span></h2></div>
-      <div className="archive-intro"><p>Três projetos. Três problemas.<br/>Nenhum deles é só uma imagem.</p><span>Um datashard é um projeto interativo. Escolha um dos três cartões, veja como funciona e abra a demonstração no navegador.</span></div>
+      <div className="archive-intro"><p>Três projetos. Três problemas.<br/>Um modelo treinado. Resultados inspecionáveis.</p><span>Um datashard é um projeto interativo. Escolha um dos três cartões, veja como funciona e abra a demonstração no navegador.</span></div>
     </header>
     <div className="archive-wayfinding" aria-label="Como navegar pelos projetos">
       <span><b>01</b> ESCOLHA UM DATASHARD</span>
@@ -152,7 +152,7 @@ export default function DatashardArchive() {
               <p className="reader-question">{shard.question}</p>
               <p className="reader-body-copy">{shard.summary}</p><div className="reader-decision"><span>DECISÃO DE ENGENHARIA / TRADE-OFF</span><p>{shard.decision}</p></div>
               <div className="reader-block"><h4>COMO EXPLORAR</h4><p>{shard.method}</p></div>
-              <div className="reader-limit"><span aria-hidden="true">!</span><div><h4>CONTEXTO DO PROTÓTIPO</h4><p>{shard.limitation}</p></div></div>
+              <div className="reader-limit"><span aria-hidden="true">!</span><div><h4>ESCOPO E LIMITES</h4><p>{shard.limitation}</p></div></div>
             </div>
             <div id="shard-panel-implementation" role="tabpanel" aria-labelledby="shard-tab-implementation" tabIndex="0" hidden={tab!=='implementation'}>
               <ol className="reader-steps">{shard.steps.map(([title,description],i)=><li key={title}><span>0{i+1}</span><div><h4>{title}</h4><p>{description}</p></div></li>)}</ol>
@@ -172,7 +172,7 @@ export default function DatashardArchive() {
           <span className="sr-only" role="status">{shard.name+' aberto. '+read.size+' de três registros lidos nesta visita.'}</span>
         </div>
       </div>
-      <div className="archive-bottom"><span>OS EXEMPLOS SÃO SINTÉTICOS, E OS TESTES SÃO REPRODUZÍVEIS</span><span>MODELO DE LINGUAGEM OPCIONAL VIA PROXY LOCAL <ArrowUpRight size={12}/></span></div>
+      <div className="archive-bottom"><span>OS EXEMPLOS SÃO SINTÉTICOS, E OS TESTES SÃO REPRODUZÍVEIS</span><span>ESTUDOS DESENVOLVIDOS COM ASSISTÊNCIA DE IA <ArrowUpRight size={12}/></span></div>
     </div>
 
     <div className="archive-linked-repos"><span>PREFERE UMA LISTA DE PROJETOS?</span><a href="https://github.com/Saiiru/ada-commerce" target="_blank" rel="noopener noreferrer">Ada Commerce<ArrowUpRight size={18}/></a><a href="https://github.com/Saiiru/Plann.er" target="_blank" rel="noopener noreferrer">Plann.er API<ArrowUpRight size={18}/></a></div>

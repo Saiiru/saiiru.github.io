@@ -13,6 +13,7 @@ import DeferredSignalField from './components/DeferredSignalField'
 import SignalText from './components/SignalText'
 import Toolkit from './components/Toolkit'
 import PublicArchive from './components/PublicArchive'
+import DatashardArchive from './components/DatashardArchive'
 import repositorySnapshot from './data/repositories.json'
 import { useCyberMotion, useGlitch } from './useCyberMotion'
 
@@ -35,11 +36,11 @@ function Terminal() {
     if (!command) return
     if (command === 'clear') setRows([])
     else {
-      const output = command === 'labs' ? ['PROJETOS // PRÓXIMA ETAPA', 'A vitrine será preenchida conforme os projetos forem construídos e testados.', 'Os repositórios existentes estão no arquivo público.'] : commandOutput[command] || [`Comando desconhecido: ${command}`, 'Digite help para ver as opções.']
+      const output = command === 'labs' ? ['PROJETOS // APPLIED AI', 'Crivo: avaliação de contratos. Vetor: classificação com ML. Lastro: busca com fontes.', 'Demos e relatórios reproduzíveis no Datashard Archive. Dados sintéticos; desenvolvimento assistido por IA.'] : commandOutput[command] || [`Comando desconhecido: ${command}`, 'Digite help para ver as opções.']
       setRows(current => [...current, { type: 'command', text: `> ${command}` }, ...output.map(text => ({ type: 'system', text }))])
       if (command === 'labs' || command === 'repos') {
         if (command === 'repos') window.dispatchEvent(new Event('blacksite:open-archive'))
-        document.getElementById('todos-projetos')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+        document.getElementById(command==='labs'?'labs':'todos-projetos')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
       }
     }
     setInput('')
@@ -107,7 +108,7 @@ function App(){
  <div className="edge-code" aria-hidden="true">BLACKSITE // OPEN WORKSPACE — FEIRA DE SANTANA, BR</div>
  <header className="site-nav">
   <a href="#inicio" onClick={close} className="brand" aria-label="Sairu, início"><img src="/brand/sairu-mark.svg" alt="" width="38" height="38"/><span className="brand-label"><SignalText>SAIRU</SignalText><span className="brand-detail"> / BLACKSITE</span></span></a>
-  <nav aria-label="Navegação principal" className={menuOpen?'navigation open':'navigation'}><a href="#todos-projetos" onClick={close}><SignalText>REPOSITÓRIOS</SignalText></a><a href="#sobre" onClick={close}><SignalText>SOBRE</SignalText></a><a href="#stack" onClick={close}><SignalText>STACK</SignalText></a><a href="#contato" onClick={close}><SignalText>CONTATO</SignalText><ArrowUpRight size={13}/></a></nav>
+  <nav aria-label="Navegação principal" className={menuOpen?'navigation open':'navigation'}><a href="#labs" onClick={close}><SignalText>PROJETOS</SignalText></a><a href="#todos-projetos" onClick={close}><SignalText>REPOSITÓRIOS</SignalText></a><a href="#sobre" onClick={close}><SignalText>SOBRE</SignalText></a><a href="#stack" onClick={close}><SignalText>STACK</SignalText></a><a href="#contato" onClick={close}><SignalText>CONTATO</SignalText><ArrowUpRight size={13}/></a></nav>
   <button ref={menuButton} className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen?'Fechar menu':'Abrir menu'}>{menuOpen?<X/>:<Menu/>}</button>
  </header>
  <main id="conteudo">
@@ -122,14 +123,14 @@ function App(){
    <div className="hero-footerline"><span>SOFTWARE, SISTEMAS EMBARCADOS E ELETROMECÂNICA.</span><span><span className="live-indicator"/> PORTFÓLIO EM CONSTRUÇÃO CONTÍNUA</span><span>SCROLL TO EXPLORE ↓</span></div>
   </section>
   <Marquee/>
-  <div id="labs"><PublicArchive/></div>
+  <DatashardArchive/><PublicArchive/>
   <section id="sobre" className="about-section">
    <div className="about-inner section-wrap"><div className="about-main"><h2>CURIOSIDADE<br/>É O <span>COMEÇO.</span><br/>CÓDIGO É<br/>O CAMINHO.</h2><p>Sou Urias — ou Sairu, como apareço na maioria dos meus projetos. Comecei desenvolvendo aplicações web. O que mais me prende à programação é aquele momento em que um erro deixa de ser misterioso: você encontra a causa, testa uma hipótese e vê o sistema funcionar.</p><p>Trabalhei com software na Capgemini, Infomakers e Agência Digital S/A. Hoje estudo Eletromecânica no SENAI e exploro ferramentas, eletrônica e modelos de linguagem. Este espaço acompanha meus estudos e meu histórico em desenvolvimento.</p><a className="about-projects-link" href="#todos-projetos">VER TODOS OS PROJETOS <ArrowUpRight size={18}/></a></div>
    <div className="about-history" id="trajetoria"><h3>EXPERIÊNCIA</h3>
     <div className="history-item"><span>2022 — 2023</span><h4>Capgemini</h4><p>Analista de Soluções / Desenvolvimento de Software</p><span>Java · Spring Boot · Angular · SQL Server</span></div>
     <div className="history-item"><span>2022</span><h4>Infomakers</h4><p>Desenvolvimento Front-end</p><span>React · Redux · JavaScript · SASS</span></div>
     <div className="history-item"><span>2021 — 2022</span><h4>Agência Digital S/A</h4><p>Desenvolvimento Full Stack</p><span>React · Angular · Node.js · PostgreSQL</span></div>
-    <h3 className="education-label">FORMAÇÃO / SENAI BAHIA</h3><div className="study-row"><span>EM ANDAMENTO</span><p>Técnico em<br/><strong>Eletromecânica</strong></p><span>DESDE AGO. 2026</span></div><div className="study-row"><span>CONCLUÍDO</span><p>Técnico em<br/><strong>Desenvolvimento de Sistemas</strong></p><span>FEV. 2022</span></div>
+    <h3 className="education-label">FORMAÇÃO / SENAI BAHIA</h3><div className="study-row"><span>EM ANDAMENTO</span><p>Técnico em<br/><strong>Eletromecânica</strong></p><span>AGO. 2026 — PREV. 2028</span></div><div className="study-row"><span>CONCLUÍDO</span><p>Técnico em<br/><strong>Desenvolvimento de Sistemas</strong></p><span>FEV. 2022</span></div>
    </div></div>
   </section>
   <section id="stack" className="stack-section section-wrap"><header className="section-heading"><h2>THE<br/><span className="outlined">TOOLKIT.</span></h2><p className="stack-intro">Software, embarcados e Eletromecânica.<br/>Escolha uma tecnologia para ver meu contato com ela e o que ainda estou estudando.</p></header><Toolkit/></section>

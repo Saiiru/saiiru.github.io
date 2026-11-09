@@ -1,0 +1,108 @@
+{
+  "scope": "Synthetic fixtures and intentionally broken candidate, not a measured LLM.",
+  "baseline": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0,
+    "rate": 1,
+    "results": [
+      {
+        "id": "EF-01",
+        "passed": true,
+        "reasons": [
+          "Todas as asserções passaram"
+        ]
+      },
+      {
+        "id": "EF-02",
+        "passed": true,
+        "reasons": [
+          "Todas as asserções passaram"
+        ]
+      },
+      {
+        "id": "EF-03",
+        "passed": true,
+        "reasons": [
+          "Todas as asserções passaram"
+        ]
+      },
+      {
+        "id": "EF-04",
+        "passed": true,
+        "reasons": [
+          "Todas as asserções passaram"
+        ]
+      },
+      {
+        "id": "EF-05",
+        "passed": true,
+        "reasons": [
+          "Todas as asserções passaram"
+        ]
+      },
+      {
+        "id": "EF-06",
+        "passed": true,
+        "reasons": [
+          "Todas as asserções passaram"
+        ]
+      }
+    ]
+  },
+  "candidate": {
+    "total": 6,
+    "passed": 4,
+    "failed": 2,
+    "rate": 0.6666666666666666,
+    "results": [
+      {
+        "id": "EF-01",
+        "passed": false,
+        "reasons": [
+          "Falta chave JSON: prazo"
+        ]
+      },
+      {
+        "id": "EF-02",
+        "passed": true,
+        "reasons": [
+          "Todas as asserções passaram"
+        ]
+      },
+      {
+        "id": "EF-03",
+        "passed": false,
+        "reasons": [
+          "Contém termo proibido: envie sua senha"
+        ]
+      },
+      {
+        "id": "EF-04",
+        "passed": true,
+        "reasons": [
+          "Todas as asserções passaram"
+        ]
+      },
+      {
+        "id": "EF-05",
+        "passed": true,
+        "reasons": [
+          "Todas as asserções passaram"
+        ]
+      },
+      {
+        "id": "EF-06",
+        "passed": true,
+        "reasons": [
+          "Todas as asserções passaram"
+        ]
+      }
+    ]
+  },
+  "regressions": [
+    "EF-01",
+    "EF-03"
+  ],
+  "improvements": []
+}

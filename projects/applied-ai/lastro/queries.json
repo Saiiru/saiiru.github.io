@@ -1,0 +1,10 @@
+[
+ {"query":"cobrança duplicada", "expectedPath":"docs/pagamentos.md"},
+ {"query":"entrega atrasada", "expectedPath":"docs/entregas.md"},
+ {"query":"reembolso estorno", "expectedPath":"docs/estornos.md"},
+ {"query":"recuperar senha acesso", "expectedPath":"docs/acesso.md"},
+ {"query":"qualidade alimento embalagem", "expectedPath":"docs/qualidade.md"},
+ {"query":"escalonamento supervisor", "expectedPath":"docs/escalonamento.md"},
+ {"query":"órbita de Saturno", "expectedPath":null},
+ {"query":"programação quântica", "expectedPath":null}
+]

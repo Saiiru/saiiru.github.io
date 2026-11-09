@@ -21,7 +21,7 @@ Entre em site/ e use npm run dev. npm run build gera docs/, o diretório do GitH
 - Dados e leitores de projeto: src/components/ e src/data/.
 - Evidências e decisões: design/.
 - Verificações atuais: npm run check:build, python3 scripts/e2e_toolkit.py, python3 scripts/e2e_recon.py e python3 scripts/e2e_hardening.py, com docs servido na porta 4392.
-- Testes de lógica das demos: npm --prefix projects/ai-builder-labs test.
+- Testes de lógica das demos: npm --prefix projects/applied-ai test.
 - Os scripts e2e antigos preservam expectativas de versões anteriores; consulte scripts/README.md.
 
 ## Trabalhar no perfil

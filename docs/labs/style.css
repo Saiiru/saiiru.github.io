@@ -5,3 +5,14 @@
 .mini{white-space:normal;text-align:right}
 .actions button.primary:hover:not(:disabled){color:#09202a;background:#a8ecf1;border-color:#a8ecf1}
 label,.file-label{font-size:14px}
+
+/* Shared with the portfolio's charcoal / mint / coral identity. */
+:root{--bg:#0b1110;--panel:#121d19;--line:#35463e;--text:#edf1e9;--muted:#b8c9bd;--cyan:#9ce8bf;--amber:#ee6674;--violet:#b7b0f6}
+body{background:radial-gradient(ellipse at 90% 0%,#203b2d 0,transparent 38rem),#0b1110}
+.card{background:linear-gradient(145deg,#14221b,#111a16)}
+.tabs button,.result,.metric{background:#101b15}.tabs button[aria-selected=true]{background:#20372b}
+textarea,input,select,.prediction,.answer{background:#0b1510;border-color:#405747}
+.actions button{background:#233329;border-color:#58705d}.actions button.primary{background:var(--cyan);border-color:var(--cyan);color:#11241a}
+.actions button.primary:hover:not(:disabled){background:#c5f2d7;color:#11241a}
+button[hidden]{display:none!important}.head-side{white-space:normal}.result strong,.result p{overflow-wrap:anywhere}
+@media(min-width:851px){.head-side{max-width:23rem}}

@@ -37,7 +37,7 @@ index=root/'PROJECT_INDEX.md'
 lines=['# Índice completo de repositórios públicos','',
 f'Atualizado em {now} via API pública do GitHub. **{len(records)} repositórios**, incluindo projetos originais, estudos e forks.','',
 '> Este é um inventário, não uma lista de produtos concluídos. O marcador **Fork** indica código originado de outro autor.','',
-'Os três laboratórios de IA e seus testes estão no diretório projects/ai-builder-labs.','',
+'Os três laboratórios de IA e seus testes estão no diretório projects/applied-ai.','',
 '| Repositório | Área | Linguagem | Origem |','| --- | --- | --- | --- |']
 for r in records:
     lines.append(f"| [{r['name']}]({r['url']}) | {r['category']} | {r['language'] or '—'} | {'Fork' if r['fork'] else 'Próprio'} |")

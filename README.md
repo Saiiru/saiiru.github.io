@@ -10,9 +10,19 @@ Site pessoal de Urias Machado Santos: software, sistemas embarcados e formação
 
 ## Interface atual
 
-O Toolkit contém tecnologias e conhecimentos, com distinção entre experiência profissional, prática de bancada e conteúdos em estudo. O arquivo lista repositórios existentes e identifica forks. Novos projetos só entram na vitrine depois de construídos e validados pelo autor.
+O Toolkit contém tecnologias e conhecimentos, com distinção entre experiência profissional, prática de bancada e conteúdos em estudo. O arquivo lista repositórios existentes e identifica forks. Os estudos Crivo, Vetor e Lastro têm demos executáveis, código e relatórios; foram desenvolvidos com assistência de IA e ainda devem ser revisados pelo autor.
 
 Os repositórios Ada Commerce e Plann.er receberam revisão funcional: [CLI Java](https://github.com/Saiiru/ada-commerce) e [API TypeScript](https://github.com/Saiiru/Plann.er). Os READMEs explicam como executar e o escopo educacional de cada um. O Plann.er não inclui frontend nem autenticação.
+
+## Projetos de IA e ML
+
+| Projeto | Demonstração | Documentação |
+| --- | --- | --- |
+| Crivo — regressões em respostas | [Testar](https://saiiru.github.io/labs/?lab=crivo) | [README](projects/applied-ai/crivo/README.md) |
+| Vetor — classificação com ML | [Testar](https://saiiru.github.io/labs/?lab=vetor) | [Treino e modelo](projects/applied-ai/vetor/README.md) |
+| Lastro — busca com fontes | [Testar](https://saiiru.github.io/labs/?lab=lastro) | [README](projects/applied-ai/lastro/README.md) |
+
+[Resultados reproduzíveis](projects/applied-ai/BENCHMARK.md) · [Relato técnico](projects/applied-ai/EXPERIMENT.md). Dados sintéticos; não são resultados de empresas nem treinamento de LLM.
 
 ## Desenvolvimento
 
