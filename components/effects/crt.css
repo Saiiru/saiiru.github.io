@@ -1,0 +1,11 @@
+/* Static phosphor surface: lines are behind the text, never over its contrast. */
+.crt-surface { position:relative; isolation:isolate; overflow:hidden; background:linear-gradient(120deg,#112219,var(--ink,#0b1110) 60%); border-color:var(--line,#30483d) }
+.crt-scanlines { position:absolute; inset:-4px 0; z-index:0; pointer-events:none; opacity:.26; background:repeating-linear-gradient(0deg,transparent 0 5px,#0008 5px 6px) }
+.crt-surface > :not(.crt-scanlines) { position:relative; z-index:1 }
+.crt-surface .terminal-bar { background:linear-gradient(90deg,#9ce8bf08,transparent 55%,#ee66740a); border-bottom-color:var(--line,#30483d) }
+.crt-surface .terminal-output { color:var(--paper,#e3eee7); text-shadow:.65px 0 #9ce8bf2e,-.65px 0 #ee667420; scrollbar-color:var(--line,#30483d) transparent }
+.crt-surface .terminal-command { color:var(--signal,#9ce8bf) }
+.crt-surface .terminal-form input { caret-color:var(--signal,#9ce8bf) }
+.crt-surface:focus-within .crt-scanlines { animation:phosphor-settle 440ms cubic-bezier(.16,1,.3,1) both }
+@keyframes phosphor-settle { from {transform:translateY(-3px);opacity:.4} to {transform:translateY(0);opacity:.26} }
+@media(prefers-reduced-motion:reduce){.crt-surface:focus-within .crt-scanlines{animation:none}.crt-surface .terminal-output{text-shadow:none}}

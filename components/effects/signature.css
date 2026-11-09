@@ -1,0 +1,10 @@
+/* Original HUD registration, bounded to the existing signature pulse. */
+.signature-frame { position:absolute; inset:-12px -14px; width:calc(100% + 28px); height:calc(100% + 24px); fill:none; stroke:var(--ca-signal,var(--signal,#9ce8bf)); stroke-width:1; stroke-linecap:square; opacity:.22; pointer-events:none; overflow:visible; z-index:3 }
+.signature-coral { stroke:var(--ca-coral,var(--magenta,#ee6674)); stroke-width:2 }
+.signature-sweep { opacity:0; stroke-width:.8 }
+[data-glitch=active] > .signature-frame { animation:signature-lock 570ms steps(1,end) both }
+[data-glitch=active] > .signature-frame .signature-sweep { animation:signature-read 570ms steps(1,end) both }
+@keyframes signature-lock { 0% {opacity:.22;transform:translateX(0)} 12% {opacity:.85;transform:translateX(3px)} 29% {opacity:.5;transform:translateX(-2px)} 50% {opacity:.75;transform:none} 78%,100% {opacity:.22;transform:none} }
+@keyframes signature-read { 0%,100% {opacity:0;transform:translateY(-72px)} 20% {opacity:.55;transform:translateY(-48px)} 42% {opacity:.3;transform:translateY(12px)} 61% {opacity:.5;transform:translateY(58px)} 78% {opacity:0;transform:translateY(72px)} }
+@media(max-width:520px){.signature-frame{inset:-6px;width:calc(100% + 12px);height:calc(100% + 12px)}}
+@media(prefers-reduced-motion:reduce){[data-glitch=active]>.signature-frame,[data-glitch=active]>.signature-frame .signature-sweep{animation:none}.signature-sweep{display:none}}

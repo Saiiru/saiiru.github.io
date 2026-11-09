@@ -396,9 +396,9 @@
       1280,
       1440
     ],
-    "initialJSBytes": 199030,
-    "initialJSGzipBytes": 62519,
-    "cssGzipBytes": 14244,
+    "initialJSBytes": 199789,
+    "initialJSGzipBytes": 62730,
+    "cssGzipBytes": 14842,
     "finishReview": {
       "disposition": "SHIP",
       "scope": "Desktop/mobile hero, contact and public archive plus scoped changed sources",
@@ -581,5 +581,22 @@
     "nativeOSBridge": false,
     "shaderParity": "Original Canvas2D approximations, no Slang feedback pipeline",
     "docs": "components/README.md"
+  },
+  "mainSignatureSignals": {
+    "css": [
+      "components/effects/signature.css",
+      "components/effects/crt.css"
+    ],
+    "trigger": "Existing finite signature entry/hover pulse and local terminal focus",
+    "additionalRuntimeDependencies": false,
+    "additionalGPU": false,
+    "verification": "scripts/e2e_main_signals.py",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "research": "design/portfolio-signals/RESEARCH.md"
   }
 }

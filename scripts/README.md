@@ -20,3 +20,5 @@ Os demais scripts registram expectativas de interfaces anteriores (datashards su
 - python3 scripts/e2e_components.py — 24 demos em 320/390/1440px, controles, nove CRT, pausa/limpeza, movimento reduzido, BFCache, clock sem regressão, CSP, Canvas ausente e fallback sem JavaScript.
 
 check:build contabiliza o entrypoint e os modulepreloads compartilhados: 75 KiB JS/18 KiB CSS gzip no portfólio; 40 KiB JS/18 KiB CSS na galeria.
+
+- python3 scripts/e2e_main_signals.py — HUD da assinatura em hover repetido, pulso finito, alvo de 44px para biblioteca, terminal real, movimento reduzido e quatro larguras.

@@ -141,3 +141,9 @@
 
 /* The ticker keeps its position while its section is outside the viewport. */
 .portfolio .signal-tape:not([data-loop-visible="true"]) .tape-track { animation-play-state:paused }
+
+/* Main-page navigation to the reusable interface work. */
+.hero-actions { min-width:0; align-self:center }
+.hero-library-link { display:inline-flex; align-items:center; gap:10px; margin-top:14px; min-height:44px; font:500 12px/1.5 var(--face); color:var(--muted); text-decoration:underline; text-underline-offset:5px }
+.hero-library-link:hover { color:var(--signal) }
+@media(max-width:520px){ .hero-actions{max-width:245px;width:100%}.hero-actions .hero-cta{max-width:none} }
