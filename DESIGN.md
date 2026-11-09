@@ -48,3 +48,9 @@ The 2026-11-07 direction used industrial yellow, editorial screenshot rows and a
 Chromatic choreography and Gemini review are recorded in `design/motion/`; the Datashard Archive research is in `design/datashards/`. The existing MIT Cybercore glitch/scanline adaptation remains attributed in `design/contextual-signals/RESEARCH.md` and the retained license files. No Cybercore package is installed.
 
 Current reconstruction sources and the distinction between inspiration and original work are recorded in `design/recon/RESEARCH.md`. CyberArch scanline/displacement/channel techniques inform the visual vocabulary; its shader was not copied into the independently authored contour field.
+
+## Toolkit and project scope correction
+
+The current Toolkit shows technologies only. Data lives in src/data/toolkit.js; the selection UI lives in src/components/Toolkit.jsx. Software, embedded systems and electromechanics/control are separate groups. Java/Spring includes IoC and dependency injection as related concepts. CLP/control is a learning interest and frequency drives are planned study, not professional experience. No computing engineering degree or job title is claimed.
+
+The three suggested lab prototypes are no longer mounted on the main page. Their source is preserved, but new featured projects will be selected after the user builds and validates them. The public repository archive remains accessible. The profile README contains only its two SVG panels and navigation links; the expanded plaintext block has been removed.
