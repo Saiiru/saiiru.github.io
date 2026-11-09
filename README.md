@@ -34,12 +34,13 @@ Em outro terminal, com Python/Playwright e Chromium disponíveis:
     python3 scripts/e2e_toolkit.py
     python3 scripts/e2e_recon.py
     python3 scripts/e2e_hardening.py
+    python3 scripts/e2e_motion_budget.py
 
 Veja [scripts/README.md](scripts/README.md) para os pré-requisitos e limites. Não há um score de Lighthouse ou certificação de segurança alegado.
 
 ## Identidade e movimento
 
-Mint, coral e carvão mantêm a identidade cyberpunk. Glitches curtos respondem à entrada e ao ponteiro; o conteúdo permanece legível. O campo fluido do contato carrega perto da seção e pausa fora da tela ou com a aba oculta. A preferência do sistema por movimento reduzido é respeitada; falhas de WebGL usam fundo estático.
+Mint, coral e carvão mantêm a identidade cyberpunk. Glitches curtos respondem à entrada e ao ponteiro; o conteúdo permanece legível. A faixa tipográfica pausa fora da tela. O campo fluido do contato carrega perto da seção e pausa fora da tela ou com a aba oculta. A preferência do sistema por movimento reduzido é respeitada; falhas de WebGL usam fundo estático.
 
 - Tecnologias: src/data/toolkit.js e src/components/Toolkit.jsx
 - Inventário: src/data/repositories.json

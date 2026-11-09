@@ -1,17 +1,19 @@
 {
   "build": "PASS",
-  "initialJSBytes": 197662,
-  "initialJSGzipBytes": 61899,
-  "cssBytes": 62591,
-  "cssGzipBytes": 14082,
+  "initialJSBytes": 197920,
+  "initialJSGzipBytes": 61972,
+  "cssBytes": 62685,
+  "cssGzipBytes": 14104,
   "npmAuditFindings": 0,
   "browserSuites": [
     "TOOLKIT_SUITE_PASS",
     "RECON_SUITE_PASS",
-    "HARDENING_SUITE_PASS"
+    "HARDENING_SUITE_PASS",
+    "MOTION_BUDGET_SUITE_PASS"
   ],
   "adaTests": 18,
   "plannerIntegrationTests": 22,
   "adaRemoteCI": "Not started: account billing lock",
-  "scope": "Local production build and scoped tests; no formal audit"
+  "scope": "Local production build and scoped tests; no formal audit",
+  "incrementalEvidence": "REFERENCES-EXTRA.md"
 }

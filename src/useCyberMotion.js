@@ -28,6 +28,16 @@ export function useCyberMotion(rootRef) {
     onVisibility()
     document.addEventListener('visibilitychange',onVisibility)
 
+    // Observe the stationary wrapper, not the translating track.
+    const tape=root.querySelector('.signal-tape')
+    let tapeObserver
+    if(enabled && tape && 'IntersectionObserver' in window){
+      tapeObserver=new IntersectionObserver(entries=>{
+        tape.dataset.loopVisible=String(entries[0].isIntersecting)
+      })
+      tapeObserver.observe(tape)
+    }
+
     // Readable before JS; only prepare elements currently below the fold.
     if (enabled && 'IntersectionObserver' in window) {
       observer = new IntersectionObserver(entries => {
@@ -84,6 +94,8 @@ export function useCyberMotion(rootRef) {
 
     return () => {
       observer?.disconnect()
+      tapeObserver?.disconnect()
+      if(tape)delete tape.dataset.loopVisible
       document.removeEventListener('visibilitychange',onVisibility)
       delete root.dataset.pageHidden
       window.removeEventListener('scroll', onScroll)

@@ -192,7 +192,8 @@
       },
       "ticker": {
         "durationMs": 35000,
-        "behavior": "Continuous linear translation"
+        "behavior": "Continuous linear translation",
+        "pause": "Offscreen stationary wrapper or hidden document; preserve animation timeline. Static without IntersectionObserver."
       },
       "asterisk": {
         "durationMs": 22000,
@@ -395,16 +396,23 @@
       1280,
       1440
     ],
-    "initialJSBytes": 197662,
-    "initialJSGzipBytes": 61899,
-    "cssGzipBytes": 14082,
+    "initialJSBytes": 197920,
+    "initialJSGzipBytes": 61972,
+    "cssGzipBytes": 14104,
     "finishReview": {
       "disposition": "SHIP",
       "scope": "Desktop/mobile hero, contact and public archive plus scoped changed sources",
       "materialFindings": []
     },
     "evidence": "design/quality/RESEARCH.md",
-    "boundary": "Local checks and lab metrics; no formal audit, guaranteed security or field-performance claim."
+    "boundary": "Local checks and lab metrics; no formal audit, guaranteed security or field-performance claim.",
+    "incrementalChecks": [
+      "scripts/e2e_motion_budget.py (390/1440px + no observer)",
+      "scripts/e2e_hardening.py",
+      "npm run build",
+      "npm run check:build",
+      "Changed UI mechanical detector: []"
+    ]
   },
   "history": {
     "initialDirection": "2026-11-07 yellow editorial rows; later Datashard catalogue/dossier iteration is also historical and currently unmounted.",
