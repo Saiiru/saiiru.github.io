@@ -25,3 +25,7 @@ projects/ e public/labs/ preservam protótipos históricos e não compõem a vit
 Ada Commerce é uma CLI educacional em memória. Plann.er é uma API educacional local, ainda sem autenticação/autorização e com confirmações não assinadas; não a exponha publicamente com dados pessoais. Os READMEs desses repositórios descrevem seus limites.
 
 Não envie segredos, dados pessoais ou tokens em issues públicas. Ao relatar um problema, descreva o comportamento e passos mínimos usando dados fictícios.
+
+## Biblioteca /components/
+
+A galeria usa a mesma CSP estática e assets locais. Formulários e buscas são demonstrações com estado em memória; não enviam dados nem executam comandos. Canvas/CRT são desenhos originais, sem câmera/microfone. O nome digitado na entrada é tratado como texto. A seleção/REC é visual e não usa captura da tela. Os exemplos não recebem fontes HTML de usuários. A limpeza preserva o cache de navegação e descarta os recursos ao desmontar uma cena.

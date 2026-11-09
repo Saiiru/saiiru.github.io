@@ -15,3 +15,8 @@ Os scripts Python precisam de playwright e Chromium em /usr/bin/chromium. No PC 
 - npm --prefix projects/ai-builder-labs test — lógica dos protótipos preservados; não representa projetos selecionados para a vitrine.
 
 Os demais scripts registram expectativas de interfaces anteriores (datashards sugeridos, tema claro, nomes de abas e cooldown). Não são critérios de aceitação da vitrine atual. Os testes não substituem uma auditoria formal.
+
+- npm run check:components — 24 IDs únicos, entradas de módulo, 30 famílias/142 arquivos com origem e correspondência válidas.
+- python3 scripts/e2e_components.py — 24 demos em 320/390/1440px, controles, nove CRT, pausa/limpeza, movimento reduzido, BFCache, clock sem regressão, CSP, Canvas ausente e fallback sem JavaScript.
+
+check:build contabiliza o entrypoint e os modulepreloads compartilhados: 75 KiB JS/18 KiB CSS gzip no portfólio; 40 KiB JS/18 KiB CSS na galeria.

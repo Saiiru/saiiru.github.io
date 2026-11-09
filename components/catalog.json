@@ -1,0 +1,242 @@
+[
+  {
+    "id": "channel-split",
+    "title": "Ruptura de sinal",
+    "category": "Sinal",
+    "summary": "Camadas cromáticas finitas; texto base permanece inteiro e selecionável.",
+    "sourcePaths": [
+      "components/effects/signals.js",
+      "components/effects/signals.css"
+    ]
+  },
+  {
+    "id": "slice-transition",
+    "title": "Corte de cena",
+    "category": "Sinal",
+    "summary": "Troca entre duas composições locais com faixas, máscara e deslocamento limitado.",
+    "sourcePaths": [
+      "components/effects/signals.js",
+      "components/effects/signals.css"
+    ]
+  },
+  {
+    "id": "scramble-reveal",
+    "title": "Decodificação",
+    "category": "Texto",
+    "summary": "Caracteres decorativos se recompõem sem substituir o nome acessível.",
+    "sourcePaths": [
+      "components/effects/signals.js",
+      "components/effects/signals.css"
+    ]
+  },
+  {
+    "id": "holo-tilt",
+    "title": "Placa holográfica",
+    "category": "Sinal",
+    "summary": "Perspectiva de baixa amplitude, reflexo e circuito sobre geometria original.",
+    "sourcePaths": [
+      "components/effects/signals.js",
+      "components/effects/signals.css"
+    ]
+  },
+  {
+    "id": "login-sequence",
+    "title": "Entrada de painel",
+    "category": "Interfaces",
+    "summary": "Demonstração de entrada, cursor e feedback; sem credenciais ou autenticação.",
+    "sourcePaths": [
+      "components/effects/signals.js",
+      "components/effects/signals.css"
+    ]
+  },
+  {
+    "id": "theme-transition",
+    "title": "Paletas e superfícies",
+    "category": "Interfaces",
+    "summary": "Oito combinações da referência, aplicadas somente à demonstração.",
+    "sourcePaths": [
+      "components/effects/signals.js",
+      "components/effects/signals.css"
+    ]
+  },
+  {
+    "id": "hud-panel",
+    "title": "Painel de missão",
+    "category": "Interfaces",
+    "summary": "Moldura chanfrada, profundidade e revelação finita.",
+    "sourcePaths": [
+      "components/effects/panels.js",
+      "components/effects/panels.css"
+    ]
+  },
+  {
+    "id": "telemetry-gauges",
+    "title": "Telemetria sintética",
+    "category": "Interfaces",
+    "summary": "Medidores e forma de onda controlados por intensidade.",
+    "sourcePaths": [
+      "components/effects/panels.js",
+      "components/effects/panels.css"
+    ]
+  },
+  {
+    "id": "launcher-search",
+    "title": "Busca de itens",
+    "category": "Interfaces",
+    "summary": "Filtro local com seleção pelo teclado e prévia.",
+    "sourcePaths": [
+      "components/effects/panels.js",
+      "components/effects/panels.css"
+    ]
+  },
+  {
+    "id": "notification-stack",
+    "title": "Pilha de notificações",
+    "category": "Interfaces",
+    "summary": "Eventos locais adicionáveis e dispensáveis, com limite visível.",
+    "sourcePaths": [
+      "components/effects/panels.js",
+      "components/effects/panels.css"
+    ]
+  },
+  {
+    "id": "media-player",
+    "title": "Player conceitual",
+    "category": "Interfaces",
+    "summary": "Faixas imaginárias, timeline e controles sem áudio.",
+    "sourcePaths": [
+      "components/effects/panels.js",
+      "components/effects/panels.css"
+    ]
+  },
+  {
+    "id": "control-deck",
+    "title": "Estúdio de controles",
+    "category": "Interfaces",
+    "summary": "Abas, sliders e toggles ajustam uma composição local.",
+    "sourcePaths": [
+      "components/effects/panels.js",
+      "components/effects/panels.css"
+    ]
+  },
+  {
+    "id": "osd-toast",
+    "title": "Indicador transitório",
+    "category": "Interfaces",
+    "summary": "Um controle visual mostra um OSD com duração finita.",
+    "sourcePaths": [
+      "components/effects/panels.js",
+      "components/effects/panels.css"
+    ]
+  },
+  {
+    "id": "capture-region",
+    "title": "Região visual",
+    "category": "Interfaces",
+    "summary": "Seleção limitada ao canvas, com arraste e teclado.",
+    "sourcePaths": [
+      "components/effects/panels.js",
+      "components/effects/panels.css"
+    ]
+  },
+  {
+    "id": "workspace-dock",
+    "title": "Dock de espaços",
+    "category": "Interfaces",
+    "summary": "Contextos locais e resposta de hover com movimento finito.",
+    "sourcePaths": [
+      "components/effects/panels.js",
+      "components/effects/panels.css"
+    ]
+  },
+  {
+    "id": "crt-display",
+    "title": "Phosphor display",
+    "category": "Displays",
+    "summary": "Nove perfis CRT com fósforo, scanlines e curvatura em Canvas 2D.",
+    "sourcePaths": [
+      "components/effects/displays.js",
+      "components/effects/displays.css"
+    ]
+  },
+  {
+    "id": "audio-spectrum",
+    "title": "Synthetic spectrum",
+    "category": "Displays",
+    "summary": "48 bandas de um sinal matemático, com pausa e reflexo sutil.",
+    "sourcePaths": [
+      "components/effects/displays.js",
+      "components/effects/displays.css"
+    ]
+  },
+  {
+    "id": "radar-map",
+    "title": "Sector radar",
+    "category": "Displays",
+    "summary": "Mapa vetorial fictício, marcadores e varredura com duas escalas.",
+    "sourcePaths": [
+      "components/effects/displays.js",
+      "components/effects/displays.css"
+    ]
+  },
+  {
+    "id": "weather-scan",
+    "title": "Weather field",
+    "category": "Displays",
+    "summary": "Estação fictícia com isóbaras e partículas de vento.",
+    "sourcePaths": [
+      "components/effects/displays.js",
+      "components/effects/displays.css"
+    ]
+  },
+  {
+    "id": "matrix-rain",
+    "title": "Bounded glyph rain",
+    "category": "Displays",
+    "summary": "Chuva determinística de glifos em verde fósforo ou azul gelo.",
+    "sourcePaths": [
+      "components/effects/displays.js",
+      "components/effects/displays.css"
+    ]
+  },
+  {
+    "id": "scanner-overkill",
+    "title": "Scanner de alvo",
+    "category": "Sinal",
+    "summary": "Moldura desenhada, mira rotativa e alerta; só reage dentro desta prévia.",
+    "sourcePaths": [
+      "components/effects/scenes.js",
+      "components/effects/scenes.css"
+    ]
+  },
+  {
+    "id": "boot-sequence",
+    "title": "Sequência de inicialização",
+    "category": "Interfaces",
+    "summary": "Logs e progresso de módulos simulados, sem bloquear a navegação.",
+    "sourcePaths": [
+      "components/effects/scenes.js",
+      "components/effects/scenes.css"
+    ]
+  },
+  {
+    "id": "market-terminal",
+    "title": "Terminal de dados",
+    "category": "Interfaces",
+    "summary": "Gráfico, filtro e detalhe de um feed sintético; sem cotações ou notícias reais.",
+    "sourcePaths": [
+      "components/effects/scenes.js",
+      "components/effects/scenes.css"
+    ]
+  },
+  {
+    "id": "hud-layout",
+    "title": "Composição de HUD",
+    "category": "Interfaces",
+    "summary": "Posição, escala, visibilidade e presets de widgets; altera só esta cena.",
+    "sourcePaths": [
+      "components/effects/scenes.js",
+      "components/effects/scenes.css"
+    ]
+  }
+]

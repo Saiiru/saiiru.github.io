@@ -18,3 +18,5 @@ Primary actions: inspect existing repositories and their setup instructions, exp
 - Do not equate deterministic demos with real LLM inference, npm audit with a security certification, or local lab performance with visitor measurements.
 
 Current visual decisions and verification limits are in DESIGN.md, SECURITY.md and design/quality/.
+
+The real component-library artifact is published separately at /components/: original browser effect demos and source mapping. It is not a claim that assistant-suggested AI projects or native desktop integrations are complete.

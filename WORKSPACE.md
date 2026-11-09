@@ -17,6 +17,7 @@ Pasta principal: /home/sairu/workspace/software/portfolio
 Entre em site/ e use npm run dev. npm run build gera docs/, o diretório do GitHub Pages. Edite src/ e public/; não edite o bundle gerado em docs/assets/.
 
 - Identidade e contato: src/recon-identity.css, src/components/SignalField.jsx e public/brand/sairu-mark.svg.
+- Biblioteca web independente: site/components/; galeria em /components/, demos e mapa de origem separados do portfólio principal.
 - Dados e leitores de projeto: src/components/ e src/data/.
 - Evidências e decisões: design/.
 - Verificações atuais: npm run check:build, python3 scripts/e2e_toolkit.py, python3 scripts/e2e_recon.py e python3 scripts/e2e_hardening.py, com docs servido na porta 4392.
