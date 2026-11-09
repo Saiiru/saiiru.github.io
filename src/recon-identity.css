@@ -138,3 +138,6 @@
 .noscript-summary { max-width:760px; padding:40px 24px; margin:auto; color:#e3eee7; background:#0b1110; font:18px/1.65 sans-serif }
 .noscript-summary a { color:#9ce8bf }
 @media(prefers-reduced-motion:reduce) { .portfolio .ambient-signal { animation:none; will-change:auto } }
+
+/* The ticker keeps its position while its section is outside the viewport. */
+.portfolio .signal-tape:not([data-loop-visible="true"]) .tape-track { animation-play-state:paused }

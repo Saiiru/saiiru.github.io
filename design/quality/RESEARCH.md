@@ -55,3 +55,5 @@ Suítes atuais: e2e_toolkit.py, e2e_recon.py e e2e_hardening.py. Verificam respo
 ## Falha de conexão no efeito
 
 Um teste adicional abortou o download do chunk do contato e reproduziu a remoção da interface pelo erro do lazy import. A correção adiciona um limite de erro local ao elemento decorativo. A regressão agora exige fundo estático, marca e dois links de contato ainda presentes. Build, orçamento e suíte hardening passaram novamente. O build final é 197.662 bytes de JS inicial, 61.899 bytes gzip; a coleta de laboratório acima antecede esse pequeno tratamento de erro.
+
+Referências complementares, estudo de código CSS e pausa da faixa fora da tela: [REFERENCES-EXTRA.md](REFERENCES-EXTRA.md).

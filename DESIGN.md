@@ -45,6 +45,8 @@ Ambient drift is a 24s alternating CSS transform animation, replacing continuous
 
 The mobile menu reports its expanded state. Escape closes it and restores focus to its trigger. Keep the skip link, semantic landmarks, visible focus, technology-selection states, labeled terminal input and polite live output.
 
+The decorative ticker is observed through its stationary wrapper and pauses outside the viewport without resetting its timeline. Without IntersectionObserver it remains static. This behavior and its reduced-motion alternative are covered by scripts/e2e_motion_budget.py at mobile and desktop widths. Additional primary references and the incremental test scope are in design/quality/REFERENCES-EXTRA.md.
+
 ## Build and publication constraints
 
 `npm run build` uses `scripts/build.mjs` to set production NODE_ENV before importing Vite and explicitly builds in production mode, even when the caller’s shell exports development NODE_ENV. The toolchain uses Vite 6.4.5 and publishes static output to `docs/` without source maps.
