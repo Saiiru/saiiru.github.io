@@ -3,3 +3,6 @@ dist/
 .DS_Store
 **/.env
 **/.env.local
+
+# Also ignore a workspace symlink to installed dependencies.
+node_modules

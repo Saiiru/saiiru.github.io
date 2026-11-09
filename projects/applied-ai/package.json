@@ -1,0 +1,19 @@
+{
+  "name": "sairu-applied-ai",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-isolation=none",
+    "serve": "node server/ai-proxy.mjs",
+    "serve:ai": "node server/ai-proxy.mjs",
+    "benchmark": "node scripts/benchmark.mjs",
+    "verify": "node scripts/verify.mjs",
+    "crivo": "node scripts/crivo.mjs",
+    "vetor": "node scripts/vetor.mjs",
+    "lastro": "node scripts/lastro.mjs"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

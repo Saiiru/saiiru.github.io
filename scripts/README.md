@@ -12,7 +12,7 @@ Os scripts Python precisam de playwright e Chromium em /usr/bin/chromium. No PC 
 - python3 scripts/e2e_motion_budget.py — faixa animada somente no viewport, pausa/retomada, movimento reduzido e fallback sem observer a 390 e 1440px.
 - npm run check:build — orçamento de 75 KiB de JS inicial e 18 KiB de CSS em gzip, sem mapas de depuração, CSP/noscript presentes, destinos HTTPS GitHub no inventário.
 - npm audit — vulnerabilidades conhecidas das dependências instaladas.
-- npm --prefix projects/ai-builder-labs test — lógica dos protótipos preservados; não representa projetos selecionados para a vitrine.
+- npm --prefix projects/applied-ai test — lógica das ferramentas Crivo, Vetor e Lastro, incluindo paridade ML.
 
 Os demais scripts registram expectativas de interfaces anteriores (datashards sugeridos, tema claro, nomes de abas e cooldown). Não são critérios de aceitação da vitrine atual. Os testes não substituem uma auditoria formal.
 
@@ -22,3 +22,6 @@ Os demais scripts registram expectativas de interfaces anteriores (datashards su
 check:build contabiliza o entrypoint e os modulepreloads compartilhados: 75 KiB JS/18 KiB CSS gzip no portfólio; 40 KiB JS/18 KiB CSS na galeria.
 
 - python3 scripts/e2e_main_signals.py — HUD da assinatura em hover repetido, pulso finito, alvo de 44px para biblioteca, terminal real, movimento reduzido e quatro larguras.
+
+- python3 scripts/e2e_applied_ai.py — demos estáticas, ML, revisão humana, exportação, upload e quatro larguras; APPLIED_AI_BASE ajusta a origem.
+- python3 scripts/e2e_applied_ai_races.py — respostas atrasadas e disputa entre corpus inicial e upload; provedor simulado, nenhuma chamada externa.

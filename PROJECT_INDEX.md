@@ -4,7 +4,7 @@ Atualizado em 2026-11-08 via API pública do GitHub. **62 repositórios**, inclu
 
 > Este é um inventário, não uma lista de produtos concluídos. O marcador **Fork** indica código originado de outro autor.
 
-Os três laboratórios de IA e seus testes estão no diretório projects/ai-builder-labs.
+Os três laboratórios de IA e seus testes estão no diretório projects/applied-ai.
 
 | Repositório | Área | Linguagem | Origem |
 | --- | --- | --- | --- |

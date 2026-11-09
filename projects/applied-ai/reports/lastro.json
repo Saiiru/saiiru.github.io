@@ -1,0 +1,129 @@
+{
+  "scope": "Fictional corpus, manually specified relevance; lexical retrieval, not factual verification.",
+  "k": 3,
+  "total": 8,
+  "answerable": 6,
+  "unanswerable": 2,
+  "recallAtK": 0.8333333333333334,
+  "mrr": 0.8333333333333334,
+  "noAnswerAccuracy": 0.5,
+  "outcomes": [
+    {
+      "query": "cobrança duplicada",
+      "expectedPath": "docs/pagamentos.md",
+      "rank": 1,
+      "found": [
+        {
+          "id": "S05",
+          "path": "docs/pagamentos.md",
+          "score": 5.555341720344254
+        }
+      ],
+      "passed": true
+    },
+    {
+      "query": "entrega atrasada",
+      "expectedPath": "docs/entregas.md",
+      "rank": 1,
+      "found": [
+        {
+          "id": "S01",
+          "path": "docs/entregas.md",
+          "score": 1.8460107292859478
+        }
+      ],
+      "passed": true
+    },
+    {
+      "query": "reembolso estorno",
+      "expectedPath": "docs/estornos.md",
+      "rank": 1,
+      "found": [
+        {
+          "id": "S04",
+          "path": "docs/estornos.md",
+          "score": 1.8483999590720068
+        },
+        {
+          "id": "S03",
+          "path": "docs/estornos.md",
+          "score": 1.5305222591042098
+        }
+      ],
+      "passed": true
+    },
+    {
+      "query": "recuperar senha acesso",
+      "expectedPath": "docs/acesso.md",
+      "rank": 1,
+      "found": [
+        {
+          "id": "S07",
+          "path": "docs/acesso.md",
+          "score": 6.1590752658663686
+        },
+        {
+          "id": "S06",
+          "path": "docs/pagamentos.md",
+          "score": 1.8483999590720068
+        },
+        {
+          "id": "S08",
+          "path": "docs/acesso.md",
+          "score": 1.6745086737237693
+        }
+      ],
+      "passed": true
+    },
+    {
+      "query": "qualidade alimento embalagem",
+      "expectedPath": "docs/qualidade.md",
+      "rank": 1,
+      "found": [
+        {
+          "id": "S09",
+          "path": "docs/qualidade.md",
+          "score": 2.0487865213556002
+        }
+      ],
+      "passed": true
+    },
+    {
+      "query": "escalonamento supervisor",
+      "expectedPath": "docs/escalonamento.md",
+      "rank": 0,
+      "found": [],
+      "passed": false
+    },
+    {
+      "query": "órbita de Saturno",
+      "expectedPath": null,
+      "rank": 0,
+      "found": [
+        {
+          "id": "S12",
+          "path": "docs/escalonamento.md",
+          "score": 0.30668399131470064
+        },
+        {
+          "id": "S07",
+          "path": "docs/acesso.md",
+          "score": 0.296814542249746
+        },
+        {
+          "id": "S08",
+          "path": "docs/acesso.md",
+          "score": 0.296814542249746
+        }
+      ],
+      "passed": false
+    },
+    {
+      "query": "programação quântica",
+      "expectedPath": null,
+      "rank": 0,
+      "found": [],
+      "passed": true
+    }
+  ]
+}
