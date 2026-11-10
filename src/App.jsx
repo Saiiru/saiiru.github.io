@@ -36,7 +36,7 @@ function Terminal() {
     if (!command) return
     if (command === 'clear') setRows([])
     else {
-      const output = command === 'labs' ? ['PROJETOS // APPLIED AI', 'Crivo: avaliação de contratos. Vetor: classificação com ML. Lastro: busca com fontes.', 'Demos e relatórios reproduzíveis no Datashard Archive. Dados sintéticos; desenvolvimento assistido por IA.'] : commandOutput[command] || [`Comando desconhecido: ${command}`, 'Digite help para ver as opções.']
+      const output = command === 'labs' ? ['PROJETOS // APPLIED AI', 'Crivo: avaliação de respostas. Vetor: classificação de chamados com ML. Lastro: busca documental com fontes.', 'Demos e relatórios reproduzíveis no Datashard Archive. Dados sintéticos; desenvolvimento assistido por IA.'] : commandOutput[command] || [`Comando desconhecido: ${command}`, 'Digite help para ver as opções.']
       setRows(current => [...current, { type: 'command', text: `> ${command}` }, ...output.map(text => ({ type: 'system', text }))])
       if (command === 'labs' || command === 'repos') {
         if (command === 'repos') window.dispatchEvent(new Event('blacksite:open-archive'))
@@ -118,7 +118,7 @@ function App(){
     <div className="type-side" aria-hidden="true"><span>PERSONAL<br/>WORK<br/>ARCHIVE</span><div className="registration"><i/><i/></div><span className="type-side-bottom">DESIGN<br/>BUILD<br/>REPEAT</span></div>
     <GlitchLogo enabled={effectsEnabled}/>
     <div className="hero-titleline"><span>SOFTWARE<span className="dot">.</span></span><span>SISTEMAS<span className="dot">.</span></span><span>AUTOMAÇÃO<span className="dot">.</span></span></div>
-    <div className="hero-bottom"><div className="hero-copy"><p>Entre o código e o mundo real.</p><p>Passei por times de desenvolvimento web e hoje estudo Eletromecânica. Gosto de abrir sistemas, descobrir por que algo falhou e construir uma solução que outra pessoa consiga entender e testar.</p></div><div className="hero-actions"><a className="hero-cta" href="#todos-projetos"><span>VER ESTUDOS<br/>E CÓDIGO</span><ArrowDownRight size={42} strokeWidth={1.2}/></a><a className="hero-library-link" href="/components/">EXPLORAR INTERFACES <ArrowUpRight size={16} aria-hidden="true"/></a></div><div className="hero-barcode" aria-hidden="true"><div/><span>SAIRU—BLACKSITE—2026</span></div></div>
+    <div className="hero-bottom"><div className="hero-copy"><p>Software prático. Decisões inspecionáveis.</p><p>Minha experiência passa por desenvolvimento web; hoje estudo Eletromecânica e exploro IA, automação e recuperação de informação em projetos que dá para testar. Gosto de mostrar por que o sistema escolheu uma saída — e quando deve pedir revisão.</p></div><div className="hero-actions"><a className="hero-cta" href="#todos-projetos"><span>VER ESTUDOS<br/>E CÓDIGO</span><ArrowDownRight size={42} strokeWidth={1.2}/></a><a className="hero-library-link" href="/components/">EXPLORAR INTERFACES <ArrowUpRight size={16} aria-hidden="true"/></a></div><div className="hero-barcode" aria-hidden="true"><div/><span>SAIRU—BLACKSITE—2026</span></div></div>
    </div>
    <div className="hero-footerline"><span>SOFTWARE, SISTEMAS EMBARCADOS E ELETROMECÂNICA.</span><span><span className="live-indicator"/> PORTFÓLIO EM CONSTRUÇÃO CONTÍNUA</span><span>SCROLL TO EXPLORE ↓</span></div>
   </section>

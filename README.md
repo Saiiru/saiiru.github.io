@@ -6,7 +6,7 @@ Site pessoal de Urias Machado Santos: software, sistemas embarcados e formação
 - [Biblioteca interativa de interfaces](https://saiiru.github.io/components/) · [Código e reuso](components/README.md)
 - [Perfil GitHub](https://github.com/Saiiru)
 - [Mapa do workspace](WORKSPACE.md)
-- [Decisões visuais](DESIGN.md) · [Pesquisa e medições](design/quality/RESEARCH.md) · [Segurança e limites](SECURITY.md)
+- [Decisões visuais](DESIGN.md) · [Pesquisa e medições](design/quality/RESEARCH.md) · [Leitura aplicada dos artigos](design/2026-freecodecamp-applied-reading.md) · [Segurança e limites](SECURITY.md)
 
 ## Interface atual
 
@@ -53,7 +53,7 @@ Veja [scripts/README.md](scripts/README.md) para os pré-requisitos e limites. N
 
 ## Identidade e movimento
 
-Mint, coral e carvão mantêm a identidade cyberpunk. Glitches curtos respondem à entrada e ao ponteiro; o conteúdo permanece legível. A faixa tipográfica pausa fora da tela. O campo fluido do contato carrega perto da seção e pausa fora da tela ou com a aba oculta. A preferência do sistema por movimento reduzido é respeitada; falhas de WebGL usam fundo estático.
+Carvão índigo, verde-luz, coral, ciano e violeta formam a identidade cyberpunk. Glitches curtos respondem à entrada e ao ponteiro; o conteúdo permanece legível. A faixa tipográfica pausa fora da tela. O campo fluido do contato carrega perto da seção e pausa fora da tela ou com a aba oculta. A preferência do sistema por movimento reduzido é respeitada; falhas de WebGL usam fundo estático.
 
 - Tecnologias: src/data/toolkit.js e src/components/Toolkit.jsx
 - Inventário: src/data/repositories.json

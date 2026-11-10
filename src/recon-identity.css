@@ -3,90 +3,90 @@
  * Neutral charcoal carries most of the page. No yellow highlight surfaces.
  */
 .portfolio {
-  --ink:#0b1110; --paper:#e3eee7; --muted:#a9beb3; --line:#30483d;
-  --signal:#9ce8bf; --cyan:#9ce8bf; --magenta:#ee6674; --violet:#b7c7c0;
-  background:var(--ink); color:var(--paper); accent-color:var(--signal);
-  scrollbar-color:#5e8e77 #0b1110;
+  --ink:#0b0b13; --paper:#edf2f5; --muted:#b5bdc9; --line:#343647;
+  --signal:#8dffb3; --cyan:#63e3f4; --magenta:#ff5c73; --violet:#b294ff;
+  background:radial-gradient(ellipse at 82% 12%,#28152d,transparent 33rem),radial-gradient(ellipse at 8% 31%,#102a2d,transparent 29rem),var(--ink); color:var(--paper); accent-color:var(--signal);
+  scrollbar-color:#5e8e77 #0b0b13;
 }
 .portfolio .brand img { width:38px; height:38px; display:block; object-fit:contain }
-.portfolio .brand:hover img { filter:drop-shadow(2px 0 #ee6674); transform:skewX(-3deg) }
+.portfolio .brand:hover img { filter:drop-shadow(2px 0 #ff5c73); transform:skewX(-3deg) }
 .portfolio .wordmark-cuts { fill:var(--ink) }
-.portfolio .wordmark-stage > .sairu-wordmark { filter:drop-shadow(1px 0 #ee667440) }
-.portfolio .wordmark-stage:hover > .sairu-wordmark { filter:drop-shadow(3px 0 #ee667470) drop-shadow(-2px 0 #9ce8bf70) }
+.portfolio .wordmark-stage > .sairu-wordmark { filter:drop-shadow(1px 0 #ff5c7340) }
+.portfolio .wordmark-stage:hover > .sairu-wordmark { filter:drop-shadow(3px 0 #ff5c7370) drop-shadow(-2px 0 #8dffb370) }
 .portfolio .hero-titleline { border-color:#3b5c4b; color:var(--paper) }
 .portfolio .hero-titleline > span:nth-child(1) { background:#1c3228; color:var(--signal) }
-.portfolio .hero-titleline > span:nth-child(2) { background:#18251f; color:#e3eee7 }
+.portfolio .hero-titleline > span:nth-child(2) { background:#18251f; color:#edf2f5 }
 .portfolio .hero-titleline > span:nth-child(3) { background:#342027; color:#f18a94 }
-.portfolio .hero-stage::before { background:radial-gradient(340px circle at var(--pointer-x,18%) var(--pointer-y,28%),#9ce8bf12,transparent 75%) }
+.portfolio .hero-stage::before { background:radial-gradient(340px circle at var(--pointer-x,18%) var(--pointer-y,28%),#8dffb312,transparent 75%) }
 .portfolio .hero-annotation { background:linear-gradient(90deg,#57243030,transparent 75%); border-color:var(--magenta) }
 .portfolio .hero-copy p:last-child { color:var(--muted) }
-.portfolio .ambient-field { background:radial-gradient(650px circle at var(--ambient-x,54%) var(--ambient-y,24%),#9ce8bf0a,transparent 76%),radial-gradient(650px circle at 80% 75%,#ee66740a,transparent 78%) }
-.portfolio .ambient-grid { opacity:.2 }
-.portfolio .ambient-signal { opacity:.2; background-image:linear-gradient(120deg,transparent 49.8%,#9ce8bf12 49.9% 50%,transparent 50.1%) }
+.portfolio .ambient-field { background:radial-gradient(560px circle at var(--ambient-x,72%) var(--ambient-y,18%),#ff5c7316,transparent 74%),radial-gradient(610px circle at 14% 58%,#63e3f412,transparent 76%),radial-gradient(500px circle at 68% 82%,#b294ff0d,transparent 78%) }
+.portfolio .ambient-grid { opacity:.26; background-image:linear-gradient(#8dffb30d 1px,transparent 1px),linear-gradient(90deg,#8dffb30d 1px,transparent 1px) }
+.portfolio .ambient-signal { opacity:.29; background-image:linear-gradient(120deg,transparent 49.8%,#63e3f41c 49.9% 50%,transparent 50.1%) }
 .portfolio .signal-tape { background:#151b18; border-color:#3c4a41 }
 .portfolio .tape-track span:nth-of-type(2n) { color:#b0d1bf }
-.portfolio .about-section { background:#131c17; color:var(--paper); --line:#344c40 }
+.portfolio .about-section { background:#12131d; color:var(--paper); --line:#363847 }
 .portfolio .about-section::before { background:var(--magenta) }
 .portfolio .about-main h2 { color:var(--paper) }
 .portfolio .about-main h2 > span { -webkit-text-stroke-color:var(--signal); color:transparent }
-.portfolio .about-main p { color:#bdcec4 }
-.portfolio .about-history > h3,.portfolio .history-item,.portfolio .study-row { border-color:#395044 }
-.portfolio .history-item > span,.portfolio .study-row > span { color:#a7c2b3 }
-.portfolio .about-projects-link { color:var(--signal); border-color:#689e81 }
+.portfolio .about-main p { color:#c4cbd5 }
+.portfolio .about-history > h3,.portfolio .history-item,.portfolio .study-row { border-color:#383b4d }
+.portfolio .history-item > span,.portfolio .study-row > span { color:#a5b3c3 }
+.portfolio .about-projects-link { color:var(--signal); border-color:#5c9972 }
 .portfolio .about-section :focus-visible { outline-color:var(--signal) }
 .portfolio .archive-wayfinding b { color:var(--signal) }
-.portfolio .datashards-section { --archive-bg:#0c1511; --archive-panel:#101d16; --archive-rule:#355244; --archive-text:#e3eee7; --archive-body:#bfd2c7; --archive-muted:#a6bdaf; --archive-coral:#ee6674 }
-.portfolio .shard-catalog { background:#101a14 }
-.portfolio .shard-select[aria-pressed="true"] { background:#20362a; border-color:var(--signal) }
-.portfolio .shard-select[aria-pressed="true"]::before { background:linear-gradient(45deg,transparent 47%,var(--signal) 48% 52%,#101a14 53%) }
-.portfolio .accent-cyan { --shard-accent:#9ce8bf }
-.portfolio .accent-magenta { --shard-accent:#f38f9a }
-.portfolio .accent-violet { --shard-accent:#bed0c5 }
-.portfolio .reader-decision { background:linear-gradient(100deg,#19372a,#132219 75%) }
+.portfolio .datashards-section { --archive-bg:#0c0d17; --archive-panel:#11131f; --archive-rule:#37384c; --archive-text:#edf2f5; --archive-body:#c1c8d3; --archive-muted:#a6afbd; --archive-coral:#ff5c73 }
+.portfolio .shard-catalog { background:#10111b }
+.portfolio .shard-select[aria-pressed="true"] { background:#17271f; border-color:var(--signal) }
+.portfolio .shard-select[aria-pressed="true"]::before { background:linear-gradient(45deg,transparent 47%,var(--signal) 48% 52%,#10111b 53%) }
+.portfolio .accent-cyan { --shard-accent:var(--cyan) }
+.portfolio .accent-magenta { --shard-accent:var(--magenta) }
+.portfolio .accent-violet { --shard-accent:var(--violet) }
+.portfolio .reader-decision { background:linear-gradient(100deg,#14281f,#161523 75%) }
 .portfolio .reading-progress { background:linear-gradient(90deg,var(--signal),var(--magenta)) }
-.portfolio ::selection { background:#ee6674; color:#0b1110 }
-.portfolio :focus-visible { outline:2px solid #9ce8bf; outline-offset:5px }
+.portfolio ::selection { background:#ff5c73; color:#0b0b13 }
+.portfolio :focus-visible { outline:2px solid #8dffb3; outline-offset:5px }
 
 /* A real closing scene: generated flow field behind an editorial two-column layout. */
 .portfolio .contact-section {
   position:relative; isolation:isolate; overflow:hidden;
   max-width:none; padding:100px max(60px,calc((100vw - 1392px)/2)) 58px;
-  margin:32px 0 0; background:#09110d; border-top:1px solid #365141;
+  margin:32px 0 0; background:#090a11; border-top:1px solid #393a4d;
 }
 .contact-field { position:absolute; inset:0; width:100%; height:100%; z-index:-2; pointer-events:none }
 .contact-field[data-renderer="fallback"] {
-  background:radial-gradient(ellipse at 85% 45%,#173a27,transparent 65%),#0b1410;
+  background:radial-gradient(ellipse at 85% 45%,#262143,transparent 65%),#0b1410;
 }
-.contact-shade { position:absolute; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(90deg,#09110df2 0%,#09110db3 40%,#09110d14 100%) }
+.contact-shade { position:absolute; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(90deg,#090a11f2 0%,#090a11b3 40%,#090a1114 100%) }
 .contact-layout { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr); gap:80px; align-items:end }
 .contact-copy h2 { font:600 clamp(48px,6.7vw,96px)/1.02 var(--face); letter-spacing:-.04em; max-width:800px; margin:0 0 30px }
 .contact-copy h2 span { color:var(--signal) }
-.contact-copy p { color:#b4ccbd; font-size:16px; line-height:1.75; max-width:42ch; margin:0 }
+.contact-copy p { color:#adb8c8; font-size:16px; line-height:1.75; max-width:42ch; margin:0 }
 .contact-channels { padding-bottom:8px }
 .contact-channel {
   display:grid; grid-template-columns:1fr 28px; gap:24px; align-items:center;
-  border-top:1px solid #658b72; padding:25px 0; color:#e3eee7;
+  border-top:1px solid #5d6872; padding:25px 0; color:#edf2f5;
   transition:color .18s, border-color .18s;
 }
-.contact-channel:last-child { border-bottom:1px solid #658b72 }
+.contact-channel:last-child { border-bottom:1px solid #5d6872 }
 .contact-channel span { display:block; font:500 28px/1.2 var(--face); margin-bottom:9px }
-.contact-channel small { display:block; font-size:13px; line-height:1.6; color:#a8c3b3 }
+.contact-channel small { display:block; font-size:13px; line-height:1.6; color:#adb8c8 }
 .contact-channel svg { color:var(--signal); transition:transform .25s cubic-bezier(.16,1,.3,1) }
 .contact-channel:hover { color:var(--signal); border-color:var(--signal) }
 .contact-channel:hover svg { transform:translate(4px,-4px) }
 .contact-channel:focus-visible { outline-offset:7px }
-.contact-signoff { display:flex; align-items:center; justify-content:space-between; gap:30px; margin-top:85px; padding-top:24px; border-top:1px solid #355240; color:#a5bcad; font:10px/1.7 var(--mono) }
+.contact-signoff { display:flex; align-items:center; justify-content:space-between; gap:30px; margin-top:85px; padding-top:24px; border-top:1px solid #37384b; color:#aeb7c5; font:10px/1.7 var(--mono) }
 .contact-signature { display:flex; gap:14px; align-items:center }
 .contact-signature img { width:48px; height:48px }
-.contact-signature span { color:#d2e5d8; font:600 19px var(--face); letter-spacing:.06em }
+.contact-signature span { color:#edf2f5; font:600 19px var(--face); letter-spacing:.06em }
 .contact-signoff > span { text-align:right }
 .portfolio.light-mode { --ink:#e6eee7; --paper:#15261c; --muted:#3a5946; --line:#a2b9a9; --signal:#226342; --cyan:#226342; --magenta:#a3344d }
-.portfolio.light-mode .hero-titleline { color:#e3eee7 }
+.portfolio.light-mode .hero-titleline { color:#edf2f5 }
 .portfolio.light-mode .wordmark-cuts { fill:#e6eee7 }
 .portfolio.light-mode .about-section { background:#d6e5d9; color:#15261c }
 .portfolio.light-mode .about-main h2,.portfolio.light-mode .about-main p { color:#203c2b }
 .portfolio.light-mode .history-item > span,.portfolio.light-mode .study-row > span { color:#355b43 }
-.portfolio.light-mode .contact-section { --signal:#9ce8bf; --paper:#e3eee7; --ink:#0b1110; --cyan:#9ce8bf }
+.portfolio.light-mode .contact-section { --signal:#8dffb3; --paper:#edf2f5; --ink:#0b0b13; --cyan:#8dffb3 }
 @media(max-width:1100px) {
   .portfolio .contact-section { padding-left:40px; padding-right:40px }
   .contact-layout { gap:45px; grid-template-columns:minmax(0,1.2fr) minmax(250px,.8fr) }
@@ -98,7 +98,7 @@
   .contact-copy p { font-size:15px }
   .contact-channel { padding:21px 0 }
   .contact-channel span { font-size:26px }
-  .contact-shade { background:linear-gradient(90deg,#09110df2,#09110d70) }
+  .contact-shade { background:linear-gradient(90deg,#090a11f2,#090a1170) }
   .contact-signoff { margin-top:50px; gap:18px }
 }
 @media(max-width:520px) {
@@ -128,15 +128,15 @@
 /* Motion budget: one background scene, deferred until useful; compositor drift. */
 .contact-field-mount { position:absolute; inset:0; z-index:-2; pointer-events:none }
 .contact-field-mount > .contact-field { z-index:0 }
-.contact-field[data-renderer="deferred"] { background:#09110d }
+.contact-field[data-renderer="deferred"] { background:#090a11 }
 .portfolio .ambient-signal {
  inset:-30vh -30vw; animation:ambient-drift 24s ease-in-out infinite alternate;
  will-change:transform;
 }
 @keyframes ambient-drift { from { transform:translate3d(-5%,5%,0) } to { transform:translate3d(5%,-5%,0) } }
 .portfolio[data-page-hidden="true"] *, .portfolio[data-page-hidden="true"] *::before, .portfolio[data-page-hidden="true"] *::after { animation-play-state:paused!important }
-.noscript-summary { max-width:760px; padding:40px 24px; margin:auto; color:#e3eee7; background:#0b1110; font:18px/1.65 sans-serif }
-.noscript-summary a { color:#9ce8bf }
+.noscript-summary { max-width:760px; padding:40px 24px; margin:auto; color:#edf2f5; background:#0b0b13; font:18px/1.65 sans-serif }
+.noscript-summary a { color:#8dffb3 }
 @media(prefers-reduced-motion:reduce) { .portfolio .ambient-signal { animation:none; will-change:auto } }
 
 /* The ticker keeps its position while its section is outside the viewport. */
