@@ -11,7 +11,8 @@
     "verify": "node scripts/verify.mjs",
     "crivo": "node scripts/crivo.mjs",
     "vetor": "node scripts/vetor.mjs",
-    "lastro": "node scripts/lastro.mjs"
+    "lastro": "node scripts/lastro.mjs",
+    "kora-router": "node scripts/kora-router.mjs"
   },
   "engines": {
     "node": ">=24"

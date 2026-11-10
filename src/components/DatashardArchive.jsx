@@ -113,7 +113,7 @@ export default function DatashardArchive() {
   return <section id="labs" className="section-wrap datashards-section">
     <header className="archive-heading">
       <div><h2>DATASHARD<br/><span>ARCHIVE.</span></h2></div>
-      <div className="archive-intro"><p>Três projetos. Três problemas.<br/>Um modelo treinado. Resultados inspecionáveis.</p><span>Cada arquivo abre um projeto, a decisão técnica por trás dele e as evidências disponíveis. Teste a demo; depois confira o código, os testes e os limites.</span></div>
+      <div className="archive-intro"><p>Quatro projetos. Quatro problemas.<br/>Um modelo treinado. Resultados inspecionáveis.</p><span>Cada arquivo abre um projeto, a decisão técnica por trás dele e as evidências disponíveis. Teste a demo; depois confira o código, os testes e os limites.</span></div>
     </header>
     <div className="archive-wayfinding" aria-label="Como navegar pelos projetos">
       <span><b>01</b> ESCOLHA UM DATASHARD</span>
@@ -124,7 +124,7 @@ export default function DatashardArchive() {
     </div>
 
     <div className="datashard-archive">
-      <div className="archive-topbar"><span><Layers size={15}/> BLACKSITE / ARQUIVOS DE CAMPO</span><span className="archive-read-count">{String(read.size).padStart(2,'0')} / 03 EXPLORADOS NESTA VISITA</span></div>
+      <div className="archive-topbar"><span><Layers size={15}/> BLACKSITE / ARQUIVOS DE CAMPO</span><span className="archive-read-count">{String(read.size).padStart(2,'0')} / {String(datashards.length).padStart(2,'0')} EXPLORADOS NESTA VISITA</span></div>
       <div className="archive-layout">
         <aside className="shard-catalog" aria-label="Catálogo de datashards">
           <div className="catalog-label"><span>CLIQUE NUM PROJETO PARA ABRIR SEU DOSSIÊ</span><ArrowDown size={14}/></div>
@@ -135,11 +135,11 @@ export default function DatashardArchive() {
               <span className="shard-selected-mark" aria-hidden="true">{item.id===selectedId?<ArrowUpRight size={17}/>:null}</span>
             </button>)}
           </div>
-          <div className="catalog-footer"><span>03 PROJETOS EM DESTAQUE</span><span>Clique ou navegue com as setas.</span></div>
+          <div className="catalog-footer"><span>{String(datashards.length).padStart(2,'0')} PROJETOS EM DESTAQUE</span><span>Clique ou navegue com as setas.</span></div>
         </aside>
 
         <div id="shard-reader" className={'shard-reader accent-'+shard.accent} role="region" aria-labelledby="reader-title">
-          <div className="reader-ribbon"><span className="reader-bus" aria-hidden="true"/><span>PROJETO SELECIONADO · COMO FUNCIONA</span><span>{String(index+1).padStart(2,'0')} / 03</span></div>
+          <div className="reader-ribbon"><span className="reader-bus" aria-hidden="true"/><span>PROJETO SELECIONADO · COMO FUNCIONA</span><span>{String(index+1).padStart(2,'0')} / {String(datashards.length).padStart(2,'0')}</span></div>
           <div className="reader-title-row"><div><span className="reader-path">{shard.serial} / {shard.category}</span><h3 id="reader-title"><SignalText>{shard.name}</SignalText></h3></div><span className="reader-file-icon" aria-hidden="true"><FileCode2 size={29} strokeWidth={1}/></span></div>
           <div className="reader-meta"><span>DEMO FUNCIONAL</span><span>DADOS DE EXEMPLO</span><span>CÓDIGO + TESTES</span></div>
 
@@ -160,7 +160,7 @@ export default function DatashardArchive() {
               <a className="reader-module" href={shard.source+'/'+shard.module} target="_blank" rel="noopener noreferrer"><FileCode2 size={16}/>{shard.module}<ArrowUpRight size={16}/></a>
             </div>
             <div id="shard-panel-evidence" role="tabpanel" aria-labelledby="shard-tab-evidence" tabIndex="0" hidden={tab!=='evidence'}>
-              <figure className="reader-evidence-image"><img src={shard.image} alt={'Captura real da demonstração '+shard.name} width="1000" height="690" loading="lazy"/><figcaption>DEMONSTRAÇÃO NO NAVEGADOR / DADOS DE EXEMPLO</figcaption></figure>
+              <figure className="reader-evidence-image"><img src={shard.image} alt={shard.id==='rota'?'Prévia visual do laboratório Rota': 'Prévia visual da demonstração '+shard.name} width="1000" height="690" loading="lazy"/><figcaption>DEMONSTRAÇÃO NO NAVEGADOR / DADOS DE EXEMPLO</figcaption></figure>
               <ul className="reader-evidence-list">{shard.evidence.map(text=><li key={text}><Check size={13}/><span>{text}</span></li>)}</ul>
               <a className="reader-module" href={shard.source+'/tests/'+shard.testFile} target="_blank" rel="noopener noreferrer"><FileCode2 size={16}/>{shard.testFile}<ArrowUpRight size={16}/></a>
             </div>
@@ -169,7 +169,7 @@ export default function DatashardArchive() {
           <div className="reader-actions"><a className="shard-demo-link" href={shard.demo}>TESTAR O PROJETO <ArrowUpRight size={20}/></a><a className="shard-source-link" href={shard.source} target="_blank" rel="noopener noreferrer">ENTENDER O CÓDIGO <ArrowUpRight size={16}/></a></div>
           <div className="reader-utilities"><button type="button" className="shard-export" onClick={exportRecord}><Download size={14}/> EXPORTAR .JSON</button><button type="button" className="shard-share" onClick={copyLink}><Copy size={13}/> COPIAR LINK</button><span>FORMATO ABERTO / SEM BLOQUEIO</span></div>
           {copyStatus&&<div className="reader-share-status" role="status"><span>{copyStatus}</span>{copyStatus.startsWith('Selecione')&&<input aria-label="Link do datashard" readOnly value={shareURL} onFocus={event=>event.target.select()}/>}</div>}
-          <span className="sr-only" role="status">{shard.name+' aberto. '+read.size+' de três registros lidos nesta visita.'}</span>
+          <span className="sr-only" role="status">{shard.name+' aberto. '+read.size+' de '+datashards.length+' registros lidos nesta visita.'}</span>
         </div>
       </div>
       <div className="archive-bottom"><span>OS EXEMPLOS SÃO SINTÉTICOS, E OS TESTES SÃO REPRODUZÍVEIS</span><span>ESTUDOS DESENVOLVIDOS COM ASSISTÊNCIA DE IA <ArrowUpRight size={12}/></span></div>

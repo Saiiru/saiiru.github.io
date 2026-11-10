@@ -1,0 +1,367 @@
+{
+  "version": 1,
+  "routes": [
+    {
+      "domain": "senai-study",
+      "skill": "kora-senai-study",
+      "phrases": [
+        "lei de ohm",
+        "elementos de maquinas",
+        "eletricidade industrial",
+        "desenho tecnico",
+        "revisao espacada",
+        "tecnico em eletromecanica"
+      ],
+      "keywords": [
+        "senai",
+        "estudo",
+        "prova",
+        "metrologia",
+        "engrenagem",
+        "parafuso",
+        "resistor",
+        "eletricidade",
+        "calculo",
+        "paquimetro",
+        "paquimetros",
+        "micrometro",
+        "micrometros"
+      ]
+    },
+    {
+      "domain": "embedded",
+      "skill": "kora-embedded-debug",
+      "phrases": [
+        "esp32 cam",
+        "platformio",
+        "tft espi",
+        "xpt2046",
+        "serial monitor",
+        "sensor de toque"
+      ],
+      "keywords": [
+        "esp32",
+        "firmware",
+        "gpio",
+        "i2c",
+        "spi",
+        "arduino",
+        "tft",
+        "sensor",
+        "microcontrolador",
+        "mcu",
+        "eletronica",
+        "debug"
+      ]
+    },
+    {
+      "domain": "cad-mechanical",
+      "skill": "kora-cad-review",
+      "phrases": [
+        "solidworks",
+        "impressao 3d",
+        "analise de tolerancia",
+        "desenho mecanico"
+      ],
+      "keywords": [
+        "cad",
+        "stl",
+        "mecanica",
+        "mecanismo",
+        "cosplay",
+        "helmet",
+        "capacete",
+        "dimensionamento",
+        "fabricacao",
+        "peca"
+      ]
+    },
+    {
+      "domain": "tasks-focus",
+      "skill": "kora-task-focus",
+      "phrases": [
+        "proxima tarefa",
+        "o que fazer agora",
+        "estou sobrecarregado",
+        "organizar prioridades",
+        "tarefas do senai",
+        "tarefas pendentes"
+      ],
+      "keywords": [
+        "taskwarrior",
+        "timewarrior",
+        "foco",
+        "priorizar",
+        "prioridade",
+        "agenda",
+        "checkin",
+        "sobrecarregado",
+        "prioridades",
+        "priorize",
+        "tarefas",
+        "pendente",
+        "pendentes"
+      ]
+    },
+    {
+      "domain": "purchases-bom",
+      "skill": "kora-bom",
+      "phrases": [
+        "lista de materiais",
+        "lista de compras",
+        "custo beneficio"
+      ],
+      "keywords": [
+        "bom",
+        "orcamento",
+        "comprar",
+        "compra",
+        "preco",
+        "pecas",
+        "fornecedor",
+        "gpu",
+        "placa",
+        "gasto",
+        "custa",
+        "compensa",
+        "peca"
+      ]
+    },
+    {
+      "domain": "desktop-cyberarch",
+      "skill": "kora-cyberarch",
+      "phrases": [
+        "ambiente de desenvolvimento",
+        "configuracao do hyprland",
+        "interface do portfolio"
+      ],
+      "keywords": [
+        "cyberarch",
+        "hyprland",
+        "neovim",
+        "terminal",
+        "dotfiles",
+        "desktop",
+        "css",
+        "portfolio",
+        "design",
+        "animacao"
+      ]
+    },
+    {
+      "domain": "repository-review",
+      "skill": "kora-repository-review",
+      "phrases": [
+        "revisar o repositorio",
+        "pull request",
+        "integracao continua"
+      ],
+      "keywords": [
+        "github",
+        "repositorio",
+        "git",
+        "codigo",
+        "refatorar",
+        "testes",
+        "workflow",
+        "ci",
+        "merge"
+      ]
+    },
+    {
+      "domain": "debugging",
+      "skill": "kora-postmortem",
+      "phrases": [
+        "causa raiz",
+        "analise de falha",
+        "parou de funcionar"
+      ],
+      "keywords": [
+        "erro",
+        "bug",
+        "falha",
+        "diagnostico",
+        "log",
+        "crash",
+        "stacktrace",
+        "quebrou"
+      ]
+    },
+    {
+      "domain": "self-audit",
+      "skill": "kora-self-audit",
+      "phrases": [
+        "auditoria do kora",
+        "verificar integracoes"
+      ],
+      "keywords": [
+        "auditoria",
+        "drift",
+        "status",
+        "integracoes",
+        "healthcheck",
+        "diagnostico"
+      ]
+    },
+    {
+      "domain": "model-review",
+      "skill": "kora-moa-routing",
+      "phrases": [
+        "comparar modelos",
+        "avaliar um modelo"
+      ],
+      "keywords": [
+        "llm",
+        "modelo",
+        "inferencia",
+        "tokens",
+        "benchmark",
+        "prompt",
+        "raciocinio",
+        "moa",
+        "modelos",
+        "linguagem"
+      ]
+    },
+    {
+      "domain": "voice",
+      "skill": "kora-voice-ops",
+      "phrases": [
+        "entrada por voz",
+        "reconhecimento de fala",
+        "sintese de voz"
+      ],
+      "keywords": [
+        "microfone",
+        "voz",
+        "tts",
+        "stt",
+        "audio",
+        "vega",
+        "wav",
+        "fala"
+      ]
+    },
+    {
+      "domain": "voice-training",
+      "skill": "kora-vega-training",
+      "phrases": [
+        "treinar voz",
+        "treinamento rvc"
+      ],
+      "keywords": [
+        "rvc",
+        "checkpoint",
+        "dataset",
+        "treino",
+        "epoca",
+        "xtts"
+      ]
+    },
+    {
+      "domain": "mcp-operations",
+      "skill": "kora-mcp-ops",
+      "phrases": [
+        "servidor mcp",
+        "permissoes das ferramentas"
+      ],
+      "keywords": [
+        "mcp",
+        "ferramentas",
+        "permissao",
+        "autorizacao",
+        "tools",
+        "integracao externa"
+      ]
+    },
+    {
+      "domain": "career",
+      "skill": "kora-career-watch",
+      "phrases": [
+        "vaga de estagio",
+        "buscar emprego",
+        "curriculo"
+      ],
+      "keywords": [
+        "vaga",
+        "estagio",
+        "emprego",
+        "curriculo",
+        "candidatura",
+        "recrutamento",
+        "portfolio profissional"
+      ]
+    },
+    {
+      "domain": "project-audit",
+      "skill": "kora-project-audit",
+      "phrases": [
+        "estado do projeto",
+        "auditar o projeto"
+      ],
+      "keywords": [
+        "projeto",
+        "evidencia",
+        "proveniencia",
+        "escopo",
+        "validacao",
+        "readme"
+      ]
+    },
+    {
+      "domain": "finance",
+      "skill": "kora-finance",
+      "phrases": [
+        "resumo financeiro",
+        "meus gastos do mes",
+        "gastos da luka",
+        "orcamento financeiro",
+        "contas do mes",
+        "fluxo de caixa",
+        "despesas planejadas",
+        "entradas confirmadas"
+      ],
+      "keywords": [
+        "financeiro",
+        "financas",
+        "despesa",
+        "despesas",
+        "receita",
+        "saldo",
+        "fatura",
+        "luka",
+        "gastos",
+        "gasto",
+        "planejadas",
+        "entradas",
+        "confirmadas",
+        "orcamento",
+        "divida",
+        "meta"
+      ]
+    },
+    {
+      "domain": "events",
+      "skill": "kora-events",
+      "phrases": [
+        "eventos do planner",
+        "atividades do planner",
+        "calendario de eventos",
+        "agenda de eventos",
+        "proximos eventos"
+      ],
+      "keywords": [
+        "planner",
+        "evento",
+        "eventos",
+        "atividade",
+        "atividades",
+        "calendario",
+        "compromisso",
+        "compromissos",
+        "horario",
+        "cronograma"
+      ]
+    }
+  ]
+}

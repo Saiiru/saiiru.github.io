@@ -1,0 +1,34 @@
+{"query": "Explique a lei de Ohm e me dê um exercício resolvido.", "expected": ["kora-senai-study"]}
+{"query": "Como confiro a medida no paquímetro e no micrômetro?", "expected": ["kora-senai-study"]}
+{"query": "Revisar elementos de máquinas para a prova de eletromecânica.", "expected": ["kora-senai-study"]}
+{"query": "Meu ESP32 não reconhece o touch no XPT2046.", "expected": ["kora-embedded-debug"]}
+{"query": "PlatformIO falha no upload serial do firmware.", "expected": ["kora-embedded-debug"]}
+{"query": "Revisar esse modelo SolidWorks e as tolerâncias da peça.", "expected": ["kora-cad-review"]}
+{"query": "Ajustar um STL para impressão 3D sem enfraquecer o suporte.", "expected": ["kora-cad-review"]}
+{"query": "Estou sobrecarregado. Qual é o próximo passo e a tarefa em andamento?", "expected": ["kora-task-focus"]}
+{"query": "O que faço agora para organizar meu foco e prioridades?", "expected": ["kora-task-focus"]}
+{"query": "Compare placas de vídeo para LLM e monte uma lista de compras dentro do orçamento.", "expected": ["kora-bom"]}
+{"query": "Quanto custa cada peça e qual fornecedor compensa?", "expected": ["kora-bom"]}
+{"query": "Quero melhorar o CSS do portfolio com animações mais leves.", "expected": ["kora-cyberarch"]}
+{"query": "O Hyprland parou depois de uma mudança nos dotfiles.", "expected": ["kora-cyberarch"]}
+{"query": "Revise o repositório no GitHub, os testes e a pull request.", "expected": ["kora-repository-review"]}
+{"query": "O workflow de CI quebrou depois do merge.", "expected": ["kora-repository-review"]}
+{"query": "Analise a causa raiz desse erro e proponha um teste pequeno.", "expected": ["kora-postmortem"]}
+{"query": "O programa parou de funcionar e este é o log do crash.", "expected": ["kora-postmortem"]}
+{"query": "Faça uma auditoria do estado e das integrações do KORA.", "expected": ["kora-self-audit"]}
+{"query": "Compare esses modelos de linguagem e estime o uso de tokens.", "expected": ["kora-moa-routing"]}
+{"query": "Quero falar por voz e testar o microfone e o TTS.", "expected": ["kora-voice-ops"]}
+{"query": "Como treinar a VEGA com RVC e retomar o checkpoint?", "expected": ["kora-vega-training"]}
+{"query": "Revise as permissões e ameaças do servidor MCP.", "expected": ["kora-mcp-ops"]}
+{"query": "Procure estágio de software e revise meu currículo para candidatura.", "expected": ["kora-career-watch"]}
+{"query": "Audite o estado do projeto, evidências, escopo e proveniência.", "expected": ["kora-project-audit"]}
+{"query": "Debug no ESP32 e explique a parte de metrologia do SENAI.", "expected": ["kora-embedded-debug", "kora-senai-study"]}
+{"query": "Planeje uma peça mecânica para o laboratório e priorize as tarefas do projeto.", "expected": ["kora-cad-review", "kora-task-focus"]}
+{"query": "Olá, como você pode me ajudar?", "expected": []}
+{"query": "Quero o resumo financeiro e meus gastos do mês.", "expected": ["kora-finance"]}
+{"query": "Mostre o orçamento financeiro atual e o saldo.", "expected": ["kora-finance"]}
+{"query": "Veja as despesas planejadas e entradas confirmadas da LUKA.", "expected": ["kora-finance"]}
+{"query": "Mostre as atividades e eventos do Planner.", "expected": ["kora-events"]}
+{"query": "Quais são os próximos eventos no calendário?", "expected": ["kora-events"]}
+{"query": "Organize meus compromissos e atividades por data.", "expected": ["kora-events"]}
+{"query": "Compare meus gastos da LUKA com o calendário de eventos do Planner.", "expected": ["kora-events", "kora-finance"]}

@@ -6,7 +6,7 @@ const destination=resolve(root,'public/labs');
 // Only this generated directory is replaced; source and user files are untouched.
 await rm(destination,{recursive:true,force:true});
 await mkdir(destination,{recursive:true});
-for(const name of ['mark.svg','index.html','app.js','style.css','core','docs','models','reports']){
+for(const name of ['mark.svg','index.html','app.js','style.css','core','docs','models','reports','kora']){
  await cp(resolve(source,name),resolve(destination,name),{recursive:true});
 }
 console.log('Synced canonical Applied AI demo to public/labs');

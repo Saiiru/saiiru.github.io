@@ -16,7 +16,12 @@ with sync_playwright() as p:
     page.on('pageerror',lambda e:errors.append(str(e)))
     page.on('console',lambda msg:errors.append(msg.text) if msg.type=='error' else None)
     page.goto(BASE+'/',wait_until='networkidle')
-    assert page.locator('.shard-select').count()==3
+    assert page.locator('.shard-select').count()==4
+    page.locator('.shard-select[data-shard="rota"]').click()
+    assert page.locator('#reader-title').inner_text()=='Rota'
+    assert '?lab=rota' in page.locator('.shard-demo-link').get_attribute('href')
+    page.locator('#shard-tab-evidence').click()
+    assert 'prévia' in page.locator('.reader-evidence-image img').get_attribute('alt').lower()
     page.locator('.shard-select[data-shard="vetor"]').click()
     assert page.locator('#reader-title').inner_text()=='Vetor'
     assert '?lab=vetor' in page.locator('.shard-demo-link').get_attribute('href')
@@ -61,11 +66,21 @@ with sync_playwright() as p:
     page.locator('#dt-search').click()
     assert 'gaveta azul' in page.locator('#dt-answer').inner_text()
     assert page.locator('#dt-llm').is_disabled()
+    page.goto(BASE+'/labs/?lab=rota',wait_until='networkidle')
+    assert page.locator('#panel-rota').is_visible()
+    assert page.locator('#kr-status').inner_text().startswith('Pipeline local concluído')
+    assert 'LUKA · DADOS SINTÉTICOS' in page.locator('#kr-modules').inner_text()
+    assert 'PLANNER · DADOS SINTÉTICOS' in page.locator('#kr-modules').inner_text()
+    assert 'finance-rules.md' in page.locator('#kr-evidence').inner_text()
+    assert '1800 caracteres' in page.locator('#kr-context').inner_text()
+    page.locator('#kr-query').fill('Quero o resumo financeiro e meus gastos do mês.')
+    assert 'Entradas realizadas' in page.locator('#kr-modules').inner_text()
+    assert 'PLANNER · DADOS SINTÉTICOS' not in page.locator('#kr-modules').inner_text()
     for width in [320,390,768,1440]:
         page.set_viewport_size({'width':width,'height':900})
-        for path in ['/', '/labs/?lab=crivo','/labs/?lab=vetor','/labs/?lab=lastro']:
+        for path in ['/', '/labs/?lab=crivo','/labs/?lab=vetor','/labs/?lab=lastro','/labs/?lab=rota']:
             page.goto(BASE+path,wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth+1'),(width,path)
     browser.close()
     assert not errors,errors
-print('PASS: three projects, old URLs, regression comparison, trained ML, human approval, exports, refusal, upload, four viewport widths; zero console/page errors.')
+print('PASS: four projects including KORA Rota, finance/event fixtures, old URLs, regression comparison, trained ML, human approval, exports, refusal, upload, four viewport widths; zero console/page errors.')

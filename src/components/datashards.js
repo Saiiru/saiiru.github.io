@@ -71,11 +71,37 @@ export const datashards = [
     testFile: 'lastro.test.mjs', module: 'core/lastro.mjs',
     image: '/assets/previews/lastro.jpg',
     demo: '/labs/index.html?lab=lastro', source: repo
+  },
+  {
+    id: 'rota',
+    decision: 'Separei três etapas auditáveis — classificar a intenção, recuperar trechos com origem e montar um contexto limitado. Isso reduz conteúdo irrelevante; o roteador lexical ainda perde paráfrases fora do catálogo.',
+    serial: 'DSH—004', name: 'Rota', code: 'RT',
+    category: 'ASSISTENTE LOCAL-FIRST / ROTEAMENTO E RETRIEVAL',
+    accent: 'green',
+    descriptor: 'KORA / contexto enxuto com fontes',
+    question: 'Como compor um assistente pessoal sem enviar dados sensíveis ao modelo?',
+    summary: 'Uma demonstração independente do KORA classifica pedidos, recupera passagens citadas e limita o contexto. Casos sintéticos mostram como os domínios de finanças e agenda podem devolver dados localmente sem chamar um modelo.',
+    method: 'Teste uma consulta simples ou mista. Inspecione as habilidades escolhidas, os trechos recuperados e as pontuações lexical/vetorial. Os cartões LUKA e Planner usam fixtures inventadas; nenhuma base pessoal é lida.',
+    limitation: 'O laboratório usa regras e quatro documentos de exemplo, não é o banco persistente nem a integração privada da KORA. Vetores hash TF-IDF são sinais lexicais, não embeddings semânticos; a pontuação não é probabilidade. O conjunto sintético de 34 consultas mede regressões conhecidas, não precisão em conversas reais.',
+    steps: [
+      ['Rotejar localmente', 'Normalização em português e catálogo versionado selecionam no máximo duas habilidades; pedidos fracos podem abster-se.'],
+      ['Recuperar evidências', 'Feature hashing/cosseno e ranking lexical BM25 ordenam passagens; cada resultado preserva caminho e identificador.'],
+      ['Montar contexto limitado', 'Procedimentos e trechos ficam sob 1.800 caracteres. Os fixtures financeiros e de agenda só aparecem para domínios correspondentes.']
+    ],
+    stack: ['JavaScript', 'Roteamento lexical', 'TF-IDF hash', 'Cosseno', 'BM25', 'JSONL', 'Node tests'],
+    evidence: [
+      '34/34 casos sintéticos correspondem às rotas esperadas; isso é cobertura da regressão, não validação independente.',
+      'Demo mista apresenta finanças e atividades fictícias, fontes recuperadas e orçamento de contexto; não faz chamadas externas.',
+      'README distingue o laboratório público do adaptador KORA privado: exportação LUKA e banco Planner ainda precisam ser configurados.'
+    ],
+    testFile: 'kora-router.test.mjs', module: 'core/kora-assistant-demo.mjs',
+    image: '/assets/previews/rota.svg',
+    demo: '/labs/index.html?lab=rota', source: repo
   }
 ]
 
 export function resolveShard(value) {
-  value=({evalforge:'crivo',opspilot:'vetor',doctrace:'lastro'})[value]||value
+  value=({evalforge:'crivo',opspilot:'vetor',doctrace:'lastro',kora:'rota'})[value]||value
   return datashards.find(shard => shard.id === value) || datashards[0]
 }
 

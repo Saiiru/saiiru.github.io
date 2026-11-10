@@ -64,6 +64,7 @@
 .accent-cyan { --shard-accent:#63e3f4 }
 .accent-magenta { --shard-accent:#ff5c73 }
 .accent-violet { --shard-accent:#b294ff }
+.accent-green { --shard-accent:#8dffb3 }
 .catalog-footer { border-top:1px solid #35463d; margin-top:25px; padding-top:19px; display:flex; flex-direction:column; gap:9px; font:8px/1.5 var(--mono); color:#a0b09d }
 .catalog-footer > span:last-child { color:#96a295; font-size:9px; letter-spacing:0 }
 .shard-reader { padding:0 30px 0; background:var(--archive-panel); min-width:0; position:relative; display:flex; flex-direction:column; overflow:hidden }
@@ -139,6 +140,7 @@
 .light-mode .shard-reader.accent-cyan { --shard-accent:#07616d }
 .light-mode .shard-reader.accent-magenta { --shard-accent:#9f255c }
 .light-mode .shard-reader.accent-violet { --shard-accent:#654398 }
+.light-mode .shard-reader.accent-green { --shard-accent:#166c47 }
 .light-mode .reader-tabs button { color:#345d55 }
 .light-mode .reader-tabs button:hover,.light-mode .reader-tabs button[aria-selected="true"] { background:#c6ded5; color:var(--shard-accent) }
 .light-mode .reader-limit { background:#d7deb9; border-color:#8c8245 }

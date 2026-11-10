@@ -3,9 +3,12 @@ import {evalCases,defaultInstruction,evaluateSuite,formatObsidianNote,compareRun
 import {tickets,routeTicket,benchmarkTickets,createReview,approveReview,exportApproved} from './core/vetor.mjs';
 import {routeWithModel} from './core/vetor-ml.mjs';
 import {corpusPaths,chunkDocuments,retrieve,groundedAnswer,benchmarkRetrieval} from './core/lastro.mjs';
+import {routeKoraRequest} from './core/kora-router.mjs';
+
+import {runKoraAssistantDemo} from './core/kora-assistant-demo.mjs';
 
 const $=id=>document.getElementById(id);
-const state={overrides:{},review:null,passages:[],docs:[],search:[],llm:false,model:null,mlReport:null,baseline:{}};
+const state={overrides:{},review:null,passages:[],docs:[],search:[],llm:false,model:null,mlReport:null,baseline:{},routeRegistry:null};
 const efGate=createRequestGate(),opGate=createRequestGate(),dtGate=createRequestGate(),corpusGate=createRequestGate();
 const pct=n=>`${(n*100).toFixed(1)}%`;
 function el(tag,cls,text){const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node;}
@@ -21,8 +24,8 @@ async function checkLLM(){if(!['localhost','127.0.0.1'].includes(location.hostna
 
 function selectTab(lab,focus=false){
   lab=({evalforge:'crivo',opspilot:'vetor',doctrace:'lastro'})[lab]||lab;
-  if(!['crivo','vetor','lastro'].includes(lab))lab='crivo';
-  for(const key of ['crivo','vetor','lastro']){const active=key===lab;const tab=$(`tab-${key}`);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;$(`panel-${key}`).hidden=!active;}
+  if(!['crivo','vetor','lastro','rota'].includes(lab))lab='crivo';
+  for(const key of ['crivo','vetor','lastro','rota']){const active=key===lab;const tab=$(`tab-${key}`);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;$(`panel-${key}`).hidden=!active;}
   history.replaceState(null,'',`${location.pathname}?lab=${lab}`);
   if(focus)$(`tab-${lab}`).focus();
 }
@@ -90,4 +93,60 @@ $('dt-query').addEventListener('input',()=>{dtGate.invalidate();$('dt-llm-answer
 $('dt-search').addEventListener('click',searchDocs);$('dt-query').addEventListener('keydown',e=>{if(e.key==='Enter')searchDocs();});
 $('dt-files').addEventListener('change',async e=>{dtGate.invalidate();const token=corpusGate.begin();$('dt-llm').disabled=true;$('dt-llm-answer').hidden=true;$('dt-benchmark').hidden=true;const files=[...e.target.files].filter(f=>f.name.toLowerCase().endsWith('.md')&&f.size<=100_000).slice(0,20);if(!files.length){setStatus('dt-status','Escolha arquivos .md de até 100 KB (máximo 20).');return;}const docs=await Promise.all(files.map(async f=>({path:`local/${f.name}`,text:await f.text()})));if(!corpusGate.current(token))return;state.docs=docs;state.passages=chunkDocuments(docs);$('dt-llm').disabled=true;$('dt-llm').title='Arquivos próprios permanecem somente no navegador';setStatus('dt-status',`${docs.length} arquivo(s) indexado(s) somente no navegador. Consulta LLM desativada para arquivos próprios.`);searchDocs();});
 $('dt-llm').addEventListener('click',async()=>{searchDocs();const token=dtGate.begin();if(!state.search.length){setStatus('dt-status','Sem evidência; consulta ao LLM não enviada.');return;}setStatus('dt-status','Consultando LLM local com as passagens exibidas...');try{const context=state.search.map(p=>`[${p.id}] ${p.path}\n${p.text}`).join('\n\n');const answer=await callLLM('Responda somente com base nas passagens fornecidas. Cite o ID [Sxx] de cada afirmação. Se não houver evidência, diga que não sabe. Não invente.',`Pergunta: ${$('dt-query').value}\n\nFontes:\n${context}`);if(!dtGate.current(token))return;$('dt-llm-answer').hidden=false;$('dt-llm-answer').textContent=`LLM local · resposta não verificada\n${answer}`;setStatus('dt-status','Confira cada afirmação do LLM nas passagens exibidas.');}catch(e){if(dtGate.current(token))setStatus('dt-status',e.message);}});
+async function loadKoraRoutes(){
+ try{
+  const response=await fetch('./kora/request-routes.json');
+  if(!response.ok)throw new Error('Catálogo de rotas indisponível.');
+  const data=await response.json();
+  if(data.version!==1||!Array.isArray(data.routes))throw new Error('Catálogo de rotas inválido.');
+  state.routeRegistry=data.routes;
+  $('kr-run').disabled=false;
+  setStatus('kr-status','Catálogo carregado. Classificação local; nenhum modelo será chamado.');
+  renderKoraRoute();
+ }catch(error){setStatus('kr-status',error.message);}
+}
+function renderKoraRoute(){
+ const output=$('kr-output');
+ output.replaceChildren();
+ if(!state.routeRegistry){output.append(el('p','route-empty','O catálogo de rotas ainda não está disponível.'));return;}
+ const decision=routeKoraRequest($('kr-query').value,state.routeRegistry);
+ if(!decision.skills.length){
+  output.append(el('p','route-empty','Sem sinal suficiente. KORA não força uma habilidade; responde pelo contrato geral ou pede contexto.'));
+ }else{
+  const list=el('div','route-list');
+  for(const skill of decision.skills){
+   const domain=state.routeRegistry.find(item=>item.skill===skill);
+   const row=el('article','route-card');
+   row.append(el('span','route-domain',(domain?.domain||'ROTA').replaceAll('-',' ').toUpperCase()));
+   row.append(el('strong','',skill));
+   row.append(el('span','route-score','Sinal lexical: '+(decision.scores[domain?.domain]??0)));
+   list.append(row);
+  }
+  output.append(list);
+  output.append(el('p','route-reason',decision.reason==='mixed_domains'?'Pedido misto: duas habilidades selecionadas.':'Uma habilidade selecionada.'));
+ }
+ const scores=Object.entries(decision.scores).sort((a,b)=>b[1]-a[1]).slice(0,4);
+ if(scores.length){
+  const details=el('details','route-scores');
+  const summary=el('summary','', 'Ver pontuações comparadas');
+  const rows=el('ul','');
+  for(const [domain,score] of scores)rows.append(el('li','',domain.replaceAll('-',' ')+' — '+score));
+  details.append(summary,rows);output.append(details);
+ }
+ output.append(el('p','route-confidence','Índice lexical: '+decision.confidence.toFixed(2)+' · motivo: '+decision.reason));
+ const demo=runKoraAssistantDemo($('kr-query').value,state.routeRegistry);
+ $('kr-context').textContent=demo.contextChars+' / '+demo.contextLimit+' caracteres';
+ $('kr-context-meter').style.transform='scaleX('+Math.min(1,demo.contextChars/demo.contextLimit)+')';
+ const modules=$('kr-modules');modules.replaceChildren();
+ if(!demo.modules.length)modules.append(el('p','note','Nenhum módulo de finanças/eventos foi carregado para esta rota.'));
+ for(const module of demo.modules){const card=el('article','kora-module');card.append(el('strong','',module.domain));for(const line of module.lines)card.append(el('p','',line));modules.append(card);}
+ const evidence=$('kr-evidence');evidence.replaceChildren();
+ if(!demo.evidence.length)evidence.append(el('p','note','Nenhuma passagem ultrapassou o limiar local.'));
+ for(const passage of demo.evidence){const card=el('article','result kora-evidence-row');card.append(el('strong','',passage.path+' · '+passage.id),el('p','',passage.text),el('code','','cosine '+passage.vectorScore.toFixed(3)+' · BM25-rank '+passage.bm25Score.toFixed(3)+' · combinado '+passage.score.toFixed(3)));evidence.append(card);}
+ setStatus('kr-status','Pipeline local concluído: rota, contexto limitado e retrieval com fontes. Nenhuma chamada externa.');
+}
+$('kr-run').addEventListener('click',renderKoraRoute);
+$('kr-query').addEventListener('input',()=>{if(state.routeRegistry)renderKoraRoute();});
+$('kr-example').addEventListener('change',event=>{if(event.target.value){$('kr-query').value=event.target.value;renderKoraRoute();}});
+loadKoraRoutes();
 loadCorpus();checkLLM();
