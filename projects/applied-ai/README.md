@@ -64,3 +64,8 @@ Configure `LLM_BASE_URL`, `LLM_API_KEY` e `LLM_MODEL` no ambiente para usar um e
 [Classificação de documentos](https://scikit-learn.org/stable/auto_examples/text/plot_document_classification_20newsgroups.html) · [TF-IDF](https://scikit-learn.org/stable/modules/feature_extraction.html).
 
 Código segue a licença do repositório. Dataset sintético próprio: CC0-1.0, indicado no arquivo de dados. Dependências mantêm suas próprias licenças.
+
+
+## KORA Rota: ML aplicado ao assistente
+
+O [laboratório KORA](kora/README.md) compara regras e um modelo treinado em seis domínios, com métricas e erros públicos. Finanças e eventos usam cálculos e validação locais; a importação de JSON dura apenas a sessão. O modelo é experimental e não executa ações.

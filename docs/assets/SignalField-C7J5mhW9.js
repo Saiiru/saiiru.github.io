@@ -1,4 +1,4 @@
-import{r as F,j as M}from"./index-CHqm_Yv0.js";import"./frame-DCer7uys.js";const B="attribute vec2 position; void main(){gl_Position=vec4(position,0.0,1.0);}",I=String.raw`
+import{r as F,j as M}from"./index-C3JGvBvs.js";import"./frame-DCer7uys.js";const B="attribute vec2 position; void main(){gl_Position=vec4(position,0.0,1.0);}",I=String.raw`
 precision mediump float;
 uniform vec2 resolution;
 uniform vec2 pointer;

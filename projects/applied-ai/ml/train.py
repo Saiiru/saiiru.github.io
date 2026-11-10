@@ -31,12 +31,12 @@ def tokens(text):
     return re.findall(r'[a-z0-9]{2,}', normalized.lower())
 
 
-def validate_dataset(rows):
+def validate_dataset(rows, classes=CLASSES):
     seen_ids, seen_text, groups = set(), set(), {}
     for r in rows:
         if r['split'] not in {'train', 'validation', 'test', 'ood'}:
             raise ValueError('unknown split')
-        if r['split'] != 'ood' and r['label'] not in CLASSES:
+        if r['split'] != 'ood' and r['label'] not in classes:
             raise ValueError('unknown label')
         key = ' '.join(tokens(r['text']))
         if not key or len(r['text']) > POLICY['maxChars'] or key in seen_text or r['id'] in seen_ids:
@@ -46,7 +46,7 @@ def validate_dataset(rows):
         groups[r['group']] = r['split']
         seen_ids.add(r['id']); seen_text.add(key)
     for split in ['train', 'validation', 'test']:
-        if set(r['label'] for r in rows if r['split'] == split) != set(CLASSES):
+        if set(r['label'] for r in rows if r['split'] == split) != set(classes):
             raise ValueError(f'{split} must contain all classes')
 
 
@@ -82,8 +82,8 @@ def rule_baseline(text):
     return 'Revisão manual'
 
 
-def train_model(rows):
-    validate_dataset(rows)
+def train_model(rows, *, classes=CLASSES, name="Vetor", baseline=rule_baseline, select_policy=False):
+    validate_dataset(rows, classes)
     train = [r for r in rows if r['split'] == 'train']
     val = [r for r in rows if r['split'] == 'validation']
     test = [r for r in rows if r['split'] == 'test']
@@ -98,33 +98,45 @@ def train_model(rows):
     best_score, c, pipe = max(candidates, key=lambda v: (v[0], -v[1]))
     vectorizer, classifier = pipe['tfidf'], pipe['classifier']
     dataset_hash = hashlib.sha256(json.dumps(rows, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
-    artifact = {'schemaVersion': 1, 'name': 'Vetor', 'algorithm': 'TF-IDF + multinomial logistic regression',
+    artifact = {'schemaVersion': 1, 'name': name, 'algorithm': 'TF-IDF + multinomial logistic regression',
                 'datasetSha256': dataset_hash, 'dataKind': 'synthetic-ai-assisted', 'sklearnVersion': sklearn.__version__,
                 'tokenizer': 'NFD/remove-diacritics/lower/ascii-alnum-min2/word-ngrams-1-2',
                 'classes': classifier.classes_.tolist(), 'vocabulary': vectorizer.get_feature_names_out().tolist(),
                 'idf': vectorizer.idf_.tolist(), 'coef': classifier.coef_.tolist(),
                 'intercept': classifier.intercept_.tolist(), 'policy': POLICY,
                 'hyperparameters': {'C': c, 'max_iter': 1000, 'random_state': 17}, 'probabilitiesCalibrated': False}
+    # Optional policy calibration uses validation only, before test predictions.
+    if select_policy:
+        policies = []
+        for score_cut in [0.20, 0.25, 0.30, 0.35, 0.40, 0.45]:
+            for margin_cut in [0.02, 0.05, 0.08, 0.12]:
+                candidate = {**POLICY, 'minScore': score_cut, 'minMargin': margin_cut}
+                decisions_val = [predict(r['text'], {**artifact, 'policy': candidate}) for r in val]
+                accepted_val = [(r,d) for r,d in zip(val,decisions_val) if d['accepted']]
+                accuracy = sum(r['label']==d['label'] for r,d in accepted_val)/len(accepted_val) if accepted_val else 0
+                if accuracy >= 0.90:
+                    policies.append((len(accepted_val), accuracy, score_cut, margin_cut, candidate))
+        artifact['policy'] = max(policies, key=lambda p:p[:4])[-1] if policies else POLICY.copy()
     truth = [r['label'] for r in test]
     raw = pipe.predict([r['text'] for r in test]).tolist()
-    baseline = [rule_baseline(r['text']) for r in test]
+    baseline_predictions = [baseline(r['text']) for r in test]
     decisions = [predict(r['text'], artifact) for r in test]
     accepted = [(r, d) for r, d in zip(test, decisions) if d['accepted']]
     ood = [r for r in rows if r['split'] == 'ood']
     report = {'schemaVersion': 1, 'scope': 'Small synthetic benchmark, not production evidence. AI-assisted data; not independently reviewed.',
               'datasetSha256': dataset_hash, 'counts': dict(Counter(r['split'] for r in rows)),
               'selection': {'metric': 'validation_macro_f1', 'candidates': [{'C': c0, 'macroF1': s} for s, c0, _ in candidates],
-                            'chosenC': c, 'bestValidationMacroF1': best_score, 'policyChosenBeforeTest': POLICY},
+                            'chosenC': c, 'bestValidationMacroF1': best_score, 'policyChosenBeforeTest': artifact['policy'], 'policySelection': 'validation selective accuracy >= 0.90, then maximum coverage' if select_policy else 'fixed in advance'},
               'test': {'support': len(test), 'accuracy': accuracy_score(truth, raw),
                        'macroF1': f1_score(truth, raw, average='macro', zero_division=0),
-                       'baselineAccuracy': accuracy_score(truth, baseline),
-                       'baselineMacroF1': f1_score(truth, baseline, labels=CLASSES, average='macro', zero_division=0),
+                       'baselineAccuracy': accuracy_score(truth, baseline_predictions),
+                       'baselineMacroF1': f1_score(truth, baseline_predictions, labels=classes, average='macro', zero_division=0),
                        'coverage': len(accepted)/len(test),
                        'selectiveAccuracy': sum(r['label']==d['label'] for r,d in accepted)/len(accepted) if accepted else None,
-                       'labels': CLASSES, 'confusionMatrix': confusion_matrix(truth, raw, labels=CLASSES).tolist(),
-                       'classificationReport': classification_report(truth, raw, labels=CLASSES, output_dict=True, zero_division=0),
+                       'labels': classes, 'confusionMatrix': confusion_matrix(truth, raw, labels=classes).tolist(),
+                       'classificationReport': classification_report(truth, raw, labels=classes, output_dict=True, zero_division=0),
                        'outcomes': [{'id': r['id'], 'text': r['text'], 'expected': r['label'], 'rawPrediction': pred,
-                                     'baselinePrediction': base, **decision} for r,pred,base,decision in zip(test,raw,baseline,decisions)]},
+                                     'baselinePrediction': base, **decision} for r,pred,base,decision in zip(test,raw,baseline_predictions,decisions)]},
               'ood': {'support': len(ood), 'rejectionRate': sum(not predict(r['text'],artifact)['accepted'] for r in ood)/len(ood) if ood else None,
                       'outcomes': [{'id':r['id'],'text':r['text'],**predict(r['text'],artifact)} for r in ood]}}
     return artifact, report, pipe
