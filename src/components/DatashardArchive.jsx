@@ -113,7 +113,7 @@ export default function DatashardArchive() {
   return <section id="labs" className="section-wrap datashards-section">
     <header className="archive-heading">
       <div><h2>DATASHARD<br/><span>ARCHIVE.</span></h2></div>
-      <div className="archive-intro"><p>Três projetos. Três problemas.<br/>Um modelo treinado. Resultados inspecionáveis.</p><span>Um datashard é um projeto interativo. Escolha um dos três cartões, veja como funciona e abra a demonstração no navegador.</span></div>
+      <div className="archive-intro"><p>Três projetos. Três problemas.<br/>Um modelo treinado. Resultados inspecionáveis.</p><span>Cada arquivo abre um projeto, a decisão técnica por trás dele e as evidências disponíveis. Teste a demo; depois confira o código, os testes e os limites.</span></div>
     </header>
     <div className="archive-wayfinding" aria-label="Como navegar pelos projetos">
       <span><b>01</b> ESCOLHA UM DATASHARD</span>

@@ -6,20 +6,21 @@ Surface mode: **Experience**. A typography-led portfolio with an original geomet
 
 | Role | Token | Purpose |
 | --- | --- | --- |
-| Ink | `#0b1110` | Charcoal foundation |
-| Paper | `#e3eee7` | Primary readable text |
-| Muted | `#a9beb3` | Supporting copy and metadata |
-| Rule | `#30483d` | Quiet structural boundaries |
-| Signal | `#9ce8bf` | Mint identity, actions, selected states and focus |
-| Counter-signal | `#ee6674` | Coral signature details and brief chromatic separation |
+| Ink | `#0b0b13` | Charcoal-indigo foundation |
+| Paper | `#edf2f5` | Primary readable text |
+| Muted | `#b5bdc9` | Supporting copy and metadata |
+| Rule | `#343647` | Quiet structural boundaries |
+| Signal | `#8dffb3` | Green identity, actions, selected states and focus |
+| Counter-signal | `#ff5c73` | Coral attention and identity details |
+| Cyan / violet | `#63e3f4` / `#b294ff` | Distinguish technical project accents |
 
-Mint/coral accents sit on charcoal, dark green and muted oxblood surfaces. Broad yellow highlight surfaces are superseded. No unmeasured contrast ratio or formal accessibility certification is asserted.
+A distribuição usa carvão com fundo índigo como base; verde-luz é a cor de ação e foco; coral marca atenção e o traço da marca; ciano e violeta diferenciam os laboratórios. Superfícies amarelas foram removidas. Nenhuma razão de contraste ou certificação formal de acessibilidade é alegada sem medição.
 
 The original S monogram at `public/brand/sairu-mark.svg` appears in navigation and contact signoff. The large SAIRU wordmark remains original inline vector geometry. Display text uses self-hosted OFL Oxanium; body text uses the system sans stack and technical metadata uses monospace. No commercial Cyber Grotesk font files are used.
 
 ## Current content surfaces
 
-The main page mounts **PublicArchive** and a **technologies-only Toolkit**. It does not mount the Datashard showcase or the three suggested lab prototypes. Their source and research remain historical material; featured work will be selected after construction and validation.
+The main page mounts **PublicArchive**, the **technologies-only Toolkit**, and the Datashard project reader. The reader links each project to its live demo, implementation, evidence and limits.
 
 Toolkit data is in `src/data/toolkit.js` and selection is implemented in `src/components/Toolkit.jsx`. Software, embedded systems and electromechanics/control are separate groups. Each technology exposes context, learning status and related concepts. Java/Spring includes IoC and dependency injection. CLP/control is a learning interest and frequency drives are planned study, not professional experience. No computing engineering degree or additional job title is claimed.
 
@@ -72,3 +73,8 @@ components/ is a separate HTML/CSS/ES-module experience: 24 original demos, nine
 ## Main-page signature and CRT surface
 
 The existing finite signature pulse also drives an original SVG registration frame and one bounded scan. The terminal uses a static CRT surface behind readable text and finite focus feedback. The hero includes a direct link to the component library. These refinements preserve the palette, factual copy, accessible title and local command behavior. Sources and scoped four-width verification: design/portfolio-signals/RESEARCH.md.
+
+
+## Pesquisa aplicada em 2026-11-09
+
+Os nove artigos freeCodeCamp foram triados por pertinência e risco de apresentar trabalho não realizado. A paleta e a cópia do hero foram atualizadas; a ligação entre README, prova visual e projeto está documentada em [design/2026-freecodecamp-applied-reading.md](design/2026-freecodecamp-applied-reading.md). A proposta de um benchmark de roteamento de skills do KORA permanece proposta em [design/luka-routebench-brief.md](design/luka-routebench-brief.md), não integrada nem anunciada como projeto concluído.

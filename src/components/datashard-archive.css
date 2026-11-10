@@ -9,7 +9,7 @@
   --archive-body: #b1cbc7;
   --archive-muted: #8ca5a2;
   --archive-coral: #ef747b;
-  --shard-accent: var(--cyan, #41f4e5);
+  --shard-accent: var(--cyan, #63e3f4);
   padding-top: 105px; padding-bottom: 105px;
 }
 .archive-heading { display:flex; align-items:end; justify-content:space-between; gap:55px; margin-bottom:44px }
@@ -50,8 +50,8 @@
 .module-code { fill:var(--shard-accent); font:600 18px Oxanium,Arial,sans-serif; letter-spacing:-.03em }
 .module-traces { fill:none; stroke:var(--shard-accent); stroke-width:.7; opacity:.6 }
 .module-serial { font:4px var(--mono); letter-spacing:.12em; fill:#a9c5bc }
-.module-contact-base { fill:#5d522a }
-.module-contact { fill:#d2ba6b }
+.module-contact-base { fill:#234234 }
+.module-contact { fill:#8dffb3 }
 .module-notch { fill:none; stroke:#a5b094; stroke-width:1 }
 .module-screw { fill:#061012; stroke:#82a69a; stroke-width:.5 }
 .shard-label { min-width:0; display:flex; flex-direction:column; align-items:start }
@@ -61,9 +61,9 @@
 .shard-descriptor { font-size:10px; line-height:1.6; color:var(--archive-body); max-width:190px }
 .shard-read { margin-top:17px; display:flex; align-items:center; gap:5px; color:#a5b7a0; font:8px var(--mono); letter-spacing:.07em }
 .shard-selected-mark { position:absolute; right:10px; bottom:10px; color:var(--signal) }
-.accent-cyan { --shard-accent:#41f4e5 }
-.accent-magenta { --shard-accent:#ff83bd }
-.accent-violet { --shard-accent:#b7a3ff }
+.accent-cyan { --shard-accent:#63e3f4 }
+.accent-magenta { --shard-accent:#ff5c73 }
+.accent-violet { --shard-accent:#b294ff }
 .catalog-footer { border-top:1px solid #35463d; margin-top:25px; padding-top:19px; display:flex; flex-direction:column; gap:9px; font:8px/1.5 var(--mono); color:#a0b09d }
 .catalog-footer > span:last-child { color:#96a295; font-size:9px; letter-spacing:0 }
 .shard-reader { padding:0 30px 0; background:var(--archive-panel); min-width:0; position:relative; display:flex; flex-direction:column; overflow:hidden }
@@ -89,10 +89,10 @@
 .reader-block { margin:25px 0 }
 .reader-block h4,.reader-limit h4 { font:500 8px var(--mono); letter-spacing:.09em; color:var(--shard-accent); margin-bottom:12px }
 .reader-block p { font-size:12px; color:var(--archive-body); line-height:1.8 }
-.reader-limit { display:flex; align-items:start; gap:13px; border:1px solid #61562c; background:#342e151f; padding:15px 15px 17px; margin-top:23px }
-.reader-limit > span { font:700 17px var(--face); color:#e6c977; line-height:1 }
-.reader-limit h4 { color:#e6c977; margin-bottom:9px }
-.reader-limit p { font-size:11px; line-height:1.8; color:#c1c7ac }
+.reader-limit { display:flex; align-items:start; gap:13px; border:1px solid #713643; background:#ff5c7310; padding:15px 15px 17px; margin-top:23px }
+.reader-limit > span { font:700 17px var(--face); color:#ff7c8e; line-height:1 }
+.reader-limit h4 { color:#ff7c8e; margin-bottom:9px }
+.reader-limit p { font-size:11px; line-height:1.8; color:#d4c0c6 }
 .reader-steps { list-style:none; padding:0; margin:0 }
 .reader-steps li { display:flex; gap:18px; padding:0 0 22px; margin-bottom:23px; border-bottom:1px solid #254a51 }
 .reader-steps li > span { font:9px var(--mono); color:var(--shard-accent); padding-top:4px }
@@ -129,7 +129,7 @@
 .archive-linked-repos a { display:flex; gap:25px; align-items:center; color:var(--paper); font:500 18px var(--face) }
 .archive-linked-repos a:hover { color:var(--cyan) }
 /* A scan confirms selection; it never obscures content or delays the controls. */
-.portfolio[data-effects="on"] .reader-sheet::after { content:''; position:absolute; inset:0; pointer-events:none; height:40%; background:linear-gradient(transparent,#41f4e512 94%,#41f4e55c); animation:shard-read-scan 210ms cubic-bezier(.16,1,.3,1) both }
+.portfolio[data-effects="on"] .reader-sheet::after { content:''; position:absolute; inset:0; pointer-events:none; height:40%; background:linear-gradient(transparent,#63e3f412 94%,#63e3f45c); animation:shard-read-scan 210ms cubic-bezier(.16,1,.3,1) both }
 @keyframes shard-read-scan { from { transform:translateY(-90%);opacity:.6 } to { transform:translateY(180%);opacity:0 } }
 .portfolio.light-mode .datashards-section { --archive-bg:#d9e5d8; --archive-panel:#e0eee7; --archive-rule:#718c83; --archive-text:#152b29; --archive-body:#284e48; --archive-muted:#42675e; --archive-coral:#942d43 }
 .light-mode .archive-topbar,.light-mode .archive-bottom { background:#c9dbd2; color:#284e48 }
