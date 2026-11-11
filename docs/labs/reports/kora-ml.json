@@ -1,0 +1,885 @@
+{
+  "schemaVersion": 1,
+  "scope": "Small synthetic benchmark, not production evidence. AI-assisted data; not independently reviewed.",
+  "datasetSha256": "0e07b9f9727088f19872c54612185ecd3688ff314b3159f05f34d07f8a1384b6",
+  "counts": {
+    "train": 72,
+    "validation": 24,
+    "test": 24,
+    "ood": 12
+  },
+  "selection": {
+    "metric": "validation_macro_f1",
+    "candidates": [
+      {
+        "C": 0.5,
+        "macroF1": 0.9576719576719577
+      },
+      {
+        "C": 1.0,
+        "macroF1": 0.9576719576719577
+      },
+      {
+        "C": 4.0,
+        "macroF1": 0.9576719576719577
+      }
+    ],
+    "chosenC": 0.5,
+    "bestValidationMacroF1": 0.9576719576719577,
+    "policyChosenBeforeTest": {
+      "minScore": 0.2,
+      "minMargin": 0.02,
+      "minKnownRatio": 0.1,
+      "maxChars": 4000
+    },
+    "policySelection": "validation selective accuracy >= 0.90, then maximum coverage"
+  },
+  "test": {
+    "support": 24,
+    "accuracy": 0.7916666666666666,
+    "macroF1": 0.7863756613756614,
+    "baselineAccuracy": 0.375,
+    "baselineMacroF1": 0.4984126984126984,
+    "coverage": 0.5,
+    "selectiveAccuracy": 1.0,
+    "labels": [
+      "finance",
+      "events",
+      "senai-study",
+      "embedded",
+      "knowledge",
+      "tasks-focus"
+    ],
+    "confusionMatrix": [
+      [
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        3,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        1,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        4
+      ]
+    ],
+    "classificationReport": {
+      "finance": {
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1-score": 0.8571428571428571,
+        "support": 4.0
+      },
+      "events": {
+        "precision": 0.8,
+        "recall": 1.0,
+        "f1-score": 0.8888888888888888,
+        "support": 4.0
+      },
+      "senai-study": {
+        "precision": 0.6,
+        "recall": 0.75,
+        "f1-score": 0.6666666666666666,
+        "support": 4.0
+      },
+      "embedded": {
+        "precision": 0.75,
+        "recall": 0.75,
+        "f1-score": 0.75,
+        "support": 4.0
+      },
+      "knowledge": {
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1-score": 0.6666666666666666,
+        "support": 4.0
+      },
+      "tasks-focus": {
+        "precision": 0.8,
+        "recall": 1.0,
+        "f1-score": 0.8888888888888888,
+        "support": 4.0
+      },
+      "accuracy": 0.7916666666666666,
+      "macro avg": {
+        "precision": 0.8250000000000001,
+        "recall": 0.7916666666666666,
+        "f1-score": 0.7863756613756614,
+        "support": 24.0
+      },
+      "weighted avg": {
+        "precision": 0.8250000000000001,
+        "recall": 0.7916666666666666,
+        "f1-score": 0.7863756613756614,
+        "support": 24.0
+      }
+    },
+    "outcomes": [
+      {
+        "id": "finance-test-01",
+        "text": "O extrato financeiro mostra despesa duplicada?",
+        "expected": "finance",
+        "rawPrediction": "finance",
+        "baselinePrediction": "finance",
+        "label": "Revisão manual",
+        "suggestedLabel": "finance",
+        "accepted": false,
+        "score": 0.19956387891040728,
+        "margin": 0.020155366492943777,
+        "knownRatio": 0.4,
+        "probabilities": [
+          0.1794085124174635,
+          0.15317680005574308,
+          0.19956387891040728,
+          0.15798187492194068,
+          0.15622156572714543,
+          0.1536473679672999
+        ]
+      },
+      {
+        "id": "finance-test-02",
+        "text": "Consigo comparar meus gastos de outubro e novembro?",
+        "expected": "finance",
+        "rawPrediction": "finance",
+        "baselinePrediction": "unknown",
+        "label": "Revisão manual",
+        "suggestedLabel": "finance",
+        "accepted": false,
+        "score": 0.19106846714449732,
+        "margin": 0.016254199886809734,
+        "knownRatio": 0.42857142857142855,
+        "probabilities": [
+          0.1504144767889514,
+          0.17135620034616936,
+          0.19106846714449732,
+          0.15933698617707534,
+          0.1748142672576876,
+          0.15300960228561913
+        ]
+      },
+      {
+        "id": "finance-test-03",
+        "text": "Quais categorias mais pesaram nas despesas?",
+        "expected": "finance",
+        "rawPrediction": "finance",
+        "baselinePrediction": "unknown",
+        "label": "Revisão manual",
+        "suggestedLabel": "finance",
+        "accepted": false,
+        "score": 0.18930655445804023,
+        "margin": 0.006700915142780067,
+        "knownRatio": 0.5,
+        "probabilities": [
+          0.15815015835683072,
+          0.16388455638913432,
+          0.18930655445804023,
+          0.18260563931526017,
+          0.15446969125259324,
+          0.1515834002281413
+        ]
+      },
+      {
+        "id": "finance-test-04",
+        "text": "Preciso conferir os valores recebidos na LUKA",
+        "expected": "finance",
+        "rawPrediction": "events",
+        "baselinePrediction": "unknown",
+        "label": "Revisão manual",
+        "suggestedLabel": "events",
+        "accepted": false,
+        "score": 0.1770889835937498,
+        "margin": 0.0008697164765553156,
+        "knownRatio": 0.5714285714285714,
+        "probabilities": [
+          0.16506629272021783,
+          0.1770889835937498,
+          0.1762192671171945,
+          0.15470084122849911,
+          0.15233658634323968,
+          0.17458802899709913
+        ]
+      },
+      {
+        "id": "events-test-01",
+        "text": "Tenho dois eventos agendados no mesmo horário?",
+        "expected": "events",
+        "rawPrediction": "events",
+        "baselinePrediction": "events",
+        "label": "events",
+        "suggestedLabel": "events",
+        "accepted": true,
+        "score": 0.2070056703248747,
+        "margin": 0.038117336728668544,
+        "knownRatio": 0.5714285714285714,
+        "probabilities": [
+          0.16888833359620617,
+          0.2070056703248747,
+          0.15104863576005131,
+          0.15328239522860151,
+          0.15121408387460117,
+          0.16856088121566515
+        ]
+      },
+      {
+        "id": "events-test-02",
+        "text": "A atividade ficou fora das datas da viagem?",
+        "expected": "events",
+        "rawPrediction": "events",
+        "baselinePrediction": "unknown",
+        "label": "events",
+        "suggestedLabel": "events",
+        "accepted": true,
+        "score": 0.2378085149992851,
+        "margin": 0.07286031673396304,
+        "knownRatio": 0.5714285714285714,
+        "probabilities": [
+          0.16494819826532206,
+          0.2378085149992851,
+          0.15192783537238827,
+          0.14939371851312805,
+          0.14736642923586862,
+          0.14855530361400776
+        ]
+      },
+      {
+        "id": "events-test-03",
+        "text": "O compromisso de sexta está confirmado no Planner?",
+        "expected": "events",
+        "rawPrediction": "events",
+        "baselinePrediction": "events",
+        "label": "events",
+        "suggestedLabel": "events",
+        "accepted": true,
+        "score": 0.2199418026416439,
+        "margin": 0.059688432900475735,
+        "knownRatio": 0.5714285714285714,
+        "probabilities": [
+          0.15446766179183818,
+          0.2199418026416439,
+          0.16025336974116816,
+          0.15815622124439896,
+          0.1588402551827412,
+          0.14834068939820977
+        ]
+      },
+      {
+        "id": "events-test-04",
+        "text": "Liste os eventos da agenda que já terminaram",
+        "expected": "events",
+        "rawPrediction": "events",
+        "baselinePrediction": "unknown",
+        "label": "events",
+        "suggestedLabel": "events",
+        "accepted": true,
+        "score": 0.2118057574844842,
+        "margin": 0.03228067582414487,
+        "knownRatio": 0.875,
+        "probabilities": [
+          0.15157578172409272,
+          0.2118057574844842,
+          0.17952508166033931,
+          0.15371175307597898,
+          0.14359313697435475,
+          0.1597884890807501
+        ]
+      },
+      {
+        "id": "senai-study-test-01",
+        "text": "Errei a questão de potência na prova do SENAI",
+        "expected": "senai-study",
+        "rawPrediction": "senai-study",
+        "baselinePrediction": "senai-study",
+        "label": "senai-study",
+        "suggestedLabel": "senai-study",
+        "accepted": true,
+        "score": 0.20099081062667684,
+        "margin": 0.0352893807765475,
+        "knownRatio": 0.75,
+        "probabilities": [
+          0.15196877885377283,
+          0.16439368228825735,
+          0.1586433181102112,
+          0.1583019802709524,
+          0.20099081062667684,
+          0.16570142985012934
+        ]
+      },
+      {
+        "id": "senai-study-test-02",
+        "text": "Confira minha resposta do exercício de eletricidade",
+        "expected": "senai-study",
+        "rawPrediction": "senai-study",
+        "baselinePrediction": "unknown",
+        "label": "senai-study",
+        "suggestedLabel": "senai-study",
+        "accepted": true,
+        "score": 0.20044096376653522,
+        "margin": 0.0354508279146937,
+        "knownRatio": 1.0,
+        "probabilities": [
+          0.15239051660359684,
+          0.16432222671123733,
+          0.15650755171595349,
+          0.16499013585184152,
+          0.20044096376653522,
+          0.16134860535083562
+        ]
+      },
+      {
+        "id": "senai-study-test-03",
+        "text": "Faça perguntas para verificar se entendi metrologia",
+        "expected": "senai-study",
+        "rawPrediction": "senai-study",
+        "baselinePrediction": "unknown",
+        "label": "Revisão manual",
+        "suggestedLabel": "senai-study",
+        "accepted": false,
+        "score": 0.19549247321647997,
+        "margin": 0.02517305201881201,
+        "knownRatio": 0.5714285714285714,
+        "probabilities": [
+          0.17031942119766796,
+          0.1651989416383084,
+          0.154372207170559,
+          0.15632833498064522,
+          0.19549247321647997,
+          0.15828862179633943
+        ]
+      },
+      {
+        "id": "senai-study-test-04",
+        "text": "Qual conceito preciso revisar para entender as engrenagens?",
+        "expected": "senai-study",
+        "rawPrediction": "tasks-focus",
+        "baselinePrediction": "unknown",
+        "label": "Revisão manual",
+        "suggestedLabel": "tasks-focus",
+        "accepted": false,
+        "score": 0.18241221082917494,
+        "margin": 0.000663016033202013,
+        "knownRatio": 0.625,
+        "probabilities": [
+          0.15462731011956843,
+          0.18174919479597293,
+          0.15651475375879786,
+          0.15107639435918066,
+          0.17362013613730523,
+          0.18241221082917494
+        ]
+      },
+      {
+        "id": "embedded-test-01",
+        "text": "Depois da atualização o ESP32 parou de detectar toque",
+        "expected": "embedded",
+        "rawPrediction": "embedded",
+        "baselinePrediction": "unknown",
+        "label": "embedded",
+        "suggestedLabel": "embedded",
+        "accepted": true,
+        "score": 0.21547521922130314,
+        "margin": 0.052581990161584435,
+        "knownRatio": 0.75,
+        "probabilities": [
+          0.21547521922130314,
+          0.1628932290597187,
+          0.1576432872998784,
+          0.15181846106287702,
+          0.1612343862311159,
+          0.1509354171251068
+        ]
+      },
+      {
+        "id": "embedded-test-02",
+        "text": "Compare dois logs de falha do firmware",
+        "expected": "embedded",
+        "rawPrediction": "embedded",
+        "baselinePrediction": "unknown",
+        "label": "Revisão manual",
+        "suggestedLabel": "embedded",
+        "accepted": false,
+        "score": 0.18609821993498973,
+        "margin": 0.018890010031496263,
+        "knownRatio": 0.42857142857142855,
+        "probabilities": [
+          0.18609821993498973,
+          0.15199575506949614,
+          0.16507036714363857,
+          0.16321574373688394,
+          0.16720820990349347,
+          0.16641170421149815
+        ]
+      },
+      {
+        "id": "embedded-test-03",
+        "text": "A tela pisca quando conecto o sensor no SPI",
+        "expected": "embedded",
+        "rawPrediction": "embedded",
+        "baselinePrediction": "embedded",
+        "label": "embedded",
+        "suggestedLabel": "embedded",
+        "accepted": true,
+        "score": 0.23909710759266753,
+        "margin": 0.06785107588858169,
+        "knownRatio": 0.7142857142857143,
+        "probabilities": [
+          0.23909710759266753,
+          0.17124603170408584,
+          0.14631631165081774,
+          0.14797426212021444,
+          0.14615432276460194,
+          0.14921196416761248
+        ]
+      },
+      {
+        "id": "embedded-test-04",
+        "text": "Me ajude a isolar um erro de compilação do PlatformIO",
+        "expected": "embedded",
+        "rawPrediction": "senai-study",
+        "baselinePrediction": "embedded",
+        "label": "Revisão manual",
+        "suggestedLabel": "senai-study",
+        "accepted": false,
+        "score": 0.19046657628577884,
+        "margin": 0.00900023034104061,
+        "knownRatio": 0.7777777777777778,
+        "probabilities": [
+          0.1764236292542534,
+          0.14329759454235574,
+          0.15150681731667828,
+          0.15683903665619564,
+          0.19046657628577884,
+          0.18146634594473823
+        ]
+      },
+      {
+        "id": "knowledge-test-01",
+        "text": "Não encontro a nota que explica a montagem",
+        "expected": "knowledge",
+        "rawPrediction": "embedded",
+        "baselinePrediction": "unknown",
+        "label": "Revisão manual",
+        "suggestedLabel": "embedded",
+        "accepted": false,
+        "score": 0.1941013379958079,
+        "margin": 0.006505529658446557,
+        "knownRatio": 0.5,
+        "probabilities": [
+          0.1941013379958079,
+          0.1529530993614962,
+          0.1560114985154799,
+          0.18759580833736134,
+          0.15599148247080608,
+          0.15334677331904845
+        ]
+      },
+      {
+        "id": "knowledge-test-02",
+        "text": "A referência aponta para um documento apagado?",
+        "expected": "knowledge",
+        "rawPrediction": "senai-study",
+        "baselinePrediction": "unknown",
+        "label": "Revisão manual",
+        "suggestedLabel": "senai-study",
+        "accepted": false,
+        "score": 0.19775719773414419,
+        "margin": 0.011674692678618537,
+        "knownRatio": 0.6666666666666666,
+        "probabilities": [
+          0.15274146563650504,
+          0.16064726857354697,
+          0.1492816276957075,
+          0.18608250505552565,
+          0.19775719773414419,
+          0.15348993530457053
+        ]
+      },
+      {
+        "id": "knowledge-test-03",
+        "text": "Quais arquivos da base mencionam esse procedimento?",
+        "expected": "knowledge",
+        "rawPrediction": "knowledge",
+        "baselinePrediction": "unknown",
+        "label": "Revisão manual",
+        "suggestedLabel": "knowledge",
+        "accepted": false,
+        "score": 0.1848740536479701,
+        "margin": 0.003508257717335428,
+        "knownRatio": 0.5714285714285714,
+        "probabilities": [
+          0.16390650860629313,
+          0.18136579593063468,
+          0.15991471856589148,
+          0.1848740536479701,
+          0.15352015706249464,
+          0.15641876618671588
+        ]
+      },
+      {
+        "id": "knowledge-test-04",
+        "text": "Busque nas anotações uma evidência para essa afirmação",
+        "expected": "knowledge",
+        "rawPrediction": "knowledge",
+        "baselinePrediction": "unknown",
+        "label": "knowledge",
+        "suggestedLabel": "knowledge",
+        "accepted": true,
+        "score": 0.23021036604594336,
+        "margin": 0.06331762839575913,
+        "knownRatio": 0.75,
+        "probabilities": [
+          0.14874322441444646,
+          0.1521060486800379,
+          0.145399430417614,
+          0.23021036604594336,
+          0.16689273765018423,
+          0.1566481927917741
+        ]
+      },
+      {
+        "id": "tasks-focus-test-01",
+        "text": "Perdi o foco e quero retomar uma tarefa pequena",
+        "expected": "tasks-focus",
+        "rawPrediction": "tasks-focus",
+        "baselinePrediction": "unknown",
+        "label": "tasks-focus",
+        "suggestedLabel": "tasks-focus",
+        "accepted": true,
+        "score": 0.25960068674478703,
+        "margin": 0.1013037854118474,
+        "knownRatio": 0.7142857142857143,
+        "probabilities": [
+          0.14171324517816997,
+          0.1393885108926441,
+          0.1464946207365501,
+          0.1545060351149093,
+          0.15829690133293964,
+          0.25960068674478703
+        ]
+      },
+      {
+        "id": "tasks-focus-test-02",
+        "text": "O que ficou pendente no Taskwarrior desde ontem?",
+        "expected": "tasks-focus",
+        "rawPrediction": "tasks-focus",
+        "baselinePrediction": "tasks-focus",
+        "label": "Revisão manual",
+        "suggestedLabel": "tasks-focus",
+        "accepted": false,
+        "score": 0.1879099368442956,
+        "margin": 0.009335856276175447,
+        "knownRatio": 0.5714285714285714,
+        "probabilities": [
+          0.17857408056812016,
+          0.165080757224255,
+          0.151932856404267,
+          0.1645739303715492,
+          0.1519284385875129,
+          0.1879099368442956
+        ]
+      },
+      {
+        "id": "tasks-focus-test-03",
+        "text": "Divida a próxima tarefa em uma ação de dez minutos",
+        "expected": "tasks-focus",
+        "rawPrediction": "tasks-focus",
+        "baselinePrediction": "tasks-focus",
+        "label": "tasks-focus",
+        "suggestedLabel": "tasks-focus",
+        "accepted": true,
+        "score": 0.23344375274266058,
+        "margin": 0.05605170980003879,
+        "knownRatio": 0.5555555555555556,
+        "probabilities": [
+          0.14087993018191328,
+          0.14169157668932833,
+          0.1468216887832637,
+          0.15977100866021215,
+          0.17739204294262179,
+          0.23344375274266058
+        ]
+      },
+      {
+        "id": "tasks-focus-test-04",
+        "text": "Compare as prioridades das tarefas atrasadas",
+        "expected": "tasks-focus",
+        "rawPrediction": "tasks-focus",
+        "baselinePrediction": "tasks-focus",
+        "label": "tasks-focus",
+        "suggestedLabel": "tasks-focus",
+        "accepted": true,
+        "score": 0.2140715527754529,
+        "margin": 0.0396072032603465,
+        "knownRatio": 0.3333333333333333,
+        "probabilities": [
+          0.1487792556056962,
+          0.1744643495151064,
+          0.16956457562906438,
+          0.14758071605473008,
+          0.14553955041995006,
+          0.2140715527754529
+        ]
+      }
+    ]
+  },
+  "ood": {
+    "support": 12,
+    "rejectionRate": 0.5,
+    "outcomes": [
+      {
+        "id": "ood-01",
+        "text": "Olá, tudo bem?",
+        "label": "Revisão manual",
+        "suggestedLabel": "embedded",
+        "accepted": false,
+        "score": 0.17070244030572518,
+        "margin": 0.001706620677508569,
+        "knownRatio": 0.0,
+        "probabilities": [
+          0.17070244030572518,
+          0.16322412472062134,
+          0.1668726577899704,
+          0.1689958196282166,
+          0.1665025574379756,
+          0.16370240011749096
+        ]
+      },
+      {
+        "id": "ood-02",
+        "text": "Quero falar sobre projetos",
+        "label": "Revisão manual",
+        "suggestedLabel": "knowledge",
+        "accepted": false,
+        "score": 0.1937513579178738,
+        "margin": 0.0260013679380644,
+        "knownRatio": 0.5,
+        "probabilities": [
+          0.15372063391170224,
+          0.1551282585747993,
+          0.1671985457709977,
+          0.1937513579178738,
+          0.1677499899798094,
+          0.1624512138448175
+        ]
+      },
+      {
+        "id": "ood-03",
+        "text": "Quem ganhou o jogo ontem?",
+        "label": "Revisão manual",
+        "suggestedLabel": "embedded",
+        "accepted": false,
+        "score": 0.17070244030572518,
+        "margin": 0.001706620677508569,
+        "knownRatio": 0.0,
+        "probabilities": [
+          0.17070244030572518,
+          0.16322412472062134,
+          0.1668726577899704,
+          0.1689958196282166,
+          0.1665025574379756,
+          0.16370240011749096
+        ]
+      },
+      {
+        "id": "ood-04",
+        "text": "Faça uma receita de pão",
+        "label": "senai-study",
+        "suggestedLabel": "senai-study",
+        "accepted": true,
+        "score": 0.21521525024034355,
+        "margin": 0.04800646191213026,
+        "knownRatio": 0.6,
+        "probabilities": [
+          0.14564727360687627,
+          0.15001908485254928,
+          0.1565444160879964,
+          0.1653651868840211,
+          0.21521525024034355,
+          0.1672087883282133
+        ]
+      },
+      {
+        "id": "ood-05",
+        "text": "Me conte uma piada",
+        "label": "senai-study",
+        "suggestedLabel": "senai-study",
+        "accepted": true,
+        "score": 0.20911176960961747,
+        "margin": 0.02669360292848988,
+        "knownRatio": 0.5,
+        "probabilities": [
+          0.1518363098098959,
+          0.1453826627279654,
+          0.14844621233742972,
+          0.16280487883396386,
+          0.20911176960961747,
+          0.1824181666811276
+        ]
+      },
+      {
+        "id": "ood-06",
+        "text": "Qual é a capital da Austrália?",
+        "label": "Revisão manual",
+        "suggestedLabel": "events",
+        "accepted": false,
+        "score": 0.1991560899634948,
+        "margin": 0.014345617353975965,
+        "knownRatio": 0.5,
+        "probabilities": [
+          0.15650285215162385,
+          0.1991560899634948,
+          0.16310633140477285,
+          0.1542700188545141,
+          0.14215423501607563,
+          0.18481047260951883
+        ]
+      },
+      {
+        "id": "ood-07",
+        "text": "Desenhe um dragão roxo",
+        "label": "senai-study",
+        "suggestedLabel": "senai-study",
+        "accepted": true,
+        "score": 0.23044676248751497,
+        "margin": 0.060559273806126246,
+        "knownRatio": 0.25,
+        "probabilities": [
+          0.15380438664904875,
+          0.14755824438543938,
+          0.1505825739299685,
+          0.16988748868138873,
+          0.23044676248751497,
+          0.14772054386663958
+        ]
+      },
+      {
+        "id": "ood-08",
+        "text": "Como estará o clima no sábado?",
+        "label": "Revisão manual",
+        "suggestedLabel": "senai-study",
+        "accepted": false,
+        "score": 0.1890913652043725,
+        "margin": 0.0046300290036779546,
+        "knownRatio": 0.4,
+        "probabilities": [
+          0.18446133620069455,
+          0.17349574113332655,
+          0.15663997185396672,
+          0.1449664520885263,
+          0.1890913652043725,
+          0.1513451335191134
+        ]
+      },
+      {
+        "id": "ood-09",
+        "text": "Me indique uma música",
+        "label": "senai-study",
+        "suggestedLabel": "senai-study",
+        "accepted": true,
+        "score": 0.20911176960961747,
+        "margin": 0.02669360292848988,
+        "knownRatio": 0.5,
+        "probabilities": [
+          0.1518363098098959,
+          0.1453826627279654,
+          0.14844621233742972,
+          0.16280487883396386,
+          0.20911176960961747,
+          0.1824181666811276
+        ]
+      },
+      {
+        "id": "ood-10",
+        "text": "Traduza good morning",
+        "label": "Revisão manual",
+        "suggestedLabel": "embedded",
+        "accepted": false,
+        "score": 0.17070244030572518,
+        "margin": 0.001706620677508569,
+        "knownRatio": 0.0,
+        "probabilities": [
+          0.17070244030572518,
+          0.16322412472062134,
+          0.1668726577899704,
+          0.1689958196282166,
+          0.1665025574379756,
+          0.16370240011749096
+        ]
+      },
+      {
+        "id": "ood-11",
+        "text": "Você gosta de filmes?",
+        "label": "senai-study",
+        "suggestedLabel": "senai-study",
+        "accepted": true,
+        "score": 0.214192277319949,
+        "margin": 0.043133180682283584,
+        "knownRatio": 0.25,
+        "probabilities": [
+          0.13805440865191312,
+          0.15826173118541997,
+          0.17105909663766541,
+          0.1634122390153379,
+          0.214192277319949,
+          0.15502024718971455
+        ]
+      },
+      {
+        "id": "ood-12",
+        "text": "O que significa essa palavra?",
+        "label": "knowledge",
+        "suggestedLabel": "knowledge",
+        "accepted": true,
+        "score": 0.21209509734475498,
+        "margin": 0.050159678550661696,
+        "knownRatio": 0.5,
+        "probabilities": [
+          0.1619354187940933,
+          0.1547264381953235,
+          0.1582172269844859,
+          0.21209509734475498,
+          0.1579462405372094,
+          0.15507957814413292
+        ]
+      }
+    ]
+  },
+  "baseline": "Actual kora-router.mjs, top domain; single-domain synthetic test only",
+  "integrationPolicy": "Experimental ML suggestion; rules remain active default. No measured live quality gain."
+}

@@ -12,7 +12,8 @@
     "crivo": "node scripts/crivo.mjs",
     "vetor": "node scripts/vetor.mjs",
     "lastro": "node scripts/lastro.mjs",
-    "kora-router": "node scripts/kora-router.mjs"
+    "kora-router": "node scripts/kora-router.mjs",
+    "train:kora": "python3 ml/train_kora.py"
   },
   "engines": {
     "node": ">=24"

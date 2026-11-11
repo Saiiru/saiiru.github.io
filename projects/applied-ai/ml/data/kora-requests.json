@@ -1,0 +1,930 @@
+{
+  "version": 1,
+  "provenance": "Synthetic AI-authored examples; no user notes, conversations or financial data. Scenario families manually separated before training. No independent annotation.",
+  "rows": [
+    {
+      "id": "finance-train-01",
+      "label": "finance",
+      "split": "train",
+      "group": "finance/cashflow",
+      "text": "Qual foi meu saldo financeiro neste mês?"
+    },
+    {
+      "id": "finance-train-02",
+      "label": "finance",
+      "split": "train",
+      "group": "finance/cashflow",
+      "text": "Some minhas despesas e receitas do período"
+    },
+    {
+      "id": "finance-train-03",
+      "label": "finance",
+      "split": "train",
+      "group": "finance/cashflow",
+      "text": "Quanto dinheiro saiu e quanto entrou?"
+    },
+    {
+      "id": "finance-train-04",
+      "label": "finance",
+      "split": "train",
+      "group": "finance/cashflow",
+      "text": "Mostre os gastos confirmados da LUKA"
+    },
+    {
+      "id": "finance-train-05",
+      "label": "finance",
+      "split": "train",
+      "group": "finance/cashflow",
+      "text": "Quero consultar meu orçamento financeiro"
+    },
+    {
+      "id": "finance-train-06",
+      "label": "finance",
+      "split": "train",
+      "group": "finance/cashflow",
+      "text": "Liste os lançamentos de despesas pagas"
+    },
+    {
+      "id": "finance-train-07",
+      "label": "finance",
+      "split": "train",
+      "group": "finance/cashflow",
+      "text": "Separe gastos planejados dos realizados"
+    },
+    {
+      "id": "finance-train-08",
+      "label": "finance",
+      "split": "train",
+      "group": "finance/cashflow",
+      "text": "Calcule a renda menos as despesas"
+    },
+    {
+      "id": "finance-train-09",
+      "label": "finance",
+      "split": "train",
+      "group": "finance/cashflow",
+      "text": "Como está o orçamento de transporte?"
+    },
+    {
+      "id": "finance-train-10",
+      "label": "finance",
+      "split": "train",
+      "group": "finance/cashflow",
+      "text": "Quanto já usei do limite de alimentação?"
+    },
+    {
+      "id": "finance-train-11",
+      "label": "finance",
+      "split": "train",
+      "group": "finance/cashflow",
+      "text": "Quero ver meu resumo financeiro mensal"
+    },
+    {
+      "id": "finance-train-12",
+      "label": "finance",
+      "split": "train",
+      "group": "finance/cashflow",
+      "text": "Consulte as transações financeiras locais"
+    },
+    {
+      "id": "finance-validation-01",
+      "label": "finance",
+      "split": "validation",
+      "group": "finance/budget-review",
+      "text": "Meu orçamento de lazer estourou?"
+    },
+    {
+      "id": "finance-validation-02",
+      "label": "finance",
+      "split": "validation",
+      "group": "finance/budget-review",
+      "text": "Quanto resta do limite financeiro desta categoria?"
+    },
+    {
+      "id": "finance-validation-03",
+      "label": "finance",
+      "split": "validation",
+      "group": "finance/budget-review",
+      "text": "Mostre a diferença entre gasto previsto e gasto pago"
+    },
+    {
+      "id": "finance-validation-04",
+      "label": "finance",
+      "split": "validation",
+      "group": "finance/budget-review",
+      "text": "Confira as receitas confirmadas e o saldo"
+    },
+    {
+      "id": "finance-test-01",
+      "label": "finance",
+      "split": "test",
+      "group": "finance/statement-audit",
+      "text": "O extrato financeiro mostra despesa duplicada?"
+    },
+    {
+      "id": "finance-test-02",
+      "label": "finance",
+      "split": "test",
+      "group": "finance/statement-audit",
+      "text": "Consigo comparar meus gastos de outubro e novembro?"
+    },
+    {
+      "id": "finance-test-03",
+      "label": "finance",
+      "split": "test",
+      "group": "finance/statement-audit",
+      "text": "Quais categorias mais pesaram nas despesas?"
+    },
+    {
+      "id": "finance-test-04",
+      "label": "finance",
+      "split": "test",
+      "group": "finance/statement-audit",
+      "text": "Preciso conferir os valores recebidos na LUKA"
+    },
+    {
+      "id": "events-train-01",
+      "label": "events",
+      "split": "train",
+      "group": "events/trip-schedule",
+      "text": "Mostre as atividades da viagem no Planner"
+    },
+    {
+      "id": "events-train-02",
+      "label": "events",
+      "split": "train",
+      "group": "events/trip-schedule",
+      "text": "Qual é o próximo evento na minha agenda?"
+    },
+    {
+      "id": "events-train-03",
+      "label": "events",
+      "split": "train",
+      "group": "events/trip-schedule",
+      "text": "Consulte o calendário de compromissos"
+    },
+    {
+      "id": "events-train-04",
+      "label": "events",
+      "split": "train",
+      "group": "events/trip-schedule",
+      "text": "Quero ver os horários dos eventos"
+    },
+    {
+      "id": "events-train-05",
+      "label": "events",
+      "split": "train",
+      "group": "events/trip-schedule",
+      "text": "Liste as atividades previstas para a viagem"
+    },
+    {
+      "id": "events-train-06",
+      "label": "events",
+      "split": "train",
+      "group": "events/trip-schedule",
+      "text": "Quando começa a viagem do Planner?"
+    },
+    {
+      "id": "events-train-07",
+      "label": "events",
+      "split": "train",
+      "group": "events/trip-schedule",
+      "text": "Mostre o destino e as datas da viagem"
+    },
+    {
+      "id": "events-train-08",
+      "label": "events",
+      "split": "train",
+      "group": "events/trip-schedule",
+      "text": "Quais reuniões estão na agenda desta semana?"
+    },
+    {
+      "id": "events-train-09",
+      "label": "events",
+      "split": "train",
+      "group": "events/trip-schedule",
+      "text": "Consulte os eventos marcados para amanhã"
+    },
+    {
+      "id": "events-train-10",
+      "label": "events",
+      "split": "train",
+      "group": "events/trip-schedule",
+      "text": "Mostre meus compromissos por dia"
+    },
+    {
+      "id": "events-train-11",
+      "label": "events",
+      "split": "train",
+      "group": "events/trip-schedule",
+      "text": "Qual é o horário da reunião no calendário?"
+    },
+    {
+      "id": "events-train-12",
+      "label": "events",
+      "split": "train",
+      "group": "events/trip-schedule",
+      "text": "Confira a programação de atividades no Planner"
+    },
+    {
+      "id": "events-validation-01",
+      "label": "events",
+      "split": "validation",
+      "group": "events/timezone",
+      "text": "Mostre os eventos da viagem no horário local"
+    },
+    {
+      "id": "events-validation-02",
+      "label": "events",
+      "split": "validation",
+      "group": "events/timezone",
+      "text": "Converta os horários da agenda de UTC"
+    },
+    {
+      "id": "events-validation-03",
+      "label": "events",
+      "split": "validation",
+      "group": "events/timezone",
+      "text": "Em que dia acontece a primeira atividade do Planner?"
+    },
+    {
+      "id": "events-validation-04",
+      "label": "events",
+      "split": "validation",
+      "group": "events/timezone",
+      "text": "Compare os horários dos compromissos"
+    },
+    {
+      "id": "events-test-01",
+      "label": "events",
+      "split": "test",
+      "group": "events/schedule-conflict",
+      "text": "Tenho dois eventos agendados no mesmo horário?"
+    },
+    {
+      "id": "events-test-02",
+      "label": "events",
+      "split": "test",
+      "group": "events/schedule-conflict",
+      "text": "A atividade ficou fora das datas da viagem?"
+    },
+    {
+      "id": "events-test-03",
+      "label": "events",
+      "split": "test",
+      "group": "events/schedule-conflict",
+      "text": "O compromisso de sexta está confirmado no Planner?"
+    },
+    {
+      "id": "events-test-04",
+      "label": "events",
+      "split": "test",
+      "group": "events/schedule-conflict",
+      "text": "Liste os eventos da agenda que já terminaram"
+    },
+    {
+      "id": "senai-study-train-01",
+      "label": "senai-study",
+      "split": "train",
+      "group": "senai-study/electrical-foundations",
+      "text": "Explique a lei de Ohm com um exemplo"
+    },
+    {
+      "id": "senai-study-train-02",
+      "label": "senai-study",
+      "split": "train",
+      "group": "senai-study/electrical-foundations",
+      "text": "Quero estudar eletricidade para o SENAI"
+    },
+    {
+      "id": "senai-study-train-03",
+      "label": "senai-study",
+      "split": "train",
+      "group": "senai-study/electrical-foundations",
+      "text": "Faça um exercício de resistores em série"
+    },
+    {
+      "id": "senai-study-train-04",
+      "label": "senai-study",
+      "split": "train",
+      "group": "senai-study/electrical-foundations",
+      "text": "Como calculo a potência elétrica?"
+    },
+    {
+      "id": "senai-study-train-05",
+      "label": "senai-study",
+      "split": "train",
+      "group": "senai-study/electrical-foundations",
+      "text": "Me ensine metrologia passo a passo"
+    },
+    {
+      "id": "senai-study-train-06",
+      "label": "senai-study",
+      "split": "train",
+      "group": "senai-study/electrical-foundations",
+      "text": "Quero revisar elementos de máquinas"
+    },
+    {
+      "id": "senai-study-train-07",
+      "label": "senai-study",
+      "split": "train",
+      "group": "senai-study/electrical-foundations",
+      "text": "Explique como ler um paquímetro"
+    },
+    {
+      "id": "senai-study-train-08",
+      "label": "senai-study",
+      "split": "train",
+      "group": "senai-study/electrical-foundations",
+      "text": "Preciso estudar para a prova de eletromecânica"
+    },
+    {
+      "id": "senai-study-train-09",
+      "label": "senai-study",
+      "split": "train",
+      "group": "senai-study/electrical-foundations",
+      "text": "Me mostre um cálculo de resistência"
+    },
+    {
+      "id": "senai-study-train-10",
+      "label": "senai-study",
+      "split": "train",
+      "group": "senai-study/electrical-foundations",
+      "text": "Como funciona uma engrenagem?"
+    },
+    {
+      "id": "senai-study-train-11",
+      "label": "senai-study",
+      "split": "train",
+      "group": "senai-study/electrical-foundations",
+      "text": "Prepare uma revisão de eletricidade industrial"
+    },
+    {
+      "id": "senai-study-train-12",
+      "label": "senai-study",
+      "split": "train",
+      "group": "senai-study/electrical-foundations",
+      "text": "Ensine a diferença entre tensão e corrente"
+    },
+    {
+      "id": "senai-study-validation-01",
+      "label": "senai-study",
+      "split": "validation",
+      "group": "senai-study/mechanical-study",
+      "text": "Me passe exercícios de metrologia"
+    },
+    {
+      "id": "senai-study-validation-02",
+      "label": "senai-study",
+      "split": "validation",
+      "group": "senai-study/mechanical-study",
+      "text": "Quero aprender leitura de micrômetro"
+    },
+    {
+      "id": "senai-study-validation-03",
+      "label": "senai-study",
+      "split": "validation",
+      "group": "senai-study/mechanical-study",
+      "text": "Explique uma relação de transmissão de engrenagens"
+    },
+    {
+      "id": "senai-study-validation-04",
+      "label": "senai-study",
+      "split": "validation",
+      "group": "senai-study/mechanical-study",
+      "text": "Como revisar o conteúdo da aula do SENAI?"
+    },
+    {
+      "id": "senai-study-test-01",
+      "label": "senai-study",
+      "split": "test",
+      "group": "senai-study/exam-feedback",
+      "text": "Errei a questão de potência na prova do SENAI"
+    },
+    {
+      "id": "senai-study-test-02",
+      "label": "senai-study",
+      "split": "test",
+      "group": "senai-study/exam-feedback",
+      "text": "Confira minha resposta do exercício de eletricidade"
+    },
+    {
+      "id": "senai-study-test-03",
+      "label": "senai-study",
+      "split": "test",
+      "group": "senai-study/exam-feedback",
+      "text": "Faça perguntas para verificar se entendi metrologia"
+    },
+    {
+      "id": "senai-study-test-04",
+      "label": "senai-study",
+      "split": "test",
+      "group": "senai-study/exam-feedback",
+      "text": "Qual conceito preciso revisar para entender as engrenagens?"
+    },
+    {
+      "id": "embedded-train-01",
+      "label": "embedded",
+      "split": "train",
+      "group": "embedded/bringup",
+      "text": "Meu ESP32 não inicia o firmware"
+    },
+    {
+      "id": "embedded-train-02",
+      "label": "embedded",
+      "split": "train",
+      "group": "embedded/bringup",
+      "text": "A tela TFT ficou branca depois do upload"
+    },
+    {
+      "id": "embedded-train-03",
+      "label": "embedded",
+      "split": "train",
+      "group": "embedded/bringup",
+      "text": "Preciso depurar o sensor XPT2046"
+    },
+    {
+      "id": "embedded-train-04",
+      "label": "embedded",
+      "split": "train",
+      "group": "embedded/bringup",
+      "text": "O monitor serial não mostra mensagens"
+    },
+    {
+      "id": "embedded-train-05",
+      "label": "embedded",
+      "split": "train",
+      "group": "embedded/bringup",
+      "text": "Como verificar a ligação dos pinos GPIO?"
+    },
+    {
+      "id": "embedded-train-06",
+      "label": "embedded",
+      "split": "train",
+      "group": "embedded/bringup",
+      "text": "A compilação no PlatformIO falhou"
+    },
+    {
+      "id": "embedded-train-07",
+      "label": "embedded",
+      "split": "train",
+      "group": "embedded/bringup",
+      "text": "O Arduino não reconhece meu sensor I2C"
+    },
+    {
+      "id": "embedded-train-08",
+      "label": "embedded",
+      "split": "train",
+      "group": "embedded/bringup",
+      "text": "Ajude a investigar ruído no sinal do ESP32"
+    },
+    {
+      "id": "embedded-train-09",
+      "label": "embedded",
+      "split": "train",
+      "group": "embedded/bringup",
+      "text": "A comunicação SPI com a tela parou"
+    },
+    {
+      "id": "embedded-train-10",
+      "label": "embedded",
+      "split": "train",
+      "group": "embedded/bringup",
+      "text": "O microcontrolador reinicia sozinho"
+    },
+    {
+      "id": "embedded-train-11",
+      "label": "embedded",
+      "split": "train",
+      "group": "embedded/bringup",
+      "text": "Preciso medir a alimentação da placa ESP32"
+    },
+    {
+      "id": "embedded-train-12",
+      "label": "embedded",
+      "split": "train",
+      "group": "embedded/bringup",
+      "text": "O firmware travou quando habilitei o toque"
+    },
+    {
+      "id": "embedded-validation-01",
+      "label": "embedded",
+      "split": "validation",
+      "group": "embedded/intermittent-bus",
+      "text": "O sensor I2C responde de vez em quando"
+    },
+    {
+      "id": "embedded-validation-02",
+      "label": "embedded",
+      "split": "validation",
+      "group": "embedded/intermittent-bus",
+      "text": "Como depurar falhas intermitentes no firmware?"
+    },
+    {
+      "id": "embedded-validation-03",
+      "label": "embedded",
+      "split": "validation",
+      "group": "embedded/intermittent-bus",
+      "text": "O ESP32 perde a comunicação com a TFT"
+    },
+    {
+      "id": "embedded-validation-04",
+      "label": "embedded",
+      "split": "validation",
+      "group": "embedded/intermittent-bus",
+      "text": "O log serial mostra reset inesperado"
+    },
+    {
+      "id": "embedded-test-01",
+      "label": "embedded",
+      "split": "test",
+      "group": "embedded/regression-hardware",
+      "text": "Depois da atualização o ESP32 parou de detectar toque"
+    },
+    {
+      "id": "embedded-test-02",
+      "label": "embedded",
+      "split": "test",
+      "group": "embedded/regression-hardware",
+      "text": "Compare dois logs de falha do firmware"
+    },
+    {
+      "id": "embedded-test-03",
+      "label": "embedded",
+      "split": "test",
+      "group": "embedded/regression-hardware",
+      "text": "A tela pisca quando conecto o sensor no SPI"
+    },
+    {
+      "id": "embedded-test-04",
+      "label": "embedded",
+      "split": "test",
+      "group": "embedded/regression-hardware",
+      "text": "Me ajude a isolar um erro de compilação do PlatformIO"
+    },
+    {
+      "id": "knowledge-train-01",
+      "label": "knowledge",
+      "split": "train",
+      "group": "knowledge/note-lookup",
+      "text": "Busque nas minhas notas do Obsidian"
+    },
+    {
+      "id": "knowledge-train-02",
+      "label": "knowledge",
+      "split": "train",
+      "group": "knowledge/note-lookup",
+      "text": "Encontre a documentação sobre este projeto"
+    },
+    {
+      "id": "knowledge-train-03",
+      "label": "knowledge",
+      "split": "train",
+      "group": "knowledge/note-lookup",
+      "text": "Preciso recuperar um trecho com a fonte"
+    },
+    {
+      "id": "knowledge-train-04",
+      "label": "knowledge",
+      "split": "train",
+      "group": "knowledge/note-lookup",
+      "text": "Pesquise a informação nos documentos locais"
+    },
+    {
+      "id": "knowledge-train-05",
+      "label": "knowledge",
+      "split": "train",
+      "group": "knowledge/note-lookup",
+      "text": "Quero achar uma anotação antiga"
+    },
+    {
+      "id": "knowledge-train-06",
+      "label": "knowledge",
+      "split": "train",
+      "group": "knowledge/note-lookup",
+      "text": "Mostre a referência que sustenta essa resposta"
+    },
+    {
+      "id": "knowledge-train-07",
+      "label": "knowledge",
+      "split": "train",
+      "group": "knowledge/note-lookup",
+      "text": "Consulte meu índice de conhecimento"
+    },
+    {
+      "id": "knowledge-train-08",
+      "label": "knowledge",
+      "split": "train",
+      "group": "knowledge/note-lookup",
+      "text": "Procure nos arquivos Markdown autorizados"
+    },
+    {
+      "id": "knowledge-train-09",
+      "label": "knowledge",
+      "split": "train",
+      "group": "knowledge/note-lookup",
+      "text": "Em qual documento está essa informação?"
+    },
+    {
+      "id": "knowledge-train-10",
+      "label": "knowledge",
+      "split": "train",
+      "group": "knowledge/note-lookup",
+      "text": "Ache a nota e cite o caminho do arquivo"
+    },
+    {
+      "id": "knowledge-train-11",
+      "label": "knowledge",
+      "split": "train",
+      "group": "knowledge/note-lookup",
+      "text": "Quero consultar a base de conhecimento"
+    },
+    {
+      "id": "knowledge-train-12",
+      "label": "knowledge",
+      "split": "train",
+      "group": "knowledge/note-lookup",
+      "text": "Encontre a fonte original nas anotações"
+    },
+    {
+      "id": "knowledge-validation-01",
+      "label": "knowledge",
+      "split": "validation",
+      "group": "knowledge/citation-check",
+      "text": "Confira se a citação existe nas notas"
+    },
+    {
+      "id": "knowledge-validation-02",
+      "label": "knowledge",
+      "split": "validation",
+      "group": "knowledge/citation-check",
+      "text": "Mostre o trecho da documentação usado"
+    },
+    {
+      "id": "knowledge-validation-03",
+      "label": "knowledge",
+      "split": "validation",
+      "group": "knowledge/citation-check",
+      "text": "Procure outra fonte no Obsidian"
+    },
+    {
+      "id": "knowledge-validation-04",
+      "label": "knowledge",
+      "split": "validation",
+      "group": "knowledge/citation-check",
+      "text": "Essa resposta tem referência nos documentos?"
+    },
+    {
+      "id": "knowledge-test-01",
+      "label": "knowledge",
+      "split": "test",
+      "group": "knowledge/missing-evidence",
+      "text": "Não encontro a nota que explica a montagem"
+    },
+    {
+      "id": "knowledge-test-02",
+      "label": "knowledge",
+      "split": "test",
+      "group": "knowledge/missing-evidence",
+      "text": "A referência aponta para um documento apagado?"
+    },
+    {
+      "id": "knowledge-test-03",
+      "label": "knowledge",
+      "split": "test",
+      "group": "knowledge/missing-evidence",
+      "text": "Quais arquivos da base mencionam esse procedimento?"
+    },
+    {
+      "id": "knowledge-test-04",
+      "label": "knowledge",
+      "split": "test",
+      "group": "knowledge/missing-evidence",
+      "text": "Busque nas anotações uma evidência para essa afirmação"
+    },
+    {
+      "id": "tasks-focus-train-01",
+      "label": "tasks-focus",
+      "split": "train",
+      "group": "tasks-focus/next-action",
+      "text": "Qual tarefa devo fazer agora?"
+    },
+    {
+      "id": "tasks-focus-train-02",
+      "label": "tasks-focus",
+      "split": "train",
+      "group": "tasks-focus/next-action",
+      "text": "Mostre minhas tarefas pendentes no Taskwarrior"
+    },
+    {
+      "id": "tasks-focus-train-03",
+      "label": "tasks-focus",
+      "split": "train",
+      "group": "tasks-focus/next-action",
+      "text": "Me ajude a priorizar as tarefas do dia"
+    },
+    {
+      "id": "tasks-focus-train-04",
+      "label": "tasks-focus",
+      "split": "train",
+      "group": "tasks-focus/next-action",
+      "text": "Quero dividir uma tarefa em passos menores"
+    },
+    {
+      "id": "tasks-focus-train-05",
+      "label": "tasks-focus",
+      "split": "train",
+      "group": "tasks-focus/next-action",
+      "text": "Qual é o próximo passo do projeto?"
+    },
+    {
+      "id": "tasks-focus-train-06",
+      "label": "tasks-focus",
+      "split": "train",
+      "group": "tasks-focus/next-action",
+      "text": "Preciso escolher uma tarefa para focar"
+    },
+    {
+      "id": "tasks-focus-train-07",
+      "label": "tasks-focus",
+      "split": "train",
+      "group": "tasks-focus/next-action",
+      "text": "Liste os pendentes da minha lista de tarefas"
+    },
+    {
+      "id": "tasks-focus-train-08",
+      "label": "tasks-focus",
+      "split": "train",
+      "group": "tasks-focus/next-action",
+      "text": "Ajude a organizar o foco de hoje"
+    },
+    {
+      "id": "tasks-focus-train-09",
+      "label": "tasks-focus",
+      "split": "train",
+      "group": "tasks-focus/next-action",
+      "text": "Tenho muitas tarefas e preciso priorizar"
+    },
+    {
+      "id": "tasks-focus-train-10",
+      "label": "tasks-focus",
+      "split": "train",
+      "group": "tasks-focus/next-action",
+      "text": "Mostre a tarefa ativa do Taskwarrior"
+    },
+    {
+      "id": "tasks-focus-train-11",
+      "label": "tasks-focus",
+      "split": "train",
+      "group": "tasks-focus/next-action",
+      "text": "Qual pendência posso terminar em vinte minutos?"
+    },
+    {
+      "id": "tasks-focus-train-12",
+      "label": "tasks-focus",
+      "split": "train",
+      "group": "tasks-focus/next-action",
+      "text": "Quero retomar o foco na tarefa atual"
+    },
+    {
+      "id": "tasks-focus-validation-01",
+      "label": "tasks-focus",
+      "split": "validation",
+      "group": "tasks-focus/capacity-planning",
+      "text": "Tenho pouco tempo para minhas tarefas hoje"
+    },
+    {
+      "id": "tasks-focus-validation-02",
+      "label": "tasks-focus",
+      "split": "validation",
+      "group": "tasks-focus/capacity-planning",
+      "text": "Ajude a reduzir a lista de pendências"
+    },
+    {
+      "id": "tasks-focus-validation-03",
+      "label": "tasks-focus",
+      "split": "validation",
+      "group": "tasks-focus/capacity-planning",
+      "text": "Quero planejar uma pausa entre tarefas"
+    },
+    {
+      "id": "tasks-focus-validation-04",
+      "label": "tasks-focus",
+      "split": "validation",
+      "group": "tasks-focus/capacity-planning",
+      "text": "Qual tarefa pode esperar até amanhã?"
+    },
+    {
+      "id": "tasks-focus-test-01",
+      "label": "tasks-focus",
+      "split": "test",
+      "group": "tasks-focus/resuming",
+      "text": "Perdi o foco e quero retomar uma tarefa pequena"
+    },
+    {
+      "id": "tasks-focus-test-02",
+      "label": "tasks-focus",
+      "split": "test",
+      "group": "tasks-focus/resuming",
+      "text": "O que ficou pendente no Taskwarrior desde ontem?"
+    },
+    {
+      "id": "tasks-focus-test-03",
+      "label": "tasks-focus",
+      "split": "test",
+      "group": "tasks-focus/resuming",
+      "text": "Divida a próxima tarefa em uma ação de dez minutos"
+    },
+    {
+      "id": "tasks-focus-test-04",
+      "label": "tasks-focus",
+      "split": "test",
+      "group": "tasks-focus/resuming",
+      "text": "Compare as prioridades das tarefas atrasadas"
+    },
+    {
+      "id": "ood-01",
+      "label": "unknown",
+      "split": "ood",
+      "group": "ood/0",
+      "text": "Olá, tudo bem?"
+    },
+    {
+      "id": "ood-02",
+      "label": "unknown",
+      "split": "ood",
+      "group": "ood/1",
+      "text": "Quero falar sobre projetos"
+    },
+    {
+      "id": "ood-03",
+      "label": "unknown",
+      "split": "ood",
+      "group": "ood/2",
+      "text": "Quem ganhou o jogo ontem?"
+    },
+    {
+      "id": "ood-04",
+      "label": "unknown",
+      "split": "ood",
+      "group": "ood/3",
+      "text": "Faça uma receita de pão"
+    },
+    {
+      "id": "ood-05",
+      "label": "unknown",
+      "split": "ood",
+      "group": "ood/4",
+      "text": "Me conte uma piada"
+    },
+    {
+      "id": "ood-06",
+      "label": "unknown",
+      "split": "ood",
+      "group": "ood/5",
+      "text": "Qual é a capital da Austrália?"
+    },
+    {
+      "id": "ood-07",
+      "label": "unknown",
+      "split": "ood",
+      "group": "ood/6",
+      "text": "Desenhe um dragão roxo"
+    },
+    {
+      "id": "ood-08",
+      "label": "unknown",
+      "split": "ood",
+      "group": "ood/7",
+      "text": "Como estará o clima no sábado?"
+    },
+    {
+      "id": "ood-09",
+      "label": "unknown",
+      "split": "ood",
+      "group": "ood/8",
+      "text": "Me indique uma música"
+    },
+    {
+      "id": "ood-10",
+      "label": "unknown",
+      "split": "ood",
+      "group": "ood/9",
+      "text": "Traduza good morning"
+    },
+    {
+      "id": "ood-11",
+      "label": "unknown",
+      "split": "ood",
+      "group": "ood/10",
+      "text": "Você gosta de filmes?"
+    },
+    {
+      "id": "ood-12",
+      "label": "unknown",
+      "split": "ood",
+      "group": "ood/11",
+      "text": "O que significa essa palavra?"
+    }
+  ]
+}

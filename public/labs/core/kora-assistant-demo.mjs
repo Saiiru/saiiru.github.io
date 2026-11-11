@@ -1,4 +1,6 @@
 import { routeKoraRequest } from './kora-router.mjs';
+import { selectKoraRoute } from './kora-ml.mjs';
+import { summarizeFinance, listEvents, formatMoney } from './kora-workspace.mjs';
 import { chunkDocuments, retrieve } from './lastro.mjs';
 
 const DIM = 256;
@@ -8,7 +10,7 @@ const PROCEDURES = {
   'kora-events': 'Ler atividades Planner em modo somente leitura. Preservar vínculo com a viagem e mostrar UTC. Responder localmente.',
   'kora-senai-study': 'Partir da dúvida concreta, explicar em passos e propor verificação curta.',
   'kora-embedded-debug': 'Coletar versão, ligação e log; mudar uma variável por vez; registrar resultado.',
-  'kora-knowledge': 'Recuperar trecho com referência e abster-se sem fonte.'
+  'kora-knowledge-rag': 'Recuperar trecho com referência e abster-se sem fonte.'
 };
 const DOCS = [
   {path:'kora-fixtures/finance-rules.md',text:'# LUKA / resumo financeiro, gastos e orçamento\nMovimentações confirmed e paid são entradas e despesas realizadas. Itens planned são gastos planejados, compromissos futuros e ficam fora do saldo realizado. Quantias são calculadas como centavos inteiros.'},
@@ -16,11 +18,15 @@ const DOCS = [
   {path:'kora-fixtures/privacy.md',text:'# KORA / privacidade\nDados financeiros e eventos pessoais ficam no host local. As consultas determinísticas não são enviadas ao modelo remoto. Alterações exigem aprovação separada.'},
   {path:'kora-fixtures/retrieval.md',text:'# KORA / recuperação\nO índice SQLite local armazena vetores TF-IDF com feature hashing e usa FTS5 BM25 para busca lexical. O resultado preserva a origem do trecho e limita o contexto.'}
 ];
-const FINANCE = Object.freeze({income:420000,spent:137450,planned:38500,limit:180000,category:'Transporte'});
+const FINANCE = Object.freeze({schema:'luka.finance-export/1',transactions:[
+ {transaction_date:'2026-11-01',amount_cents:420000,transaction_type:'income',status:'paid'},
+ {transaction_date:'2026-11-02',amount_cents:137450,transaction_type:'expense',status:'confirmed',category_name:'Transporte'},
+ {transaction_date:'2026-11-15',amount_cents:38500,transaction_type:'expense',status:'planned',category_name:'Transporte'}
+],budgets:[{month:'2026-11',category_name:'Transporte',limit_cents:180000}]});
 const ACTIVITIES = Object.freeze([
-  {at:'2026-11-12 13:00 UTC',title:'Revisão do protótipo',trip:'Laboratório demonstrativo'},
-  {at:'2026-11-13 16:30 UTC',title:'Planejamento semanal',trip:'Laboratório demonstrativo'},
-  {at:'2026-11-15 12:00 UTC',title:'Conferência dos registros',trip:'Laboratório demonstrativo'}
+  {at:'2026-11-12T13:00:00Z',title:'Revisão do protótipo',trip:'Laboratório demonstrativo'},
+  {at:'2026-11-13T16:30:00Z',title:'Planejamento semanal',trip:'Laboratório demonstrativo'},
+  {at:'2026-11-15T12:00:00Z',title:'Conferência dos registros',trip:'Laboratório demonstrativo'}
 ]);
 
 function terms(text){return String(text).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR').match(/[a-z0-9]{2,}/g)||[];}
@@ -32,6 +38,9 @@ function cosine(a,b){let score=0;for(let i=0;i<DIM;i++)score+=a[i]*b[i];return M
 
 export function retrieveKoraEvidence(query, passages=chunkDocuments(DOCS), limit=3){
   if(!terms(query).length)return[];
+  const queryTerms=new Set(terms(query));
+  passages=passages.filter(p=>terms((p.heading||'')+' '+p.text).some(t=>queryTerms.has(t)));
+  if(!passages.length)return[];
   const idf=makeIdf(passages),queryVector=vector(query,idf);
   const lexical=retrieve(query,passages,passages.length);
   const lexicalRank=new Map(lexical.map((item,index)=>[item.id,1-index/Math.max(1,lexical.length)]));
@@ -42,31 +51,32 @@ export function retrieveKoraEvidence(query, passages=chunkDocuments(DOCS), limit
   }).filter(item=>item.score>0).sort((a,b)=>b.score-a.score||a.path.localeCompare(b.path)).slice(0,limit);
 }
 
-function money(cents){return 'R$ '+Math.floor(cents/100).toLocaleString('pt-BR')+','+String(cents%100).padStart(2,'0');}
-function moduleData(decision){
-  const modules=[];
-  if(decision.domains.includes('finance'))modules.push({domain:'FINANCE / LUKA · DADOS SINTÉTICOS',lines:[
-    'Entradas realizadas: '+money(FINANCE.income),
-    'Saídas realizadas: '+money(FINANCE.spent),
-    'Planejado (separado): '+money(FINANCE.planned),
-    FINANCE.category+': '+money(FINANCE.spent)+' / '+money(FINANCE.limit)
-  ]});
-  if(decision.domains.includes('events'))modules.push({domain:'EVENTS / PLANNER · DADOS SINTÉTICOS UTC',lines:ACTIVITIES.map(event=>event.at+' · '+event.title+' · '+event.trip)});
-  return modules;
+function moduleData(decision,options){
+ const modules=[];
+ if(decision.domains.includes('finance')){
+  const f=summarizeFinance(options.finance||FINANCE,options.month??'2026-11');
+  modules.push({domain:'FINANCE / LUKA · '+(options.finance?'DADOS DESTA SESSÃO':'DADOS SINTÉTICOS'),lines:[
+   'Período: '+(options.month??'2026-11'),'Entradas realizadas: '+formatMoney(f.income),'Saídas realizadas: '+formatMoney(f.spent),
+   'Saldo do período: '+formatMoney(f.net),'Planejado (separado): '+formatMoney(f.planned),
+   ...f.budgets.map(b=>b.category+': '+formatMoney(b.spent)+' / '+formatMoney(b.limit)+' · restante '+formatMoney(b.remaining))]});
+ }
+ if(decision.domains.includes('events'))modules.push({domain:'EVENTS / PLANNER · '+(options.activities?'DADOS DESTA SESSÃO UTC':'DADOS SINTÉTICOS UTC'),
+ lines:listEvents(options.activities||ACTIVITIES).map(e=>e.at+' · '+e.title+' · '+e.trip)});
+ return modules;
 }
 
-export function runKoraAssistantDemo(query, routeRegistry, passages=chunkDocuments(DOCS)){
-  const decision=routeKoraRequest(query,routeRegistry);
+export function runKoraAssistantDemo(query, routeRegistry, passages=chunkDocuments(DOCS),options={}){
+  const decision=options.model?selectKoraRoute(query,routeRegistry,options.model):routeKoraRequest(query,routeRegistry);
   const evidence=retrieveKoraEvidence(query,passages,3);
   const procedure=decision.skills.map(skill=>PROCEDURES[skill]).filter(Boolean);
   const context=[...procedure,...evidence.map(item=>item.text)].join('\n').slice(0,CONTEXT_LIMIT);
   return{
     decision,
     evidence,
-    modules:moduleData(decision),
+    modules:moduleData(decision,options),
     contextChars:context.length,
     contextLimit:CONTEXT_LIMIT,
-    mode:'deterministic-synthetic-fixture',
+    mode:options.finance||options.activities?'local-session-data':'deterministic-synthetic-fixture',
     externalCalls:0
   };
 }

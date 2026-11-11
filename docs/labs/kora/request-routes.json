@@ -362,6 +362,29 @@
         "horario",
         "cronograma"
       ]
+    },
+    {
+      "domain": "knowledge",
+      "skill": "kora-knowledge-rag",
+      "phrases": [
+        "base de conhecimento",
+        "busque nas notas",
+        "documentos locais",
+        "arquivos markdown",
+        "fonte original",
+        "buscar no obsidian"
+      ],
+      "keywords": [
+        "obsidian",
+        "notas",
+        "anotacoes",
+        "documentacao",
+        "documentos",
+        "referencia",
+        "referencias",
+        "fontes",
+        "trechos"
+      ]
     }
   ]
 }

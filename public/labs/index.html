@@ -10,7 +10,7 @@
     <section id="panel-vetor" role="tabpanel" aria-labelledby="tab-vetor" class="panel" hidden><div class="intro"><span class="eyebrow amber">02 / HUMAN-IN-THE-LOOP TRIAGE</span><h2>Vetor</h2><p>Um modelo TF-IDF + regressão logística, treinado em Python, classifica chamados fictícios aqui no navegador. Compare com as regras e revise antes de exportar. O modelo pode recusar; a prioridade continua sendo uma regra separada.</p></div><div class="grid"><div class="card"><label for="op-case">Ticket da base sintética</label><select id="op-case"></select><label for="op-text">Texto do ticket (editável)</label><textarea id="op-text" rows="6" maxlength="4000"></textarea><div class="actions"><button id="op-route" class="primary" disabled>Classificar</button><button hidden id="op-llm">Sugerir com LLM local</button></div><div id="op-prediction" class="prediction"></div><p id="op-baseline" class="note"></p><div class="actions"><button id="op-approve">Aprovação humana</button><button id="op-export" disabled>Exportar caso aprovado JSON</button></div><p id="op-status" class="status" role="status"></p></div><div class="card results"><h3>Benchmark <span class="mini">BASE SINTÉTICA</span></h3><div id="op-metrics" class="metrics"></div><p class="note">Teste reservado: 32 exemplos sintéticos. F1 mede a classe sem recusa; cobertura mede encaminhamentos aceitos. Pontuação do modelo não é probabilidade calibrada. <a href="./reports/vetor.json">Relatório e erros</a> · <a href="https://github.com/Saiiru/saiiru.github.io/tree/main/projects/applied-ai/vetor">Modelo e reprodução</a></p><div id="op-results" class="stack"></div></div></div></section>
     <section id="panel-lastro" role="tabpanel" aria-labelledby="tab-lastro" class="panel" hidden><div class="intro"><span class="eyebrow violet">03 / GROUNDED RETRIEVAL</span><h2>Lastro</h2><p>Busque evidências no corpus fictício local. Respostas offline são trechos extraídos com citação; ausência de evidência é mostrada.</p></div><div class="grid"><div class="card"><label for="dt-query">Pergunta</label><input id="dt-query" value="Como tratar uma cobrança duplicada?"><div class="actions"><button id="dt-search" class="primary">Buscar no corpus</button><button hidden id="dt-llm">Responder com LLM local</button></div><label class="file-label" for="dt-files">Indexar meus arquivos .md (somente neste navegador)</label><input id="dt-files" type="file" accept=".md,text/markdown" multiple><p id="dt-status" class="status" role="status"></p><h3>Resposta fundamentada</h3><div id="dt-answer" class="answer"></div><div id="dt-llm-answer" class="answer llm-answer" hidden></div></div><div class="card results"><h3>Passagens encontradas <span class="mini">TOP 3 · BM25</span></h3><p id="dt-count" class="note"></p><p id="dt-benchmark" class="note"></p><a href="./reports/lastro.json">Relatório de recuperação</a><div id="dt-results" class="stack"></div></div></div></section>
       <section id="panel-rota" role="tabpanel" aria-labelledby="tab-rota" class="panel" hidden>
-      <div class="intro"><span class="eyebrow mint">04 / KORA REQUEST ROUTER</span><h2 class="kora-title" data-text="ROTA">Rota</h2><p>Escreva um pedido sintético e veja quais procedimentos do KORA seriam selecionados. A classificação é determinística e roda nesta página, sem LLM, sem chamadas externas e sem acesso à instalação privada do KORA.</p></div>
+      <div class="intro"><span class="eyebrow mint">04 / KORA REQUEST ROUTER</span><h2 class="kora-title" data-text="ROTA">Rota</h2><p>Escreva um pedido sintético e veja quais procedimentos do KORA seriam selecionados. Compare regras com um modelo pequeno treinado em Python para seis domínios da KORA. Consulte finanças e eventos com cálculo local, fontes e limites visíveis. Tudo roda no navegador; sem conexão à instalação privada.</p></div>
       <div class="grid">
         <div class="card">
           <label for="kr-example">Exemplo sintético</label>
@@ -23,20 +23,26 @@
             <option value="Compare meus gastos da LUKA com o calendário de eventos do Planner.">Pedido misto / finanças + agenda</option>
             <option value="Quero falar sobre projetos.">Sinal fraco / abstenção</option>
           </select>
-          <label for="kr-query">Pedido para classificar</label>
+          <label for="kr-engine">Método de roteamento</label><select id="kr-engine"><option value="rules">Regras · padrão conservador</option><option id="kr-engine-ml" value="ml" disabled>ML experimental · TF-IDF + regressão logística</option></select><p id="kr-ml-metrics" class="note">Carregando comparação medida…</p><a href="./reports/kora-ml.json">Relatório completo e erros</a><label for="kr-query">Pedido para classificar</label>
           <textarea id="kr-query" rows="5" maxlength="1200">Compare meus gastos da LUKA com o calendário de eventos do Planner.</textarea>
-          <div class="actions"><button id="kr-run" class="primary kora-glitch" data-text="RODAR PIPELINE" disabled>Classificar localmente</button></div>
+          <div class="actions"><button id="kr-run" class="primary kora-glitch" data-text="RODAR PIPELINE" disabled>Classificar localmente</button><button id="kr-export">Exportar decisão JSON</button></div>
           <p id="kr-status" class="status" role="status">Carregando o catálogo de rotas sintéticas…</p>
-          <p class="note">Nada é salvo. O texto não sai do navegador; o botão não faz chamada a modelo.</p>
+          <p class="note">Nada é salvo automaticamente. A inferência usa pesos locais; exportar baixa somente o pedido e a decisão, sem o JSON financeiro ou de eventos.</p>
         </div>
         <div class="card results">
-          <h3>Decisão inspecionável <span class="mini">REGRAS · SEM ML</span></h3>
+          <h3>Decisão inspecionável <span class="mini">SEM PODER DE EXECUÇÃO</span></h3>
           <div id="kr-output" class="route-output" aria-live="polite"></div>
           <div class="kora-context"><span>ORÇAMENTO DE CONTEXTO</span><strong id="kr-context">— / 1800 caracteres</strong><div class="kora-meter"><i id="kr-context-meter"></i></div></div>
-          <h3>Resposta local sintética</h3><div id="kr-modules" class="kora-modules"><p class="note">Dados fictícios aparecem quando uma rota de finanças ou eventos é selecionada.</p></div>
+          <label for="kr-month">Mês do resumo financeiro</label><input id="kr-month" type="month" value="2026-11">
+          <h3>Resposta calculada localmente</h3><div id="kr-modules" class="kora-modules"><p class="note">Dados fictícios aparecem quando uma rota de finanças ou eventos é selecionada.</p></div>
           <h3>Trechos recuperados · vetores hash + BM25</h3><div id="kr-evidence" class="kora-evidence"><p class="note">Cada passagem mostra score e caminho de origem.</p></div>
-          <p class="note">A “confiança” é uma razão lexical não calibrada, não probabilidade de acerto. A rota orienta o contexto; não prova fatos nem concede permissão. Valores, eventos e documentos são fixtures sintéticas; nenhuma consulta sai do navegador.</p>
-          <a href="./kora/README.md">Como funciona · código e limites</a>
+          <p class="note">A “confiança” é uma razão lexical não calibrada, não probabilidade de acerto. A rota orienta o contexto; não prova fatos nem concede permissão. Os exemplos iniciais e os documentos são sintéticos. Valores e eventos importados são identificados como dados desta sessão; nenhuma consulta sai do navegador.</p>
+          <details class="route-scores"><summary>Experimentar meus dados nesta sessão</summary>
+          <p class="note">Cole uma exportação JSON. Ela permanece na memória desta página; recarregar ou restaurar os exemplos a remove. As fontes documentais abaixo continuam sintéticas.</p>
+          <label for="kr-data-kind">Tipo de dados</label><select id="kr-data-kind"><option value="finance">Exportação LUKA</option><option value="events">Atividades Planner em JSON</option></select>
+          <label for="kr-data">JSON local</label><textarea id="kr-data" rows="6" maxlength="100000" spellcheck="false" placeholder='{"schema":"luka.finance-export/1","transactions":[],"budgets":[]}'></textarea>
+          <div class="actions"><button id="kr-import">Validar e usar nesta sessão</button><button id="kr-reset-data">Restaurar exemplos</button></div>
+          </details><a href="./kora/README.md">Como funciona · código e limites</a>
         </div>
       </div>
     </section>

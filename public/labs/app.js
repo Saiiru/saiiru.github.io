@@ -4,11 +4,13 @@ import {tickets,routeTicket,benchmarkTickets,createReview,approveReview,exportAp
 import {routeWithModel} from './core/vetor-ml.mjs';
 import {corpusPaths,chunkDocuments,retrieve,groundedAnswer,benchmarkRetrieval} from './core/lastro.mjs';
 import {routeKoraRequest} from './core/kora-router.mjs';
+import {selectKoraRoute} from './core/kora-ml.mjs';
+import {summarizeFinance,listEvents} from './core/kora-workspace.mjs';
 
 import {runKoraAssistantDemo} from './core/kora-assistant-demo.mjs';
 
 const $=id=>document.getElementById(id);
-const state={overrides:{},review:null,passages:[],docs:[],search:[],llm:false,model:null,mlReport:null,baseline:{},routeRegistry:null};
+const state={overrides:{},review:null,passages:[],docs:[],search:[],llm:false,model:null,mlReport:null,baseline:{},routeRegistry:null,koraModel:null,koraReport:null,koraFinance:null,koraEvents:null};
 const efGate=createRequestGate(),opGate=createRequestGate(),dtGate=createRequestGate(),corpusGate=createRequestGate();
 const pct=n=>`${(n*100).toFixed(1)}%`;
 function el(tag,cls,text){const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node;}
@@ -103,13 +105,16 @@ async function loadKoraRoutes(){
   $('kr-run').disabled=false;
   setStatus('kr-status','Catálogo carregado. Classificação local; nenhum modelo será chamado.');
   renderKoraRoute();
+  loadKoraModel();
  }catch(error){setStatus('kr-status',error.message);}
 }
 function renderKoraRoute(){
  const output=$('kr-output');
  output.replaceChildren();
  if(!state.routeRegistry){output.append(el('p','route-empty','O catálogo de rotas ainda não está disponível.'));return;}
- const decision=routeKoraRequest($('kr-query').value,state.routeRegistry);
+ const model=$('kr-engine').value==='ml'?state.koraModel:null;
+ const decision=model?selectKoraRoute($('kr-query').value,state.routeRegistry,model):routeKoraRequest($('kr-query').value,state.routeRegistry);
+ const learned=decision.source==='trained-ml';
  if(!decision.skills.length){
   output.append(el('p','route-empty','Sem sinal suficiente. KORA não força uma habilidade; responde pelo contrato geral ou pede contexto.'));
  }else{
@@ -119,12 +124,13 @@ function renderKoraRoute(){
    const row=el('article','route-card');
    row.append(el('span','route-domain',(domain?.domain||'ROTA').replaceAll('-',' ').toUpperCase()));
    row.append(el('strong','',skill));
-   row.append(el('span','route-score','Sinal lexical: '+(decision.scores[domain?.domain]??0)));
+   row.append(el('span','route-score',learned?'Sugestão supervisionada · revisar':'Sinal lexical: '+(decision.scores[domain?.domain]??0)));
    list.append(row);
   }
   output.append(list);
   output.append(el('p','route-reason',decision.reason==='mixed_domains'?'Pedido misto: duas habilidades selecionadas.':'Uma habilidade selecionada.'));
  }
+ if(decision.source==='rules-mixed')output.append(el('p','note','Pedido misto: decisão preservada pelas regras, não pelo modelo de domínio único.'));
  const scores=Object.entries(decision.scores).sort((a,b)=>b[1]-a[1]).slice(0,4);
  if(scores.length){
   const details=el('details','route-scores');
@@ -133,8 +139,10 @@ function renderKoraRoute(){
   for(const [domain,score] of scores)rows.append(el('li','',domain.replaceAll('-',' ')+' — '+score));
   details.append(summary,rows);output.append(details);
  }
- output.append(el('p','route-confidence','Índice lexical: '+decision.confidence.toFixed(2)+' · motivo: '+decision.reason));
- const demo=runKoraAssistantDemo($('kr-query').value,state.routeRegistry);
+ output.append(el('p','route-confidence',(learned?'Pontuação do modelo: ':'Índice lexical: ')+decision.confidence.toFixed(2)+' · motivo: '+decision.reason));
+ let demo;
+ try{demo=runKoraAssistantDemo($('kr-query').value,state.routeRegistry,undefined,{model,finance:state.koraFinance,activities:state.koraEvents,month:$('kr-month').value});}
+ catch(error){setStatus('kr-status',error.message);$('kr-modules').replaceChildren();return;}
  $('kr-context').textContent=demo.contextChars+' / '+demo.contextLimit+' caracteres';
  $('kr-context-meter').style.transform='scaleX('+Math.min(1,demo.contextChars/demo.contextLimit)+')';
  const modules=$('kr-modules');modules.replaceChildren();
@@ -143,8 +151,36 @@ function renderKoraRoute(){
  const evidence=$('kr-evidence');evidence.replaceChildren();
  if(!demo.evidence.length)evidence.append(el('p','note','Nenhuma passagem ultrapassou o limiar local.'));
  for(const passage of demo.evidence){const card=el('article','result kora-evidence-row');card.append(el('strong','',passage.path+' · '+passage.id),el('p','',passage.text),el('code','','cosine '+passage.vectorScore.toFixed(3)+' · BM25-rank '+passage.bm25Score.toFixed(3)+' · combinado '+passage.score.toFixed(3)));evidence.append(card);}
- setStatus('kr-status','Pipeline local concluído: rota, contexto limitado e retrieval com fontes. Nenhuma chamada externa.');
+ setStatus('kr-status','Concluído · '+(learned?'ML experimental; revise a sugestão. ':'Regras locais. ')+'Nenhuma ferramenta ou modelo remoto foi chamado.');
 }
+async function loadKoraModel(){
+ try{
+  const responses=await Promise.all(['./models/kora-router.json','./reports/kora-ml.json'].map(path=>fetch(path)));
+  if(responses.some(r=>!r.ok))throw new Error('Modelo de ML indisponível; regras continuam disponíveis.');
+  const [model,report]=await Promise.all(responses.map(r=>r.json()));
+  selectKoraRoute('teste',state.routeRegistry,model);
+  state.koraModel=model;state.koraReport=report;$('kr-engine-ml').disabled=false;
+  $('kr-ml-metrics').textContent=`Teste sintético: ${report.test.support} pedidos · macro-F1 ML ${report.test.macroF1.toFixed(3)} / regras ${report.test.baselineMacroF1.toFixed(3)} · cobertura ${pct(report.test.coverage)}. Fora do domínio: recusa ${pct(report.ood.rejectionRate)} em ${report.ood.support} casos. ML experimental; regras permanecem como padrão.`;
+ }catch(error){$('kr-ml-metrics').textContent=error.message;}
+}
+$('kr-engine').addEventListener('change',renderKoraRoute);
+$('kr-month').addEventListener('change',renderKoraRoute);
+$('kr-import').addEventListener('click',()=>{
+ try{
+  const raw=$('kr-data').value;if(raw.length>100000)throw new Error('Use até 100 KB de JSON.');
+  const data=JSON.parse(raw);
+  if($('kr-data-kind').value==='finance'){summarizeFinance(data,$('kr-month').value);state.koraFinance=data;}
+  else{listEvents(data);state.koraEvents=data;}
+  renderKoraRoute();setStatus('kr-status','Dados validados e carregados apenas nesta sessão. Escolha a rota correspondente para consultar.');
+ }catch(error){setStatus('kr-status','Importação recusada: '+error.message);}
+});
+$('kr-reset-data').addEventListener('click',()=>{state.koraFinance=null;state.koraEvents=null;$('kr-data').value='';renderKoraRoute();});
+$('kr-export').addEventListener('click',()=>{
+ const model=$('kr-engine').value==='ml'?state.koraModel:null;
+ const query=$('kr-query').value;
+ const decision=model?selectKoraRoute(query,state.routeRegistry,model):routeKoraRequest(query,state.routeRegistry);
+ download('kora-routing-experiment.json',{schema:'kora.routing-experiment/1',query,decision,modelDatasetSha256:model?.datasetSha256||null,importedDataIncluded:false});
+});
 $('kr-run').addEventListener('click',renderKoraRoute);
 $('kr-query').addEventListener('input',()=>{if(state.routeRegistry)renderKoraRoute();});
 $('kr-example').addEventListener('change',event=>{if(event.target.value){$('kr-query').value=event.target.value;renderKoraRoute();}});

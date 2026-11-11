@@ -68,7 +68,7 @@ with sync_playwright() as p:
     assert page.locator('#dt-llm').is_disabled()
     page.goto(BASE+'/labs/?lab=rota',wait_until='networkidle')
     assert page.locator('#panel-rota').is_visible()
-    assert page.locator('#kr-status').inner_text().startswith('Pipeline local concluído')
+    assert page.locator('#kr-status').inner_text().startswith('Concluído')
     assert 'LUKA · DADOS SINTÉTICOS' in page.locator('#kr-modules').inner_text()
     assert 'PLANNER · DADOS SINTÉTICOS' in page.locator('#kr-modules').inner_text()
     assert 'finance-rules.md' in page.locator('#kr-evidence').inner_text()

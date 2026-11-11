@@ -74,24 +74,24 @@ export const datashards = [
   },
   {
     id: 'rota',
-    decision: 'Separei três etapas auditáveis — classificar a intenção, recuperar trechos com origem e montar um contexto limitado. Isso reduz conteúdo irrelevante; o roteador lexical ainda perde paráfrases fora do catálogo.',
+    decision: 'Comparei regras com um classificador treinado para escolher contexto da KORA. O ML permanece experimental: erra pedidos fora do domínio. Cálculos e permissões ficam separados da classificação.',
     serial: 'DSH—004', name: 'Rota', code: 'RT',
     category: 'ASSISTENTE LOCAL-FIRST / ROTEAMENTO E RETRIEVAL',
     accent: 'green',
-    descriptor: 'KORA / contexto enxuto com fontes',
+    descriptor: 'KORA / ML, contexto e dados locais',
     question: 'Como compor um assistente pessoal sem enviar dados sensíveis ao modelo?',
-    summary: 'Uma demonstração independente do KORA classifica pedidos, recupera passagens citadas e limita o contexto. Casos sintéticos mostram como os domínios de finanças e agenda podem devolver dados localmente sem chamar um modelo.',
-    method: 'Teste uma consulta simples ou mista. Inspecione as habilidades escolhidas, os trechos recuperados e as pontuações lexical/vetorial. Os cartões LUKA e Planner usam fixtures inventadas; nenhuma base pessoal é lida.',
-    limitation: 'O laboratório usa regras e quatro documentos de exemplo, não é o banco persistente nem a integração privada da KORA. Vetores hash TF-IDF são sinais lexicais, não embeddings semânticos; a pontuação não é probabilidade. O conjunto sintético de 34 consultas mede regressões conhecidas, não precisão em conversas reais.',
+    summary: 'Uma demonstração da KORA compara regras e ML treinado, busca fontes e limita o contexto. Finanças e eventos são calculados localmente, com exemplos sintéticos ou JSON fornecido durante a sessão.',
+    method: 'Escolha Regras ou ML experimental, compare a rota e consulte o relatório de erros. Edite dados locais de finanças e agenda para conferir os cálculos. Não há conexão à instalação privada nem execução de ações.',
+    limitation: 'Modelo pequeno treinado com dados sintéticos: macro-F1 0,786 em 24 casos; cobertura de 50%. Recusou somente 6 de 12 pedidos fora do domínio. Por isso, regras continuam sendo o padrão. A busca é lexical e a demo não acessa a KORA privada.',
     steps: [
-      ['Rotejar localmente', 'Normalização em português e catálogo versionado selecionam no máximo duas habilidades; pedidos fracos podem abster-se.'],
+      ['Comparar regras e ML', 'TF-IDF + regressão logística sugere um domínio; pedidos explicitamente mistos preservam duas rotas das regras.'],
       ['Recuperar evidências', 'Feature hashing/cosseno e ranking lexical BM25 ordenam passagens; cada resultado preserva caminho e identificador.'],
-      ['Montar contexto limitado', 'Procedimentos e trechos ficam sob 1.800 caracteres. Os fixtures financeiros e de agenda só aparecem para domínios correspondentes.']
+      ['Montar contexto limitado', 'Procedimentos e trechos ficam sob 1.800 caracteres. Finanças e agenda usam adaptadores locais validados, sem envio ao modelo remoto.']
     ],
-    stack: ['JavaScript', 'Roteamento lexical', 'TF-IDF hash', 'Cosseno', 'BM25', 'JSONL', 'Node tests'],
+    stack: ['Python', 'scikit-learn', 'Regressão logística', 'JavaScript', 'TF-IDF', 'BM25', 'Testes'],
     evidence: [
-      '34/34 casos sintéticos correspondem às rotas esperadas; isso é cobertura da regressão, não validação independente.',
-      'Demo mista apresenta finanças e atividades fictícias, fontes recuperadas e orçamento de contexto; não faz chamadas externas.',
+      '72 exemplos de treino, 24 de validação, 24 de teste e 12 fora do domínio. Pesos e relatório reproduzíveis disponíveis.',
+      '49 testes JavaScript e 4 Python; paridade nos 36 exemplos de teste/fora do domínio; interface verificada em quatro larguras.',
       'README distingue o laboratório público do adaptador KORA privado: exportação LUKA e banco Planner ainda precisam ser configurados.'
     ],
     testFile: 'kora-router.test.mjs', module: 'core/kora-assistant-demo.mjs',
@@ -114,7 +114,7 @@ export function createRecord(shard) {
     question: shard.question,
     summary: shard.summary,
     method: shard.method,
-    mode: shard.id==='vetor'?'trained-ml-local':'offline-deterministic',
+    mode: shard.id==='vetor'?'trained-ml-local':shard.id==='rota'?'rules-and-experimental-ml':'offline-deterministic',
     limitations: shard.limitation,
     implementation: shard.steps.map(([title, description]) => ({ title, description })),
     evidence: shard.evidence,
