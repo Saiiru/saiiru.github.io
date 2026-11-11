@@ -15,7 +15,7 @@ test('learned routing matches Python on held-out cases and rejects unknown input
 });
 test('mixed domains remain explicit and classification never grants action permissions',async()=>{
  const model=await read('../models/kora-router.json');
- const d=selectKoraRoute('Compare meus gastos da LUKA com o calendário de eventos do Planner.',registry,model);
+ const d=selectKoraRoute('Compare meus gastos da LUKA com o calendário de eventos da minha agenda KORA.',registry,model);
  assert.deepEqual(d.skills,['kora-events','kora-finance']);
  assert.equal(d.source,'rules-mixed');
  assert.equal(d.canExecute,false);

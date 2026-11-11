@@ -12,7 +12,7 @@ export function formatMoney(value){
 }
 export function summarizeFinance(data,month){
  requireValue(typeof month==='string'&&/^\d{4}-(0[1-9]|1[0-2])$/.test(month),'Mês precisa usar AAAA-MM.');
- requireValue(data?.schema==='luka.finance-export/1'&&Array.isArray(data.transactions)&&data.transactions.length<=10000,'Exportação LUKA inválida (máximo 10.000 lançamentos).');
+ requireValue(data?.schema==='luka.finance-export/1'&&Array.isArray(data.transactions)&&data.transactions.length<=10000,'Exportação financeira inválida (máximo 10.000 lançamentos).');
  const out={income:0,spent:0,planned:0,net:0,budgets:[]},categories=new Map();
  for(const row of data.transactions){
   requireValue(row&&typeof row==='object','Lançamento inválido.');
@@ -36,9 +36,9 @@ export function summarizeFinance(data,month){
 export function listEvents(data){
  requireValue(Array.isArray(data)&&data.length<=1000,'Agenda precisa ser uma lista de até 1.000 atividades.');
  return data.map(row=>{
-  requireValue(row&&typeof row.title==='string'&&row.title.trim()&&row.title.length<=300&&typeof row.trip==='string','Título e viagem são obrigatórios.');
+  requireValue(row&&typeof row.title==='string'&&row.title.trim()&&row.title.length<=300,'Título é obrigatório.');
   requireValue(typeof row.at==='string'&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d{1,3})?)?(Z|[+-]\d{2}:\d{2})$/.test(row.at),'Horário precisa incluir fuso.');
   dateOnly(row.at.slice(0,10));const date=new Date(row.at);requireValue(!Number.isNaN(+date),'Horário inválido.');
-  return {title:row.title,trip:row.trip,at:date.toISOString()};
+  return {title:row.title.trim(),source:'KORA',at:date.toISOString()};
  }).sort((a,b)=>a.at.localeCompare(b.at)||a.title.localeCompare(b.title));
 }

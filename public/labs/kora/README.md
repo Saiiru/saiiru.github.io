@@ -2,7 +2,7 @@
 
 [Experimente no navegador](https://saiiru.github.io/labs/?lab=rota) · [Resultado completo](../reports/kora-ml.json) · [Modelo](../models/kora-router.json) · [Dataset](../ml/data/kora-requests.json)
 
-KORA Rota decide quais procedimentos consultar, monta contexto limitado e calcula resumos financeiros e agendas localmente. É uma demonstração independente da KORA do computador. Não acessa Obsidian, LUKA, Planner, contas ou credenciais reais. Nenhuma ferramenta executa ações em nome do usuário.
+KORA Rota decide quais procedimentos consultar, monta contexto limitado e calcula resumos financeiros e agendas localmente. É uma demonstração independente da KORA do computador. Não acessa Obsidian, o módulo financeiro privado, a agenda privada da KORA, contas ou credenciais reais. Nenhuma ferramenta executa ações em nome do usuário.
 
 ## Experimente em três minutos
 
@@ -35,12 +35,12 @@ Requer Python 3.12 e Node 24. Abra `http://127.0.0.1:4173/?lab=rota`. O treino r
 | --- | --- |
 | Exemplos sintéticos | 72 treino / 24 validação / 24 teste / 12 fora do domínio |
 | Macro-F1 no teste de domínio | ML 0,786 / regras 0,498 |
-| Casos aceitos pelo limiar | 12 de 24 (50%) |
-| Corretos entre os aceitos | 12 de 12 neste conjunto pequeno |
-| Recusa fora do domínio | 6 de 12 (50%): insuficiente para promoção automática |
+| Casos aceitos pelo limiar | 13 de 24 (54,2%) |
+| Corretos entre os aceitos | 13 de 13 neste conjunto pequeno |
+| Recusa fora do domínio | 5 de 12 (41,7%): insuficiente para promoção automática |
 | Paridade Python / navegador | Probabilidades comparadas nos 36 casos de teste e fora do domínio |
 
-Os exemplos foram escritos com IA e separados por famílias de cenário antes do treinamento. Não há anotação independente, dados de empresa, conversas pessoais ou teste em produção. Os 12 acertos aceitos não demonstram confiabilidade geral. Perguntas como “Faça uma receita de pão” foram classificadas incorretamente como estudo; os erros completos estão no relatório.
+Os exemplos foram escritos com IA e separados por famílias de cenário antes do treinamento. Não há anotação independente, dados de empresa, conversas pessoais ou teste em produção. Os 13 acertos aceitos não demonstram confiabilidade geral. Perguntas como “Faça uma receita de pão” foram classificadas incorretamente como estudo; os erros completos estão no relatório.
 
 C é selecionado pelo macro-F1 de validação entre 0,5 / 1 / 4. O limiar usa apenas validação: exige pelo menos 90% de acerto entre os aceitos e maximiza cobertura. Teste e exemplos fora do domínio não são usados para ajustar pesos ou escolher esse limiar. A pontuação softmax não foi calibrada como probabilidade de acerto. Nenhuma alegação de ganho de tokens ou de negócio é feita.
 
@@ -66,16 +66,16 @@ Financeiro: valores inteiros em centavos. `confirmed` e `paid` entram no realiza
 {"schema":"luka.finance-export/1","transactions":[{"transaction_date":"2026-11-01","amount_cents":275,"transaction_type":"expense","status":"paid","category_name":"Material"}],"budgets":[]}
 ```
 
-Eventos: exportação simplificada para a demo, com título, viagem e timestamp com fuso. Não é uma conexão ao banco privado.
+Eventos: exportação simplificada para a demo, com título e timestamp com fuso. Não é uma conexão ao banco privado.
 
 ```json
-[{"title":"Revisão do protótipo","trip":"Laboratório demonstrativo","at":"2026-11-12T10:00:00-03:00"}]
+[{"title":"Revisão do protótipo","at":"2026-11-12T10:00:00-03:00"}]
 ```
 
 ## KORA do computador
 
-O checkout privado possui adaptadores Python para exportação LUKA, SQLite do Planner e índice documental local. A demo pública não comprova que essas fontes pessoais estejam configuradas. O modelo deste laboratório não substitui automaticamente o roteador privado, nem cria novas permissões. Voz, robô e integrações de escrita não fazem parte desta entrega.
+O checkout privado possui adaptadores Python para exportação o módulo financeiro privado, agenda SQLite própria da KORA e índice documental local. A demo pública não comprova que essas fontes pessoais estejam configuradas. O modelo deste laboratório não substitui automaticamente o roteador privado, nem cria novas permissões. Voz, robô e integrações de escrita não fazem parte desta entrega.
 
 ## Referências e visual
 
-Implementação original de CSS com molduras, foco visível e glitch breve já presentes no portfólio. Sem bibliotecas visuais novas e com `prefers-reduced-motion`. Referências de técnica: [CodePen glitch](https://codepen.io/ZTetriminos/pen/WNWOEwe), [terminal](https://codepen.io/cheliam/pen/wmKvdQ), [TF-IDF scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html), [SQLite no Prisma](https://www.prisma.io/docs/orm/v6/overview/databases/sqlite).
+Implementação original de CSS com molduras, foco visível e glitch breve já presentes no portfólio. Sem bibliotecas visuais novas e com `prefers-reduced-motion`. Referências de técnica: [CodePen glitch com movimento reduzido](https://codepen.io/agriffiths17/pen/BawXBxo), [terminal](https://codepen.io/cheliam/pen/wmKvdQ), [TF-IDF scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html), [SQLite transações](https://www.sqlite.org/lang_transaction.html).

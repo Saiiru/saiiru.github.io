@@ -147,7 +147,7 @@
       "label": "events",
       "split": "train",
       "group": "events/trip-schedule",
-      "text": "Mostre as atividades da viagem no Planner"
+      "text": "Mostre as atividades da agenda na KORA"
     },
     {
       "id": "events-train-02",
@@ -182,7 +182,7 @@
       "label": "events",
       "split": "train",
       "group": "events/trip-schedule",
-      "text": "Quando começa a viagem do Planner?"
+      "text": "Quando começa a agenda da KORA?"
     },
     {
       "id": "events-train-07",
@@ -224,7 +224,7 @@
       "label": "events",
       "split": "train",
       "group": "events/trip-schedule",
-      "text": "Confira a programação de atividades no Planner"
+      "text": "Confira a programação de atividades no KORA"
     },
     {
       "id": "events-validation-01",
@@ -245,7 +245,7 @@
       "label": "events",
       "split": "validation",
       "group": "events/timezone",
-      "text": "Em que dia acontece a primeira atividade do Planner?"
+      "text": "Em que dia acontece a primeira atividade da KORA?"
     },
     {
       "id": "events-validation-04",
@@ -273,7 +273,7 @@
       "label": "events",
       "split": "test",
       "group": "events/schedule-conflict",
-      "text": "O compromisso de sexta está confirmado no Planner?"
+      "text": "O compromisso de sexta está confirmado no KORA?"
     },
     {
       "id": "events-test-04",

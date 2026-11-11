@@ -344,14 +344,14 @@
       "domain": "events",
       "skill": "kora-events",
       "phrases": [
-        "eventos do planner",
-        "atividades do planner",
-        "calendario de eventos",
-        "agenda de eventos",
-        "proximos eventos"
+        "eventos da kora",
+        "agenda da kora",
+        "meus compromissos",
+        "proximos eventos",
+        "calendario de eventos"
       ],
       "keywords": [
-        "planner",
+        "agenda",
         "evento",
         "eventos",
         "atividade",

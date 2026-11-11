@@ -17,7 +17,8 @@ async function entry(path,jsBudget,cssBudget){
  return {initialJS,css:styles}
 }
 const files=await readdir(new URL('assets/',docs));assert(!files.some(name=>name.endsWith('.map')))
-const portfolio=await entry('index.html',75,18)
+// The static six-role palette adds 2.2 KiB gzip; keep an explicit 21 KiB CSS cap.
+const portfolio=await entry('index.html',75,21)
 const components=await entry('components/index.html',40,18)
 const inventory=JSON.parse(await readFile(new URL('../src/data/repositories.json',import.meta.url)))
 for(const item of inventory.repositories){const url=new URL(item.url);assert(url.protocol==='https:'&&url.hostname==='github.com'&&!url.username&&!url.password)}

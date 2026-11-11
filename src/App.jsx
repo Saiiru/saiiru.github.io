@@ -9,6 +9,7 @@ import './cyber-motion.css'
 import './contextual-signals.css'
 import './human-interactions.css'
 import './recon-identity.css'
+import './cyber2077.css'
 import DeferredSignalField from './components/DeferredSignalField'
 import SignalText from './components/SignalText'
 import Toolkit from './components/Toolkit'
@@ -18,7 +19,7 @@ import repositorySnapshot from './data/repositories.json'
 import { useCyberMotion, useGlitch } from './useCyberMotion'
 
 const commandOutput = {
-  help: ['COMANDOS DISPONÍVEIS', 'help     lista comandos', 'status   estado do portfólio', 'repos    busca os 62 repositórios públicos', 'stack    mostra tecnologias', 'contact  mostra canais', 'clear    limpa o terminal'],
+  help: ['COMANDOS DISPONÍVEIS', 'help     lista comandos', 'labs     abre laboratórios de IA', 'status   estado do portfólio', 'repos    busca os 62 repositórios públicos', 'stack    mostra tecnologias', 'contact  mostra canais', 'clear    limpa o terminal'],
   repos: ['ARQUIVO GITHUB / REPOSITÓRIOS PÚBLICOS', repositorySnapshot.repositories.length+' repositórios inventariados: '+repositorySnapshot.repositories.filter(item=>!item.fork).length+' próprios e '+repositorySnapshot.repositories.filter(item=>item.fork).length+' forks.', 'Use a busca do arquivo para encontrar tecnologias ou projetos.'],
   status: ['PORTFÓLIO // EM EVOLUÇÃO', 'Tecnologias e formação estão no Toolkit.', 'Novos projetos entram na vitrine após construção e validação.'],
   stack: ['TOOLKIT // TECNOLOGIAS E CONHECIMENTOS', 'Java · Spring · TypeScript · Node.js · React · Angular · SQL · Linux · Git', 'Embarcados e Eletromecânica em estudo; CLP e inversores como próximos conteúdos.'],
@@ -36,7 +37,7 @@ function Terminal() {
     if (!command) return
     if (command === 'clear') setRows([])
     else {
-      const output = command === 'labs' ? ['PROJETOS // APPLIED AI', 'Crivo: avaliação de respostas. Vetor: classificação de chamados com ML. Lastro: busca documental com fontes.', 'Demos e relatórios reproduzíveis no Datashard Archive. Dados sintéticos; desenvolvimento assistido por IA.'] : commandOutput[command] || [`Comando desconhecido: ${command}`, 'Digite help para ver as opções.']
+      const output = command === 'labs' ? ['PROJETOS // APPLIED AI', 'Rota: roteamento da KORA com regras e ML experimental. Vetor: classificador supervisionado. Crivo: testes. Lastro: busca com fontes.', 'Demos e relatórios reproduzíveis no Datashard Archive. Dados sintéticos; desenvolvimento assistido por IA.'] : commandOutput[command] || [`Comando desconhecido: ${command}`, 'Digite help para ver as opções.']
       setRows(current => [...current, { type: 'command', text: `> ${command}` }, ...output.map(text => ({ type: 'system', text }))])
       if (command === 'labs' || command === 'repos') {
         if (command === 'repos') window.dispatchEvent(new Event('blacksite:open-archive'))
@@ -113,16 +114,22 @@ function App(){
  </header>
  <main id="conteudo">
   <section id="inicio" className="hero">
-   <div className="hero-topline"><span>URIAS MACHADO SANTOS</span><span>DESENVOLVEDOR DE SOFTWARE</span><span className="hero-place">BAHIA, BR / UTC −03</span></div>
+   <div className="hero-topline"><span>URIAS MACHADO SANTOS</span><span>SOFTWARE · IA APLICADA</span><span className="hero-place">BAHIA, BR / UTC −03</span></div>
    <div className="hero-stage">
     <div className="type-side" aria-hidden="true"><span>PERSONAL<br/>WORK<br/>ARCHIVE</span><div className="registration"><i/><i/></div><span className="type-side-bottom">DESIGN<br/>BUILD<br/>REPEAT</span></div>
     <GlitchLogo enabled={effectsEnabled}/>
     <div className="hero-titleline"><span>SOFTWARE<span className="dot">.</span></span><span>SISTEMAS<span className="dot">.</span></span><span>AUTOMAÇÃO<span className="dot">.</span></span></div>
-    <div className="hero-bottom"><div className="hero-copy"><p>Software prático. Decisões inspecionáveis.</p><p>Minha experiência passa por desenvolvimento web; hoje estudo Eletromecânica e exploro IA, automação e recuperação de informação em projetos que dá para testar. Gosto de mostrar por que o sistema escolheu uma saída — e quando deve pedir revisão.</p></div><div className="hero-actions"><a className="hero-cta" href="#todos-projetos"><span>VER ESTUDOS<br/>E CÓDIGO</span><ArrowDownRight size={42} strokeWidth={1.2}/></a><a className="hero-library-link" href="/components/">EXPLORAR INTERFACES <ArrowUpRight size={16} aria-hidden="true"/></a></div><div className="hero-barcode" aria-hidden="true"><div/><span>SAIRU—BLACKSITE—2026</span></div></div>
+    <div className="hero-bottom"><div className="hero-copy"><p>Software que resolve problemas. IA que dá para investigar.</p><p>Trabalhei com desenvolvimento web e hoje estudo Eletromecânica no SENAI. Nos laboratórios de IA, exploro classificação de texto, recuperação de documentos e testes automatizados — com código aberto, dados sintéticos e limites declarados.</p></div><div className="hero-actions"><a className="hero-cta" href="#labs"><span>TESTAR OS<br/>LABORATÓRIOS</span><ArrowDownRight size={42} strokeWidth={1.2}/></a><a className="hero-library-link" href="/components/">EXPLORAR INTERFACES <ArrowUpRight size={16} aria-hidden="true"/></a></div><div className="hero-barcode" aria-hidden="true"><div/><span>SAIRU—BLACKSITE—2026</span></div></div>
    </div>
    <div className="hero-footerline"><span>SOFTWARE, SISTEMAS EMBARCADOS E ELETROMECÂNICA.</span><span><span className="live-indicator"/> PORTFÓLIO EM CONSTRUÇÃO CONTÍNUA</span><span>SCROLL TO EXPLORE ↓</span></div>
   </section>
   <Marquee/>
+  <section className="proof-strip section-wrap" aria-label="Método de trabalho nos laboratórios de IA">
+   <h2>Da hipótese<br/>à <span>evidência.</span></h2>
+   <div><ol className="proof-steps"><li>Entrada</li><li>Rota</li><li>Avaliação</li><li>Fontes</li></ol>
+    <p>Quero conseguir explicar não só o que o programa fez, mas o que acontece quando erra. Os laboratórios mostram a entrada, as decisões, os testes e os casos em que o sistema deve pedir revisão. São experimentos reproduzíveis — não serviços em produção.</p>
+   </div>
+  </section>
   <DatashardArchive/><PublicArchive/>
   <section id="sobre" className="about-section">
    <div className="about-inner section-wrap"><div className="about-main"><h2>CURIOSIDADE<br/>É O <span>COMEÇO.</span><br/>CÓDIGO É<br/>O CAMINHO.</h2><p>Sou Urias — ou Sairu, como apareço na maioria dos meus projetos. Comecei desenvolvendo aplicações web. O que mais me prende à programação é aquele momento em que um erro deixa de ser misterioso: você encontra a causa, testa uma hipótese e vê o sistema funcionar.</p><p>Trabalhei com software na Capgemini, Infomakers e Agência Digital S/A. Hoje estudo Eletromecânica no SENAI e exploro ferramentas, eletrônica e modelos de linguagem. Este espaço acompanha meus estudos e meu histórico em desenvolvimento.</p><a className="about-projects-link" href="#todos-projetos">VER TODOS OS PROJETOS <ArrowUpRight size={18}/></a></div>

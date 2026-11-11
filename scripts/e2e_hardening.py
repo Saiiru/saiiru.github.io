@@ -24,15 +24,11 @@ with sync_playwright() as p:
  page.get_by_role('button',name='EXPLORAR O ARQUIVO',exact=False).click()
  page.get_by_role('button',name='APIs e backend',exact=True).click()
  page.locator('#archive-search').fill('ada-commerce')
- assert page.locator('.public-repo').count()==1
- assert 'Java 17' in page.locator('.public-repo').inner_text()
- assert page.locator('.public-repo').get_attribute('href')=='https://github.com/Saiiru/ada-commerce'
+ assert page.locator('.public-repo').count()==0
  page.locator('#archive-search').fill('Plann.er')
- assert page.locator('.public-repo').count()==1
- assert 'não inclui interface web' in page.locator('.public-repo').inner_text()
- assert page.locator('.public-repo').get_attribute('href')=='https://github.com/Saiiru/Plann.er'
+ assert page.locator('.public-repo').count()==0
  page.locator('#archive-search').fill('')
- print('PASS repaired repository descriptions, search and backend category')
+ print('PASS curated archive excludes deferred repositories')
  page.locator('#contato').scroll_into_view_if_needed()
  page.wait_for_function('() => (document.querySelector(".contact-field").dataset.renderer==="webgl")')
  assert page.evaluate('gpuContexts')==1

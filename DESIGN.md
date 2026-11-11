@@ -24,7 +24,7 @@ The main page mounts **PublicArchive**, the **technologies-only Toolkit**, and t
 
 Toolkit data is in `src/data/toolkit.js` and selection is implemented in `src/components/Toolkit.jsx`. Software, embedded systems and electromechanics/control are separate groups. Each technology exposes context, learning status and related concepts. Java/Spring includes IoC and dependency injection. CLP/control is a learning interest and frequency drives are planned study, not professional experience. No computing engineering degree or additional job title is claimed.
 
-PublicArchive uses the repository snapshot with curated descriptions from `src/data/repository-notes.json`. Ada Commerce is an educational team CLI in Java 17 with in-memory data and simulated order/payment/delivery flow. Plann.er is an educational TypeScript/Fastify/SQLite travel API for local execution; it has no frontend or authentication layer. Do not describe either as a deployed production service or invent outcomes.
+PublicArchive presents a curated subset of the repository snapshot (Ada Commerce and Plann.er deferred) with descriptions from `src/data/repository-notes.json`. Ada Commerce is an educational team CLI in Java 17 with in-memory data and simulated order/payment/delivery flow. Plann.er is an educational TypeScript/Fastify/SQLite travel API for local execution; it has no frontend or authentication layer. Do not describe either as a deployed production service or invent outcomes.
 
 ## Contact and deferred field
 
@@ -78,3 +78,15 @@ The existing finite signature pulse also drives an original SVG registration fra
 ## Pesquisa aplicada em 2026-11-09
 
 Os nove artigos freeCodeCamp foram triados por pertinência e risco de apresentar trabalho não realizado. A paleta e a cópia do hero foram atualizadas; a ligação entre README, prova visual e projeto está documentada em [design/2026-freecodecamp-applied-reading.md](design/2026-freecodecamp-applied-reading.md). A proposta de um benchmark de roteamento de skills do KORA permanece proposta em [design/luka-routebench-brief.md](design/luka-routebench-brief.md), não integrada nem anunciada como projeto concluído.
+
+## 2026-11-11 — Identidade Night City / GenAI (substitui decisões cromáticas anteriores)
+
+A imagem de referência enviada pelo proprietário fixa seis papéis: Deep Void `#050505`, Cyber Yellow `#F3E600`, Bionic Cyan `#00E5FF`, Hot Pink `#FF2DAA`, Netrunner Blade `#0313A6` e Night City Red `#C5003C`. O verde/coral das seções históricas acima fica como registro de versões anteriores; a paleta ativa é implementada em `src/cyber2077.css`, importada depois de `src/recon-identity.css`.
+
+O amarelo carrega o wordmark, o ciano indica interação/ML, o rosa é contraste de glitch, azul é profundidade e vermelho comunica alerta. Texto regular usa neutros de alto contraste, não o vermelho ou azul saturado. Glitch finito, respeito ao movimento reduzido, WebGL sob demanda e fonte Oxanium permanecem. O monograma SVG original recebeu as duas cores complementares (ciano e rosa).
+
+O Hero passa a abrir os laboratórios e uma faixa explica o processo: entrada → roteamento → avaliação → fontes. A vitrine contém Crivo, Vetor, Lastro e Rota; a Rota é inicialmente selecionada sem afirmar que a demo pública executa inferência com o assistente privado. O projeto financeiro privado foi removido da apresentação pública. Dados reais e chaves nunca devem entrar na demo.
+
+O orçamento de CSS inicial passa de 18 para **21 KiB gzip**, com verificação automatizada, devido à pele visual adicional. A razão é verificável no build, mas não constitui uma medição de velocidade do visitante. [Registro das fontes oficiais do iFood, Reddit e limitações](design/2026-11-11-ifood-genai-portfolio.md).
+
+Não há obrigação de migrar estrutura, shaders ou stack para espelhar tecnologias do iFood; o objetivo é demonstrar resultados reproduzíveis com ferramentas que o autor consegue explicar.

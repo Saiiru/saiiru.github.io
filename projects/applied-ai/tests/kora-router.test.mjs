@@ -40,20 +40,20 @@ test('malformed route records fail closed', () => {
   assert.throws(() => routeKoraRequest('hello', [{ domain: 'x', skill: '../oops', phrases: [], keywords: [] }]), TypeError);
 });
 
-test('finance and Planner routes are present and have synthetic local demonstrations', () => {
+test('finance and KORA agenda routes are present and have synthetic local demonstrations', () => {
   const finance = routeKoraRequest('Quero o resumo financeiro e meus gastos do mês.', registry);
-  const events = routeKoraRequest('Mostre as atividades e eventos do Planner.', registry);
+  const events = routeKoraRequest('Mostre os eventos da minha agenda KORA.', registry);
   assert.deepEqual(finance.skills, ['kora-finance']);
   assert.deepEqual(events.skills, ['kora-events']);
   const financeDemo = runKoraAssistantDemo('resumo financeiro', registry);
-  assert.equal(financeDemo.modules[0].domain, 'FINANCE / LUKA · DADOS SINTÉTICOS');
+  assert.equal(financeDemo.modules[0].domain, 'FINANCEIRO LOCAL · DADOS SINTÉTICOS');
   assert.ok(financeDemo.evidence.some(row => row.path.includes('finance-rules.md')));
-  const eventDemo = runKoraAssistantDemo('eventos do Planner', registry);
-  assert.equal(eventDemo.modules[0].domain, 'EVENTS / PLANNER · DADOS SINTÉTICOS UTC');
+  const eventDemo = runKoraAssistantDemo('eventos da minha agenda KORA', registry);
+  assert.equal(eventDemo.modules[0].domain, 'EVENTS / KORA · DADOS SINTÉTICOS UTC');
 });
 
 test('mixed KORA demo stays bounded and never calls an external provider', () => {
-  const result = runKoraAssistantDemo('Compare meus gastos da LUKA com o calendário de eventos do Planner.', registry);
+  const result = runKoraAssistantDemo('Compare meus gastos da LUKA com o calendário de eventos da minha agenda KORA.', registry);
   assert.deepEqual(result.decision.skills, ['kora-events', 'kora-finance']);
   assert.equal(result.modules.length, 2);
   assert.ok(result.contextChars <= result.contextLimit);

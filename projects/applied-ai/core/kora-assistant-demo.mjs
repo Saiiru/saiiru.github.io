@@ -7,14 +7,14 @@ const DIM = 256;
 const CONTEXT_LIMIT = 1800;
 const PROCEDURES = {
   'kora-finance': 'Usar exportação selecionada. Calcular valores em centavos. Somente confirmed/paid entram no realizado; planned fica separado. Responder localmente.',
-  'kora-events': 'Ler atividades Planner em modo somente leitura. Preservar vínculo com a viagem e mostrar UTC. Responder localmente.',
+  'kora-events': 'Ler agenda da KORA. Escrita somente por comando explícito com confirmação no host; demo apenas consulta JSON local. Mostrar horários com fuso.',
   'kora-senai-study': 'Partir da dúvida concreta, explicar em passos e propor verificação curta.',
   'kora-embedded-debug': 'Coletar versão, ligação e log; mudar uma variável por vez; registrar resultado.',
   'kora-knowledge-rag': 'Recuperar trecho com referência e abster-se sem fonte.'
 };
 const DOCS = [
-  {path:'kora-fixtures/finance-rules.md',text:'# LUKA / resumo financeiro, gastos e orçamento\nMovimentações confirmed e paid são entradas e despesas realizadas. Itens planned são gastos planejados, compromissos futuros e ficam fora do saldo realizado. Quantias são calculadas como centavos inteiros.'},
-  {path:'kora-fixtures/planner-activities.md',text:'# Planner / atividade\nAtividades pertencem a uma viagem e possuem título e instante occurs_at. A consulta de eventos preserva o destino da viagem, ordena por UTC e não escreve no banco.'},
+  {path:'kora-fixtures/finance-rules.md',text:'# Financeiro local / resumo financeiro, gastos e orçamento\nMovimentações confirmed e paid são entradas e despesas realizadas. Itens planned são gastos planejados, compromissos futuros e ficam fora do saldo realizado. Quantias são calculadas como centavos inteiros.'},
+  {path:'kora-fixtures/kora-agenda.md',text:'# KORA / agenda\nEventos possuem título e instante com fuso. A demo ordena sem escrever; no host, a agenda SQLite é própria da KORA e requer confirmação para mudanças.'},
   {path:'kora-fixtures/privacy.md',text:'# KORA / privacidade\nDados financeiros e eventos pessoais ficam no host local. As consultas determinísticas não são enviadas ao modelo remoto. Alterações exigem aprovação separada.'},
   {path:'kora-fixtures/retrieval.md',text:'# KORA / recuperação\nO índice SQLite local armazena vetores TF-IDF com feature hashing e usa FTS5 BM25 para busca lexical. O resultado preserva a origem do trecho e limita o contexto.'}
 ];
@@ -55,13 +55,13 @@ function moduleData(decision,options){
  const modules=[];
  if(decision.domains.includes('finance')){
   const f=summarizeFinance(options.finance||FINANCE,options.month??'2026-11');
-  modules.push({domain:'FINANCE / LUKA · '+(options.finance?'DADOS DESTA SESSÃO':'DADOS SINTÉTICOS'),lines:[
+  modules.push({domain:'FINANCEIRO LOCAL · '+(options.finance?'DADOS DESTA SESSÃO':'DADOS SINTÉTICOS'),lines:[
    'Período: '+(options.month??'2026-11'),'Entradas realizadas: '+formatMoney(f.income),'Saídas realizadas: '+formatMoney(f.spent),
    'Saldo do período: '+formatMoney(f.net),'Planejado (separado): '+formatMoney(f.planned),
    ...f.budgets.map(b=>b.category+': '+formatMoney(b.spent)+' / '+formatMoney(b.limit)+' · restante '+formatMoney(b.remaining))]});
  }
- if(decision.domains.includes('events'))modules.push({domain:'EVENTS / PLANNER · '+(options.activities?'DADOS DESTA SESSÃO UTC':'DADOS SINTÉTICOS UTC'),
- lines:listEvents(options.activities||ACTIVITIES).map(e=>e.at+' · '+e.title+' · '+e.trip)});
+ if(decision.domains.includes('events'))modules.push({domain:'EVENTS / KORA · '+(options.activities?'DADOS DESTA SESSÃO UTC':'DADOS SINTÉTICOS UTC'),
+ lines:listEvents(options.activities||ACTIVITIES).map(e=>e.at+' · '+e.title+' · '+e.source)});
  return modules;
 }
 

@@ -1,70 +1,87 @@
 # SAIRU / BLACKSITE
 
-Site pessoal de Urias Machado Santos: software, sistemas embarcados e formação técnica em Eletromecânica.
+**Software, IA aplicada e sistemas embarcados — com código, decisões técnicas e testes que podem ser inspecionados.**
 
-- [Site publicado](https://saiiru.github.io/)
-- [Biblioteca interativa de interfaces](https://saiiru.github.io/components/) · [Código e reuso](components/README.md)
-- [Perfil GitHub](https://github.com/Saiiru)
-- [Mapa do workspace](WORKSPACE.md)
-- [Decisões visuais](DESIGN.md) · [Pesquisa e medições](design/quality/RESEARCH.md) · [Leitura aplicada dos artigos](design/2026-freecodecamp-applied-reading.md) · [Segurança e limites](SECURITY.md)
+Portfólio de Urias Machado Santos (Sairu), desenvolvedor com experiência profissional em software, atualmente estudante do Técnico em Eletromecânica no SENAI Bahia. Os laboratórios públicos são estudos e protótipos; não alegam uso em produção ou impacto comercial.
 
-## Interface atual
+[**Abrir portfólio**](https://saiiru.github.io/) · [**Testar os laboratórios**](https://saiiru.github.io/labs/) · [**Biblioteca de interfaces**](https://saiiru.github.io/components/) · [**Pesquisar repositórios**](https://saiiru.github.io/#todos-projetos)
 
-O Toolkit contém tecnologias e conhecimentos, com distinção entre experiência profissional, prática de bancada e conteúdos em estudo. O arquivo lista repositórios existentes e identifica forks. Os estudos Crivo, Vetor e Lastro têm demos executáveis, código e relatórios; foram desenvolvidos com assistência de IA com resultados e limitações documentados.
+## O que vale examinar
 
-Os repositórios Ada Commerce e Plann.er receberam revisão funcional: [CLI Java](https://github.com/Saiiru/ada-commerce) e [API TypeScript](https://github.com/Saiiru/Plann.er). Os READMEs explicam como executar e o escopo educacional de cada um. O Plann.er não inclui frontend nem autenticação.
-
-## Projetos de IA e ML
-
-| Projeto | Demonstração | Documentação |
+| Laboratório | Problema e técnica | Evidência disponível |
 | --- | --- | --- |
-| Crivo — regressões em respostas | [Testar](https://saiiru.github.io/labs/?lab=crivo) | [README](projects/applied-ai/crivo/README.md) |
-| Vetor — classificação com ML | [Testar](https://saiiru.github.io/labs/?lab=vetor) | [Treino e modelo](projects/applied-ai/vetor/README.md) |
-| Lastro — busca com fontes | [Testar](https://saiiru.github.io/labs/?lab=lastro) | [README](projects/applied-ai/lastro/README.md) |
+| **[Rota / KORA](https://saiiru.github.io/labs/?lab=rota)** | Roteamento de pedidos, contexto limitado, busca híbrida, regras e modelo supervisionado experimental | [Código e documentação](projects/applied-ai/kora/README.md) · benchmark sintético · comparação Python/JavaScript |
+| **[Vetor](https://saiiru.github.io/labs/?lab=vetor)** | Classificação de texto com TF-IDF e regressão logística, revisão humana obrigatória | [Treino, model card e testes](projects/applied-ai/vetor/README.md) |
+| **[Crivo](https://saiiru.github.io/labs/?lab=crivo)** | Critérios de avaliação, regressões e explicação de falhas | [Código, casos e testes](projects/applied-ai/crivo/README.md) |
+| **[Lastro](https://saiiru.github.io/labs/?lab=lastro)** | Busca BM25 em Markdown com referências e recusa quando falta evidência | [Código e benchmark](projects/applied-ai/lastro/README.md) |
 
-[Resultados reproduzíveis](projects/applied-ai/BENCHMARK.md) · [Relato técnico](projects/applied-ai/EXPERIMENT.md). Dados sintéticos; não são resultados de empresas nem treinamento de LLM.
+Esses estudos são **demos estáticas executadas no navegador**. Usam exemplos sintéticos e código local, sem acesso ao assistente privado, a contas pessoais ou a um serviço de LLM do visitante. ML clássico não equivale a LLM; busca lexical não equivale a compreensão semântica; métricas desses conjuntos não provam desempenho em produção. Veja [resultados](projects/applied-ai/BENCHMARK.md), [experimentos](projects/applied-ai/EXPERIMENT.md) e [limites de segurança](SECURITY.md).
 
-## Desenvolvimento
+## Experiência, estudos e arquitetura
 
-Node >=20.19; verificado com Node 24.14.0.
+O portfólio preserva o histórico de trabalho em **Capgemini**, **Infomakers** e **Agência Digital S/A** e distingue experiência profissional de laboratório e de conteúdo em aprendizagem. O Toolkit apresenta Java/Spring, JavaScript/TypeScript, front-end, SQL, Linux/Git e os estudos de ML, ESP32 e Eletromecânica sem atribuir senioridade ou qualificações inexistentes.
 
-    npm ci
-    npm run dev
+A divisão é deliberada:
 
-Edite src/ e public/. npm run build gera docs/, publicado pelo GitHub Pages a partir de main/docs. O wrapper de build força produção no processo, mesmo se o ambiente do terminal estiver definido como development. Não edite bundles em docs/assets/.
+```text
+src/                       Interface, layout, interações e conteúdo
+src/components/datashards.js   Contratos dos estudos apresentados
+src/data/toolkit.js         Habilidades com nível declarado
+projects/applied-ai/        Código-fonte, datasets, testes e documentação dos labs
+public/labs/                Versão estática dos laboratórios
+components/                 Componentes visuais originais
+docs/                       Build publicado pelo GitHub Pages
+design/                     Decisões, referências, experimentos e capturas
+```
 
-## Verificação
+A KORA operacional e seus dados pessoais não são publicados aqui. O laboratório Rota explica princípios testáveis sem simular acesso à instalação privada. O portfólio não envia solicitações ao provedor de IA por conta própria.
 
-    npm run build
-    npm run check:build
-    npm run check:components
-    npm audit
-    python3 -m http.server 4392 --directory docs --bind 127.0.0.1
+## Como executar
 
-Em outro terminal, com Python/Playwright e Chromium disponíveis:
+Requer Node >=20.19 (ambiente validado anteriormente com Node 24.14) e Python para os scripts de avaliação e browser.
 
-    python3 scripts/e2e_toolkit.py
-    python3 scripts/e2e_recon.py
-    python3 scripts/e2e_hardening.py
-    python3 scripts/e2e_motion_budget.py
-    python3 scripts/e2e_components.py
+```bash
+npm ci
+npm run dev
 
-Veja [scripts/README.md](scripts/README.md) para os pré-requisitos e limites. Não há um score de Lighthouse ou certificação de segurança alegado.
+# Produção e verificações locais
+npm run build
+npm run check:build
+npm run check:components
+node --test projects/applied-ai/tests/*.test.mjs
+python scripts/test_genai_portfolio.py
+```
 
-## Identidade e movimento
+Para validar no navegador, abra o build estático e configure o endereço do servidor:
 
-Carvão índigo, verde-luz, coral, ciano e violeta formam a identidade cyberpunk. Glitches curtos respondem à entrada e ao ponteiro; o conteúdo permanece legível. A faixa tipográfica pausa fora da tela. O campo fluido do contato carrega perto da seção e pausa fora da tela ou com a aba oculta. A preferência do sistema por movimento reduzido é respeitada; falhas de WebGL usam fundo estático.
+```bash
+python3 -m http.server 4392 --directory docs --bind 127.0.0.1
+BASE_URL=http://127.0.0.1:4392 python3 scripts/e2e_hardening.py
+BASE_URL=http://127.0.0.1:4392 python3 scripts/e2e_recon.py
+BASE_URL=http://127.0.0.1:4392 python3 scripts/e2e_datashards.py
+```
 
-- Tecnologias: src/data/toolkit.js e src/components/Toolkit.jsx
-- Inventário: src/data/repositories.json
-- Contexto revisado dos projetos: src/data/repository-notes.json
-- Identidade: src/recon-identity.css, src/useCyberMotion.js
-- Fundo: src/components/DeferredSignalField.jsx e SignalField.jsx
+Os testes de navegador precisam de Playwright Python e Chromium. Consulte [scripts/README.md](scripts/README.md). Não alegamos auditoria independente, nota de Lighthouse ou certificação formal.
 
-## Referências e licenças
+## Direção visual — BLACKSITE / Night City
 
-Nothing Portfolio de Ankit Shrestha mantém o aviso MIT em LICENSE. Oxanium é distribuída sob OFL. As adaptações MIT de CSS do Cybercore estão documentadas em design/contextual-signals/ e public/licenses/; nenhum pacote Cybercore foi instalado. A pesquisa atual distingue inspiração visual de código copiado.
+A paleta recebida como referência foi transformada em um sistema de cores por função, não aplicada como seis néons simultâneos:
 
-## Biblioteca CyberArch Web
+| Papel | Cor |
+| --- | --- |
+| Deep Void — superfície principal | `#050505` |
+| Cyber Yellow — assinatura e destaque editorial | `#F3E600` |
+| Bionic Cyan — interação e foco técnico | `#00E5FF` |
+| Hot Pink — sinal complementar e glitch | `#FF2DAA` |
+| Netrunner Blade — áreas instrumentais profundas | `#0313A6` |
+| Night City Red — falha / alerta (não texto comum) | `#C5003C` |
 
-24 componentes originais de HTML/CSS/JS em components/, com nove estudos CRT e mapa de 30 famílias visuais/142 arquivos de referência. A galeria é uma entrada separada do build. Só o feedback finito de moldura é compartilhado com os links do arquivo e contato. APIs nativas e shaders Slang não foram convertidos em serviços de navegador: veja os limites e a pesquisa em components/README.md.
+Os brilhos são pontuais. A prioridade é **legibilidade, navegação por teclado, provas de engenharia e movimento limitado**. O glitch do nome reage ao ponteiro; o conteúdo essencial continua legível sem animações. A renderização WebGL do contato é carregada sob demanda, tem fallback estático e respeita `prefers-reduced-motion`.
+
+[Leia o racional do redesign e pesquisa do GenAI iFood](design/2026-11-11-ifood-genai-portfolio.md) · [Design system e decisões técnicas](DESIGN.md)
+
+## Licenças e fontes
+
+A marca SAIRU, os componentes SVG e os shaders do portfólio são originais. Oxanium está sob OFL; Nothing Portfolio, de Ankit Shrestha, serviu como referência com licença MIT; fragmentos CSS de Cybercore são atribuídos conforme [licenças e pesquisa](design/contextual-signals/RESEARCH.md). A identidade da imagem de referência foi estudada como paleta; não foram copiados assets comerciais de Cyberpunk 2077.
+
+O código e as fontes estão disponíveis para inspeção. Não confunda protótipo, repositório estudado (fork), trabalho profissional e sistema em produção.

@@ -28,7 +28,7 @@
 {"query": "Quero o resumo financeiro e meus gastos do mês.", "expected": ["kora-finance"]}
 {"query": "Mostre o orçamento financeiro atual e o saldo.", "expected": ["kora-finance"]}
 {"query": "Veja as despesas planejadas e entradas confirmadas da LUKA.", "expected": ["kora-finance"]}
-{"query": "Mostre as atividades e eventos do Planner.", "expected": ["kora-events"]}
+{"query": "Mostre as atividades e eventos da minha agenda KORA.", "expected": ["kora-events"]}
 {"query": "Quais são os próximos eventos no calendário?", "expected": ["kora-events"]}
 {"query": "Organize meus compromissos e atividades por data.", "expected": ["kora-events"]}
-{"query": "Compare meus gastos da LUKA com o calendário de eventos do Planner.", "expected": ["kora-events", "kora-finance"]}
+{"query": "Compare meus gastos da LUKA com o calendário de eventos da minha agenda KORA.", "expected": ["kora-events", "kora-finance"]}
