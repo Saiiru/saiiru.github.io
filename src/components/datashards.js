@@ -82,7 +82,7 @@ export const datashards = [
     question: 'Como compor um assistente pessoal sem enviar dados sensíveis ao modelo?',
     summary: 'Uma demonstração da KORA compara regras e ML treinado, busca fontes e limita o contexto. Finanças e eventos são calculados localmente, com exemplos sintéticos ou JSON fornecido durante a sessão.',
     method: 'Escolha Regras ou ML experimental, compare a rota e consulte o relatório de erros. Edite dados locais de finanças e agenda para conferir os cálculos. Não há conexão à instalação privada nem execução de ações.',
-    limitation: 'Modelo pequeno treinado com dados sintéticos: macro-F1 0,786 em 24 casos; cobertura de 50%. Recusou somente 6 de 12 pedidos fora do domínio. Por isso, regras continuam sendo o padrão. A busca é lexical e a demo não acessa a KORA privada.',
+    limitation: 'Modelo pequeno treinado com dados sintéticos: macro-F1 0,786 em 24 casos; cobertura de 54,2%. Recusou somente 5 de 12 pedidos fora do domínio. Por isso, regras continuam sendo o padrão. A busca é lexical e a demo não acessa a KORA privada.',
     steps: [
       ['Comparar regras e ML', 'TF-IDF + regressão logística sugere um domínio; pedidos explicitamente mistos preservam duas rotas das regras.'],
       ['Recuperar evidências', 'Feature hashing/cosseno e ranking lexical BM25 ordenam passagens; cada resultado preserva caminho e identificador.'],
@@ -92,7 +92,7 @@ export const datashards = [
     evidence: [
       '72 exemplos de treino, 24 de validação, 24 de teste e 12 fora do domínio. Pesos e relatório reproduzíveis disponíveis.',
       '49 testes JavaScript e 4 Python; paridade nos 36 exemplos de teste/fora do domínio; interface verificada em quatro larguras.',
-      'README distingue o laboratório público do adaptador KORA privado: exportação LUKA e banco Planner ainda precisam ser configurados.'
+      'README distingue a demonstração pública da instalação privada: os dados pessoais de finanças e agenda permanecem locais, fora da demo.'
     ],
     testFile: 'kora-router.test.mjs', module: 'core/kora-assistant-demo.mjs',
     image: '/assets/previews/rota.svg',

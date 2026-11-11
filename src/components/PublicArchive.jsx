@@ -16,7 +16,8 @@ const searchIndex = item => [
 ].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()
 
 // Curated context survives inventory refreshes without changing repository ownership or URLs.
-const repositories=inventory.repositories.map(item=>{
+const hiddenFromPortfolio = new Set(['ada-commerce', 'Plann.er', 'LUKA-MKI', 'luka-mki', 'luka'])
+const repositories=inventory.repositories.filter(item=>!hiddenFromPortfolio.has(item.name)).map(item=>{
   const note=notes[item.name]
   return note ? {...item,description:note.description,category:note.category} : item
 })
@@ -69,11 +70,11 @@ export default function PublicArchive(){
   }
   return <section ref={archiveRef} className="public-archive section-wrap" id="todos-projetos" aria-labelledby="public-archive-heading">
     <div className="public-archive-heading" data-reveal>
-      <div className="archive-eyebrow"><span>INDEX/002</span><span>ALL PUBLIC REPOSITORIES</span></div>
+      <div className="archive-eyebrow"><span>INDEX/002</span><span>CURATED PUBLIC REPOSITORIES</span></div>
       <div className="public-archive-title-row">
         <h2 id="public-archive-heading">ARQUIVO<br/><em>DE CÓDIGO.</em></h2>
         <div className="public-archive-summary">
-          <p>Aqui estão os repositórios públicos: código, estudos, experimentos, interfaces e ferramentas que fui construindo ou acompanhando. Cada repositório tem seu próprio contexto e estado de desenvolvimento.</p>
+          <p>Nesta seleção estão repositórios públicos: código, estudos, experimentos, interfaces e ferramentas que fui construindo ou acompanhando. Cada repositório tem seu próprio contexto e estado de desenvolvimento.</p>
           <p>Também há forks de outros autores. Eles aparecem identificados — porque estudar um projeto não é o mesmo que ter criado tudo do zero.</p>
           <button type="button" className="archive-reveal-button" onClick={()=>setOpen(v=>!v)} aria-expanded={open} aria-controls="all-public-repos">
             {open?'FECHAR ARQUIVO':'EXPLORAR O ARQUIVO'} <ArrowDown size={18} aria-hidden="true" className={open?'turn':''}/>
@@ -81,10 +82,10 @@ export default function PublicArchive(){
         </div>
       </div>
       <div className="public-archive-counts" aria-label="Contagem de repositórios públicos">
-        <div><strong>{totals.all.toString().padStart(2,'0')}</strong><span>PUBLICADOS</span></div>
+        <div><strong>{totals.all.toString().padStart(2,'0')}</strong><span>NA VITRINE</span></div>
         <div><strong>{totals.own.toString().padStart(2,'0')}</strong><span>PRÓPRIOS</span></div>
         <div><strong>{totals.forks.toString().padStart(2,'0')}</strong><span>FORKS / REFERÊNCIAS</span></div>
-        <span>INVENTÁRIO DO GITHUB · {inventory.generatedAt}</span>
+        <span>SELEÇÃO DO INVENTÁRIO · {inventory.generatedAt}</span>
       </div>
     </div>
     {open&&<div id="all-public-repos" className="archive-table-panel">

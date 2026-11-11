@@ -18,13 +18,13 @@
             <option value="">Escolha um caso ou escreva abaixo</option>
             <option value="Explique a lei de Ohm e me dê um exercício resolvido.">Estudo SENAI</option>
             <option value="Meu ESP32 falhou no XPT2046.">Depuração embarcada</option>
-            <option value="Quero o resumo financeiro e meus gastos do mês.">Financeiro / LUKA</option>
-            <option value="Mostre as atividades e eventos do Planner.">Eventos / Planner</option>
-            <option value="Compare meus gastos da LUKA com o calendário de eventos do Planner.">Pedido misto / finanças + agenda</option>
+            <option value="Quero o resumo financeiro e meus gastos do mês.">Financeiro local / dados de exemplo</option>
+            <option value="Mostre os eventos da minha agenda KORA.">Eventos / KORA</option>
+            <option value="Preciso de resumo financeiro e calendário de eventos.">Pedido misto / finanças + agenda</option>
             <option value="Quero falar sobre projetos.">Sinal fraco / abstenção</option>
           </select>
           <label for="kr-engine">Método de roteamento</label><select id="kr-engine"><option value="rules">Regras · padrão conservador</option><option id="kr-engine-ml" value="ml" disabled>ML experimental · TF-IDF + regressão logística</option></select><p id="kr-ml-metrics" class="note">Carregando comparação medida…</p><a href="./reports/kora-ml.json">Relatório completo e erros</a><label for="kr-query">Pedido para classificar</label>
-          <textarea id="kr-query" rows="5" maxlength="1200">Compare meus gastos da LUKA com o calendário de eventos do Planner.</textarea>
+          <textarea id="kr-query" rows="5" maxlength="1200">Preciso de resumo financeiro e calendário de eventos.</textarea>
           <div class="actions"><button id="kr-run" class="primary kora-glitch" data-text="RODAR PIPELINE" disabled>Classificar localmente</button><button id="kr-export">Exportar decisão JSON</button></div>
           <p id="kr-status" class="status" role="status">Carregando o catálogo de rotas sintéticas…</p>
           <p class="note">Nada é salvo automaticamente. A inferência usa pesos locais; exportar baixa somente o pedido e a decisão, sem o JSON financeiro ou de eventos.</p>
@@ -39,8 +39,8 @@
           <p class="note">A “confiança” é uma razão lexical não calibrada, não probabilidade de acerto. A rota orienta o contexto; não prova fatos nem concede permissão. Os exemplos iniciais e os documentos são sintéticos. Valores e eventos importados são identificados como dados desta sessão; nenhuma consulta sai do navegador.</p>
           <details class="route-scores"><summary>Experimentar meus dados nesta sessão</summary>
           <p class="note">Cole uma exportação JSON. Ela permanece na memória desta página; recarregar ou restaurar os exemplos a remove. As fontes documentais abaixo continuam sintéticas.</p>
-          <label for="kr-data-kind">Tipo de dados</label><select id="kr-data-kind"><option value="finance">Exportação LUKA</option><option value="events">Atividades Planner em JSON</option></select>
-          <label for="kr-data">JSON local</label><textarea id="kr-data" rows="6" maxlength="100000" spellcheck="false" placeholder='{"schema":"luka.finance-export/1","transactions":[],"budgets":[]}'></textarea>
+          <label for="kr-data-kind">Tipo de dados</label><select id="kr-data-kind"><option value="finance">JSON financeiro local</option><option value="events">Eventos da KORA em JSON</option></select>
+          <label for="kr-data">JSON local</label><textarea id="kr-data" rows="6" maxlength="100000" spellcheck="false" placeholder="Cole a exportação JSON apenas se não contiver dados sensíveis"></textarea>
           <div class="actions"><button id="kr-import">Validar e usar nesta sessão</button><button id="kr-reset-data">Restaurar exemplos</button></div>
           </details><a href="./kora/README.md">Como funciona · código e limites</a>
         </div>

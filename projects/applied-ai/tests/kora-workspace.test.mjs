@@ -19,9 +19,9 @@ test('invalid dates and unsafe integers fail closed',()=>{
  assert.throws(()=>summarizeFinance(data,'2026-02'));
 });
 test('event ordering normalizes timezone and preserves source containers',()=>{
- const rows=listEvents([{title:'B',trip:'Demo',at:'2026-11-11T11:00:00-03:00'},{title:'A',trip:'Demo',at:'2026-11-11T13:00:00Z'}]);
- assert.deepEqual(rows.map(x=>x.title),['A','B']);assert.equal(rows[1].at,'2026-11-11T14:00:00.000Z');
- assert.throws(()=>listEvents([{title:'X',at:'2026-11-11T10:00:00',trip:'Demo'}]));
+ const rows=listEvents([{title:'B',at:'2026-11-11T11:00:00-03:00'},{title:'A',at:'2026-11-11T13:00:00Z'}]);
+ assert.deepEqual(rows.map(x=>x.title),['A','B']);assert.equal(rows[1].at,'2026-11-11T14:00:00.000Z');assert.equal(rows[0].source,'KORA');
+ assert.throws(()=>listEvents([{title:'X',at:'2026-11-11T10:00:00'}]))
 });
 test('retrieval abstains on unrelated words instead of hash collisions',()=>{
  assert.deepEqual(retrieveKoraEvidence('zqxnonexistentvocabulary'),[]);

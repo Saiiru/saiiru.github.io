@@ -14,7 +14,7 @@ with sync_playwright() as p:
  assert page.locator('a[href^="mailto:"]').count()==0
  assert not re.search(r'[\w.+-]+@[\w.-]+\.[a-z]{2,}',page.locator('body').inner_text())
  assert page.locator('.contact-channel').count()==2
- assert page.locator('.portfolio').evaluate('(e)=>getComputedStyle(e).getPropertyValue("--signal").strip()' .replace('.strip()', '.trim()'))=='#9ce8bf'
+ assert page.locator('.portfolio').evaluate('(e)=>getComputedStyle(e).getPropertyValue("--signal").strip()' .replace('.strip()', '.trim()'))=='#00E5FF'
  assert page.locator('.brand img').get_attribute('src')=='/brand/sairu-mark.svg'
  page.screenshot(path=str(OUT/'desktop-hero.png'))
  page.locator('#contato').scroll_into_view_if_needed();page.wait_for_timeout(400)

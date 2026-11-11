@@ -10,7 +10,7 @@ const sections = [
   { id: 'evidence', label: 'Testes e provas' }
 ]
 function initialShard() {
-  return resolveShard(new URL(window.location.href).searchParams.get('shard'))
+  return resolveShard(new URL(window.location.href).searchParams.get('shard') || 'rota')
 }
 
 /** Original vector memory module, not an asset extracted from a game. */
@@ -113,7 +113,7 @@ export default function DatashardArchive() {
   return <section id="labs" className="section-wrap datashards-section">
     <header className="archive-heading">
       <div><h2>DATASHARD<br/><span>ARCHIVE.</span></h2></div>
-      <div className="archive-intro"><p>Quatro projetos. Quatro problemas.<br/>Um modelo treinado. Resultados inspecionáveis.</p><span>Cada arquivo abre um projeto, a decisão técnica por trás dele e as evidências disponíveis. Teste a demo; depois confira o código, os testes e os limites.</span></div>
+      <div className="archive-intro"><p>Quatro laboratórios de IA aplicada.<br/>Modelos, testes e fontes verificáveis.</p><span>Cada arquivo abre um projeto, a decisão técnica por trás dele e as evidências disponíveis. Teste a demo; depois confira o código, os testes e os limites.</span></div>
     </header>
     <div className="archive-wayfinding" aria-label="Como navegar pelos projetos">
       <span><b>01</b> ESCOLHA UM DATASHARD</span>
@@ -175,7 +175,6 @@ export default function DatashardArchive() {
       <div className="archive-bottom"><span>OS EXEMPLOS SÃO SINTÉTICOS, E OS TESTES SÃO REPRODUZÍVEIS</span><span>ESTUDOS DESENVOLVIDOS COM ASSISTÊNCIA DE IA <ArrowUpRight size={12}/></span></div>
     </div>
 
-    <div className="archive-linked-repos"><span>PREFERE UMA LISTA DE PROJETOS?</span><a href="https://github.com/Saiiru/ada-commerce" target="_blank" rel="noopener noreferrer">Ada Commerce<ArrowUpRight size={18}/></a><a href="https://github.com/Saiiru/Plann.er" target="_blank" rel="noopener noreferrer">Plann.er API<ArrowUpRight size={18}/></a></div>
     <a className="archive-complete-link" href="#todos-projetos">ABRIR O ARQUIVO COMPLETO DE REPOSITÓRIOS <ArrowDown size={18}/></a>
   </section>
 }
