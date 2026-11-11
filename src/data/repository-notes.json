@@ -6,5 +6,40 @@
   "Plann.er": {
     "description": "API educacional de viagens em TypeScript, Fastify e SQLite: participantes, atividades, links e convites. Execução local; não inclui interface web.",
     "category": "APIs e backend"
+  },
+  "SpringBootCart": {
+    "title": "Carrinho e pedidos — API Spring Boot",
+    "description": "API educacional de carrinho para delivery, em Java e Spring. Precisa de testes de regras, CI e documentação reprodutível antes de virar destaque.",
+    "category": "APIs e backend"
+  },
+  "SDW24": {
+    "title": "Assistente de campeões — Java + IA (estudo)",
+    "description": "Exercício Java com IA aplicado a informações de campeões de League of Legends. Demonstração de estudo; integração, limites e testes ainda precisam de revisão.",
+    "category": "IA e dados"
+  },
+  "SDW23": {
+    "title": "API REST — Santander Dev Week 2023",
+    "description": "Laboratório Java de API REST desenvolvido durante a Santander Dev Week 2023. Projeto de aprendizado, não serviço em produção.",
+    "category": "APIs e backend"
+  },
+  "EstruturaDeDados": {
+    "title": "Estruturas de dados — exercícios em Java",
+    "description": "Estudo de estruturas de dados em Java. A evolução precisa de casos de complexidade, testes e exemplos executáveis.",
+    "category": "Estudos e recursos"
+  },
+  "node-typescript-api": {
+    "title": "API Node.js e TypeScript — fundamentos",
+    "description": "Exercício de backend com Node.js e TypeScript. Não promover a projeto-âncora antes de publicar README e testes.",
+    "category": "APIs e backend"
+  },
+  "BancoATMJavaPOO": {
+    "title": "Banco digital — fundamentos de orientação a objetos",
+    "description": "Exercício Java de banco digital desenvolvido em bootcamp; modelagem de entidades e operações, sem alegar processamento bancário real.",
+    "category": "Estudos e recursos"
+  },
+  "DesignPatternsAPIDIO": {
+    "title": "Padrões de projeto — API Spring",
+    "description": "Laboratório Java/Spring sobre padrões de projeto. Evidências de testes e trade-offs devem ser documentadas.",
+    "category": "APIs e backend"
   }
 }

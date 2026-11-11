@@ -15,6 +15,7 @@ import SignalText from './components/SignalText'
 import Toolkit from './components/Toolkit'
 import PublicArchive from './components/PublicArchive'
 import DatashardArchive from './components/DatashardArchive'
+import KoraCaseStudy from './components/KoraCaseStudy'
 import repositorySnapshot from './data/repositories.json'
 import { useCyberMotion, useGlitch } from './useCyberMotion'
 
@@ -109,7 +110,7 @@ function App(){
  <div className="edge-code" aria-hidden="true">BLACKSITE // OPEN WORKSPACE — FEIRA DE SANTANA, BR</div>
  <header className="site-nav">
   <a href="#inicio" onClick={close} className="brand" aria-label="Sairu, início"><img src="/brand/sairu-mark.svg" alt="" width="38" height="38"/><span className="brand-label"><SignalText>SAIRU</SignalText><span className="brand-detail"> / BLACKSITE</span></span></a>
-  <nav aria-label="Navegação principal" className={menuOpen?'navigation open':'navigation'}><a href="#labs" onClick={close}><SignalText>PROJETOS</SignalText></a><a href="#todos-projetos" onClick={close}><SignalText>REPOSITÓRIOS</SignalText></a><a href="#sobre" onClick={close}><SignalText>SOBRE</SignalText></a><a href="#stack" onClick={close}><SignalText>STACK</SignalText></a><a href="#contato" onClick={close}><SignalText>CONTATO</SignalText><ArrowUpRight size={13}/></a></nav>
+  <nav aria-label="Navegação principal" className={menuOpen?'navigation open':'navigation'}><a href="#caso-kora" onClick={close}><SignalText>PROJETOS</SignalText></a><a href="#todos-projetos" onClick={close}><SignalText>REPOSITÓRIOS</SignalText></a><a href="#sobre" onClick={close}><SignalText>SOBRE</SignalText></a><a href="#stack" onClick={close}><SignalText>STACK</SignalText></a><a href="#contato" onClick={close}><SignalText>CONTATO</SignalText><ArrowUpRight size={13}/></a></nav>
   <button ref={menuButton} className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen?'Fechar menu':'Abrir menu'}>{menuOpen?<X/>:<Menu/>}</button>
  </header>
  <main id="conteudo">
@@ -130,7 +131,7 @@ function App(){
     <p>Quero conseguir explicar não só o que o programa fez, mas o que acontece quando erra. Os laboratórios mostram a entrada, as decisões, os testes e os casos em que o sistema deve pedir revisão. São experimentos reproduzíveis — não serviços em produção.</p>
    </div>
   </section>
-  <DatashardArchive/><PublicArchive/>
+  <KoraCaseStudy/><DatashardArchive/><PublicArchive/>
   <section id="sobre" className="about-section">
    <div className="about-inner section-wrap"><div className="about-main"><h2>CURIOSIDADE<br/>É O <span>COMEÇO.</span><br/>CÓDIGO É<br/>O CAMINHO.</h2><p>Sou Urias — ou Sairu, como apareço na maioria dos meus projetos. Comecei desenvolvendo aplicações web. O que mais me prende à programação é aquele momento em que um erro deixa de ser misterioso: você encontra a causa, testa uma hipótese e vê o sistema funcionar.</p><p>Trabalhei com software na Capgemini, Infomakers e Agência Digital S/A. Hoje estudo Eletromecânica no SENAI e exploro ferramentas, eletrônica e modelos de linguagem. Este espaço acompanha meus estudos e meu histórico em desenvolvimento.</p><a className="about-projects-link" href="#todos-projetos">VER TODOS OS PROJETOS <ArrowUpRight size={18}/></a></div>
    <div className="about-history" id="trajetoria"><h3>EXPERIÊNCIA</h3>

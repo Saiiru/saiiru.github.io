@@ -12,14 +12,14 @@ const filters = [
 ]
 const visiblePerPage = 14
 const searchIndex = item => [
-  item.name, item.description, item.language, item.category
+  item.name, item.title, item.description, item.language, item.category
 ].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()
 
 // Curated context survives inventory refreshes without changing repository ownership or URLs.
 const hiddenFromPortfolio = new Set(['ada-commerce', 'Plann.er', 'LUKA-MKI', 'luka-mki', 'luka'])
 const repositories=inventory.repositories.filter(item=>!hiddenFromPortfolio.has(item.name)).map(item=>{
   const note=notes[item.name]
-  return note ? {...item,description:note.description,category:note.category} : item
+  return note ? {...item,title:note.title,description:note.description,category:note.category} : item
 })
 
 export default function PublicArchive(){
@@ -114,7 +114,8 @@ export default function PublicArchive(){
         {shown.map((project,i)=><a role="listitem" key={project.url} className="public-repo" href={project.url} target="_blank" rel="noopener noreferrer" aria-label={'Abrir no GitHub: '+project.name+(project.fork?', fork de terceiros':'')}>
           <span className="repo-index">{String(i+1).padStart(2,'0')}</span>
           <span className="repo-info">
-            <strong>{highlightName(project.name)}</strong>
+            <strong>{project.title || highlightName(project.name)}</strong>
+            {project.title&&<span className="repo-slug">{project.name}</span>}
             <span>{project.description || 'Repositório público no GitHub. Abra para examinar o código e o histórico.'}</span>
           </span>
           <span className="repo-tags">
