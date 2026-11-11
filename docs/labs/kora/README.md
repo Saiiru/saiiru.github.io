@@ -1,5 +1,7 @@
 # KORA Rota — assistente local e laboratório de ML
 
+[**Estudo de caso KORA: problema, arquitetura, decisões, resultados e limitações**](CASE_STUDY.md)
+
 [Experimente no navegador](https://saiiru.github.io/labs/?lab=rota) · [Resultado completo](../reports/kora-ml.json) · [Modelo](../models/kora-router.json) · [Dataset](../ml/data/kora-requests.json)
 
 KORA Rota decide quais procedimentos consultar, monta contexto limitado e calcula resumos financeiros e agendas localmente. É uma demonstração independente da KORA do computador. Não acessa Obsidian, o módulo financeiro privado, a agenda privada da KORA, contas ou credenciais reais. Nenhuma ferramenta executa ações em nome do usuário.

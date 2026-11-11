@@ -90,3 +90,14 @@ O Hero passa a abrir os laboratórios e uma faixa explica o processo: entrada �
 O orçamento de CSS inicial passa de 18 para **21 KiB gzip**, com verificação automatizada, devido à pele visual adicional. A razão é verificável no build, mas não constitui uma medição de velocidade do visitante. [Registro das fontes oficiais do iFood, Reddit e limitações](design/2026-11-11-ifood-genai-portfolio.md).
 
 Não há obrigação de migrar estrutura, shaders ou stack para espelhar tecnologias do iFood; o objetivo é demonstrar resultados reproduzíveis com ferramentas que o autor consegue explicar.
+
+
+## 2026-11-11 — KORA em primeiro plano e engenharia demonstrável
+
+A navegação "PROJETOS" agora começa no caso de uso principal: **KORA — próxima ação verificável**. O botão de hero "TESTAR OS LABORATÓRIOS" preserva acesso direto ao catálogo de quatro demos. O estudo de caso é um traço sintético, não um endpoint para a instalação privada.
+
+O componente `src/components/KoraCaseStudy.jsx` usa a paleta Night City já aprovada. Os Datashards mantêm seus nomes de laboratório, mas exibem títulos descritivos e links diretamente a README, relatório e testes; o arquivo GitHub mostra títulos editoriais selecionados ao lado do slug original, sem renomear URLs ou reclassificar forks como projetos próprios.
+
+O contrato `tests/project-proof.test.mjs` verifica que os artefatos locais e os arquivos do catálogo existem. O teste visual `scripts/e2e_datashards.py` foi atualizado de três demos antigas para Crivo, Vetor, Lastro e Rota, incluindo teclado, deep links e exportação de JSON. A pipeline GitHub Actions `quality.yml` executa testes JS, build, checks de budget/components e testes de treino em Python. O deploy manual foi corrigido para enviar `docs/`, após build e verificações.
+
+Capturas revisadas: `design/quality/2026-11-11-kora-case-desktop.png` e `design/quality/2026-11-11-kora-case-mobile.png`. A amostra pública Rota não está integrada às fontes privadas da KORA; os dois projetos devem continuar identificados separadamente. Não usar número de testes como prova de impacto no usuário.

@@ -140,8 +140,8 @@ export default function DatashardArchive() {
 
         <div id="shard-reader" className={'shard-reader accent-'+shard.accent} role="region" aria-labelledby="reader-title">
           <div className="reader-ribbon"><span className="reader-bus" aria-hidden="true"/><span>PROJETO SELECIONADO · COMO FUNCIONA</span><span>{String(index+1).padStart(2,'0')} / {String(datashards.length).padStart(2,'0')}</span></div>
-          <div className="reader-title-row"><div><span className="reader-path">{shard.serial} / {shard.category}</span><h3 id="reader-title"><SignalText>{shard.name}</SignalText></h3></div><span className="reader-file-icon" aria-hidden="true"><FileCode2 size={29} strokeWidth={1}/></span></div>
-          <div className="reader-meta"><span>DEMO FUNCIONAL</span><span>DADOS DE EXEMPLO</span><span>CÓDIGO + TESTES</span></div>
+          <div className="reader-title-row"><div><span className="reader-path">{shard.serial} / {shard.category}</span><h3 id="reader-title"><SignalText>{shard.name}</SignalText></h3><p className="reader-human-title">{shard.publicTitle}</p></div><span className="reader-file-icon" aria-hidden="true"><FileCode2 size={29} strokeWidth={1}/></span></div>
+          <div className="reader-meta"><span>{shard.status.toUpperCase()}</span><span>DADOS DE EXEMPLO</span><span>CÓDIGO + TESTES</span></div>
 
           <div className="reader-tabs" role="tablist" aria-label={'Seções do dossiê '+shard.name}>
             {sections.map((section,i)=><button key={section.id} ref={el=>tabs.current[i]=el} id={'shard-tab-'+section.id} type="button" role="tab" aria-selected={tab===section.id} aria-controls={'shard-panel-'+section.id} tabIndex={tab===section.id?0:-1} onClick={()=>setTab(section.id)} onKeyDown={event=>tabKeys(event,i)}>{section.label}</button>)}
@@ -166,7 +166,14 @@ export default function DatashardArchive() {
             </div>
           </div>
 
-          <div className="reader-actions"><a className="shard-demo-link" href={shard.demo}>TESTAR O PROJETO <ArrowUpRight size={20}/></a><a className="shard-source-link" href={shard.source} target="_blank" rel="noopener noreferrer">ENTENDER O CÓDIGO <ArrowUpRight size={16}/></a></div>
+          <div className="reader-actions">
+            <a className="shard-demo-link" href={shard.demo}>TESTAR O PROJETO <ArrowUpRight size={20}/></a>
+            <a className="shard-source-link" href={shard.source+'/'+shard.readme.replace('projects/applied-ai/', '')} target="_blank" rel="noopener noreferrer">LER O README <ArrowUpRight size={16}/></a>
+          </div>
+          <div className="reader-proof-links">
+            <a href={shard.source+'/'+shard.report.replace('projects/applied-ai/', '')} target="_blank" rel="noopener noreferrer">RELATÓRIO DE AVALIAÇÃO <ArrowUpRight size={14}/></a>
+            <a href={shard.source+'/tests/'+shard.testFile} target="_blank" rel="noopener noreferrer">CÓDIGO DOS TESTES <ArrowUpRight size={14}/></a>
+          </div>
           <div className="reader-utilities"><button type="button" className="shard-export" onClick={exportRecord}><Download size={14}/> EXPORTAR .JSON</button><button type="button" className="shard-share" onClick={copyLink}><Copy size={13}/> COPIAR LINK</button><span>FORMATO ABERTO / SEM BLOQUEIO</span></div>
           {copyStatus&&<div className="reader-share-status" role="status"><span>{copyStatus}</span>{copyStatus.startsWith('Selecione')&&<input aria-label="Link do datashard" readOnly value={shareURL} onFocus={event=>event.target.select()}/>}</div>}
           <span className="sr-only" role="status">{shard.name+' aberto. '+read.size+' de '+datashards.length+' registros lidos nesta visita.'}</span>

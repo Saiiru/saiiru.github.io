@@ -15,6 +15,12 @@ with sync_playwright() as p:
         assert page.locator('.shard-select').count()==4,width
         assert page.locator('.shard-select[aria-pressed="true"]').get_attribute('data-shard')=='rota',width
         assert page.locator('.proof-strip').count()==1
+        case = page.locator('#caso-kora')
+        assert case.count()==1
+        assert case.get_by_role('link', name='Experimentar a Rota').count()==1
+        assert case.get_by_role('link', name='Estudo de caso').count()==1
+        assert 'dados sintéticos' in case.inner_text().lower()
+        assert 'sem LLM' in case.inner_text()
         assert page.locator('a[href*="workers.dev"]').count()==0
         assert 'LUKA' not in page.locator('#labs').inner_text()
         color=page.locator('.portfolio').evaluate('(e)=>getComputedStyle(e).getPropertyValue("--signal").trim()')
@@ -28,6 +34,13 @@ with sync_playwright() as p:
         assert not errors,errors
         print('PASS portfolio width',width)
         page.close()
+    page=browser.new_page()
+    page.goto(URL,wait_until='networkidle')
+    page.get_by_role('button', name='EXPLORAR O ARQUIVO').click()
+    page.get_by_role('searchbox',name='Buscar projeto, tecnologia ou descrição').fill('SpringBootCart')
+    assert page.get_by_text('Carrinho e pedidos — API Spring Boot').count()==1
+    assert page.get_by_text('SpringBootCart',exact=True).count()==1
+    page.close()
     page=browser.new_page()
     page.goto(URL+'/?shard=vetor#labs',wait_until='networkidle')
     assert page.locator('.shard-reader h3').inner_text()=='Vetor'

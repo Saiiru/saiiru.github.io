@@ -4,13 +4,13 @@
 
 Portfólio de Urias Machado Santos (Sairu), desenvolvedor com experiência profissional em software, atualmente estudante do Técnico em Eletromecânica no SENAI Bahia. Os laboratórios públicos são estudos e protótipos; não alegam uso em produção ou impacto comercial.
 
-[**Abrir portfólio**](https://saiiru.github.io/) · [**Testar os laboratórios**](https://saiiru.github.io/labs/) · [**Biblioteca de interfaces**](https://saiiru.github.io/components/) · [**Pesquisar repositórios**](https://saiiru.github.io/#todos-projetos)
+[**Estudo de caso: KORA**](projects/applied-ai/kora/CASE_STUDY.md) · [**Abrir portfólio**](https://saiiru.github.io/) · [**Testar os laboratórios**](https://saiiru.github.io/labs/) · [**Biblioteca de interfaces**](https://saiiru.github.io/components/) · [**Pesquisar repositórios**](https://saiiru.github.io/#todos-projetos)
 
 ## O que vale examinar
 
 | Laboratório | Problema e técnica | Evidência disponível |
 | --- | --- | --- |
-| **[Rota / KORA](https://saiiru.github.io/labs/?lab=rota)** | Roteamento de pedidos, contexto limitado, busca híbrida, regras e modelo supervisionado experimental | [Código e documentação](projects/applied-ai/kora/README.md) · benchmark sintético · comparação Python/JavaScript |
+| **[KORA / Rota](https://saiiru.github.io/labs/?lab=rota)** — [estudo de caso](projects/applied-ai/kora/CASE_STUDY.md) | Roteamento de pedidos, contexto limitado, busca híbrida, regras e modelo supervisionado experimental | [Código e documentação](projects/applied-ai/kora/README.md) · benchmark sintético · comparação Python/JavaScript |
 | **[Vetor](https://saiiru.github.io/labs/?lab=vetor)** | Classificação de texto com TF-IDF e regressão logística, revisão humana obrigatória | [Treino, model card e testes](projects/applied-ai/vetor/README.md) |
 | **[Crivo](https://saiiru.github.io/labs/?lab=crivo)** | Critérios de avaliação, regressões e explicação de falhas | [Código, casos e testes](projects/applied-ai/crivo/README.md) |
 | **[Lastro](https://saiiru.github.io/labs/?lab=lastro)** | Busca BM25 em Markdown com referências e recusa quando falta evidência | [Código e benchmark](projects/applied-ai/lastro/README.md) |
@@ -48,7 +48,7 @@ npm run dev
 npm run build
 npm run check:build
 npm run check:components
-node --test projects/applied-ai/tests/*.test.mjs
+npm test
 python scripts/test_genai_portfolio.py
 ```
 
@@ -59,6 +59,7 @@ python3 -m http.server 4392 --directory docs --bind 127.0.0.1
 BASE_URL=http://127.0.0.1:4392 python3 scripts/e2e_hardening.py
 BASE_URL=http://127.0.0.1:4392 python3 scripts/e2e_recon.py
 BASE_URL=http://127.0.0.1:4392 python3 scripts/e2e_datashards.py
+BASE_URL=http://127.0.0.1:4392 python3 scripts/e2e_genai_portfolio.py
 ```
 
 Os testes de navegador precisam de Playwright Python e Chromium. Consulte [scripts/README.md](scripts/README.md). Não alegamos auditoria independente, nota de Lighthouse ou certificação formal.
