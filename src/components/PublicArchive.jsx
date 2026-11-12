@@ -13,7 +13,7 @@ const filters = [
 ]
 const visiblePerPage = 14
 const searchIndex = item => [
-  item.name, item.title, item.description, item.language, item.category, item.stage, ...(item.stack || [])
+  item.name, item.legacySlug, item.title, item.description, item.language, item.category, item.stage, ...(item.stack || [])
 ].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()
 
 // Public repositories are preserved independently; the 12 study profiles
@@ -36,6 +36,7 @@ const repositories=inventory.repositories.map(item=>{
       description: standalone.purpose,
       category: archiveGroup[standalone.group],
       stage: standalone.stage,
+      legacySlug: standalone.legacySlug,
       stack: standalone.stack
     })
   }
@@ -134,7 +135,7 @@ export default function PublicArchive(){
           <span className="repo-index">{String(i+1).padStart(2,'0')}</span>
           <span className="repo-info">
             <strong>{project.title || highlightName(project.name)}</strong>
-            {project.title&&<span className="repo-slug">{project.name}</span>}
+            {project.title&&<span className="repo-slug">{project.name}{project.legacySlug&&project.legacySlug!==project.name?' · antes: '+project.legacySlug:''}</span>}
             <span>{project.description || 'Repositório público no GitHub. Abra para examinar o código e o histórico.'}</span>
           </span>
           <span className="repo-tags">

@@ -10,10 +10,10 @@ from playwright.sync_api import sync_playwright
 
 BASE = os.environ.get("BASE_URL", "http://127.0.0.1:4396")
 EXPECTED = [
-    "AngularFrontEndMasters", "DesafioPooDio", "dio-angular-develloper",
-    "dio-trilha-basico", "dtmoney", "IgniteLab", "minimal-portfolio",
-    "skills-copilot-codespaces-vscode", "sofi-test", "starwarsplanets",
-    "Plann.er", "ada-commerce",
+    "AngularFrontEndMasters", "java-oop-bootcamp", "git-github-foundations",
+    "java-algorithms-labs", "react-finance-dashboard", "ignite-lab-archive", "portfolio-ui-experiments",
+    "skills-copilot-codespaces-vscode", "ruby-prefix-grouping", "starwarsplanets",
+    "travel-planner-api", "java-order-management-cli",
 ]
 CAPTURE_DIR = Path(os.environ.get("CAPTURE_DIR", "/tmp/standalone-portfolio-captures"))
 
@@ -35,27 +35,40 @@ with sync_playwright() as p:
         group.locator(".standalone-project").first.wait_for(timeout=12000)
         assert group.locator(".standalone-project").count() == 12, width
         assert group.locator(".standalone-family").count() == 4, width
+        assert group.locator(".standalone-featured-card").count() == 2, width
+        assert group.locator(".standalone-ledger-row").count() == 10, width
         for slug in EXPECTED:
             link = group.get_by_role("link", name="Examinar " + slug + " no GitHub")
             assert link.count() == 1, (width, slug)
             assert link.get_attribute("href") == "https://github.com/Saiiru/" + slug
-        assert "nenhum depende da KORA" in group.inner_text(), width
+        assert "sem ligação com a KORA" in group.inner_text(), width
         assert page.evaluate("document.documentElement.scrollWidth<=innerWidth"), width
         assert not errors, (width, errors)
         if width in (390, 1440):
             group.screenshot(path=str(CAPTURE_DIR / f"standalone-{width}.png"))
+        if width == 390:
+            compact = group.locator(".standalone-ledger-row").first
+            compact.locator("summary").click()
+            assert compact.get_by_role("link", name="DOCUMENTAÇÃO TÉCNICA").is_visible()
+            assert compact.get_by_text("Nome anterior:").count() == 1
         page.get_by_role("button", name="EXPLORAR O ARQUIVO").click()
-        for slug in ("Plann.er", "ada-commerce"):
+        for slug in ("travel-planner-api", "java-order-management-cli"):
             search = page.get_by_role("searchbox", name="Buscar projeto, tecnologia ou descrição")
             search.fill(slug)
             result = page.locator(".public-repo")
             assert result.count() >= 1, (slug, width)
             assert result.filter(has=page.locator(".repo-slug", has_text=slug)).count() >= 1, (slug, width)
+        for old, current in (("Plann.er", "travel-planner-api"), ("ada-commerce", "java-order-management-cli")):
+            search.fill(old)
+            rows = page.locator(".public-repo")
+            assert rows.count() == 1, (width, old, rows.count())
+            assert rows.first.get_attribute("href") == "https://github.com/Saiiru/" + current
         page.close()
         print("STANDALONE_PASS", width)
     deep = browser.new_page(viewport={"width": 390, "height": 844})
     deep.goto(BASE + "/#projetos-independentes", wait_until="networkidle")
     deep.locator("#projetos-independentes .standalone-project").first.wait_for(timeout=12000)
+    assert deep.locator(".navigation a").first.get_attribute("href") == "#projetos-independentes"
     assert deep.locator("#projetos-independentes .standalone-project").count() == 12
     deep.close()
     print("STANDALONE_DEEP_LINK_PASS")
