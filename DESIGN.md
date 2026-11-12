@@ -130,3 +130,10 @@ Three independent React frontends now have verified public GitHub Pages URLs: re
 Other confirmed evidence: Travel Planner API 22 passing integration tests plus TypeScript build, Java Order Management CLI completed an in-memory paid/delivered order, Java algorithms and object-oriented design smoke tests passed and Ruby prefix-grouping existing tests passed. The API uses SQLite and must not be deployed as stateless Vercel Functions without durable database storage. Training-only repositories remain explicitly nondeployable. No KORA integration.
 
 The main portfolio now links directly to each published frontend demonstration alongside the repository and technical brief, and tracks their current verification instead of stale “implementation missing” or “not tested” claims. Do not claim production banking or persistence for demo-only software.
+
+
+## 2026-11-12 — Angular and Travel Planner independent follow-up
+
+The historical Angular Component Lab now supports local-only CRUD in the browser, public hash navigation, SWAPI pagination (60 planets and 36 starships) and responsive handling. It is hosted on the original GitHub Pages URL; Chromium tests passed on both desktop and mobile against the live URL. The Angular framework itself is still version 8 and must not be represented as migrated or secure production software.
+
+The Travel Planner API now includes local Docker Compose with a named persistent SQLite volume and readiness endpoint. 23 integration tests and a real synthetic create/read/restart/read smoke flow passed. Its container was stopped. Do not claim this is a public API; lack of authorization and serverless storage preclude immediate Vercel hosting.

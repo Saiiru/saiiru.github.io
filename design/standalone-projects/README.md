@@ -31,13 +31,13 @@ Regras de negócio, persistência e fluxos locais.
 
 #### [Travel Planner API](https://github.com/Saiiru/travel-planner-api)
 
-**Antes:** `Plann.er` · **Estado:** API de estudo · 22 testes locais · **Stack:** TypeScript, Fastify, SQLite.
+**Antes:** `Plann.er` · **Estado:** API de estudo · 23 testes + Docker · **Stack:** TypeScript, Fastify, SQLite.
 
 **Finalidade:** API independente para planejar viagens em grupo, confirmar participantes e organizar atividades, convites e links em um único itinerário.
 
 **Resumo:** Planejamento de viagens, atividades e participantes por API.
 
-**Próximo teste:** A API passou em 22 testes; publicar com escrita exige banco persistente e controles de acesso.
+**Próximo teste:** Docker com volume persistiu viagem após reinício; publicar exige autenticação e banco gerenciado. Tutorial em docs/LOCAL_DEPLOY_AND_STUDY.md.
 
 [Ler documentação técnica original](https://github.com/Saiiru/travel-planner-api/blob/main/docs/PROJECT_BRIEF.md)
 
@@ -59,15 +59,17 @@ Experimentos visuais e construção de experiências web.
 
 #### [Angular Component Lab](https://github.com/Saiiru/AngularFrontEndMasters)
 
-**Antes:** `AngularFrontEndMasters` · **Estado:** Legado Angular 8 · build de compatibilidade · **Stack:** Angular 8, TypeScript.
+**Antes:** `AngularFrontEndMasters` · **Estado:** Angular 8 · funcional, legado · **Stack:** Angular 8, TypeScript.
 
 **Finalidade:** Aplicação de aprendizagem para praticar arquitetura de componentes, telas e interações em Angular ao longo de uma trilha Frontend Masters.
 
-**Resumo:** Exercícios de componentes e organização de páginas em Angular.
+**Resumo:** Angular 8: jogos locais e consulta pública a 60 planetas e 36 naves.
 
-**Próximo teste:** Documentar as telas que ainda funcionam, preservar contexto da versão 8 e separar exercícios históricos de uma eventual migração.
+**Próximo teste:** CRUD local e SWAPI validados em celular e desktop; próxima etapa é migrar Angular 8 e dependências obsoletas.
 
 [Ler documentação técnica original](https://github.com/Saiiru/AngularFrontEndMasters/blob/main/docs/PROJECT_BRIEF.md)
+
+[Abrir demonstração funcional](https://saiiru.github.io/AngularFrontEndMasters/)
 
 #### [Finance Dashboard](https://github.com/Saiiru/react-finance-dashboard)
 

@@ -23,7 +23,7 @@ Além dos quatro laboratórios de IA, o site apresenta **12 projetos standalone*
 
 [**Ver os 12 projetos**](https://saiiru.github.io/#projetos-independentes) · [**Ler catálogo e próximos passos**](design/standalone-projects/README.md) · [**Ver testes e disponibilidade**](design/standalone-projects/STATUS_2026-11-12.md)
 
-**Demos verificadas:** [Finance Dashboard](https://saiiru.github.io/react-finance-dashboard/), [Star Wars Planet Explorer](https://saiiru.github.io/starwarsplanets/) e [Portfolio UI Experiments](https://saiiru.github.io/portfolio-ui-experiments/). Todas independentes da KORA; o Finance usa somente dados fictícios no navegador, e o Star Wars depende da SWAPI pública.
+**Demos verificadas:** [Angular Component Lab](https://saiiru.github.io/AngularFrontEndMasters/), [Finance Dashboard](https://saiiru.github.io/react-finance-dashboard/), [Star Wars Planet Explorer](https://saiiru.github.io/starwarsplanets/) e [Portfolio UI Experiments](https://saiiru.github.io/portfolio-ui-experiments/). Todas independentes da KORA; o Finance usa somente dados fictícios no navegador, e o Star Wars depende da SWAPI pública.
 
 ## Experiência, estudos e arquitetura
 
