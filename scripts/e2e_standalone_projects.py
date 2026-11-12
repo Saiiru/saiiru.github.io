@@ -37,6 +37,15 @@ with sync_playwright() as p:
         assert group.locator(".standalone-family").count() == 4, width
         assert group.locator(".standalone-featured-card").count() == 2, width
         assert group.locator(".standalone-ledger-row").count() == 10, width
+        for title, slug in (
+            ("Finance Dashboard", "react-finance-dashboard"),
+            ("Star Wars Planet Explorer", "starwarsplanets"),
+            ("Portfolio UI Experiments", "portfolio-ui-experiments"),
+        ):
+            demo = group.get_by_role("link", name="Abrir demonstração de " + title)
+            assert demo.count() == 1, (title, width)
+            assert demo.get_attribute("href") == "https://saiiru.github.io/" + slug + "/"
+
         for slug in EXPECTED:
             link = group.get_by_role("link", name="Examinar " + slug + " no GitHub")
             assert link.count() == 1, (width, slug)

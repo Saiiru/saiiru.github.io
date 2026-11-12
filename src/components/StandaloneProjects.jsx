@@ -59,7 +59,11 @@ function StudyProject({ project, index }) {
         <p>{project.summary}</p>
         <div className="standalone-ledger-tags"><span>{project.stage}</span><span>{project.stack.join(' / ')}</span></div>
       </div>
-      <RepoLink project={project}/>
+      <div className="standalone-ledger-actions">
+        {project.demoUrl && <a className="standalone-live-link" href={project.demoUrl} target="_blank" rel="noopener noreferrer"
+          aria-label={'Abrir demonstração de ' + project.title}>VER DEMO <ArrowUpRight size={17} aria-hidden="true"/></a>}
+        <RepoLink project={project}/>
+      </div>
     </div>
     <details className="standalone-details standalone-ledger-details">
       <summary>Escopo, contexto e próximos passos <ArrowRight size={15} aria-hidden="true"/></summary>

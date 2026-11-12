@@ -44,12 +44,15 @@ test('only the two verified app studies get flagship treatment', () => {
     'java-order-management-cli', 'travel-planner-api'
   ])
   assert(featured.every(project => project.flow.length === 4))
+  const demos = standaloneProjects.filter(project => project.demoUrl)
+  assert.deepEqual(demos.map(p => p.slug).sort(), ['portfolio-ui-experiments', 'react-finance-dashboard', 'starwarsplanets'])
+  assert(demos.every(p => p.demoUrl.startsWith('https://saiiru.github.io/')))
 })
 
 test('training work and incomplete repositories remain honestly labeled', () => {
   const find = legacy => standaloneProjects.find(p => p.legacySlug === legacy)
   assert.match(find('IgniteLab').stage, /vazio|sem código/i)
-  assert.match(find('sofi-test').stage, /documentado|sem implementação/i)
+  assert.match(find('sofi-test').stage, /implementada|testada/i)
   assert.match(find('ada-commerce').stage, /equipe/i)
   assert.match(find('Plann.er').purpose, /API/)
   assert.equal(find('AngularFrontEndMasters').slug, 'AngularFrontEndMasters')

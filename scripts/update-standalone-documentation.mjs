@@ -44,6 +44,7 @@ for (const group of standaloneGroups) {
       '**Próximo teste:** ' + project.nextStep, '',
       '[Ler documentação técnica original](' + project.briefUrl + ')', ''
     )
+    if (project.demoUrl) lines.push('[Abrir demonstração funcional](' + project.demoUrl + ')', '')
   }
 }
 lines.push(
@@ -63,7 +64,7 @@ lines.push(
   '',
   'O catálogo web usa src/data/standalone-projects.js como fonte de nomes, URLs e escopo. A busca em PublicArchive também reconhece os nomes históricos.',
   '',
-  '**Limite:** não houve refatoração ou nova implementação nos 12 repositórios; as alterações neles foram documentação/README e nove mudanças de nome.',
+  '**Estado atualizado:** reparos de código e testes executados em Finance Dashboard, Star Wars Explorer, Portfolio UI Experiments, Java Algorithms e Java OOP. Travel Planner API passou em 22 testes; Order Management CLI validou o ciclo de pedido. Três demos React estão no GitHub Pages. Repositórios puramente didáticos não foram transformados artificialmente em apps. O CI remoto pode continuar bloqueado por cobrança.',
   ''
 )
 writeFileSync(new URL('../design/standalone-projects/README.md', import.meta.url), lines.join('\n'))

@@ -31,25 +31,25 @@ Regras de negócio, persistência e fluxos locais.
 
 #### [Travel Planner API](https://github.com/Saiiru/travel-planner-api)
 
-**Antes:** `Plann.er` · **Estado:** API de estudo · **Stack:** TypeScript, Fastify, SQLite.
+**Antes:** `Plann.er` · **Estado:** API de estudo · 22 testes locais · **Stack:** TypeScript, Fastify, SQLite.
 
 **Finalidade:** API independente para planejar viagens em grupo, confirmar participantes e organizar atividades, convites e links em um único itinerário.
 
 **Resumo:** Planejamento de viagens, atividades e participantes por API.
 
-**Próximo teste:** Acrescentar CI e documentação interativa da API; não apresentar como aplicativo com frontend ou autenticação.
+**Próximo teste:** A API passou em 22 testes; publicar com escrita exige banco persistente e controles de acesso.
 
 [Ler documentação técnica original](https://github.com/Saiiru/travel-planner-api/blob/main/docs/PROJECT_BRIEF.md)
 
 #### [Order Management CLI](https://github.com/Saiiru/java-order-management-cli)
 
-**Antes:** `ada-commerce` · **Estado:** Projeto em equipe · **Stack:** Java 17, CLI, Testes.
+**Antes:** `ada-commerce` · **Estado:** Projeto em equipe · CLI testado · **Stack:** Java 17, CLI, Testes.
 
 **Finalidade:** Simulador educacional de comércio no terminal: cadastro de clientes, produtos, estoque, pedidos e etapas de pagamento e entrega com dados em memória.
 
 **Resumo:** Um fluxo educacional de pedidos, estoque e etapas de entrega.
 
-**Próximo teste:** Explicar contribuições individuais, demonstrar um pedido de ponta a ponta e publicar os limites do pagamento simulado.
+**Próximo teste:** Fluxo de pedido entregue validado localmente; documentar contribuição individual e persistência futura.
 
 [Ler documentação técnica original](https://github.com/Saiiru/java-order-management-cli/blob/main/docs/PROJECT_BRIEF.md)
 
@@ -59,7 +59,7 @@ Experimentos visuais e construção de experiências web.
 
 #### [Angular Component Lab](https://github.com/Saiiru/AngularFrontEndMasters)
 
-**Antes:** `AngularFrontEndMasters` · **Estado:** Legado de curso · **Stack:** Angular 8, TypeScript.
+**Antes:** `AngularFrontEndMasters` · **Estado:** Legado Angular 8 · build de compatibilidade · **Stack:** Angular 8, TypeScript.
 
 **Finalidade:** Aplicação de aprendizagem para praticar arquitetura de componentes, telas e interações em Angular ao longo de uma trilha Frontend Masters.
 
@@ -75,11 +75,13 @@ Experimentos visuais e construção de experiências web.
 
 **Finalidade:** Interface de aprendizagem para visualizar transações, entradas, saídas e um resumo financeiro, desenvolvida a partir de uma trilha React.
 
-**Resumo:** Interface React para acompanhar transações de estudo.
+**Resumo:** Dashboard com transações fictícias e saldo local, persistidos no navegador.
 
-**Próximo teste:** Testar os cálculos, os estados vazios e o formulário; identificar o escopo do curso sem prometer integração bancária.
+**Próximo teste:** Vite, valores em centavos, testes e persistência verificados. Futuro: ampliar testes de componentes.
 
 [Ler documentação técnica original](https://github.com/Saiiru/react-finance-dashboard/blob/main/docs/PROJECT_BRIEF.md)
+
+[Abrir demonstração funcional](https://saiiru.github.io/react-finance-dashboard/)
 
 #### [Star Wars Planet Explorer](https://github.com/Saiiru/starwarsplanets)
 
@@ -87,23 +89,27 @@ Experimentos visuais e construção de experiências web.
 
 **Finalidade:** Catálogo de planetas com interface de listagem e busca, usado para exercitar React, gerenciamento de estado e consumo de informações.
 
-**Resumo:** Listagem e busca de planetas com React e Redux.
+**Resumo:** Busque 60 planetas da SWAPI, com paginação e tratamento de falhas.
 
-**Próximo teste:** Verificar a fonte dos dados, adicionar testes de busca e tratar carregamento e falhas antes de destacar uma demo.
+**Próximo teste:** SWAPI real retornou 60 planetas e três testes de API passaram. Futuro: imagens locais.
 
 [Ler documentação técnica original](https://github.com/Saiiru/starwarsplanets/blob/main/docs/PROJECT_BRIEF.md)
 
+[Abrir demonstração funcional](https://saiiru.github.io/starwarsplanets/)
+
 #### [Portfolio UI Experiments](https://github.com/Saiiru/portfolio-ui-experiments)
 
-**Antes:** `minimal-portfolio` · **Estado:** Portfólio anterior · **Stack:** React, Vite, TypeScript.
+**Antes:** `minimal-portfolio` · **Estado:** Portfólio anterior · publicado · **Stack:** React, Vite, TypeScript.
 
 **Finalidade:** Versão anterior de uma apresentação pessoal, usada para experimentar componentes, timeline e layout de projetos antes do BLACKSITE.
 
 **Resumo:** Estudos de interface anteriores à identidade BLACKSITE.
 
-**Próximo teste:** Identificar o projeto como histórico, atualizar o README padrão de Vite e apontar para o portfólio atual.
+**Próximo teste:** Build, lint e links reais verificados. Continua estudo histórico; o BLACKSITE é a vitrine principal.
 
 [Ler documentação técnica original](https://github.com/Saiiru/portfolio-ui-experiments/blob/main/docs/PROJECT_BRIEF.md)
+
+[Abrir demonstração funcional](https://saiiru.github.io/portfolio-ui-experiments/)
 
 ### Fundamentos de programação
 
@@ -117,7 +123,7 @@ Exercícios de linguagem, modelagem e algoritmos.
 
 **Resumo:** Prática de herança, abstração e progressão de cursos.
 
-**Próximo teste:** Criar um README de execução e testes de matrícula, progressão e conclusão de conteúdo.
+**Próximo teste:** HashSet e progressão testados; futuro: ampliar casos de borda e erro.
 
 [Ler documentação técnica original](https://github.com/Saiiru/java-oop-bootcamp/blob/main/docs/PROJECT_BRIEF.md)
 
@@ -129,19 +135,19 @@ Exercícios de linguagem, modelagem e algoritmos.
 
 **Resumo:** Exercícios de lógica, validação e algoritmos básicos.
 
-**Próximo teste:** Organizar um índice dos desafios, documentar entrada e saída e adicionar testes para valores de fronteira.
+**Próximo teste:** Cinco testes CLI passaram; ampliar para os demais exercícios do catálogo.
 
 [Ler documentação técnica original](https://github.com/Saiiru/java-algorithms-labs/blob/main/docs/PROJECT_BRIEF.md)
 
 #### [Prefix Grouping Challenge](https://github.com/Saiiru/ruby-prefix-grouping)
 
-**Antes:** `sofi-test` · **Estado:** Desafio documentado · **Stack:** Ruby.
+**Antes:** `sofi-test` · **Estado:** Solução implementada e testada · **Stack:** Ruby.
 
-**Finalidade:** Enunciado de um desafio para agrupar palavras por prefixo comum de comprimento definido; o código da solução não foi identificado no repositório.
+**Finalidade:** Implementação do método group_by_prefix para agrupar palavras por prefixos comuns, com verificações de entrada e testes existentes executados.
 
-**Resumo:** Enunciado Ruby de agrupamento de palavras por prefixo.
+**Resumo:** Agrupamento por prefixo Ruby: solução implementada e testes executados.
 
-**Próximo teste:** Implementar a solução com testes de prefixos, entradas vazias e Unicode; até lá, identificar como enunciado.
+**Próximo teste:** Testes Ruby passaram. Próximo: Unicode normalizado e um runner de testes dedicado.
 
 [Ler documentação técnica original](https://github.com/Saiiru/ruby-prefix-grouping/blob/main/docs/PROJECT_BRIEF.md)
 
@@ -204,4 +210,4 @@ BASE_URL=http://127.0.0.1:4396 python scripts/e2e_standalone_projects.py
 
 O catálogo web usa src/data/standalone-projects.js como fonte de nomes, URLs e escopo. A busca em PublicArchive também reconhece os nomes históricos.
 
-**Limite:** não houve refatoração ou nova implementação nos 12 repositórios; as alterações neles foram documentação/README e nove mudanças de nome.
+**Estado atualizado:** reparos de código e testes executados em Finance Dashboard, Star Wars Explorer, Portfolio UI Experiments, Java Algorithms e Java OOP. Travel Planner API passou em 22 testes; Order Management CLI validou o ciclo de pedido. Três demos React estão no GitHub Pages. Repositórios puramente didáticos não foram transformados artificialmente em apps. O CI remoto pode continuar bloqueado por cobrança.
