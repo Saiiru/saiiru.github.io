@@ -13,7 +13,7 @@ export const standaloneProjects = Object.freeze([
     title: 'Travel Planner API',
     legacySlug: 'Plann.er',
     summary: 'Planejamento de viagens, atividades e participantes por API.',
-    featured: true,
+    featured: false,
     flow: ["Viagem", "Participantes", "Atividades", "Links"],
     group: 'aplicacoes',
     stage: 'API de estudo · 23 testes + Docker',
@@ -26,7 +26,7 @@ export const standaloneProjects = Object.freeze([
     title: 'Order Management CLI',
     legacySlug: 'ada-commerce',
     summary: 'Um fluxo educacional de pedidos, estoque e etapas de entrega.',
-    featured: true,
+    featured: false,
     flow: ["Cadastro", "Estoque", "Pedido", "Entrega fictícia"],
     group: 'aplicacoes',
     stage: 'Projeto em equipe · CLI testado',
@@ -38,6 +38,9 @@ export const standaloneProjects = Object.freeze([
     slug: 'AngularFrontEndMasters',
     title: 'Angular Component Lab',
     demoUrl: 'https://saiiru.github.io/AngularFrontEndMasters/',
+    portfolioVisible: true,
+    portfolioRank: 3,
+    validation: 'CRUD local, 60 planetas e 36 naves verificados no navegador.',
     legacySlug: 'AngularFrontEndMasters',
     summary: 'Angular 8: jogos locais e consulta pública a 60 planetas e 36 naves.',
     group: 'interfaces',
@@ -50,25 +53,35 @@ export const standaloneProjects = Object.freeze([
     slug: 'react-finance-dashboard',
     title: 'Finance Dashboard',
     demoUrl: 'https://saiiru.github.io/react-finance-dashboard/',
+    portfolioVisible: true,
+    portfolioRank: 2,
+    validation: 'Testes de cálculo, persistência e responsividade publicados.',
+    featured: true,
+    flow: ['Lançar transação', 'Calcular saldo', 'Persistir no navegador', 'Recarregar e validar'],
     legacySlug: 'dtmoney',
     summary: 'Dashboard com transações fictícias e saldo local, persistidos no navegador.',
     group: 'interfaces',
-    stage: 'Estudo React',
+    stage: 'Demo pública · cálculo e persistência verificados',
     stack: ['React', 'TypeScript'],
     purpose: 'Interface de aprendizagem para visualizar transações, entradas, saídas e um resumo financeiro, desenvolvida a partir de uma trilha React.',
     nextStep: 'Vite, valores em centavos, testes e persistência verificados. Futuro: ampliar testes de componentes.',
   },
   {
     slug: 'starwarsplanets',
-    title: 'Star Wars Planet Explorer',
+    title: 'HOLO-NET Fleet Registry',
     demoUrl: 'https://saiiru.github.io/starwarsplanets/',
+    portfolioVisible: true,
+    portfolioRank: 1,
+    validation: '17 testes de frontend · 19 de backend · 30 casos de avaliação curados.',
+    featured: true,
+    flow: ['Consultar o atlas', 'Ver estoque fictício', 'Perguntar em linguagem natural', 'Inspecionar evidências'],
     legacySlug: 'starwarsplanets',
-    summary: 'Busque 60 planetas da SWAPI, com paginação e tratamento de falhas.',
+    summary: 'Sistema galáctico de inventário, consulta natural e histórico territorial por era.',
     group: 'interfaces',
-    stage: 'Estudo React',
-    stack: ['React', 'Redux', 'JavaScript'],
-    purpose: 'Catálogo de planetas com interface de listagem e busca, usado para exercitar React, gerenciamento de estado e consumo de informações.',
-    nextStep: 'SWAPI real retornou 60 planetas e três testes de API passaram. Futuro: imagens locais.',
+    stage: 'Demo pública · consultas validadas',
+    stack: ['React', 'Redux', 'Fastify local', 'SQLite', 'Avaliação de IA'],
+    purpose: 'Plataforma ficcional de consulta de frotas por planeta e período, com números simulados, referências do Star Wars Databank e interface de perguntas com regras determinísticas. O backend autenticado permanece local.',
+    nextStep: '17 testes de frontend, 19 de backend e 30 casos de avaliação curados; execução de LLM real ainda pendente. Backend não é público.',
   },
   {
     slug: 'portfolio-ui-experiments',
@@ -155,3 +168,13 @@ export const standaloneProjects = Object.freeze([
   stack: Object.freeze(project.stack),
   ...(project.flow && { flow: Object.freeze(project.flow) })
 })))
+
+
+// A homepage is a curated portfolio, not an inventory of everything ever studied.
+// Non-demonstrable, legacy-only and exercise repositories remain in standaloneProjects
+// for internal documentation, but are never rendered as showcased work.
+export const portfolioProjects = Object.freeze(
+  standaloneProjects
+    .filter(project => project.portfolioVisible === true && typeof project.demoUrl === 'string')
+    .sort((a, b) => a.portfolioRank - b.portfolioRank)
+)

@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
-import { standaloneProjects, standaloneGroups } from '../src/data/standalone-projects.js'
+import { standaloneProjects, standaloneGroups, portfolioProjects } from '../src/data/standalone-projects.js'
 import inventory from '../src/data/repositories.json' with { type: 'json' }
 
 const renames = {
@@ -38,15 +38,20 @@ test('twelve repos have professional names and retain their legacy identities', 
   }
 })
 
-test('only the two verified app studies get flagship treatment', () => {
-  const featured = standaloneProjects.filter(p => p.featured)
+test('homepage is a selective portfolio with verified, independently accessible demos', () => {
+  const featured = portfolioProjects.filter(p => p.featured)
   assert.deepEqual(featured.map(p => p.slug).sort(), [
-    'java-order-management-cli', 'travel-planner-api'
+    'react-finance-dashboard', 'starwarsplanets'
   ])
   assert(featured.every(project => project.flow.length === 4))
-  const demos = standaloneProjects.filter(project => project.demoUrl)
-  assert.deepEqual(demos.map(p => p.slug).sort(), ['AngularFrontEndMasters', 'portfolio-ui-experiments', 'react-finance-dashboard', 'starwarsplanets'])
-  assert(demos.every(p => p.demoUrl.startsWith('https://saiiru.github.io/')))
+  assert.deepEqual(portfolioProjects.map(project => project.slug).sort(), [
+    'AngularFrontEndMasters', 'react-finance-dashboard', 'starwarsplanets'
+  ])
+  assert(portfolioProjects.every(project => project.demoUrl.startsWith('https://saiiru.github.io/')))
+  assert(portfolioProjects.every(project => project.validation.length > 25))
+  assert(portfolioProjects.every(project => project.portfolioVisible === true))
+  assert.equal(portfolioProjects[0].slug, 'starwarsplanets')
+  assert(!portfolioProjects.some(project => /archive|empty|fundamentals|course|skills-copilot|order-management|travel-planner|experiment/i.test(project.slug)))
 })
 
 test('training work and incomplete repositories remain honestly labeled', () => {
@@ -60,9 +65,8 @@ test('training work and incomplete repositories remain honestly labeled', () => 
   assert.equal(find('skills-copilot-codespaces-vscode').slug, 'skills-copilot-codespaces-vscode')
 })
 
-test('archive preserves all owner-selected repos and old-name search', () => {
+test('full repo history remains in the source registry without displaying it as validated portfolio', () => {
   const source = readFileSync(new URL('../src/components/PublicArchive.jsx', import.meta.url), 'utf8')
-  assert(!/hiddenFromPortfolio\.has\(item\.name\)/.test(source))
   assert(source.includes('standaloneProjects'))
   assert(source.includes('item.legacySlug'))
   assert.equal(inventory.repositories.length, 62)
@@ -72,6 +76,7 @@ test('project nav and hero lead to the gallery before labs', () => {
   const source = readFileSync(new URL('../src/App.jsx', import.meta.url), 'utf8')
   assert(source.includes('<DeferredStandaloneProjects/>'))
   assert(source.indexOf('<DeferredStandaloneProjects/>') < source.indexOf('<KoraCaseStudy/>'))
-  assert(source.indexOf('<DeferredStandaloneProjects/>') < source.indexOf('<PublicArchive/>'))
+  assert(!source.includes('<PublicArchive/>'))
+  assert(!source.includes('todos-projetos'))
   assert(source.includes('href="#projetos-independentes"'))
 })

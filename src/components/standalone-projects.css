@@ -83,3 +83,23 @@
 .portfolio .standalone-live-link:hover{background:#E9F2FB;color:#0A1322}
 .portfolio .standalone-live-link:focus-visible{outline:2px solid #00E5FF;outline-offset:4px}
 @media(max-width:540px){.portfolio .standalone-ledger-actions{grid-column:2;justify-content:flex-start}}
+
+
+/* Proof-only selection: primary action opens the real public demonstration. */
+.portfolio .standalone-demo-link{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;min-height:47px;padding:10px 16px;background:#F3E600;color:#0B111E;font:800 10px/1.4 var(--mono);text-decoration:none;white-space:nowrap;flex:1 1 150px;max-width:230px}
+.portfolio .standalone-demo-link:hover{background:#FFFFFF;color:#0B111E}
+.portfolio .standalone-demo-link:focus-visible{outline:2px solid #00E5FF;outline-offset:4px}
+.portfolio .standalone-featured-card:first-child{border-color:#628ba1;--project-accent:#F3E600}
+.portfolio .standalone-featured-card[data-feature="1"]{--project-accent:#00E5FF}
+.portfolio .standalone-proof{display:flex;align-items:center;gap:8px;color:#B8E8D0;font:600 11px/1.5 var(--body,sans-serif);margin:2px 0 13px}
+.portfolio .standalone-proof svg{flex:none;color:#86DBBD}
+.portfolio .standalone-feature-header{gap:11px}
+.portfolio .standalone-feature-body h4{margin-top:9px}
+.portfolio .standalone-verified-legacy{margin-top:57px;border-top:1px solid #465c72}
+.portfolio .standalone-verified-legacy .standalone-ledger-topline{grid-template-columns:minmax(0,1fr) auto}
+.portfolio .standalone-verified-legacy .standalone-ledger-main>p.standalone-proof{display:flex;font-size:11px;max-width:none;color:#B8E8D0}
+.portfolio .standalone-verified-legacy .standalone-ledger-actions{display:flex;gap:11px;align-items:center;justify-content:flex-end}
+.portfolio .standalone-verified-legacy .standalone-ledger-actions>.standalone-demo-link{flex:none;max-width:none;min-height:42px}
+.portfolio .standalone-verified-legacy .standalone-ledger-details{margin-left:0}
+@media(max-width:850px){.portfolio .standalone-verified-legacy .standalone-ledger-topline{grid-template-columns:1fr}.portfolio .standalone-verified-legacy .standalone-ledger-actions{justify-content:flex-start}}
+@media(max-width:540px){.portfolio .standalone-actions{flex-direction:column}.portfolio .standalone-actions>.standalone-demo-link{width:100%;max-width:none;flex:none}.portfolio .standalone-verified-legacy .standalone-ledger-actions{grid-column:1}}
