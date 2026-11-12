@@ -12,7 +12,7 @@ Primary actions: inspect existing repositories and their setup instructions, exp
 - Plann.er is an educational TypeScript/Fastify/SQLite API for local use. It has no frontend or authentication.
 - CLP/control is a learning interest; frequency drives are planned study. Do not claim a computing engineering degree or unverified professional mastery.
 - EvalForge, OpsPilot and DocTrace were assistant-proposed prototypes. Their source is preserved, but they are not selected personal projects and must not be remounted as completed work.
-- The author chose the twelve independent repos for presentation; this is not authorization to refactor, rename, archive or execute them. Never invent usage, business impact or production results.
+- The owner explicitly requested renaming and redesign of 12 independent projects on 12 Nov 2026. Nine public repository names were changed while three URLs were preserved to protect Pages/workflows. All twelve received separate technical documentation; none were integrated into KORA or functionally refactored. Do not invent usage, business impact, or production results.
 - Do not expose the personal email in rendered contact or terminal output.
 - Current owner-directed identity: Deep Void base, Cyber Yellow headline, Bionic Cyan interactions, Hot Pink signal and Netrunner blue panels; retain finite glitches, reduced-motion alternatives and bounded rendering costs.
 - Do not equate deterministic demos with real LLM inference, npm audit with a security certification, or local lab performance with visitor measurements.

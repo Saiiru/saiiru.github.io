@@ -6,3 +6,6 @@ dist/
 
 # Also ignore a workspace symlink to installed dependencies.
 node_modules
+
+# Private local critique snapshots contain absolute machine paths
+.impeccable/critique/

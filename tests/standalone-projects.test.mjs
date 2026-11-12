@@ -4,44 +4,71 @@ import { readFileSync } from 'node:fs'
 import { standaloneProjects, standaloneGroups } from '../src/data/standalone-projects.js'
 import inventory from '../src/data/repositories.json' with { type: 'json' }
 
-const requested = [
-  'AngularFrontEndMasters', 'DesafioPooDio', 'dio-angular-develloper',
-  'dio-trilha-basico', 'dtmoney', 'IgniteLab', 'minimal-portfolio',
-  'skills-copilot-codespaces-vscode', 'sofi-test', 'starwarsplanets',
-  'Plann.er', 'ada-commerce'
-]
+const renames = {
+  'Plann.er': 'travel-planner-api',
+  'ada-commerce': 'java-order-management-cli',
+  'dtmoney': 'react-finance-dashboard',
+  'DesafioPooDio': 'java-oop-bootcamp',
+  'dio-trilha-basico': 'java-algorithms-labs',
+  'dio-angular-develloper': 'git-github-foundations',
+  'IgniteLab': 'ignite-lab-archive',
+  'minimal-portfolio': 'portfolio-ui-experiments',
+  'sofi-test': 'ruby-prefix-grouping',
+  'AngularFrontEndMasters': 'AngularFrontEndMasters',
+  'starwarsplanets': 'starwarsplanets',
+  'skills-copilot-codespaces-vscode': 'skills-copilot-codespaces-vscode'
+}
 
-test('every requested public repository has its own factual standalone profile', () => {
-  assert.equal(standaloneProjects.length, requested.length)
-  assert.deepEqual([...standaloneProjects.map(project => project.slug)].sort(), requested.sort())
+test('twelve repos have professional names and retain their legacy identities', () => {
+  assert.equal(standaloneProjects.length, 12)
+  assert.deepEqual([...standaloneProjects.map(p => p.legacySlug)].sort(), Object.keys(renames).sort())
+  assert.equal(new Set(standaloneProjects.map(p => p.slug)).size, 12)
   for (const project of standaloneProjects) {
+    assert.equal(project.slug, renames[project.legacySlug])
     assert.equal(project.url, 'https://github.com/Saiiru/' + project.slug)
-    assert(project.title.length >= 12, project.slug + ' lacks descriptive title')
-    assert(project.purpose.length >= 70, project.slug + ' lacks purpose')
-    assert(project.nextStep.length >= 35, project.slug + ' lacks next action')
-    assert(project.stack.length > 0, project.slug + ' lacks declared stack')
-    assert(standaloneGroups.some(group => group.id === project.group))
+    assert.equal(project.briefUrl, project.url + '/blob/main/docs/PROJECT_BRIEF.md')
+    assert(project.title.length >= 8)
+    assert(project.summary.length >= 30)
+    assert(project.purpose.length >= 70)
+    assert(project.nextStep.length >= 35)
+    assert(project.stack.length > 0)
+    assert(standaloneGroups.some(g => g.id === project.group))
     assert(!/kora|integrar ao assistente|módulo do assistente/i.test(project.purpose + ' ' + project.nextStep))
-    assert(inventory.repositories.some(item => item.name === project.slug && !item.fork))
+    assert(inventory.repositories.some(r => r.name === project.slug && !r.fork))
   }
 })
 
-test('unfinished projects and team work remain explicitly identified', () => {
-  const find = slug => standaloneProjects.find(project => project.slug === slug)
+test('only the two verified app studies get flagship treatment', () => {
+  const featured = standaloneProjects.filter(p => p.featured)
+  assert.deepEqual(featured.map(p => p.slug).sort(), [
+    'java-order-management-cli', 'travel-planner-api'
+  ])
+  assert(featured.every(project => project.flow.length === 4))
+})
+
+test('training work and incomplete repositories remain honestly labeled', () => {
+  const find = legacy => standaloneProjects.find(p => p.legacySlug === legacy)
   assert.match(find('IgniteLab').stage, /vazio|sem código/i)
   assert.match(find('sofi-test').stage, /documentado|sem implementação/i)
   assert.match(find('ada-commerce').stage, /equipe/i)
   assert.match(find('Plann.er').purpose, /API/)
+  assert.equal(find('AngularFrontEndMasters').slug, 'AngularFrontEndMasters')
+  assert.equal(find('starwarsplanets').slug, 'starwarsplanets')
+  assert.equal(find('skills-copilot-codespaces-vscode').slug, 'skills-copilot-codespaces-vscode')
 })
 
-test('public repository archive does not hide Plann.er or ada-commerce', () => {
+test('archive preserves all owner-selected repos and old-name search', () => {
   const source = readFileSync(new URL('../src/components/PublicArchive.jsx', import.meta.url), 'utf8')
   assert(!/hiddenFromPortfolio\.has\(item\.name\)/.test(source))
   assert(source.includes('standaloneProjects'))
+  assert(source.includes('item.legacySlug'))
+  assert.equal(inventory.repositories.length, 62)
 })
 
-test('standalone shelf is mounted before the general archive', () => {
+test('project nav and hero lead to the gallery before labs', () => {
   const source = readFileSync(new URL('../src/App.jsx', import.meta.url), 'utf8')
   assert(source.includes('<DeferredStandaloneProjects/>'))
+  assert(source.indexOf('<DeferredStandaloneProjects/>') < source.indexOf('<KoraCaseStudy/>'))
   assert(source.indexOf('<DeferredStandaloneProjects/>') < source.indexOf('<PublicArchive/>'))
+  assert(source.includes('href="#projetos-independentes"'))
 })

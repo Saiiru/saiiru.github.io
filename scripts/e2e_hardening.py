@@ -23,7 +23,7 @@ with sync_playwright() as p:
  assert not page.evaluate('Boolean(window.pwned)')
  page.get_by_role('button',name='EXPLORAR O ARQUIVO',exact=False).click()
  page.get_by_role('button',name='APIs e backend',exact=True).click()
- for name in ('ada-commerce', 'Plann.er'):
+ for name in ('java-order-management-cli', 'travel-planner-api'):
   page.locator('#archive-search').fill(name)
   match=page.locator('.public-repo')
   assert match.count()==1, (name,match.count())

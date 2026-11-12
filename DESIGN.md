@@ -110,3 +110,14 @@ O usuário selecionou doze repositórios públicos para apresentar como **projet
 O arquivo geral deixou de ocultar Plann.er/Ada Commerce e mantém os forks identificados. Contratos: `src/data/standalone-projects.js`; UI: `StandaloneProjects.jsx`; carregamento sob demanda: `DeferredStandaloneProjects.jsx`; teste de navegador: `scripts/e2e_standalone_projects.py`; documentação: `design/standalone-projects/README.md`.
 
 O componente é carregado quando o visitante se aproxima (IntersectionObserver com 700px), com fallback sem observador e link de recuperação caso falhe o chunk. Isso mantém o CSS inicial abaixo do orçamento de 21 KiB. Nenhum serviço, backend, dado privado ou módulo KORA foi alterado por essa apresentação.
+
+
+## 2026-11-12 — UXCritique: editorial independent projects
+
+The original standalone experience began around 3847px desktop/4654px mobile below the top and featured twelve nearly identical cards with repeated roadmap descriptions. Initial Nielsen-inspired heuristic score was 23/40 (not certification). The automated detector found no syntax-pattern issues. The bigger defects were discovery, repetitive visual priority, tiny links and inconsistent names.
+
+The user chose to improve the existing BLACKSITE, not create a replacement. The navigation PROJETOS and hero secondary CTA link directly to the standalone area, now rendered before KORA/Rota labs. Two educational software applications are featured with conceptual flows; the other ten are organized as unboxed editorial rows with native expandable technical context. All link to their GitHub repos and individual project briefs.
+
+Nine repositories were renamed on GitHub with commit histories preserved and old GitHub URLs verified to redirect. The Angular and Star Wars repositories keep names to preserve GitHub Pages routes, and the GitHub Skills training repo keeps its slug to protect educational workflows. Each of the twelve repositories has a detailed docs/PROJECT_BRIEF.md; original course code, attribution and legacy source remain untouched.
+
+The design intentionally avoids globally injected CSS, new frontend libraries, decorative perpetual glitches and claims of unverified application quality. Initial JS/CSS budgets, CSP, reduced motion, keyboard and mobile accessibility constraints remain in place. Naming map: design/standalone-projects/README.md; UX critique: design/standalone-projects/UX_CRITIQUE.md.

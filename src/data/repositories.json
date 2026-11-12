@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-08",
+  "generatedAt": "2026-11-12",
   "owner": "Saiiru",
   "source": "https://api.github.com/users/Saiiru/repos",
   "repositories": [
     {
-      "name": "ada-commerce",
+      "name": "java-order-management-cli",
       "description": "",
-      "url": "https://github.com/Saiiru/ada-commerce",
+      "url": "https://github.com/Saiiru/java-order-management-cli",
       "language": "Java",
       "category": "APIs e backend",
       "fork": false,
@@ -64,9 +64,9 @@
       "homepage": ""
     },
     {
-      "name": "DesafioPooDio",
+      "name": "java-oop-bootcamp",
       "description": "Um desafio para o paradigma de programação orientada a objetos feita pela iniciativa DIO.",
-      "url": "https://github.com/Saiiru/DesafioPooDio",
+      "url": "https://github.com/Saiiru/java-oop-bootcamp",
       "language": "Java",
       "category": "APIs e backend",
       "fork": false,
@@ -88,9 +88,9 @@
       "homepage": ""
     },
     {
-      "name": "dio-angular-develloper",
+      "name": "git-github-foundations",
       "description": "Desafio da dio GIt/Github",
-      "url": "https://github.com/Saiiru/dio-angular-develloper",
+      "url": "https://github.com/Saiiru/git-github-foundations",
       "language": "",
       "category": "Web e interfaces",
       "fork": false,
@@ -100,9 +100,9 @@
       "homepage": ""
     },
     {
-      "name": "dio-trilha-basico",
+      "name": "java-algorithms-labs",
       "description": "",
-      "url": "https://github.com/Saiiru/dio-trilha-basico",
+      "url": "https://github.com/Saiiru/java-algorithms-labs",
       "language": "Java",
       "category": "APIs e backend",
       "fork": false,
@@ -112,9 +112,9 @@
       "homepage": ""
     },
     {
-      "name": "dtmoney",
+      "name": "react-finance-dashboard",
       "description": "",
-      "url": "https://github.com/Saiiru/dtmoney",
+      "url": "https://github.com/Saiiru/react-finance-dashboard",
       "language": "TypeScript",
       "category": "Web e interfaces",
       "fork": false,
@@ -148,9 +148,9 @@
       "homepage": ""
     },
     {
-      "name": "IgniteLab",
+      "name": "ignite-lab-archive",
       "description": "A simple web page for events",
-      "url": "https://github.com/Saiiru/IgniteLab",
+      "url": "https://github.com/Saiiru/ignite-lab-archive",
       "language": "",
       "category": "Web e interfaces",
       "fork": false,
@@ -172,9 +172,9 @@
       "homepage": ""
     },
     {
-      "name": "minimal-portfolio",
+      "name": "portfolio-ui-experiments",
       "description": "",
-      "url": "https://github.com/Saiiru/minimal-portfolio",
+      "url": "https://github.com/Saiiru/portfolio-ui-experiments",
       "language": "TypeScript",
       "category": "Web e interfaces",
       "fork": false,
@@ -220,9 +220,9 @@
       "homepage": ""
     },
     {
-      "name": "Plann.er",
+      "name": "travel-planner-api",
       "description": "Esta é a API da aplicação de nome Plann.er, a qual consiste em um sistema de planejamento de viagens, na qual você pode montar planos de viagens com amigos, registrar atividades, adicionar links úteis sobre a viagem, entre diversas outras funcionalidades.",
-      "url": "https://github.com/Saiiru/Plann.er",
+      "url": "https://github.com/Saiiru/travel-planner-api",
       "language": "TypeScript",
       "category": "Web e interfaces",
       "fork": false,
@@ -292,9 +292,9 @@
       "homepage": ""
     },
     {
-      "name": "sofi-test",
+      "name": "ruby-prefix-grouping",
       "description": "",
-      "url": "https://github.com/Saiiru/sofi-test",
+      "url": "https://github.com/Saiiru/ruby-prefix-grouping",
       "language": "Ruby",
       "category": "APIs e backend",
       "fork": false,
