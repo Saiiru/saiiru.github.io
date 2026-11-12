@@ -121,3 +121,12 @@ The user chose to improve the existing BLACKSITE, not create a replacement. The 
 Nine repositories were renamed on GitHub with commit histories preserved and old GitHub URLs verified to redirect. The Angular and Star Wars repositories keep names to preserve GitHub Pages routes, and the GitHub Skills training repo keeps its slug to protect educational workflows. Each of the twelve repositories has a detailed docs/PROJECT_BRIEF.md; original course code, attribution and legacy source remain untouched.
 
 The design intentionally avoids globally injected CSS, new frontend libraries, decorative perpetual glitches and claims of unverified application quality. Initial JS/CSS budgets, CSP, reduced motion, keyboard and mobile accessibility constraints remain in place. Naming map: design/standalone-projects/README.md; UX critique: design/standalone-projects/UX_CRITIQUE.md.
+
+
+## 2026-11-12 — Functional verification and live demos
+
+Three independent React frontends now have verified public GitHub Pages URLs: react-finance-dashboard (Vite, validated fictitious local-only transactions, responsive/keyboard-scrollable tables), starwarsplanets (Vite/Redux, 60 live SWAPI planets with pagination, error and retry UI), and portfolio-ui-experiments (Vite with corrected TypeScript, lint, real GitHub links). All have optional vercel.json for Vercel static hosting. A temporary unauthenticated Vercel URL returned HTTP 403 externally and is not advertised.
+
+Other confirmed evidence: Travel Planner API 22 passing integration tests plus TypeScript build, Java Order Management CLI completed an in-memory paid/delivered order, Java algorithms and object-oriented design smoke tests passed and Ruby prefix-grouping existing tests passed. The API uses SQLite and must not be deployed as stateless Vercel Functions without durable database storage. Training-only repositories remain explicitly nondeployable. No KORA integration.
+
+The main portfolio now links directly to each published frontend demonstration alongside the repository and technical brief, and tracks their current verification instead of stale “implementation missing” or “not tested” claims. Do not claim production banking or persistence for demo-only software.
