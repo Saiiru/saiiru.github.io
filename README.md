@@ -19,9 +19,9 @@ Esses estudos são **demos estáticas executadas no navegador**. Usam exemplos s
 
 ## Projetos independentes
 
-Além dos quatro laboratórios de IA, o site apresenta **12 projetos standalone**: aplicações e APIs, interfaces, fundamentos e exercícios de formação. Eles não dependem da KORA e incluem estágios distintos — desde estudos com código até registros vazios — sempre identificados.
+Além dos quatro laboratórios de IA, a vitrine pública mostra **três projetos com demonstração funcional acessível**: HOLO-NET Fleet Registry, Finance Dashboard e Angular Component Lab (legado). O histórico de 12 repositórios catalogados permanece na documentação e no GitHub, fora da página principal. Não são anunciados como produtos prontos, backends hospedados ou IA treinada.
 
-[**Ver os 12 projetos**](https://saiiru.github.io/#projetos-independentes) · [**Ler catálogo e próximos passos**](design/standalone-projects/README.md) · [**Ver testes e disponibilidade**](design/standalone-projects/STATUS_2026-11-12.md)
+[**Abrir projetos demonstráveis**](https://saiiru.github.io/#projetos-independentes) · [**Consultar histórico técnico**](design/standalone-projects/README.md) · [**Evidência de testes**](design/standalone-projects/STATUS_2026-11-12.md)
 
 **Demos verificadas:** [Angular Component Lab](https://saiiru.github.io/AngularFrontEndMasters/), [Finance Dashboard](https://saiiru.github.io/react-finance-dashboard/), [Star Wars Planet Explorer](https://saiiru.github.io/starwarsplanets/) e [Portfolio UI Experiments](https://saiiru.github.io/portfolio-ui-experiments/). Todas independentes da KORA; o Finance usa somente dados fictícios no navegador, e o Star Wars depende da SWAPI pública.
 

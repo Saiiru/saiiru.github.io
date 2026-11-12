@@ -13,16 +13,14 @@ import './cyber2077.css'
 import DeferredSignalField from './components/DeferredSignalField'
 import SignalText from './components/SignalText'
 import Toolkit from './components/Toolkit'
-import PublicArchive from './components/PublicArchive'
 import DeferredStandaloneProjects from './components/DeferredStandaloneProjects'
 import DatashardArchive from './components/DatashardArchive'
 import KoraCaseStudy from './components/KoraCaseStudy'
-import repositorySnapshot from './data/repositories.json'
 import { useCyberMotion, useGlitch } from './useCyberMotion'
 
 const commandOutput = {
-  help: ['COMANDOS DISPONÍVEIS', 'help     lista comandos', 'labs     abre laboratórios de IA', 'status   estado do portfólio', 'repos    busca os 62 repositórios públicos', 'stack    mostra tecnologias', 'contact  mostra canais', 'clear    limpa o terminal'],
-  repos: ['ARQUIVO GITHUB / REPOSITÓRIOS PÚBLICOS', repositorySnapshot.repositories.length+' repositórios inventariados: '+repositorySnapshot.repositories.filter(item=>!item.fork).length+' próprios e '+repositorySnapshot.repositories.filter(item=>item.fork).length+' forks.', 'Use a busca do arquivo para encontrar tecnologias ou projetos.'],
+  help: ['COMANDOS DISPONÍVEIS', 'help     lista comandos', 'labs     abre laboratórios de IA', 'status   estado do portfólio', 'repos    abre os projetos demonstráveis', 'stack    mostra tecnologias', 'contact  mostra canais', 'clear    limpa o terminal'],
+  repos: ['PROJETOS VERIFICÁVEIS', 'A vitrine mostra somente aplicações com demo pública e evidências reproduzíveis.', 'Para o histórico completo: github.com/Saiiru.'],
   status: ['PORTFÓLIO // EM EVOLUÇÃO', 'Tecnologias e formação estão no Toolkit.', 'Novos projetos entram na vitrine após construção e validação.'],
   stack: ['TOOLKIT // TECNOLOGIAS E CONHECIMENTOS', 'Java · Spring · TypeScript · Node.js · React · Angular · SQL · Linux · Git', 'Embarcados e Eletromecânica em estudo; CLP e inversores como próximos conteúdos.'],
   contact: ['CONTATO // URIAS MACHADO SANTOS', 'github.com/Saiiru', 'linkedin.com/in/sairu/'],
@@ -42,8 +40,7 @@ function Terminal() {
       const output = command === 'labs' ? ['PROJETOS // APPLIED AI', 'Rota: roteamento da KORA com regras e ML experimental. Vetor: classificador supervisionado. Crivo: testes. Lastro: busca com fontes.', 'Demos e relatórios reproduzíveis no Datashard Archive. Dados sintéticos; desenvolvimento assistido por IA.'] : commandOutput[command] || [`Comando desconhecido: ${command}`, 'Digite help para ver as opções.']
       setRows(current => [...current, { type: 'command', text: `> ${command}` }, ...output.map(text => ({ type: 'system', text }))])
       if (command === 'labs' || command === 'repos') {
-        if (command === 'repos') window.dispatchEvent(new Event('blacksite:open-archive'))
-        document.getElementById(command==='labs'?'labs':'todos-projetos')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+        document.getElementById(command==='labs'?'labs':'projetos-independentes')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
       }
     }
     setInput('')
@@ -132,9 +129,9 @@ function App(){
     <p>Quero conseguir explicar não só o que o programa fez, mas o que acontece quando erra. Os laboratórios mostram a entrada, as decisões, os testes e os casos em que o sistema deve pedir revisão. São experimentos reproduzíveis — não serviços em produção.</p>
    </div>
   </section>
-  <DeferredStandaloneProjects/><KoraCaseStudy/><DatashardArchive/><PublicArchive/>
+  <DeferredStandaloneProjects/><KoraCaseStudy/><DatashardArchive/>
   <section id="sobre" className="about-section">
-   <div className="about-inner section-wrap"><div className="about-main"><h2>CURIOSIDADE<br/>É O <span>COMEÇO.</span><br/>CÓDIGO É<br/>O CAMINHO.</h2><p>Sou Urias — ou Sairu, como apareço na maioria dos meus projetos. Comecei desenvolvendo aplicações web. O que mais me prende à programação é aquele momento em que um erro deixa de ser misterioso: você encontra a causa, testa uma hipótese e vê o sistema funcionar.</p><p>Trabalhei com software na Capgemini, Infomakers e Agência Digital S/A. Hoje estudo Eletromecânica no SENAI e exploro ferramentas, eletrônica e modelos de linguagem. Este espaço acompanha meus estudos e meu histórico em desenvolvimento.</p><a className="about-projects-link" href="#todos-projetos">VER TODOS OS PROJETOS <ArrowUpRight size={18}/></a></div>
+   <div className="about-inner section-wrap"><div className="about-main"><h2>CURIOSIDADE<br/>É O <span>COMEÇO.</span><br/>CÓDIGO É<br/>O CAMINHO.</h2><p>Sou Urias — ou Sairu, como apareço na maioria dos meus projetos. Comecei desenvolvendo aplicações web. O que mais me prende à programação é aquele momento em que um erro deixa de ser misterioso: você encontra a causa, testa uma hipótese e vê o sistema funcionar.</p><p>Trabalhei com software na Capgemini, Infomakers e Agência Digital S/A. Hoje estudo Eletromecânica no SENAI e exploro ferramentas, eletrônica e modelos de linguagem. Este espaço acompanha meus estudos e meu histórico em desenvolvimento.</p><a className="about-projects-link" href="#projetos-independentes">VER PROJETOS VALIDADOS <ArrowUpRight size={18}/></a></div>
    <div className="about-history" id="trajetoria"><h3>EXPERIÊNCIA</h3>
     <div className="history-item"><span>2022 — 2023</span><h4>Capgemini</h4><p>Analista de Soluções / Desenvolvimento de Software</p><span>Java · Spring Boot · Angular · SQL Server</span></div>
     <div className="history-item"><span>2022</span><h4>Infomakers</h4><p>Desenvolvimento Front-end</p><span>React · Redux · JavaScript · SASS</span></div>

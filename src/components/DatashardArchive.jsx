@@ -182,6 +182,6 @@ export default function DatashardArchive() {
       <div className="archive-bottom"><span>OS EXEMPLOS SÃO SINTÉTICOS, E OS TESTES SÃO REPRODUZÍVEIS</span><span>ESTUDOS DESENVOLVIDOS COM ASSISTÊNCIA DE IA <ArrowUpRight size={12}/></span></div>
     </div>
 
-    <a className="archive-complete-link" href="#todos-projetos">ABRIR O ARQUIVO COMPLETO DE REPOSITÓRIOS <ArrowDown size={18}/></a>
+    <a className="archive-complete-link" href="#projetos-independentes">VER APLICAÇÕES DEMONSTRÁVEIS <ArrowDown size={18}/></a>
   </section>
 }
