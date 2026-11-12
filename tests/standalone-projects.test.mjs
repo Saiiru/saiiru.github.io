@@ -45,7 +45,7 @@ test('only the two verified app studies get flagship treatment', () => {
   ])
   assert(featured.every(project => project.flow.length === 4))
   const demos = standaloneProjects.filter(project => project.demoUrl)
-  assert.deepEqual(demos.map(p => p.slug).sort(), ['portfolio-ui-experiments', 'react-finance-dashboard', 'starwarsplanets'])
+  assert.deepEqual(demos.map(p => p.slug).sort(), ['AngularFrontEndMasters', 'portfolio-ui-experiments', 'react-finance-dashboard', 'starwarsplanets'])
   assert(demos.every(p => p.demoUrl.startsWith('https://saiiru.github.io/')))
 })
 

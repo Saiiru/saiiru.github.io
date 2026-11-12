@@ -16,10 +16,10 @@ export const standaloneProjects = Object.freeze([
     featured: true,
     flow: ["Viagem", "Participantes", "Atividades", "Links"],
     group: 'aplicacoes',
-    stage: 'API de estudo · 22 testes locais',
+    stage: 'API de estudo · 23 testes + Docker',
     stack: ['TypeScript', 'Fastify', 'SQLite'],
     purpose: 'API independente para planejar viagens em grupo, confirmar participantes e organizar atividades, convites e links em um único itinerário.',
-    nextStep: 'A API passou em 22 testes; publicar com escrita exige banco persistente e controles de acesso.',
+    nextStep: 'Docker com volume persistiu viagem após reinício; publicar exige autenticação e banco gerenciado. Tutorial em docs/LOCAL_DEPLOY_AND_STUDY.md.',
   },
   {
     slug: 'java-order-management-cli',
@@ -37,13 +37,14 @@ export const standaloneProjects = Object.freeze([
   {
     slug: 'AngularFrontEndMasters',
     title: 'Angular Component Lab',
+    demoUrl: 'https://saiiru.github.io/AngularFrontEndMasters/',
     legacySlug: 'AngularFrontEndMasters',
-    summary: 'Exercícios de componentes e organização de páginas em Angular.',
+    summary: 'Angular 8: jogos locais e consulta pública a 60 planetas e 36 naves.',
     group: 'interfaces',
-    stage: 'Legado Angular 8 · build de compatibilidade',
+    stage: 'Angular 8 · funcional, legado',
     stack: ['Angular 8', 'TypeScript'],
     purpose: 'Aplicação de aprendizagem para praticar arquitetura de componentes, telas e interações em Angular ao longo de uma trilha Frontend Masters.',
-    nextStep: 'Documentar as telas que ainda funcionam, preservar contexto da versão 8 e separar exercícios históricos de uma eventual migração.',
+    nextStep: 'CRUD local e SWAPI validados em celular e desktop; próxima etapa é migrar Angular 8 e dependências obsoletas.'
   },
   {
     slug: 'react-finance-dashboard',

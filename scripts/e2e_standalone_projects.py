@@ -38,6 +38,7 @@ with sync_playwright() as p:
         assert group.locator(".standalone-featured-card").count() == 2, width
         assert group.locator(".standalone-ledger-row").count() == 10, width
         for title, slug in (
+            ("Angular Component Lab", "AngularFrontEndMasters"),
             ("Finance Dashboard", "react-finance-dashboard"),
             ("Star Wars Planet Explorer", "starwarsplanets"),
             ("Portfolio UI Experiments", "portfolio-ui-experiments"),
