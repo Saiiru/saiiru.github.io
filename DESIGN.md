@@ -24,7 +24,7 @@ The main page mounts **PublicArchive**, the **technologies-only Toolkit**, and t
 
 Toolkit data is in `src/data/toolkit.js` and selection is implemented in `src/components/Toolkit.jsx`. Software, embedded systems and electromechanics/control are separate groups. Each technology exposes context, learning status and related concepts. Java/Spring includes IoC and dependency injection. CLP/control is a learning interest and frequency drives are planned study, not professional experience. No computing engineering degree or additional job title is claimed.
 
-PublicArchive presents a curated subset of the repository snapshot (Ada Commerce and Plann.er deferred) with descriptions from `src/data/repository-notes.json`. Ada Commerce is an educational team CLI in Java 17 with in-memory data and simulated order/payment/delivery flow. Plann.er is an educational TypeScript/Fastify/SQLite travel API for local execution; it has no frontend or authentication layer. Do not describe either as a deployed production service or invent outcomes.
+PublicArchive presents the full public-repository snapshot, distinguishing forks and using editorial descriptions from `src/data/repository-notes.json`. The twelve owner-selected standalone repositories are shown separately with context, state and improvement paths, while remaining in the searchable archive. Ada Commerce is an educational team CLI in Java 17 with simulated payments; Plann.er is a TypeScript/Fastify/SQLite travel API without a frontend or authentication. Do not describe either as deployed production software or integrate them into KORA.
 
 ## Contact and deferred field
 
@@ -101,3 +101,12 @@ O componente `src/components/KoraCaseStudy.jsx` usa a paleta Night City já apro
 O contrato `tests/project-proof.test.mjs` verifica que os artefatos locais e os arquivos do catálogo existem. O teste visual `scripts/e2e_datashards.py` foi atualizado de três demos antigas para Crivo, Vetor, Lastro e Rota, incluindo teclado, deep links e exportação de JSON. A pipeline GitHub Actions `quality.yml` executa testes JS, build, checks de budget/components e testes de treino em Python. O deploy manual foi corrigido para enviar `docs/`, após build e verificações.
 
 Capturas revisadas: `design/quality/2026-11-11-kora-case-desktop.png` e `design/quality/2026-11-11-kora-case-mobile.png`. A amostra pública Rota não está integrada às fontes privadas da KORA; os dois projetos devem continuar identificados separadamente. Não usar número de testes como prova de impacto no usuário.
+
+
+## 2026-11-11 — Projetos standalone no BLACKSITE
+
+O usuário selecionou doze repositórios públicos para apresentar como **projetos independentes**, incluindo Plann.er e Ada Commerce. Cada item traz finalidade, tecnologias, estado honesto, próxima melhoria e link direto ao GitHub. Projetos de curso, em equipe, legados e vazios não são descritos como produtos ativos.
+
+O arquivo geral deixou de ocultar Plann.er/Ada Commerce e mantém os forks identificados. Contratos: `src/data/standalone-projects.js`; UI: `StandaloneProjects.jsx`; carregamento sob demanda: `DeferredStandaloneProjects.jsx`; teste de navegador: `scripts/e2e_standalone_projects.py`; documentação: `design/standalone-projects/README.md`.
+
+O componente é carregado quando o visitante se aproxima (IntersectionObserver com 700px), com fallback sem observador e link de recuperação caso falhe o chunk. Isso mantém o CSS inicial abaixo do orçamento de 21 KiB. Nenhum serviço, backend, dado privado ou módulo KORA foi alterado por essa apresentação.

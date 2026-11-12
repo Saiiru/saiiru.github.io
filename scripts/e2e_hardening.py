@@ -23,12 +23,14 @@ with sync_playwright() as p:
  assert not page.evaluate('Boolean(window.pwned)')
  page.get_by_role('button',name='EXPLORAR O ARQUIVO',exact=False).click()
  page.get_by_role('button',name='APIs e backend',exact=True).click()
- page.locator('#archive-search').fill('ada-commerce')
- assert page.locator('.public-repo').count()==0
- page.locator('#archive-search').fill('Plann.er')
- assert page.locator('.public-repo').count()==0
+ for name in ('ada-commerce', 'Plann.er'):
+  page.locator('#archive-search').fill(name)
+  match=page.locator('.public-repo')
+  assert match.count()==1, (name,match.count())
+  assert match.get_attribute('href')=='https://github.com/Saiiru/'+name
+  assert match.locator('.repo-origin').count()==1
  page.locator('#archive-search').fill('')
- print('PASS curated archive excludes deferred repositories')
+ print('PASS both standalone APIs remain in the searchable public archive')
  page.locator('#contato').scroll_into_view_if_needed()
  page.wait_for_function('() => (document.querySelector(".contact-field").dataset.renderer==="webgl")')
  assert page.evaluate('gpuContexts')==1

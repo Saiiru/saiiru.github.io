@@ -17,6 +17,12 @@ Portfólio de Urias Machado Santos (Sairu), desenvolvedor com experiência profi
 
 Esses estudos são **demos estáticas executadas no navegador**. Usam exemplos sintéticos e código local, sem acesso ao assistente privado, a contas pessoais ou a um serviço de LLM do visitante. ML clássico não equivale a LLM; busca lexical não equivale a compreensão semântica; métricas desses conjuntos não provam desempenho em produção. Veja [resultados](projects/applied-ai/BENCHMARK.md), [experimentos](projects/applied-ai/EXPERIMENT.md) e [limites de segurança](SECURITY.md).
 
+## Projetos independentes
+
+Além dos quatro laboratórios de IA, o site apresenta **12 projetos standalone**: aplicações e APIs, interfaces, fundamentos e exercícios de formação. Eles não dependem da KORA e incluem estágios distintos — desde estudos com código até registros vazios — sempre identificados.
+
+[**Ver os 12 projetos**](https://saiiru.github.io/#projetos-independentes) · [**Ler catálogo e próximos passos**](design/standalone-projects/README.md)
+
 ## Experiência, estudos e arquitetura
 
 O portfólio preserva o histórico de trabalho em **Capgemini**, **Infomakers** e **Agência Digital S/A** e distingue experiência profissional de laboratório e de conteúdo em aprendizagem. O Toolkit apresenta Java/Spring, JavaScript/TypeScript, front-end, SQL, Linux/Git e os estudos de ML, ESP32 e Eletromecânica sem atribuir senioridade ou qualificações inexistentes.
@@ -60,6 +66,7 @@ BASE_URL=http://127.0.0.1:4392 python3 scripts/e2e_hardening.py
 BASE_URL=http://127.0.0.1:4392 python3 scripts/e2e_recon.py
 BASE_URL=http://127.0.0.1:4392 python3 scripts/e2e_datashards.py
 BASE_URL=http://127.0.0.1:4392 python3 scripts/e2e_genai_portfolio.py
+BASE_URL=http://127.0.0.1:4392 python3 scripts/e2e_standalone_projects.py
 ```
 
 Os testes de navegador precisam de Playwright Python e Chromium. Consulte [scripts/README.md](scripts/README.md). Não alegamos auditoria independente, nota de Lighthouse ou certificação formal.

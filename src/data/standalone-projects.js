@@ -1,0 +1,123 @@
+// Independently scoped public repositories; these are not KORA services or modules.
+// Editorial descriptions are based on the repository content audited on 2026-11-11.
+export const standaloneGroups = Object.freeze([
+  { id: 'aplicacoes', title: 'Aplicações e APIs', detail: 'Regras de negócio, persistência e fluxos locais.' },
+  { id: 'interfaces', title: 'Interfaces e produto', detail: 'Experimentos visuais e construção de experiências web.' },
+  { id: 'fundamentos', title: 'Fundamentos de programação', detail: 'Exercícios de linguagem, modelagem e algoritmos.' },
+  { id: 'formacao', title: 'Trilhas e registros', detail: 'Aprendizado documentado, inclusive trabalhos ainda incompletos.' }
+])
+
+export const standaloneProjects = Object.freeze([
+  {
+    slug: 'Plann.er',
+    title: 'Plann.er — organização de viagens',
+    group: 'aplicacoes',
+    stage: 'API de estudo',
+    stack: ['TypeScript', 'Fastify', 'SQLite'],
+    purpose: 'API independente para planejar viagens em grupo, confirmar participantes e organizar atividades, convites e links em um único itinerário.',
+    nextStep: 'Acrescentar CI e documentação interativa da API; não apresentar como aplicativo com frontend ou autenticação.',
+  },
+  {
+    slug: 'ada-commerce',
+    title: 'Ada Commerce — fluxo de pedidos',
+    group: 'aplicacoes',
+    stage: 'Projeto em equipe',
+    stack: ['Java 17', 'CLI', 'Testes'],
+    purpose: 'Simulador educacional de comércio no terminal: cadastro de clientes, produtos, estoque, pedidos e etapas de pagamento e entrega com dados em memória.',
+    nextStep: 'Explicar contribuições individuais, demonstrar um pedido de ponta a ponta e publicar os limites do pagamento simulado.',
+  },
+  {
+    slug: 'AngularFrontEndMasters',
+    title: 'Angular — laboratório de componentes',
+    group: 'interfaces',
+    stage: 'Legado de curso',
+    stack: ['Angular 8', 'TypeScript'],
+    purpose: 'Aplicação de aprendizagem para praticar arquitetura de componentes, telas e interações em Angular ao longo de uma trilha Frontend Masters.',
+    nextStep: 'Documentar as telas que ainda funcionam, preservar contexto da versão 8 e separar exercícios históricos de uma eventual migração.',
+  },
+  {
+    slug: 'dtmoney',
+    title: 'dt money — controle financeiro visual',
+    group: 'interfaces',
+    stage: 'Estudo React',
+    stack: ['React', 'TypeScript'],
+    purpose: 'Interface de aprendizagem para visualizar transações, entradas, saídas e um resumo financeiro, desenvolvida a partir de uma trilha React.',
+    nextStep: 'Testar os cálculos, os estados vazios e o formulário; identificar o escopo do curso sem prometer integração bancária.',
+  },
+  {
+    slug: 'starwarsplanets',
+    title: 'Star Wars — explorador de planetas',
+    group: 'interfaces',
+    stage: 'Estudo React',
+    stack: ['React', 'Redux', 'JavaScript'],
+    purpose: 'Catálogo de planetas com interface de listagem e busca, usado para exercitar React, gerenciamento de estado e consumo de informações.',
+    nextStep: 'Verificar a fonte dos dados, adicionar testes de busca e tratar carregamento e falhas antes de destacar uma demo.',
+  },
+  {
+    slug: 'minimal-portfolio',
+    title: 'Minimal Portfolio — estudo de apresentação',
+    group: 'interfaces',
+    stage: 'Portfólio anterior',
+    stack: ['React', 'Vite', 'TypeScript'],
+    purpose: 'Versão anterior de uma apresentação pessoal, usada para experimentar componentes, timeline e layout de projetos antes do BLACKSITE.',
+    nextStep: 'Identificar o projeto como histórico, atualizar o README padrão de Vite e apontar para o portfólio atual.',
+  },
+  {
+    slug: 'DesafioPooDio',
+    title: 'Bootcamp — fundamentos de orientação a objetos',
+    group: 'fundamentos',
+    stage: 'Exercício',
+    stack: ['Java', 'POO'],
+    purpose: 'Modelo didático de bootcamp, cursos e desenvolvedores para exercitar herança, abstração, encapsulamento e comportamento entre entidades.',
+    nextStep: 'Criar um README de execução e testes de matrícula, progressão e conclusão de conteúdo.',
+  },
+  {
+    slug: 'dio-trilha-basico',
+    title: 'Java básico — problemas e algoritmos',
+    group: 'fundamentos',
+    stage: 'Coleção de exercícios',
+    stack: ['Java', 'Lógica'],
+    purpose: 'Conjunto de pequenos desafios de lógica Java, incluindo validação de dados, simulações bancárias e estruturas condicionais.',
+    nextStep: 'Organizar um índice dos desafios, documentar entrada e saída e adicionar testes para valores de fronteira.',
+  },
+  {
+    slug: 'sofi-test',
+    title: 'Ruby — agrupamento por prefixos',
+    group: 'fundamentos',
+    stage: 'Desafio documentado',
+    stack: ['Ruby'],
+    purpose: 'Enunciado de um desafio para agrupar palavras por prefixo comum de comprimento definido; o código da solução não foi identificado no repositório.',
+    nextStep: 'Implementar a solução com testes de prefixos, entradas vazias e Unicode; até lá, identificar como enunciado.',
+  },
+  {
+    slug: 'dio-angular-develloper',
+    title: 'Git e GitHub — exercício inicial',
+    group: 'formacao',
+    stage: 'Registro de curso',
+    stack: ['Git', 'GitHub'],
+    purpose: 'Repositório pequeno de exercício sobre Git e GitHub, associado a uma trilha de formação Angular; não contém uma aplicação Angular identificada.',
+    nextStep: 'Descrever o aprendizado e o histórico do exercício sem apresentar o repositório como frontend funcional.',
+  },
+  {
+    slug: 'skills-copilot-codespaces-vscode',
+    title: 'GitHub Skills — Codespaces e VS Code',
+    group: 'formacao',
+    stage: 'Exercício guiado',
+    stack: ['GitHub', 'Codespaces', 'VS Code'],
+    purpose: 'Repositório de atividade guiada para conhecer fluxos de desenvolvimento no GitHub, Codespaces e VS Code, com estrutura de curso automatizada.',
+    nextStep: 'Explicitar a origem do template, indicar quais etapas foram concluídas e separar aprendizado de implementação autoral.',
+  },
+  {
+    slug: 'IgniteLab',
+    title: 'Ignite Lab — registro de participação',
+    group: 'formacao',
+    stage: 'Repositório vazio / sem código',
+    stack: ['GitHub', 'Registro'],
+    purpose: 'Espaço reservado para um estudo de interface e eventos; a árvore pública está vazia, portanto ainda não existe uma implementação demonstrável.',
+    nextStep: 'Manter como registro histórico ou adicionar um escopo e código verificáveis antes de anunciar qualquer aplicação.',
+  }
+].map(project => Object.freeze({
+  ...project,
+  url: 'https://github.com/Saiiru/' + project.slug,
+  stack: Object.freeze(project.stack)
+})))

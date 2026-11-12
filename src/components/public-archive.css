@@ -61,3 +61,11 @@
 
 .repo-info .repo-slug{color:#B0CBE0;font:600 10px/1.5 var(--mono,monospace);letter-spacing:.015em;overflow-wrap:anywhere}
 .portfolio .repo-info>span:last-child{color:#B9CBD8}
+
+.public-archive .repo-stage{color:#D9D2E9;border-color:#5D5975;white-space:normal;text-align:center}
+
+.portfolio .standalone-deferred-spacer{min-height:250px}
+.portfolio .standalone-deferred-fallback{min-height:250px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;padding:30px;color:#C5D5E9;font:500 12px/1.7 var(--mono);text-align:center}
+.portfolio .standalone-deferred-fallback a{color:var(--cyan,#00E5FF);text-decoration:underline;text-underline-offset:4px}
+
+.portfolio .standalone-deferred{scroll-margin-top:75px}
