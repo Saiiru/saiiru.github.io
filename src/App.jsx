@@ -14,6 +14,7 @@ import DeferredSignalField from './components/DeferredSignalField'
 import SignalText from './components/SignalText'
 import Toolkit from './components/Toolkit'
 import PublicArchive from './components/PublicArchive'
+import DeferredStandaloneProjects from './components/DeferredStandaloneProjects'
 import DatashardArchive from './components/DatashardArchive'
 import KoraCaseStudy from './components/KoraCaseStudy'
 import repositorySnapshot from './data/repositories.json'
@@ -131,7 +132,7 @@ function App(){
     <p>Quero conseguir explicar não só o que o programa fez, mas o que acontece quando erra. Os laboratórios mostram a entrada, as decisões, os testes e os casos em que o sistema deve pedir revisão. São experimentos reproduzíveis — não serviços em produção.</p>
    </div>
   </section>
-  <KoraCaseStudy/><DatashardArchive/><PublicArchive/>
+  <KoraCaseStudy/><DatashardArchive/><DeferredStandaloneProjects/><PublicArchive/>
   <section id="sobre" className="about-section">
    <div className="about-inner section-wrap"><div className="about-main"><h2>CURIOSIDADE<br/>É O <span>COMEÇO.</span><br/>CÓDIGO É<br/>O CAMINHO.</h2><p>Sou Urias — ou Sairu, como apareço na maioria dos meus projetos. Comecei desenvolvendo aplicações web. O que mais me prende à programação é aquele momento em que um erro deixa de ser misterioso: você encontra a causa, testa uma hipótese e vê o sistema funcionar.</p><p>Trabalhei com software na Capgemini, Infomakers e Agência Digital S/A. Hoje estudo Eletromecânica no SENAI e exploro ferramentas, eletrônica e modelos de linguagem. Este espaço acompanha meus estudos e meu histórico em desenvolvimento.</p><a className="about-projects-link" href="#todos-projetos">VER TODOS OS PROJETOS <ArrowUpRight size={18}/></a></div>
    <div className="about-history" id="trajetoria"><h3>EXPERIÊNCIA</h3>

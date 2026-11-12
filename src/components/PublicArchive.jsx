@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowDown, ArrowUpRight, BookOpen, GitFork, GitBranch, Search, X } from 'lucide-react'
 import inventory from '../data/repositories.json'
 import notes from '../data/repository-notes.json'
+import { standaloneProjects } from '../data/standalone-projects.js'
 import SignalText from './SignalText'
 import './public-archive.css'
 
@@ -12,14 +13,32 @@ const filters = [
 ]
 const visiblePerPage = 14
 const searchIndex = item => [
-  item.name, item.title, item.description, item.language, item.category
+  item.name, item.title, item.description, item.language, item.category, item.stage, ...(item.stack || [])
 ].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()
 
-// Curated context survives inventory refreshes without changing repository ownership or URLs.
-const hiddenFromPortfolio = new Set(['ada-commerce', 'Plann.er', 'LUKA-MKI', 'luka-mki', 'luka'])
-const repositories=inventory.repositories.filter(item=>!hiddenFromPortfolio.has(item.name)).map(item=>{
+// Public repositories are preserved independently; the 12 study profiles
+// extend this archive without changing repository ownership, slugs or URLs.
+const standaloneBySlug = new Map(standaloneProjects.map(project => [project.slug, project]))
+const archiveGroup = {
+  aplicacoes: 'APIs e backend',
+  interfaces: 'Web e interfaces',
+  fundamentos: 'Estudos e recursos',
+  formacao: 'Estudos e recursos'
+}
+const repositories=inventory.repositories.map(item=>{
   const note=notes[item.name]
-  return note ? {...item,title:note.title,description:note.description,category:note.category} : item
+  const standalone=standaloneBySlug.get(item.name)
+  return {
+    ...item,
+    ...(note || {}),
+    ...(standalone && {
+      title: standalone.title,
+      description: standalone.purpose,
+      category: archiveGroup[standalone.group],
+      stage: standalone.stage,
+      stack: standalone.stack
+    })
+  }
 })
 
 export default function PublicArchive(){
@@ -120,6 +139,7 @@ export default function PublicArchive(){
           </span>
           <span className="repo-tags">
             {project.fork?<span className="repo-fork"><GitFork size={13}/> FORK</span>:<span className="repo-origin"><GitBranch size={13}/> PRÓPRIO</span>}
+            {project.stage&&<span className="repo-stage">{project.stage}</span>}
             {project.language&&<span className="repo-lang">{project.language}</span>}
           </span>
           <ArrowUpRight className="repo-arrow" size={21} aria-hidden="true"/>
